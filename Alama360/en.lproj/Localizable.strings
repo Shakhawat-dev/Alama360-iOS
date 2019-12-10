@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Alama360
+
+  Created by Alama360 on 10/04/1441 AH.
+  Copyright © 1441 Alama360. All rights reserved.
+*/
+"language" = "عربى";
+"header_text" = "Enter your mobile no";
+"change_language" = "Enter your mobile number to create an account or login";
+"hundreds_of_chalets" = "Hundreds of chalets near you at competitive prices";
+"secure_payment" = "100\u0025 Secure Payment";
+"verified_certified" = "Verified and certified reviews";
+"confirm_booking" = "Confirmed booking in three simple steps";
+"btn_submit" = "Submit / Register";

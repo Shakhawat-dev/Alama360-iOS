@@ -1,0 +1,6 @@
+framework module Pods_Alama360 {
+  umbrella header "Pods-Alama360-umbrella.h"
+
+  export *
+  module * { export * }
+}
