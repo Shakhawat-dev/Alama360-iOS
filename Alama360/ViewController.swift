@@ -102,43 +102,53 @@ class ViewController: UIViewController {
                 self.usertype = resultArray["usertype"].stringValue
                 
                 print("user id: \(self.userid)")
-                print("user id: \(self.code)")
+                print("verification code: \(self.code)")
 
                 
             }
-            // For taking the value of action text field
-            var inputTextField: UITextField?
-            
-            let alert = UIAlertController(title: "Verification Code", message: "Enter the verification code recieved on the number \(fPhone)", preferredStyle: UIAlertController.Style.alert)
 
-            alert.addTextField(configurationHandler: {(textField: UITextField!) in
-                textField.placeholder = "Four digit code:"
-                textField.isSecureTextEntry = false // for password input
+        
+                // For taking the value of action text field
+                var inputTextField: UITextField?
                 
-                inputTextField = textField
-                
-            })
-            
-            alert.addAction(UIAlertAction(title: "Next", style: UIAlertAction.Style.default, handler: { (action) -> Void in
-                print("Entered \(inputTextField?.text ?? "") ")
-                
-                if inputTextField?.text ?? "" == self.code {
+            //Aler Dialoge Initiated
+                let alert = UIAlertController(title: "Verification Code", message: "Enter the verification code recieved on the number \(fPhone)", preferredStyle: UIAlertController.Style.alert)
+
+                alert.addTextField(configurationHandler: {(textField: UITextField!) in
+                    textField.placeholder = "Four digit code:"
+                    textField.isSecureTextEntry = false // for password input
                     
-                    self.performSegue(withIdentifier: "HomePage", sender:nil)
+                    inputTextField = textField
                     
-                }
+                })
                 
-            }))
-            
-            self.present(alert, animated: true, completion: nil)
-            
+                alert.addAction(UIAlertAction(title: "Next", style: UIAlertAction.Style.default, handler: { (action) -> Void in
+                    print("Entered \(inputTextField?.text ?? "") ")
+                    
+                    if inputTextField?.text ?? "" == self.code {
+                        
+                        if self.userexist == "1" {
+                            self.performSegue(withIdentifier: "HomePage", sender:nil)
+                        } else {
+                            self.register()
+                        }
+
+                        
+                    }
+                    
+                }))
+                
+                self.present(alert, animated: true, completion: nil)
+                
             }
+            
+            
         
         defaults.set(userid, forKey: "userID")
-        defaults.set(code, forKey: "Code")
-        defaults.set(usertype, forKey: "userType")
         defaults.set(status, forKey: "Status")
-        defaults.set(userexist, forKey: "userExist")
+        defaults.set(fPhone, forKey: "phoneNumber")
+    
+        
     
             
         }
@@ -157,6 +167,48 @@ class ViewController: UIViewController {
         lblVerified.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "verified_certified", comment: "")
         lblBooking.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "confirm_booking", comment: "")
         btnSubmit.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "btn_submit", comment: ""), for: .normal)
+        
+    }
+    
+    func register () {
+        
+        let regPhone = _phoneInput.text
+        
+        print("ites here... \(regPhone)")
+        
+        let lan = btnChangeLanguage.currentTitle!
+        
+            
+        let params : [String : String] = ["mobile" : regPhone!, "lang" : "en"]
+
+            let nUrl = "https://alama360.net/api/createOrupdateuser?"
+
+        Alamofire.request(nUrl, method: .post, parameters: params, headers: nil).responseJSON{ (mysresponse) in
+            
+            if mysresponse.result.isSuccess {
+
+                let myResult = try? JSON(data: mysresponse.data!)
+
+                let resultArray = myResult![]
+                
+                print(resultArray)
+
+                self.userid = resultArray["userid"].stringValue
+                self.status = resultArray["status"].stringValue
+//                self.code = resultArray["code"].stringValue
+                self.message = resultArray["message"].stringValue
+//                self.userexist = resultArray["userexist"].stringValue
+                self.usertype = resultArray["usertype"].stringValue
+                
+                if self.status == "1" {
+                    self.performSegue(withIdentifier: "HomePage", sender:nil)
+                }
+//
+                print("user id: \(self.userid)")
+                print("Message: \(self.message)")
+        
+            }
+        }
         
     }
     
