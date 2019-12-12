@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5ns-Sl-PSe">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -108,7 +108,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmed booking in three steps" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mte-wj-IIs">
-                                <rect key="frame" x="266" y="723" width="141" height="44"/>
+                                <rect key="frame" x="266" y="673" width="141" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="141" id="2xo-bk-B2R"/>
                                     <constraint firstAttribute="height" constant="44" id="pNU-A2-bO7"/>
@@ -132,7 +132,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_checked" translatesAutoresizingMaskIntoConstraints="NO" id="zj2-vn-DvX">
-                                <rect key="frame" x="316" y="607" width="40" height="100"/>
+                                <rect key="frame" x="316" y="607" width="40" height="50"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hundreds of Chalets near you at competative prices" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgX-ki-m7Y">
                                 <rect key="frame" x="20" y="535" width="374" height="64"/>
@@ -204,38 +204,208 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-354" y="-20"/>
+            <point key="canvasLocation" x="-1752" y="-20"/>
         </scene>
         <!--Search-->
         <scene sceneID="71t-YY-ip2">
             <objects>
-                <viewController title="Search" id="ELM-vP-AC8" sceneMemberID="viewController">
+                <viewController title="Search" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ELM-vP-AC8" customClass="SearchViewController" customModule="Alama360" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gLo-2f-ZVA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLE-GU-1ax">
-                                <rect key="frame" x="152.5" y="436" width="109" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dT-yk-h5t">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9s-vI-1az" userLabel="main container view">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x4p-iU-GSE" userLabel="search container view">
+                                                <rect key="frame" x="8" y="8" width="398" height="392"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_container" translatesAutoresizingMaskIntoConstraints="NO" id="Kua-Np-jRf">
+                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="392.00000000000011"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vg-0A-QgZ">
+                                                        <rect key="frame" x="14" y="14" width="370" height="24"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For an Apartment, Chalet, Camp, Farm, Break, Villa, Room with ease and honesty" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIs-1l-CiH">
+                                                        <rect key="frame" x="26.333333333333343" y="39" width="335.66666666666663" height="33.666666666666657"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="33.666666666666657" id="F6g-FM-MbP"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="text_field_container" translatesAutoresizingMaskIntoConstraints="NO" id="rO2-68-lzb">
+                                                        <rect key="frame" x="12" y="94.666666666666657" width="374" height="289.33333333333337"/>
+                                                    </imageView>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search by Chalet categories" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7qX-QW-c8Y">
+                                                        <rect key="frame" x="40" y="183" width="318" height="48"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="3rz-BK-ibN"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pwf-yH-WwL">
+                                                        <rect key="frame" x="40" y="239" width="318" height="48"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="6bp-po-Gg9"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqr-Fa-7Dw">
+                                                        <rect key="frame" x="40" y="299" width="318" height="48"/>
+                                                        <color key="backgroundColor" red="0.088978432120000006" green="0.54414260390000002" blue="0.4133045971" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="2We-L4-GN8"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Check Availability">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="checkBtnPressed:" destination="ELM-vP-AC8" eventType="touchUpInside" id="yep-Rr-ZUG"/>
+                                                        </connections>
+                                                    </button>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Property Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fhS-wm-vO0">
+                                                        <rect key="frame" x="40" y="127" width="318" height="48"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="Win-sy-a2m"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="Pwf-yH-WwL" firstAttribute="top" secondItem="7qX-QW-c8Y" secondAttribute="bottom" constant="8" id="29A-CL-YCu"/>
+                                                    <constraint firstItem="zIs-1l-CiH" firstAttribute="top" secondItem="3vg-0A-QgZ" secondAttribute="bottom" constant="1" id="6oY-mU-Wde"/>
+                                                    <constraint firstItem="Kua-Np-jRf" firstAttribute="leading" secondItem="x4p-iU-GSE" secondAttribute="leading" id="848-SG-FXp"/>
+                                                    <constraint firstItem="zIs-1l-CiH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="x4p-iU-GSE" secondAttribute="leading" constant="20" symbolic="YES" id="86w-Jh-V9H"/>
+                                                    <constraint firstItem="rO2-68-lzb" firstAttribute="top" secondItem="zIs-1l-CiH" secondAttribute="bottom" constant="22" id="9jE-gg-BaZ"/>
+                                                    <constraint firstItem="fhS-wm-vO0" firstAttribute="top" secondItem="zIs-1l-CiH" secondAttribute="bottom" constant="54.329999999999998" id="CUy-5x-TDq"/>
+                                                    <constraint firstItem="7qX-QW-c8Y" firstAttribute="leading" secondItem="x4p-iU-GSE" secondAttribute="leading" constant="40" id="Ddn-NW-UFV"/>
+                                                    <constraint firstItem="Kua-Np-jRf" firstAttribute="top" secondItem="x4p-iU-GSE" secondAttribute="top" id="DeH-vI-6bg"/>
+                                                    <constraint firstAttribute="trailing" secondItem="fhS-wm-vO0" secondAttribute="trailing" constant="40" id="Dfl-03-qFR"/>
+                                                    <constraint firstAttribute="trailing" secondItem="rO2-68-lzb" secondAttribute="trailing" constant="12" id="DsV-Ff-i2E"/>
+                                                    <constraint firstAttribute="bottom" secondItem="eqr-Fa-7Dw" secondAttribute="bottom" constant="45" id="E2E-VU-5YK"/>
+                                                    <constraint firstAttribute="trailing" secondItem="eqr-Fa-7Dw" secondAttribute="trailing" constant="40" id="Gtj-x5-JWW"/>
+                                                    <constraint firstAttribute="trailing" secondItem="zIs-1l-CiH" secondAttribute="trailing" constant="36" id="H99-zH-R0g"/>
+                                                    <constraint firstItem="Pwf-yH-WwL" firstAttribute="leading" secondItem="x4p-iU-GSE" secondAttribute="leading" constant="40" id="KSl-Z3-YUn"/>
+                                                    <constraint firstAttribute="trailing" secondItem="3vg-0A-QgZ" secondAttribute="trailing" constant="14" id="UEx-J7-3Dq"/>
+                                                    <constraint firstItem="3vg-0A-QgZ" firstAttribute="leading" secondItem="x4p-iU-GSE" secondAttribute="leading" constant="14" id="UtC-eI-CsW"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Kua-Np-jRf" secondAttribute="bottom" id="VMj-Km-9EP"/>
+                                                    <constraint firstItem="rO2-68-lzb" firstAttribute="leading" secondItem="x4p-iU-GSE" secondAttribute="leading" constant="12" id="VMo-fN-1kc"/>
+                                                    <constraint firstAttribute="bottom" secondItem="rO2-68-lzb" secondAttribute="bottom" constant="8" id="VOx-0O-zVG"/>
+                                                    <constraint firstItem="fhS-wm-vO0" firstAttribute="leading" secondItem="x4p-iU-GSE" secondAttribute="leading" constant="40" id="VsS-4m-rhe"/>
+                                                    <constraint firstAttribute="trailing" secondItem="7qX-QW-c8Y" secondAttribute="trailing" constant="40" id="clZ-hW-LcK"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Pwf-yH-WwL" secondAttribute="trailing" constant="40" id="eMh-BF-oNF"/>
+                                                    <constraint firstItem="eqr-Fa-7Dw" firstAttribute="top" secondItem="Pwf-yH-WwL" secondAttribute="bottom" constant="12" id="eu8-C5-b9V"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Kua-Np-jRf" secondAttribute="trailing" id="hb0-dP-jpt"/>
+                                                    <constraint firstItem="3vg-0A-QgZ" firstAttribute="top" secondItem="x4p-iU-GSE" secondAttribute="top" constant="14" id="j7z-XL-cX7"/>
+                                                    <constraint firstItem="zIs-1l-CiH" firstAttribute="top" secondItem="x4p-iU-GSE" secondAttribute="top" constant="39" id="px9-sj-bk2"/>
+                                                    <constraint firstItem="eqr-Fa-7Dw" firstAttribute="leading" secondItem="x4p-iU-GSE" secondAttribute="leading" constant="40" id="sJx-Do-gr7"/>
+                                                    <constraint firstItem="7qX-QW-c8Y" firstAttribute="top" secondItem="fhS-wm-vO0" secondAttribute="bottom" constant="8" id="zJA-2u-VBc"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3bM-Sr-8kg">
+                                                <rect key="frame" x="8" y="401" width="398" height="524"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="add_your_chalet" translatesAutoresizingMaskIntoConstraints="NO" id="aOb-pJ-haY">
+                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="83"/>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="house" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zCt-OZ-CnI">
+                                                        <rect key="frame" x="20" y="19" width="35" height="32"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="tintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add your Chalet in Alama360" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FG4-W4-Hpz">
+                                                        <rect key="frame" x="86" y="24" width="204" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JkQ-hu-I10">
+                                                        <rect key="frame" x="298" y="28" width="57" height="17"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" red="0.01674508303" green="0.62736433739999997" blue="0.4427804649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select the appropriate date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3e-yn-p4s">
+                                                        <rect key="frame" x="16" y="84" width="366" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJk-k5-7fW">
+                                                        <rect key="frame" x="178" y="487" width="42" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="aOb-pJ-haY" firstAttribute="leading" secondItem="3bM-Sr-8kg" secondAttribute="leading" id="pBn-0B-CxB"/>
+                                                    <constraint firstAttribute="trailing" secondItem="aOb-pJ-haY" secondAttribute="trailing" id="v9R-yc-t8O"/>
+                                                    <constraint firstItem="aOb-pJ-haY" firstAttribute="top" secondItem="3bM-Sr-8kg" secondAttribute="top" id="xXH-Y6-bJw"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="x4p-iU-GSE" firstAttribute="top" secondItem="f9s-vI-1az" secondAttribute="top" constant="8" id="Sdy-ZL-zdF"/>
+                                            <constraint firstItem="3bM-Sr-8kg" firstAttribute="top" secondItem="x4p-iU-GSE" secondAttribute="bottom" constant="1" id="UNl-pR-wbH"/>
+                                            <constraint firstAttribute="trailing" secondItem="x4p-iU-GSE" secondAttribute="trailing" constant="8" id="Y3P-56-9WI"/>
+                                            <constraint firstAttribute="trailing" secondItem="3bM-Sr-8kg" secondAttribute="trailing" constant="8" id="eW1-57-u2D"/>
+                                            <constraint firstItem="x4p-iU-GSE" firstAttribute="leading" secondItem="f9s-vI-1az" secondAttribute="leading" constant="8" id="i0e-hU-byS"/>
+                                            <constraint firstItem="3bM-Sr-8kg" firstAttribute="leading" secondItem="f9s-vI-1az" secondAttribute="leading" constant="8" id="nSl-kJ-cto"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="f9s-vI-1az" firstAttribute="leading" secondItem="5dT-yk-h5t" secondAttribute="leading" id="3bS-aY-5jv"/>
+                                    <constraint firstItem="f9s-vI-1az" firstAttribute="top" secondItem="5dT-yk-h5t" secondAttribute="top" id="IoB-Bh-mFJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="f9s-vI-1az" secondAttribute="trailing" id="a8w-6z-B40"/>
+                                    <constraint firstItem="f9s-vI-1az" firstAttribute="width" secondItem="5dT-yk-h5t" secondAttribute="width" id="kLD-5D-qu6"/>
+                                    <constraint firstAttribute="bottom" secondItem="f9s-vI-1az" secondAttribute="bottom" id="n20-4b-jdA"/>
+                                    <constraint firstItem="f9s-vI-1az" firstAttribute="height" secondItem="5dT-yk-h5t" secondAttribute="height" priority="250" id="nAP-wH-2PZ"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="fHA-NU-TEW"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="ylq-v7-mMD"/>
+                            </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <accessibility key="accessibilityConfiguration" label="Search"/>
                         <constraints>
-                            <constraint firstItem="aLE-GU-1ax" firstAttribute="centerY" secondItem="gLo-2f-ZVA" secondAttribute="centerY" id="idU-5Q-NWa"/>
-                            <constraint firstItem="aLE-GU-1ax" firstAttribute="centerX" secondItem="gLo-2f-ZVA" secondAttribute="centerX" id="ktc-Dm-5u7"/>
+                            <constraint firstItem="kA8-zl-4nj" firstAttribute="trailing" secondItem="5dT-yk-h5t" secondAttribute="trailing" id="6R9-Yj-EZo"/>
+                            <constraint firstItem="kA8-zl-4nj" firstAttribute="bottom" secondItem="5dT-yk-h5t" secondAttribute="bottom" id="F86-SA-brc"/>
+                            <constraint firstItem="5dT-yk-h5t" firstAttribute="leading" secondItem="kA8-zl-4nj" secondAttribute="leading" id="Y6o-vJ-0hi"/>
+                            <constraint firstItem="5dT-yk-h5t" firstAttribute="top" secondItem="kA8-zl-4nj" secondAttribute="top" id="rkv-rq-Jj9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kA8-zl-4nj"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="SfT-IU-XDH">
-                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="Search" id="1Sj-SL-ZwE"/>
+                    <connections>
+                        <outlet property="chaletCategoryField" destination="7qX-QW-c8Y" id="n1k-h5-kR8"/>
+                        <outlet property="checkBtb" destination="eqr-Fa-7Dw" id="8oC-BF-iRZ"/>
+                        <outlet property="propertyTitleField" destination="fhS-wm-vO0" id="gzh-Mk-GFB"/>
+                        <outlet property="startDateField" destination="Pwf-yH-WwL" id="mDX-iW-UEm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ITp-Bj-F3C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-604" y="741"/>
+            <point key="canvasLocation" x="220.28985507246378" y="1109.5108695652175"/>
         </scene>
         <!--Reservatiions-->
         <scene sceneID="liM-Qi-879">
@@ -246,7 +416,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reservation Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyf-5x-fy6">
-                                <rect key="frame" x="131.5" y="436" width="151" height="24"/>
+                                <rect key="frame" x="131.66666666666666" y="436" width="150.99999999999997" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -265,7 +435,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Qk-nj-K6X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="67" y="741"/>
+            <point key="canvasLocation" x="976.81159420289862" y="740.625"/>
         </scene>
         <!--Favourites-->
         <scene sceneID="4OR-2n-Awm">
@@ -276,7 +446,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorites Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaW-QZ-KAE">
-                                <rect key="frame" x="143.5" y="436" width="127" height="24"/>
+                                <rect key="frame" x="143.66666666666666" y="436" width="126.99999999999997" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -293,7 +463,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4GU-ia-b4O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="735" y="741"/>
+            <point key="canvasLocation" x="1644.9275362318842" y="740.625"/>
         </scene>
         <!--More-->
         <scene sceneID="KQq-VA-wvg">
@@ -535,7 +705,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="My8-pZ-RT8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3238" y="573"/>
+            <point key="canvasLocation" x="4147.826086956522" y="572.54464285714278"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Wbg-Fv-50M">
@@ -560,7 +730,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AsM-Ri-pIx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3951" y="573"/>
+            <point key="canvasLocation" x="4860.8695652173919" y="572.54464285714278"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="lcQ-UV-lgB">
@@ -585,7 +755,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3UI-nt-ULQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4686" y="573"/>
+            <point key="canvasLocation" x="5595.652173913044" y="572.54464285714278"/>
         </scene>
         <!--MyProfile-->
         <scene sceneID="2oP-RK-A02">
@@ -803,7 +973,7 @@
                                 <rect key="frame" x="0.0" y="39" width="414" height="3927"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f3Z-bq-gUw" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="3984.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="3984.3333333333335"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Terms and Conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clE-e4-Yz7">
                                                 <rect key="frame" x="8" y="13" width="189" height="24"/>
@@ -815,8 +985,8 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mnh-EK-JiR">
                                                 <rect key="frame" x="8" y="45" width="398" height="386"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <mutableString key="text">We are delighted to welcome you to the alama360 ​​site, which aims tofacilitate your search for property for purchase or rent\n This document includes the terms of use of the alama360 website on which you can use the services of this website www.alama360.com as a registered visitor or user.\n By clicking on the box at the bottom of the page, you agree to abide by the terms and conditions set out below, which we hope to review carefully. If you disagree with these Terms and Conditions, please do not access or obtain information or services from this website. The site is complete or up-to-date.\n We would also like to inform you on the eligibility of the site management to make amendments to this convention without notice, in particular, since the amended agreement will be available directly on the website and you can view them before you start your use of the site. 
-</mutableString>
+                                                <string key="text">We are delighted to welcome you to the alama360 ​​site, which aims tofacilitate your search for property for purchase or rent\n This document includes the terms of use of the alama360 website on which you can use the services of this website www.alama360.com as a registered visitor or user.\n By clicking on the box at the bottom of the page, you agree to abide by the terms and conditions set out below, which we hope to review carefully. If you disagree with these Terms and Conditions, please do not access or obtain information or services from this website. The site is complete or up-to-date.\n We would also like to inform you on the eligibility of the site management to make amendments to this convention without notice, in particular, since the amended agreement will be available directly on the website and you can view them before you start your use of the site. 
+</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -863,8 +1033,8 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPu-xQ-t7D">
                                                 <rect key="frame" x="8" y="917" width="398" height="270"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <mutableString key="text">1. The review, printing or downloading of any content, graphic, form or document from the Site gives you a limited and non-exclusive license for your personal use only and not for copying, distribution, re-licensing, selling, preparing similar works or otherwise of uses.   2. This license does not entitle copy any part of the contents, forms or documents in any form, or the integration of that part in any retrieval system, either electronically or automatically, beyond your personal use.
-</mutableString>
+                                                <string key="text">1. The review, printing or downloading of any content, graphic, form or document from the Site gives you a limited and non-exclusive license for your personal use only and not for copying, distribution, re-licensing, selling, preparing similar works or otherwise of uses.   2. This license does not entitle copy any part of the contents, forms or documents in any form, or the integration of that part in any retrieval system, either electronically or automatically, beyond your personal use.
+</string>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -879,8 +1049,8 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="308-QE-4UX">
                                                 <rect key="frame" x="8" y="1227" width="398" height="747"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <mutableString key="text">You must be over 18 years old or browse the site under the supervision of your parents or legal guardian. We guarantee you a non-transferable or revocation license to use the site, and to apply the terms and conditions set forth, for shopping for personal purposes sold on the site. Commercial use or use on behalf of another party is prohibited, except expressly permitted by us. Any breach of these terms and conditions will result in the cancellation of the permit contained in this piece without prior permission from you. The content provided on this site is only for informational purposes. The product offerings on the site are for the seller and are not our property. Any specific services and related specifications that you would like to display on the site must be preceded by registration or subscription. You must register or subscribe to any services or related specifications, you agree to provide us with accurate information, accurate and up to date about yourself, and your information will occur if there are any changes. Each user of this site is responsible for keeping passwords and any account ID in a secure and protected location. The account holder is fully responsible for the activities that occur under the password that belongs to him or his account. He must inform us if there is unauthorized use of his or her account or password. The site is not responsible, directly or indirectly, for any loss or damage resulting from your failure to comply with this section. During the registration process you agree to receive promotional email from the website. You can unsubscribe from these messages by clicking on the link at the bottom of any promotional email.
-</mutableString>
+                                                <string key="text">You must be over 18 years old or browse the site under the supervision of your parents or legal guardian. We guarantee you a non-transferable or revocation license to use the site, and to apply the terms and conditions set forth, for shopping for personal purposes sold on the site. Commercial use or use on behalf of another party is prohibited, except expressly permitted by us. Any breach of these terms and conditions will result in the cancellation of the permit contained in this piece without prior permission from you. The content provided on this site is only for informational purposes. The product offerings on the site are for the seller and are not our property. Any specific services and related specifications that you would like to display on the site must be preceded by registration or subscription. You must register or subscribe to any services or related specifications, you agree to provide us with accurate information, accurate and up to date about yourself, and your information will occur if there are any changes. Each user of this site is responsible for keeping passwords and any account ID in a secure and protected location. The account holder is fully responsible for the activities that occur under the password that belongs to him or his account. He must inform us if there is unauthorized use of his or her account or password. The site is not responsible, directly or indirectly, for any loss or damage resulting from your failure to comply with this section. During the registration process you agree to receive promotional email from the website. You can unsubscribe from these messages by clicking on the link at the bottom of any promotional email.
+</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -895,8 +1065,8 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpM-dr-cCb">
                                                 <rect key="frame" x="8" y="2014" width="398" height="1217"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <mutableString key="text">When the option is available and applicable, designated tour operators offer the opportunity to pay flight reservations (in whole or in part and as specified in the payment policy of the sponsor) to the provider during the booking process through secure online payment methods (all provided and supported by the Private Bank) Your). Alama360.com handles payment for specific services and products (via third party payment processors) (ie payment handling service) under the option of the provider (Alama360.com will not act as a record trader in any case at all). The payment will be processed securely from your credit card or debit card to the sponsor account via a third party payment processor. Any payment made to the provider in this manner represents in each case a payment for the amount (or part of the value) of the service or product specified in the final payment (payment release) for such prices (or part thereof) You are not entitled to a refund of these payments.\n For certain rates (non-refundable) or special offers, please note that payment may be required by bank transfer (if any) or through your credit card, so you may be authorized or deducted (sometimes without refund) ) When making a flight reservation. Please check the details (booking) of your product or service that you have selected in detail to see which of these conditions apply before booking your flight. You may not download Alama360.com any liability for any unauthorized, unauthorized, or wrongful discounting by the provider of the voyage and no refunds may be collected or refunded for any authorized and valid deduction by the sponsor (including Prepaid, non-attendance and cost-canceling fees) on your credit card.\n In the event of fraud or unauthorized use of your credit card by third parties, most banks and credit card companies assume risks and cover all the consequences of such fraud or misuse. This may sometimes be subject to entitlements (usually a total of SR 185 (or equivalent in your local currency)). If your credit card company or bank calculates these charges and deducts them from you due to unauthorized transactions resulting from booking on our platform, we will pay you this discount, up to a total amount of SR 185 (or equivalent in your local currency). To indemnify you, please make sure to send the fraud report to your credit card provider (in accordance with its reporting rules and procedures) and contact us immediately by email. Please write a "credit card fraud" in the email address and send us a proof of the amount deducted (e.g., credit card provider policy). This compensation applies only to credit card bookings made using Alama360.com secure servers, unauthorized use of your credit card as a result of our negligence, and when it is not the result of your error when using our secure servers.
-</mutableString>
+                                                <string key="text">When the option is available and applicable, designated tour operators offer the opportunity to pay flight reservations (in whole or in part and as specified in the payment policy of the sponsor) to the provider during the booking process through secure online payment methods (all provided and supported by the Private Bank) Your). Alama360.com handles payment for specific services and products (via third party payment processors) (ie payment handling service) under the option of the provider (Alama360.com will not act as a record trader in any case at all). The payment will be processed securely from your credit card or debit card to the sponsor account via a third party payment processor. Any payment made to the provider in this manner represents in each case a payment for the amount (or part of the value) of the service or product specified in the final payment (payment release) for such prices (or part thereof) You are not entitled to a refund of these payments.\n For certain rates (non-refundable) or special offers, please note that payment may be required by bank transfer (if any) or through your credit card, so you may be authorized or deducted (sometimes without refund) ) When making a flight reservation. Please check the details (booking) of your product or service that you have selected in detail to see which of these conditions apply before booking your flight. You may not download Alama360.com any liability for any unauthorized, unauthorized, or wrongful discounting by the provider of the voyage and no refunds may be collected or refunded for any authorized and valid deduction by the sponsor (including Prepaid, non-attendance and cost-canceling fees) on your credit card.\n In the event of fraud or unauthorized use of your credit card by third parties, most banks and credit card companies assume risks and cover all the consequences of such fraud or misuse. This may sometimes be subject to entitlements (usually a total of SR 185 (or equivalent in your local currency)). If your credit card company or bank calculates these charges and deducts them from you due to unauthorized transactions resulting from booking on our platform, we will pay you this discount, up to a total amount of SR 185 (or equivalent in your local currency). To indemnify you, please make sure to send the fraud report to your credit card provider (in accordance with its reporting rules and procedures) and contact us immediately by email. Please write a "credit card fraud" in the email address and send us a proof of the amount deducted (e.g., credit card provider policy). This compensation applies only to credit card bookings made using Alama360.com secure servers, unauthorized use of your credit card as a result of our negligence, and when it is not the result of your error when using our secure servers.
+</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -938,7 +1108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rTg-oy-R02" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2510" y="1612"/>
+            <point key="canvasLocation" x="3418.840579710145" y="1611.8303571428571"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="FEB-hE-G1b">
@@ -951,7 +1121,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </tabBar>
                     <connections>
-                        <segue destination="ELM-vP-AC8" kind="relationship" relationship="viewControllers" id="t7I-vD-qIU"/>
+                        <segue destination="cH0-vU-JAe" kind="relationship" relationship="viewControllers" id="t7I-vD-qIU"/>
                         <segue destination="o6q-Mi-JMu" kind="relationship" relationship="viewControllers" id="2AT-dQ-R4l"/>
                         <segue destination="xBp-bG-2GB" kind="relationship" relationship="viewControllers" id="pZ4-Td-RtS"/>
                         <segue destination="NSJ-cd-No4" kind="relationship" relationship="viewControllers" id="2Jg-Z5-FvQ"/>
@@ -961,12 +1131,39 @@
             </objects>
             <point key="canvasLocation" x="396" y="-20"/>
         </scene>
+        <!--Search-->
+        <scene sceneID="LIN-GA-6pS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cH0-vU-JAe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="SfT-IU-XDH">
+                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="J7O-0Q-ogb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.01674508303" green="0.62736433739999997" blue="0.4427804649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ELM-vP-AC8" kind="relationship" relationship="rootViewController" id="qHs-0J-hJA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rue-C0-nig" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-604.34782608695662" y="740.625"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="add_your_chalet" width="369" height="84"/>
         <image name="background" width="1125" height="2001"/>
         <image name="calendar" catalog="system" width="64" height="52"/>
         <image name="circle.grid.3x3.fill" catalog="system" width="64" height="56"/>
         <image name="heart" catalog="system" width="64" height="54"/>
+        <image name="house" catalog="system" width="64" height="54"/>
         <image name="ic_add_new" width="104" height="104"/>
         <image name="ic_certify" width="50" height="50"/>
         <image name="ic_checked" width="50" height="50"/>
@@ -980,5 +1177,7 @@
         <image name="ic_profile" width="50" height="50"/>
         <image name="ic_terms" width="100" height="100"/>
         <image name="magnifyingglass" catalog="system" width="64" height="56"/>
+        <image name="search_container" width="369" height="392"/>
+        <image name="text_field_container" width="345" height="262"/>
     </resources>
 </document>
