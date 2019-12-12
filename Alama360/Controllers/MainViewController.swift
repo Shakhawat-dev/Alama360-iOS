@@ -77,7 +77,8 @@ class ViewController: UIViewController {
     func DoLogin(_ phone:String) {
             
             let fPhone = "966"+phone
-            let lan = btnChangeLanguage.currentTitle!
+//            let lan = btnChangeLanguage.currentTitle!
+            let lan = LocalizationSystem.sharedInstance.getLanguage()
         
             
             let params : [String : String] = ["mobile" : fPhone, "lang" : lan]
@@ -147,6 +148,7 @@ class ViewController: UIViewController {
         defaults.set(userid, forKey: "userID")
         defaults.set(status, forKey: "Status")
         defaults.set(fPhone, forKey: "phoneNumber")
+        defaults.set(lan, forKey: "language")
     
         
     

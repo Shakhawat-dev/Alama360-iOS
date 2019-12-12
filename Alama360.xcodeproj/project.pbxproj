@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		4B04E433239B788000D02BC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B04E432239B788000D02BC4 /* AppDelegate.swift */; };
 		4B04E435239B788000D02BC4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B04E434239B788000D02BC4 /* SceneDelegate.swift */; };
-		4B04E437239B788000D02BC4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B04E436239B788000D02BC4 /* ViewController.swift */; };
+		4B04E437239B788000D02BC4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B04E436239B788000D02BC4 /* MainViewController.swift */; };
 		4B04E43A239B788100D02BC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B04E438239B788100D02BC4 /* Main.storyboard */; };
 		4B04E43C239B788300D02BC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B04E43B239B788300D02BC4 /* Assets.xcassets */; };
 		4B04E43F239B788300D02BC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B04E43D239B788300D02BC4 /* LaunchScreen.storyboard */; };
 		4B04E44C239B7D1500D02BC4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B04E44E239B7D1500D02BC4 /* Localizable.strings */; };
 		4B04E457239B843F00D02BC4 /* LocalizationSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B04E456239B843F00D02BC4 /* LocalizationSystem.swift */; };
+		4B1CE33023A24A7800C0FC01 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1CE32F23A24A7800C0FC01 /* MainCell.swift */; };
 		4B6DFE18239E278600543E3F /* ReservationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE17239E278600543E3F /* ReservationsViewController.swift */; };
 		4B6DFE1A239E292800543E3F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE19239E292800543E3F /* FavoritesViewController.swift */; };
 		4B6DFE1C239E295100543E3F /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE1B239E295100543E3F /* MoreViewController.swift */; };
@@ -27,7 +28,7 @@
 		4B04E42F239B788000D02BC4 /* Alama360.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alama360.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B04E432239B788000D02BC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B04E434239B788000D02BC4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4B04E436239B788000D02BC4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4B04E436239B788000D02BC4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4B04E439239B788100D02BC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B04E43B239B788300D02BC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B04E43E239B788300D02BC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +38,7 @@
 		4B04E44D239B7D1500D02BC4 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4B04E44F239B7D1F00D02BC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4B04E456239B843F00D02BC4 /* LocalizationSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalizationSystem.swift; path = "../../../IOS-Practices/Localization_to_Arabic_laguage_From_Inside_App-Tutorial-master/Localization-Tutorial/LocalizationSystem.swift"; sourceTree = "<group>"; };
+		4B1CE32F23A24A7800C0FC01 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		4B6DFE17239E278600543E3F /* ReservationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationsViewController.swift; sourceTree = "<group>"; };
 		4B6DFE19239E292800543E3F /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		4B6DFE1B239E295100543E3F /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
@@ -91,10 +93,10 @@
 				4B6DFE1F239E29A900543E3F /* Controllers */,
 				4B04E432239B788000D02BC4 /* AppDelegate.swift */,
 				4B04E434239B788000D02BC4 /* SceneDelegate.swift */,
-				4B04E436239B788000D02BC4 /* ViewController.swift */,
 				4B04E456239B843F00D02BC4 /* LocalizationSystem.swift */,
 				4B04E44E239B7D1500D02BC4 /* Localizable.strings */,
 				4B04E438239B788100D02BC4 /* Main.storyboard */,
+				4B1CE32F23A24A7800C0FC01 /* MainCell.swift */,
 				4B04E43B239B788300D02BC4 /* Assets.xcassets */,
 				4B04E43D239B788300D02BC4 /* LaunchScreen.storyboard */,
 				4B04E440239B788300D02BC4 /* Info.plist */,
@@ -105,6 +107,7 @@
 		4B6DFE1F239E29A900543E3F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4B04E436239B788000D02BC4 /* MainViewController.swift */,
 				4B6DFE1B239E295100543E3F /* MoreViewController.swift */,
 				4B6DFE17239E278600543E3F /* ReservationsViewController.swift */,
 				4B6DFE19239E292800543E3F /* FavoritesViewController.swift */,
@@ -241,9 +244,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B6DFE1C239E295100543E3F /* MoreViewController.swift in Sources */,
-				4B04E437239B788000D02BC4 /* ViewController.swift in Sources */,
+				4B04E437239B788000D02BC4 /* MainViewController.swift in Sources */,
 				4B6DFE1E239E299900543E3F /* SearchViewController.swift in Sources */,
 				4B04E457239B843F00D02BC4 /* LocalizationSystem.swift in Sources */,
+				4B1CE33023A24A7800C0FC01 /* MainCell.swift in Sources */,
 				4B04E433239B788000D02BC4 /* AppDelegate.swift in Sources */,
 				4B6DFE21239E84AA00543E3F /* ContactViewController.swift in Sources */,
 				4B6DFE18239E278600543E3F /* ReservationsViewController.swift in Sources */,

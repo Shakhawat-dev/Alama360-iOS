@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5ns-Sl-PSe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cH0-vU-JAe">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -218,7 +219,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9s-vI-1az" userLabel="main container view">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="708"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x4p-iU-GSE" userLabel="search container view">
                                                 <rect key="frame" x="8" y="8" width="398" height="392"/>
@@ -314,8 +315,8 @@
                                                     <constraint firstItem="7qX-QW-c8Y" firstAttribute="top" secondItem="fhS-wm-vO0" secondAttribute="bottom" constant="8" id="zJA-2u-VBc"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3bM-Sr-8kg">
-                                                <rect key="frame" x="8" y="401" width="398" height="524"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bM-Sr-8kg">
+                                                <rect key="frame" x="8" y="401" width="398" height="507"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="add_your_chalet" translatesAutoresizingMaskIntoConstraints="NO" id="aOb-pJ-haY">
                                                         <rect key="frame" x="0.0" y="0.0" width="398" height="83"/>
@@ -353,10 +354,68 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AmN-Cn-TAb">
+                                                        <rect key="frame" x="0.0" y="113" width="398" height="180"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="180" id="x2L-YT-Wlf"/>
+                                                        </constraints>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pY9-Kg-ZfE">
+                                                            <size key="itemSize" width="182" height="170"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="0E3-io-ym0" customClass="MainCell" customModule="Alama360" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="10" width="182" height="160"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Drn-9P-dr5">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="182" height="160"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alama_logo" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8i3-HO-VJn">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="182" height="117"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="8i3-HO-VJn" secondAttribute="height" multiplier="14:9" id="EpI-Y8-XCD"/>
+                                                                                <constraint firstAttribute="height" constant="117" id="G12-uc-0dY"/>
+                                                                                <constraint firstAttribute="width" constant="182" id="vwy-6j-tFK"/>
+                                                                            </constraints>
+                                                                        </imageView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KA9-dx-KmM">
+                                                                            <rect key="frame" x="8" y="125" width="166" height="27"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="bottom" secondItem="KA9-dx-KmM" secondAttribute="bottom" constant="8" id="3xt-Wr-LYs"/>
+                                                                        <constraint firstItem="8i3-HO-VJn" firstAttribute="leading" secondItem="Drn-9P-dr5" secondAttribute="leading" id="7xb-bS-ZBE"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="KA9-dx-KmM" secondAttribute="trailing" constant="8" id="Uef-dd-7Rc"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="8i3-HO-VJn" secondAttribute="trailing" id="eO9-XF-5Gt"/>
+                                                                        <constraint firstItem="KA9-dx-KmM" firstAttribute="leading" secondItem="Drn-9P-dr5" secondAttribute="leading" constant="8" id="lG5-hy-LNU"/>
+                                                                        <constraint firstItem="8i3-HO-VJn" firstAttribute="top" secondItem="Drn-9P-dr5" secondAttribute="top" id="nxZ-7V-gYh"/>
+                                                                        <constraint firstItem="KA9-dx-KmM" firstAttribute="top" secondItem="8i3-HO-VJn" secondAttribute="bottom" constant="8" id="tWq-Fl-yxb"/>
+                                                                    </constraints>
+                                                                </collectionViewCellContentView>
+                                                                <size key="customSize" width="182" height="160"/>
+                                                                <connections>
+                                                                    <outlet property="categoryTitle" destination="KA9-dx-KmM" id="z99-eP-7oe"/>
+                                                                    <outlet property="thumbImage" destination="8i3-HO-VJn" id="Iej-E1-io7"/>
+                                                                </connections>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                    </collectionView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="AmN-Cn-TAb" secondAttribute="trailing" id="Xmi-PG-SMS"/>
                                                     <constraint firstItem="aOb-pJ-haY" firstAttribute="leading" secondItem="3bM-Sr-8kg" secondAttribute="leading" id="pBn-0B-CxB"/>
+                                                    <constraint firstItem="AmN-Cn-TAb" firstAttribute="top" secondItem="3bM-Sr-8kg" secondAttribute="top" constant="113" id="tbJ-Lq-yuR"/>
+                                                    <constraint firstItem="AmN-Cn-TAb" firstAttribute="leading" secondItem="3bM-Sr-8kg" secondAttribute="leading" id="uFk-RQ-xwr"/>
+                                                    <constraint firstAttribute="bottom" secondItem="AmN-Cn-TAb" secondAttribute="bottom" constant="214" id="uls-Wx-hxU"/>
                                                     <constraint firstAttribute="trailing" secondItem="aOb-pJ-haY" secondAttribute="trailing" id="v9R-yc-t8O"/>
                                                     <constraint firstItem="aOb-pJ-haY" firstAttribute="top" secondItem="3bM-Sr-8kg" secondAttribute="top" id="xXH-Y6-bJw"/>
                                                 </constraints>
@@ -366,6 +425,7 @@
                                         <constraints>
                                             <constraint firstItem="x4p-iU-GSE" firstAttribute="top" secondItem="f9s-vI-1az" secondAttribute="top" constant="8" id="Sdy-ZL-zdF"/>
                                             <constraint firstItem="3bM-Sr-8kg" firstAttribute="top" secondItem="x4p-iU-GSE" secondAttribute="bottom" constant="1" id="UNl-pR-wbH"/>
+                                            <constraint firstAttribute="bottom" secondItem="3bM-Sr-8kg" secondAttribute="bottom" constant="-200" id="V9H-44-KmR"/>
                                             <constraint firstAttribute="trailing" secondItem="x4p-iU-GSE" secondAttribute="trailing" constant="8" id="Y3P-56-9WI"/>
                                             <constraint firstAttribute="trailing" secondItem="3bM-Sr-8kg" secondAttribute="trailing" constant="8" id="eW1-57-u2D"/>
                                             <constraint firstItem="x4p-iU-GSE" firstAttribute="leading" secondItem="f9s-vI-1az" secondAttribute="leading" constant="8" id="i0e-hU-byS"/>
@@ -399,13 +459,14 @@
                     <connections>
                         <outlet property="chaletCategoryField" destination="7qX-QW-c8Y" id="n1k-h5-kR8"/>
                         <outlet property="checkBtb" destination="eqr-Fa-7Dw" id="8oC-BF-iRZ"/>
+                        <outlet property="collectionView" destination="AmN-Cn-TAb" id="lnd-Uy-MdE"/>
                         <outlet property="propertyTitleField" destination="fhS-wm-vO0" id="gzh-Mk-GFB"/>
                         <outlet property="startDateField" destination="Pwf-yH-WwL" id="mDX-iW-UEm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ITp-Bj-F3C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="220.28985507246378" y="1109.5108695652175"/>
+            <point key="canvasLocation" x="220.28985507246378" y="1108.9285714285713"/>
         </scene>
         <!--Reservatiions-->
         <scene sceneID="liM-Qi-879">
@@ -1159,6 +1220,7 @@
     </scenes>
     <resources>
         <image name="add_your_chalet" width="369" height="84"/>
+        <image name="alama_logo" width="120" height="60"/>
         <image name="background" width="1125" height="2001"/>
         <image name="calendar" catalog="system" width="64" height="52"/>
         <image name="circle.grid.3x3.fill" catalog="system" width="64" height="56"/>
