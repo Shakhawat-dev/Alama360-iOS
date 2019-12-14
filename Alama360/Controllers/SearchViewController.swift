@@ -18,6 +18,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     @IBOutlet weak var chaletCategoryField: UITextField!
     @IBOutlet weak var startDateField: UITextField!
     
+    @IBOutlet weak var categoryDropDownBtn: UIButton!
     @IBOutlet weak var checkBtb: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -35,6 +36,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         super.viewDidLoad()
         
         loadProperties()
+        categoryDropDownBtn.layer.cornerRadius = 4
+        
         
         
         
@@ -51,6 +54,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     
     @IBAction func checkBtnPressed(_ sender: UIButton) {
         
+    }
+    @IBAction func categoryBtnPressed(_ sender: UIButton) {
     }
     
     // Bottom Property list
@@ -104,16 +109,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         
         
     }
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     
     }
