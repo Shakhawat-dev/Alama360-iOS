@@ -7,24 +7,34 @@
 //
 
 import UIKit
+import SearchTextField
 
-class ReservationsViewController: UIViewController {
+class ReservationsViewController: UIViewController{
+    
+    @IBOutlet weak var titleAuto: SearchTextField!
+    
+    
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        titleAuto.filterStrings(["Red", "Blue", "Yellow"])
+        
+        
+        
+//        titleAuto.ACDelegate = self as? ACTextFieldDelegate
+//
+//        titleAuto.setAutoCompleteWith(DataSet: mdataSource)
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+//    func ACTextField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        return true
+//    }
+    
+    // Providing data source to get the suggestion from inputs
+    
 
 }

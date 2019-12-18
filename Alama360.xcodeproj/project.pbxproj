@@ -21,6 +21,8 @@
 		4B6DFE1C239E295100543E3F /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE1B239E295100543E3F /* MoreViewController.swift */; };
 		4B6DFE1E239E299900543E3F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE1D239E299900543E3F /* SearchViewController.swift */; };
 		4B6DFE21239E84AA00543E3F /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE20239E84AA00543E3F /* ContactViewController.swift */; };
+		4BABFAB723A8BCE400F34EA4 /* addPropertyTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BABFAB623A8BCE400F34EA4 /* addPropertyTermsViewController.swift */; };
+		4BABFAB923A900D900F34EA4 /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BABFAB823A900D900F34EA4 /* iOSDropDown.framework */; };
 		875FBF4D4627B61E14B5C514 /* Pods_Alama360.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBFCD9432EC28BE6EAE7BBFC /* Pods_Alama360.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +46,8 @@
 		4B6DFE1B239E295100543E3F /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		4B6DFE1D239E299900543E3F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4B6DFE20239E84AA00543E3F /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		4BABFAB623A8BCE400F34EA4 /* addPropertyTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addPropertyTermsViewController.swift; sourceTree = "<group>"; };
+		4BABFAB823A900D900F34EA4 /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61791E7D0797207E2B2380D0 /* Pods-Alama360.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alama360.release.xcconfig"; path = "Target Support Files/Pods-Alama360/Pods-Alama360.release.xcconfig"; sourceTree = "<group>"; };
 		AFFB3C0B381BEDFC77A7831A /* Pods-Alama360.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alama360.debug.xcconfig"; path = "Target Support Files/Pods-Alama360/Pods-Alama360.debug.xcconfig"; sourceTree = "<group>"; };
 		DBFCD9432EC28BE6EAE7BBFC /* Pods_Alama360.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alama360.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BABFAB923A900D900F34EA4 /* iOSDropDown.framework in Frameworks */,
 				875FBF4D4627B61E14B5C514 /* Pods_Alama360.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,6 +69,7 @@
 		3DC409E57523834DB58C98FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4BABFAB823A900D900F34EA4 /* iOSDropDown.framework */,
 				DBFCD9432EC28BE6EAE7BBFC /* Pods_Alama360.framework */,
 			);
 			name = Frameworks;
@@ -108,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				4B04E436239B788000D02BC4 /* MainViewController.swift */,
+				4BABFAB623A8BCE400F34EA4 /* addPropertyTermsViewController.swift */,
 				4B6DFE1B239E295100543E3F /* MoreViewController.swift */,
 				4B6DFE17239E278600543E3F /* ReservationsViewController.swift */,
 				4B6DFE19239E292800543E3F /* FavoritesViewController.swift */,
@@ -243,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BABFAB723A8BCE400F34EA4 /* addPropertyTermsViewController.swift in Sources */,
 				4B6DFE1C239E295100543E3F /* MoreViewController.swift in Sources */,
 				4B04E437239B788000D02BC4 /* MainViewController.swift in Sources */,
 				4B6DFE1E239E299900543E3F /* SearchViewController.swift in Sources */,

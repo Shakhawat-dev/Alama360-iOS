@@ -10,5 +10,9 @@ target 'Alama360' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'SVProgressHUD'
+  pod "SearchTextField"
+  pod 'iOSDropDown'
+  pod 'DatePickerDialog'
+
 
 end
