@@ -13,6 +13,8 @@ target 'Alama360' do
   pod "SearchTextField"
   pod 'iOSDropDown'
   pod 'DatePickerDialog'
+  #pod 'DatePicker'
+  pod 'ImageSlideshow', '~> 1.8.1'
 
 
 end

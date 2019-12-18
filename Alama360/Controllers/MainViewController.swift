@@ -11,7 +11,7 @@ import SwiftyJSON
 import Alamofire
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var lblHeader: UILabel!
     @IBOutlet weak var lblCurrentLanguage: UILabel!
     @IBOutlet weak var btnChangeLanguage: UIButton!
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     
     //For storing user data
     let defaults = UserDefaults.standard
-
+    
     var userexist = ""
     var code = ""
     var message = ""
@@ -39,11 +39,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         changeLanguage()
-    
+        
         lblCountryCOde.layer.cornerRadius = 4
         
     }
-
+    
     @IBAction func changeLanguage(_ sender: Any) {
         
         if LocalizationSystem.sharedInstance.getLanguage() == "ar" {
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         } else {
             LocalizationSystem.sharedInstance.setLanguage(languageCode: "ar")
             UIView.appearance().semanticContentAttribute = .forceRightToLeft
-
+            
         }
         
         changeLanguage()
@@ -75,26 +75,26 @@ class ViewController: UIViewController {
     }
     
     func DoLogin(_ phone:String) {
-            
-            let fPhone = "966"+phone
-//            let lan = btnChangeLanguage.currentTitle!
-            let lan = LocalizationSystem.sharedInstance.getLanguage()
         
-            
-            let params : [String : String] = ["mobile" : fPhone, "lang" : lan]
-
-            let nUrl = "https://alama360.net/api/userbymobile?"
-
+        let fPhone = "966"+phone
+        //            let lan = btnChangeLanguage.currentTitle!
+        let lan = LocalizationSystem.sharedInstance.getLanguage()
+        
+        
+        let params : [String : String] = ["mobile" : fPhone, "lang" : lan]
+        
+        let nUrl = "https://alama360.net/api/userbymobile?"
+        
         Alamofire.request(nUrl, method: .post, parameters: params, headers: nil).responseJSON{ (mysresponse) in
             
             if mysresponse.result.isSuccess {
-
+                
                 let myResult = try? JSON(data: mysresponse.data!)
-
+                
                 let resultArray = myResult![]
                 
                 print(resultArray)
-
+                
                 self.userid = resultArray["userid"].stringValue
                 self.status = resultArray["status"].stringValue
                 self.code = resultArray["code"].stringValue
@@ -104,64 +104,64 @@ class ViewController: UIViewController {
                 
                 print("user id: \(self.userid)")
                 print("verification code: \(self.code)")
-
+                
                 
             }
-
-        
-                // For taking the value of action text field
-                var inputTextField: UITextField?
-                
+            
+            
+            // For taking the value of action text field
+            var inputTextField: UITextField?
+            
             //Aler Dialoge Initiated
-                let alert = UIAlertController(title: "Verification Code", message: "Enter the verification code recieved on the number \(fPhone)", preferredStyle: UIAlertController.Style.alert)
-
-                alert.addTextField(configurationHandler: {(textField: UITextField!) in
-                    textField.placeholder = "Four digit code:"
-                    textField.isSecureTextEntry = false // for password input
-                    
-                    inputTextField = textField
-                    
-                })
+            let alert = UIAlertController(title: "Verification Code", message: "Enter the verification code recieved on the number \(fPhone)", preferredStyle: UIAlertController.Style.alert)
+            
+            alert.addTextField(configurationHandler: {(textField: UITextField!) in
+                textField.placeholder = "Four digit code:"
+                textField.isSecureTextEntry = false // for password input
                 
-                alert.addAction(UIAlertAction(title: "Next", style: UIAlertAction.Style.default, handler: { (action) -> Void in
-                    print("Entered \(inputTextField?.text ?? "") ")
+                inputTextField = textField
+                
+            })
+            
+            alert.addAction(UIAlertAction(title: "Next", style: UIAlertAction.Style.default, handler: { (action) -> Void in
+                print("Entered \(inputTextField?.text ?? "") ")
+                
+                if inputTextField?.text ?? "" == self.code {
                     
-                    if inputTextField?.text ?? "" == self.code {
-                        
-                        if self.userexist == "1" {
-                            self.performSegue(withIdentifier: "HomePage", sender:nil)
-                        } else {
-                            self.register()
-                        }
-
-                        
+                    if self.userexist == "1" {
+                        self.performSegue(withIdentifier: "HomePage", sender:nil)
+                    } else {
+                        self.register()
                     }
                     
-                }))
+                    
+                }
                 
-                self.present(alert, animated: true, completion: nil)
-                
-            }
+            }))
             
+            self.present(alert, animated: true, completion: nil)
             
+        }
+        
+        
         
         defaults.set(userid, forKey: "userID")
         defaults.set(status, forKey: "Status")
         defaults.set(fPhone, forKey: "phoneNumber")
         defaults.set(lan, forKey: "language")
-    
         
-    
-            
-        }
-       
         
+        
+        
+    }
+    
+    
     
     func changeLanguage() {
         
         lblHeader.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "header_text", comment: "")
         lblCurrentLanguage.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "change_language", comment: "")
-
+        
         btnChangeLanguage.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "language", comment: ""), for: .normal)
         
         lblChalets.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "hundreds_of_chalets", comment: "")
@@ -180,35 +180,35 @@ class ViewController: UIViewController {
         
         let lan = btnChangeLanguage.currentTitle!
         
-            
+        
         let params : [String : String] = ["mobile" : regPhone!, "lang" : "en"]
-
-            let nUrl = "https://alama360.net/api/createOrupdateuser?"
-
+        
+        let nUrl = "https://alama360.net/api/createOrupdateuser?"
+        
         Alamofire.request(nUrl, method: .post, parameters: params, headers: nil).responseJSON{ (mysresponse) in
             
             if mysresponse.result.isSuccess {
-
+                
                 let myResult = try? JSON(data: mysresponse.data!)
-
+                
                 let resultArray = myResult![]
                 
                 print(resultArray)
-
+                
                 self.userid = resultArray["userid"].stringValue
                 self.status = resultArray["status"].stringValue
-//                self.code = resultArray["code"].stringValue
+                //                self.code = resultArray["code"].stringValue
                 self.message = resultArray["message"].stringValue
-//                self.userexist = resultArray["userexist"].stringValue
+                //                self.userexist = resultArray["userexist"].stringValue
                 self.usertype = resultArray["usertype"].stringValue
                 
                 if self.status == "1" {
                     self.performSegue(withIdentifier: "HomePage", sender:nil)
                 }
-//
+                //
                 print("user id: \(self.userid)")
                 print("Message: \(self.message)")
-        
+                
             }
         }
         

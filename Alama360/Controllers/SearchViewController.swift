@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 import SearchTextField
 import iOSDropDown
-import DatePickerDialog
+
 
 
 class CellClass: UITableViewCell{
@@ -49,74 +49,109 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     
     var arr_tid = [String]()
     var arr_title = [String]()
-        
+    
     var dataSource = [String]()
-
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        categoryTableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
+        //        categoryTableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
         
         loadProperties()
         loadCategories()
         loadPropertyTitle()
-        datePickerTapped()
+//        datePickerTapped()
         getDatePicker()
         
-//
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SearchViewController.viewTapped(gestureRecognizer:)))
-
-//        view.addGestureRecognizer(tapGesture)
-
-        startDateField.inputView = datePicker
+        //
+        //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SearchViewController.viewTapped(gestureRecognizer:)))
+        
+        //        view.addGestureRecognizer(tapGesture)
+        
+        //        startDateField.inputView = datePicker
     }
     
     func getDatePicker() {
         
-        datePicker = UIDatePicker()
-                datePicker?.locale = NSLocale.init(localeIdentifier: "ar") as Locale
+        startDateField.addTarget(self, action: #selector(myTargetFunction), for: .touchDown)
         
-                datePicker?.datePickerMode = .date
-                datePicker?.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
+        
+        //        datePicker = UIDatePicker()
+        //                datePicker?.locale = NSLocale.init(localeIdentifier: "ar") as Locale
         //
-        //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SearchViewController.viewTapped(gestureRecognizer:)))
-
-        //        view.addGestureRecognizer(tapGesture)
-
-                startDateField.inputView = datePicker
+        //                datePicker?.datePickerMode = .date
+        //                datePicker?.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
+        //        //
+        //        //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SearchViewController.viewTapped(gestureRecognizer:)))
+        //
+        //        //        view.addGestureRecognizer(tapGesture)
+        //
+        //                startDateField.inputView = datePicker
         
-
+        
         //    @objc func viewTapped (gestureRecognizer: UITapGestureRecognizer) {
         //        view.endEditing(true)
         //    }
         //
-            
+        
     }
-
     
-//    @objc func viewTapped (gestureRecognizer: UITapGestureRecognizer) {
-//        view.endEditing(true)
-//    }
+    //    new
+    @objc func myTargetFunction(textField: UITextField) {
+        print("myTargetFunction")
 //
-    @objc func dateChanged(datePicker: UIDatePicker) {
-
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
-        startDateField.text = dateFormatter.string(from: datePicker.date)
-        view.endEditing(true)
-
+//            DatePickerDialog().show("DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date) {
+//                (date) -> Void in
+//                if let dt = date {
+//                    let formatter = DateFormatter()
+//                    formatter.dateFormat = "MM/dd/yyyy"
+//                    self.startDateField.text = formatter.string(from: dt)
+//                }
+//            }
+        
     }
+    
+    
+    //    @objc func viewTapped (gestureRecognizer: UITapGestureRecognizer) {
+    //        view.endEditing(true)
+    //    }
+    //
+//    @objc func dateChanged(datePicker: UIDatePicker) {
+//
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "MM/dd/yyyy"
+//        startDateField.text = dateFormatter.string(from: datePicker.date)
+//        view.endEditing(true)
+//
+//    }
     
     @IBAction func checkBtnPressed(_ sender: UIButton) {
+//        func datePickerTapped() {
+//            DatePickerDialog().show( "DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date) {
+//                (date) -> Void in
+//                if let dt = date {
+//                            let formatter = DateFormatter()
+//                            formatter.dateFormat = "MM/dd/yyyy"
+//                            self.startDateField.text = formatter.string(from: dt)
+//                        }
+//            }
+//        }
         
+//        DatePickerDialog().show("DatePickerDialog", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date) { (date) in
+//            if let dt = date {
+//                 let formatter = DateFormatter()
+//                  formatter.dateFormat = "dd.MM.yyyy" // change format as per your needs
+//                  self.startDateField.text = formatter.string(from:dt)
+//            }
+//        }
     }
     
     @IBAction func categoryBtnPressed(_ sender: UIButton) {
         
-//        arr_col1 = ["",""]
-//        addTransparentView(frames: categoryDropDownBtn.frame)
+        //        arr_col1 = ["",""]
+        //        addTransparentView(frames: categoryDropDownBtn.frame)
         
     }
     
@@ -130,47 +165,42 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     func loadPropertyTitle() {
         
         let lan = defaults.string(forKey: "language") ?? ""
-               print("lan is \(lan)")
-               
-               let tUrl = Url + "daily-rental/for-rent?page=1&lang=" + lan + "&viewType=mapview"
-               print("Title list Url is \(tUrl)")
-               
-               Alamofire.request(tUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
-               
-               if mysresponse.result.isSuccess {
-
-                   let myResult = try? JSON(data: mysresponse.data!)
-                   let resultArray = myResult!["data"]
-                   
-                   self.arr_tid.removeAll()
-                   self.arr_title.removeAll()
-                   
-                   // print(resultArray)
-                   for i in resultArray.arrayValue {
-                       let id = i["id"].stringValue
-                       self.arr_tid.append(id)
-                       
-                       let title = i["title"].stringValue
-                       self.arr_title.append(title)
-                       
-                   }
+        print("lan is \(lan)")
+        
+        let tUrl = Url + "daily-rental/for-rent?page=1&lang=" + lan + "&viewType=mapview"
+        print("Title list Url is \(tUrl)")
+        
+        Alamofire.request(tUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
+            
+            if mysresponse.result.isSuccess {
+                
+                let myResult = try? JSON(data: mysresponse.data!)
+                let resultArray = myResult!["data"]
+                
+                self.arr_tid.removeAll()
+                self.arr_title.removeAll()
+                
+                // print(resultArray)
+                for i in resultArray.arrayValue {
+                    let id = i["id"].stringValue
+                    self.arr_tid.append(id)
+                    
+                    let title = i["title"].stringValue
+                    self.arr_title.append(title)
+                    
+                }
                 
                 self.titlePropertyAuto.filterStrings(self.arr_title)
                 self.titlePropertyAuto.maxResultsListHeight = 200
                 self.titlePropertyAuto.theme.font = UIFont.systemFont(ofSize: 14)
                 self.titlePropertyAuto.theme.cellHeight = 40
-                   
-                   print(self.arr_title)
-                   print(self.arr_title.count)
-                   }
-        
-               }
-        
-        
-        
-        
-
-        
+                
+                print(self.arr_title)
+                print(self.arr_title.count)
+            }
+            
+        }
+  
     }
     
     // Bottom Property list
@@ -185,32 +215,32 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         print("lan is \(pUrl)")
         
         Alamofire.request(pUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
-        
-        if mysresponse.result.isSuccess {
-
-            let myResult = try? JSON(data: mysresponse.data!)
-            let resultArray = myResult!["data"]
             
-            self.arr_cateName.removeAll()
-            self.arr_imageUrl.removeAll()
-            
-            // print(resultArray)
-            for i in resultArray.arrayValue {
-                let cateName = i["catname"].stringValue
-                self.arr_cateName.append(cateName)
+            if mysresponse.result.isSuccess {
                 
-                let imageUrl = i["thumbnail"].stringValue
-                self.arr_imageUrl.append(imageUrl)
+                let myResult = try? JSON(data: mysresponse.data!)
+                let resultArray = myResult!["data"]
                 
+                self.arr_cateName.removeAll()
+                self.arr_imageUrl.removeAll()
+                
+                // print(resultArray)
+                for i in resultArray.arrayValue {
+                    let cateName = i["catname"].stringValue
+                    self.arr_cateName.append(cateName)
+                    
+                    let imageUrl = i["thumbnail"].stringValue
+                    self.arr_imageUrl.append(imageUrl)
+                    
+                }
+                
+                self.collectionView.dataSource = self
+                self.collectionView.delegate = self
+                
+                print(self.arr_cateName)
+                print(self.arr_cateName.count)
             }
             
-            self.collectionView.dataSource = self
-            self.collectionView.delegate = self
-            
-            print(self.arr_cateName)
-            print(self.arr_cateName.count)
-            }
- 
         }
         
     }
@@ -223,146 +253,138 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
                 print("Unable to create URL")
                 return nil
         }
-
+        
         var image: UIImage? = nil
         do {
             //3. Get valid data
             let data = try Data(contentsOf: url, options: [])
-
+            
             //4. Make image
             image = UIImage(data: data)
         }
         catch {
             print(error.localizedDescription)
         }
-
+        
         return image
     }
     
     // Showing Horizantal property list for Search
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return self.arr_cateName.count
-        }
+        return self.arr_cateName.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MainCell
-
-            cell.thumbImage.image = getImage(from: self.arr_imageUrl[indexPath.row])
-            cell.categoryTitle.text = self.arr_cateName[indexPath.row]
-            
-            return cell
-            
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MainCell
+        
+        cell.thumbImage.image = getImage(from: self.arr_imageUrl[indexPath.row])
+        cell.categoryTitle.text = self.arr_cateName[indexPath.row]
+        
+        return cell
+        
+    }
     
     // Getting categories from Api
     func loadCategories() {
-
-        // https://alama360.com/api/getLookUpByCat/80?lang=en&limit=10
-               
-               let lan = defaults.string(forKey: "language") ?? ""
         
-               
-               print("lan is \(lan)")
-               
-               let cUrl = "https://alama360.com/api/getLookUpByCat/80?lang=" + lan + "&limit=10"
-               
-               print("Category cUrl is \(cUrl)")
-               
-               Alamofire.request(cUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
-               
-               if mysresponse.result.isSuccess {
-
-                   let myResult = try? JSON(data: mysresponse.data!)
-
-                   let resultArray = myResult![]
-                   
-                   self.arr_id.removeAll()
-                   self.arr_col1.removeAll()
-                   
-                   // print(resultArray)
-                   
-                   for i in resultArray.arrayValue {
-                       let id = i["id"].stringValue
-                       self.arr_id.append(id)
-
-                       let col1 = i["col1"].stringValue
-                       self.arr_col1.append(col1)
-                       
-                   }
+        // https://alama360.com/api/getLookUpByCat/80?lang=en&limit=10
+        
+        let lan = defaults.string(forKey: "language") ?? ""
+        
+        
+        print("lan is \(lan)")
+        
+        let cUrl = "https://alama360.com/api/getLookUpByCat/80?lang=" + lan + "&limit=10"
+        
+        print("Category cUrl is \(cUrl)")
+        
+        Alamofire.request(cUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
+            
+            if mysresponse.result.isSuccess {
+                
+                let myResult = try? JSON(data: mysresponse.data!)
+                
+                let resultArray = myResult![]
+                
+                self.arr_id.removeAll()
+                self.arr_col1.removeAll()
+                
+                // print(resultArray)
+                
+                for i in resultArray.arrayValue {
+                    let id = i["id"].stringValue
+                    self.arr_id.append(id)
+                    
+                    let col1 = i["col1"].stringValue
+                    self.arr_col1.append(col1)
+                    
+                }
                 
                 self.categoryDropDown.optionArray = self.arr_col1
-//
-//                self.categoryDropDown.didSelect{(selectedText , index ,id) in
-//                    self.valueLabel.text = "Selected String: \(selectedText) \n index: \(index)"
-//
-//
-//                }
+                //
+                //                self.categoryDropDown.didSelect{(selectedText , index ,id) in
+                //                    self.valueLabel.text = "Selected String: \(selectedText) \n index: \(index)"
+                //
+                //
+                //                }
                 
-                   
+                
                 // Need to call table view here...
-//                self.categoryTableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
-//                self.categoryTableView.delegate = self
-//                self.categoryTableView.dataSource = self
-                   
-                   print(self.arr_col1)
-                   print(self.arr_col1.count)
+                //                self.categoryTableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
+                //                self.categoryTableView.delegate = self
+                //                self.categoryTableView.dataSource = self
+                
+                print(self.arr_col1)
+                print(self.arr_col1.count)
                 
                 
                 
             }
-                
-        
+            
+            
         }
         
     }
     
     @IBAction func datepickerclicked(_ sender: UITextField) {
     }
-    func datePickerTapped() {
-        DatePickerDialog().show("DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date) {
-            (date) -> Void in
-            if let dt = date {
-                        let formatter = DateFormatter()
-                        formatter.dateFormat = "MM/dd/yyyy"
-                        self.startDateField.text = formatter.string(from: dt)
-                    }
-        }
-    }
     
-//    // Transparent effect if button clicked
-//    func addTransparentView(frames: CGRect) {
-//        let window = UIApplication.shared.keyWindow
-//        transparentVIew.frame = window?.frame ?? self.view.frame
-//        self.view.addSubview(transparentVIew)
-//
-//        categoryTableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
-//        self.view.addSubview(categoryTableView)
-//
-//        categoryTableView.layer.cornerRadius = 5
-//
-//        transparentVIew.backgroundColor = UIColor.black.withAlphaComponent(0.9)
-//        categoryTableView.reloadData()
-//
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(removeTransparentView))
-//        transparentVIew.addGestureRecognizer(tapGesture)
-//
-//        transparentVIew.alpha = 0
-//
-//        UIView.animate(withDuration: 0.4, delay: 0.0, options: .curveEaseInOut, animations: {
-//            self.transparentVIew.alpha = 0.5
-//            self.categoryTableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height + 5, width: frames.width, height: CGFloat(self.dataSource.count * 80))
-//        }, completion: nil)
-//    }
-//
-//    @objc func removeTransparentView() {
-//        let frames = categoryDropDownBtn.frame
-//
-//        UIView.animate(withDuration: 0.4, delay: 0.0, options: .curveEaseInOut, animations: {
-//            self.transparentVIew.alpha = 0
-//            self.categoryTableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
-//        }, completion: nil)
-//    }
+    
+    
+    //    // Transparent effect if button clicked
+    //    func addTransparentView(frames: CGRect) {
+    //        let window = UIApplication.shared.keyWindow
+    //        transparentVIew.frame = window?.frame ?? self.view.frame
+    //        self.view.addSubview(transparentVIew)
+    //
+    //        categoryTableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
+    //        self.view.addSubview(categoryTableView)
+    //
+    //        categoryTableView.layer.cornerRadius = 5
+    //
+    //        transparentVIew.backgroundColor = UIColor.black.withAlphaComponent(0.9)
+    //        categoryTableView.reloadData()
+    //
+    //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(removeTransparentView))
+    //        transparentVIew.addGestureRecognizer(tapGesture)
+    //
+    //        transparentVIew.alpha = 0
+    //
+    //        UIView.animate(withDuration: 0.4, delay: 0.0, options: .curveEaseInOut, animations: {
+    //            self.transparentVIew.alpha = 0.5
+    //            self.categoryTableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height + 5, width: frames.width, height: CGFloat(self.dataSource.count * 80))
+    //        }, completion: nil)
+    //    }
+    //
+    //    @objc func removeTransparentView() {
+    //        let frames = categoryDropDownBtn.frame
+    //
+    //        UIView.animate(withDuration: 0.4, delay: 0.0, options: .curveEaseInOut, animations: {
+    //            self.transparentVIew.alpha = 0
+    //            self.categoryTableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
+    //        }, completion: nil)
+    //    }
     
     
     // AUto Complete

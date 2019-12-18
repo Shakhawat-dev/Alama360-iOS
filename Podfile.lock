@@ -1,6 +1,9 @@
 PODS:
   - Alamofire (4.9.1)
   - DatePickerDialog (3.0)
+  - ImageSlideshow (1.8.1):
+    - ImageSlideshow/Core (= 1.8.1)
+  - ImageSlideshow/Core (1.8.1)
   - iOSDropDown (0.3.4)
   - SearchTextField (1.2.4)
   - SVProgressHUD (2.2.5)
@@ -9,6 +12,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - DatePickerDialog
+  - ImageSlideshow (~> 1.8.1)
   - iOSDropDown
   - SearchTextField
   - SVProgressHUD
@@ -18,6 +22,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - DatePickerDialog
+    - ImageSlideshow
     - iOSDropDown
     - SearchTextField
     - SVProgressHUD
@@ -26,11 +31,12 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   DatePickerDialog: 03dbb8350bfa80302ab2a8c83cee1fec70184444
+  ImageSlideshow: 634865d7d4e96f21e3830a31b51bde768cc94cea
   iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
   SearchTextField: 40dc3cc57def5a211f263cac263622c163bbc25a
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 8bab677f6cff35d2b1326aab26a5fddc315f5b9f
+PODFILE CHECKSUM: 915e0a092831603ef1769b01ddba9fe71485aa0d
 
 COCOAPODS: 1.8.4
