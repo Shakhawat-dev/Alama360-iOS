@@ -27,15 +27,17 @@ class BookingViewController: UIViewController {
         // ADDING array data to table view
         addProductToDataSource(productCount: 25, product: "Chalets")
         addProductToDataSource(productCount: 20, product: "Hotels")
-        
+        addProductToDataSource(productCount: 20, product: "something")
+//
         tableView.delegate = self
         tableView.dataSource = self
-        
+//
         currentDataSource = originalDataSource
-
+//
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
-//        searchController.obscuresBackgroundDuringPresentation = false
+        // For search view focus
+        searchController.obscuresBackgroundDuringPresentation = false
         searchContainerView.addSubview(searchController.searchBar)
         searchController.searchBar.delegate = self
         
@@ -89,7 +91,11 @@ class BookingViewController: UIViewController {
 
 extension BookingViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        <#code#>
+        
+        if let searchText = searchController.searchBar.text {
+            filteringCurrentDataSource(searchTerm: searchText)
+        }
+        
     }
 
 }
@@ -97,11 +103,22 @@ extension BookingViewController: UISearchResultsUpdating {
 extension BookingViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        <#code#>
+        
+        searchController.isActive = false
+        
+        if let searchText = searchBar.text {
+            filteringCurrentDataSource(searchTerm: searchText)
+        }
+        
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        <#code#>
+        
+        searchController.isActive = false
+        restoreCurrentDataSource()
+        if let searchText = searchBar.text, !searchText.isEmpty {
+            restoreCurrentDataSource()
+        }
     }
     
 }
@@ -112,11 +129,11 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
         
         let alertController = UIAlertController(title: "Selection", message: "Selected: \(currentDataSource[indexPath.row])", preferredStyle: .alert)
         
+        searchController.isActive = false
+        
         let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
-        
-        //TODO: Start from here
         
     }
     
