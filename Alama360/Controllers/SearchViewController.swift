@@ -57,107 +57,42 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        categoryTableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
-        
         loadProperties()
         loadCategories()
         loadPropertyTitle()
-//        datePickerTapped()
         getDatePicker()
         
-        //
-        //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SearchViewController.viewTapped(gestureRecognizer:)))
-        
-        //        view.addGestureRecognizer(tapGesture)
-        
-        //        startDateField.inputView = datePicker
+     startDateField.inputView = datePicker
     }
     
     func getDatePicker() {
         
-        startDateField.addTarget(self, action: #selector(myTargetFunction), for: .touchDown)
+        datePicker = UIDatePicker()
+        datePicker?.locale = NSLocale.init(localeIdentifier: "ar") as Locale
         
+        datePicker?.datePickerMode = .date
+        datePicker?.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
         
-        //        datePicker = UIDatePicker()
-        //                datePicker?.locale = NSLocale.init(localeIdentifier: "ar") as Locale
-        //
-        //                datePicker?.datePickerMode = .date
-        //                datePicker?.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
-        //        //
-        //        //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SearchViewController.viewTapped(gestureRecognizer:)))
-        //
-        //        //        view.addGestureRecognizer(tapGesture)
-        //
-        //                startDateField.inputView = datePicker
-        
-        
-        //    @objc func viewTapped (gestureRecognizer: UITapGestureRecognizer) {
-        //        view.endEditing(true)
-        //    }
-        //
+        startDateField.inputView = datePicker
+
         
     }
     
-    //    new
-    @objc func myTargetFunction(textField: UITextField) {
-        print("myTargetFunction")
-//
-//            DatePickerDialog().show("DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date) {
-//                (date) -> Void in
-//                if let dt = date {
-//                    let formatter = DateFormatter()
-//                    formatter.dateFormat = "MM/dd/yyyy"
-//                    self.startDateField.text = formatter.string(from: dt)
-//                }
-//            }
+    @objc func dateChanged(datePicker: UIDatePicker) {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        startDateField.text = dateFormatter.string(from: datePicker.date)
+        view.endEditing(true)
         
     }
-    
-    
-    //    @objc func viewTapped (gestureRecognizer: UITapGestureRecognizer) {
-    //        view.endEditing(true)
-    //    }
-    //
-//    @objc func dateChanged(datePicker: UIDatePicker) {
-//
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "MM/dd/yyyy"
-//        startDateField.text = dateFormatter.string(from: datePicker.date)
-//        view.endEditing(true)
-//
-//    }
     
     @IBAction func checkBtnPressed(_ sender: UIButton) {
-//        func datePickerTapped() {
-//            DatePickerDialog().show( "DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date) {
-//                (date) -> Void in
-//                if let dt = date {
-//                            let formatter = DateFormatter()
-//                            formatter.dateFormat = "MM/dd/yyyy"
-//                            self.startDateField.text = formatter.string(from: dt)
-//                        }
-//            }
-//        }
         
-//        DatePickerDialog().show("DatePickerDialog", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date) { (date) in
-//            if let dt = date {
-//                 let formatter = DateFormatter()
-//                  formatter.dateFormat = "dd.MM.yyyy" // change format as per your needs
-//                  self.startDateField.text = formatter.string(from:dt)
-//            }
-//        }
     }
     
-    @IBAction func categoryBtnPressed(_ sender: UIButton) {
-        
-        //        arr_col1 = ["",""]
-        //        addTransparentView(frames: categoryDropDownBtn.frame)
-        
-    }
     
     @IBAction func startDateClicked(_ sender: Any) {
-        
-        
         
     }
     
@@ -200,7 +135,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
             }
             
         }
-  
+        
     }
     
     // Bottom Property list
@@ -322,23 +257,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
                 }
                 
                 self.categoryDropDown.optionArray = self.arr_col1
-                //
-                //                self.categoryDropDown.didSelect{(selectedText , index ,id) in
-                //                    self.valueLabel.text = "Selected String: \(selectedText) \n index: \(index)"
-                //
-                //
-                //                }
-                
-                
-                // Need to call table view here...
-                //                self.categoryTableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
-                //                self.categoryTableView.delegate = self
-                //                self.categoryTableView.dataSource = self
                 
                 print(self.arr_col1)
                 print(self.arr_col1.count)
-                
-                
                 
             }
             
@@ -347,73 +268,11 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         
     }
     
-    @IBAction func datepickerclicked(_ sender: UITextField) {
-    }
     
     
     
-    //    // Transparent effect if button clicked
-    //    func addTransparentView(frames: CGRect) {
-    //        let window = UIApplication.shared.keyWindow
-    //        transparentVIew.frame = window?.frame ?? self.view.frame
-    //        self.view.addSubview(transparentVIew)
-    //
-    //        categoryTableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
-    //        self.view.addSubview(categoryTableView)
-    //
-    //        categoryTableView.layer.cornerRadius = 5
-    //
-    //        transparentVIew.backgroundColor = UIColor.black.withAlphaComponent(0.9)
-    //        categoryTableView.reloadData()
-    //
-    //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(removeTransparentView))
-    //        transparentVIew.addGestureRecognizer(tapGesture)
-    //
-    //        transparentVIew.alpha = 0
-    //
-    //        UIView.animate(withDuration: 0.4, delay: 0.0, options: .curveEaseInOut, animations: {
-    //            self.transparentVIew.alpha = 0.5
-    //            self.categoryTableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height + 5, width: frames.width, height: CGFloat(self.dataSource.count * 80))
-    //        }, completion: nil)
-    //    }
-    //
-    //    @objc func removeTransparentView() {
-    //        let frames = categoryDropDownBtn.frame
-    //
-    //        UIView.animate(withDuration: 0.4, delay: 0.0, options: .curveEaseInOut, animations: {
-    //            self.transparentVIew.alpha = 0
-    //            self.categoryTableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
-    //        }, completion: nil)
-    //    }
-    
-    
-    // AUto Complete
 }
 
-// The parent view controller
-//extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return arr_col1.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-//        cell.textLabel?.text = arr_col1[indexPath.row]
-//
-//        return cell
-//
-//    }
-//
-//    // for row height
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 50
-//    }
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        categoryDropDownBtn.setTitle(arr_col1[indexPath.row], for: .normal)
-//        removeTransparentView()
-//    }
-//
-//}
+
 
 

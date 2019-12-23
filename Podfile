@@ -15,6 +15,7 @@ target 'Alama360' do
   pod 'DatePickerDialog'
   #pod 'DatePicker'
   pod 'ImageSlideshow', '~> 1.8.1'
+  pod "ImageSlideshow/Alamofire"
 
 
 end
