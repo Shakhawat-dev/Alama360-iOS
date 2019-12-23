@@ -183,7 +183,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     // Getting image form Json URL
     func getImage(from string: String) -> UIImage? {
         //2. Get valid URL
-        guard let url = URL(string: string)
+
+        guard let url = URL(string: string.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+            
             else {
                 print("Unable to create URL")
                 return nil

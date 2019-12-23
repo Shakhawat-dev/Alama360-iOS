@@ -70,14 +70,14 @@ class BookingViewController: UIViewController {
         super.viewDidLoad()
         
         // ADDING array data to table view
-//        addProductToDataSource(productCount: 25, product: "Chalets")
-//        addProductToDataSource(productCount: 20, product: "Hotels")
-//        addProductToDataSource(productCount: 20, product: "something")
+        //        addProductToDataSource(productCount: 25, product: "Chalets")
+        //        addProductToDataSource(productCount: 20, product: "Hotels")
+        //        addProductToDataSource(productCount: 20, product: "something")
         //
         
         
-//        tableView.delegate = self
-//        tableView.dataSource = self
+        //        tableView.delegate = self
+        //        tableView.dataSource = self
         //
         currentDataSource = originalDataSource
         //
@@ -112,11 +112,11 @@ class BookingViewController: UIViewController {
                 
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult!["data"]
-//                let photoArray = resutArray["photos"]
+                //                let photoArray = resutArray["photos"]
                 
                 print(resultArray as Any)
                 
-//                print(photoArray as Any)
+                //                print(photoArray as Any)
                 
                 self.arr_thumbnail.removeAll()
                 self.arr_id.removeAll()
@@ -197,7 +197,7 @@ class BookingViewController: UIViewController {
                     self.arr_districtname.append(districtname)
                     
                     self.arr_picture_child.removeAll()
-
+                    
                     
                     for j in  i["photos"].arrayValue {
                         // Object, array index, object
@@ -215,50 +215,50 @@ class BookingViewController: UIViewController {
                         // Object, array index, object
                         let id: String? = j["id"].string
                         self.arr_pd_id.append(id ?? "")
-
+                        
                         let col1: String? = j["col1"].string
                         self.arr_pd_col1.append(col1 ?? "")
-
+                        
                         let icon: String? = j["icon"].string
                         self.arr_pd_icone.append(icon ?? "")
-
+                        
                     }
                     
-//                    self.addProductToDataSource(title: title, id: id, images: self.arr_picture_child)
-                   
-
+                    //                    self.addProductToDataSource(title: title, id: id, images: self.arr_picture_child)
                     
-//                    let photos: String! = i["photos"][1]["picture"].string
-//                    print(photos as Any)
                     
-//                    self.arr_picture.append(photos)
                     
-//                    self.tableView.reloadData()
-//
-//                    self.tableView.delegate = self
-//                    self.tableView.dataSource = self
+                    //                    let photos: String! = i["photos"][1]["picture"].string
+                    //                    print(photos as Any)
+                    
+                    //                    self.arr_picture.append(photos)
+                    
+                    //                    self.tableView.reloadData()
+                    //
+                    //                    self.tableView.delegate = self
+                    //                    self.tableView.dataSource = self
                     
                 }
-//                print("\n picutures are: \(self.arr_picture_child)")
-//
+                //                print("\n picutures are: \(self.arr_picture_child)")
+                //
                 self.tableView.delegate = self
                 self.tableView.dataSource = self
                 
                 self.tableView.reloadData()
-//
-//                print("user id: \(self.arr_districtname)")
-//                print("Total id: \(self.arr_districtname.count)")
-//                print("Pictures: \(self.arr_picture)")
-//                print("Total Pictures: \(self.arr_picture.count)")
-//
+                //
+                //                print("user id: \(self.arr_districtname)")
+                //                print("Total id: \(self.arr_districtname.count)")
+                //                print("Pictures: \(self.arr_picture)")
+                //                print("Total Pictures: \(self.arr_picture.count)")
+                //
                 for (picture, id) in self.id_picture {
                     print("ID \(id) and Picture is \(picture)")
                 }
-//
+                //
                 
-//                self.addProductToDataSource(productCount: 25, product: "Chalets")
-//                self.addProductToDataSource(productCount: 20, product: "Hotels")
-//                self.addProductToDataSource(productCount: 20, product: "something")
+                //                self.addProductToDataSource(productCount: 25, product: "Chalets")
+                //                self.addProductToDataSource(productCount: 20, product: "Hotels")
+                //                self.addProductToDataSource(productCount: 20, product: "something")
                 
             }
             
@@ -268,27 +268,27 @@ class BookingViewController: UIViewController {
     
     // Image slideshow for row
     func imageSlideShow() {
-
-                propertySlideShow.setImageInputs([
-                    ImageSource(image: UIImage(named: "alama_logo")!),
-                    ImageSource(image: UIImage(named: "alama_logo")!),
-    //          AlamofireSource(urlString: "https://images.unsplash.com/photo-1432679963831-2dab49187847?w=1080"),
-              
-            ])
+        
+        propertySlideShow.setImageInputs([
+            ImageSource(image: UIImage(named: "alama_logo")!),
+            ImageSource(image: UIImage(named: "alama_logo")!),
+            //          AlamofireSource(urlString: "https://images.unsplash.com/photo-1432679963831-2dab49187847?w=1080"),
             
-        }
+        ])
+        
+    }
     
     // Recieving and Showing data
     func addProductToDataSource(title: String, id: String, images: [String]) {
         
-//        for index in 1...productCount {
-//
-//            originalDataSource.append("\(product) #\(index)")
-//
-//        }
-//        arr_title.removeAll()
-//        arr_id.removeAll()
-//        arr_picture_child.removeAll()
+        //        for index in 1...productCount {
+        //
+        //            originalDataSource.append("\(product) #\(index)")
+        //
+        //        }
+        //        arr_title.removeAll()
+        //        arr_id.removeAll()
+        //        arr_picture_child.removeAll()
         
         
         arr_title.append(title)
@@ -297,10 +297,10 @@ class BookingViewController: UIViewController {
         
         print("\(arr_title)  / \(arr_id) /  \(arr_picture_child)")
         
-//        tableView.delegate = self
-//        tableView.dataSource = self
-//
-//        self.tableView.reloadData()
+        //        tableView.delegate = self
+        //        tableView.dataSource = self
+        //
+        //        self.tableView.reloadData()
         
     }
     
@@ -399,34 +399,18 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
         for(photo, id) in id_picture {
             
             if id == arr_id[indexPath.row] {
-                if(id != "156"){
-                   // let strurl="https://alama360.com/lara/public/properties/" + id + "/photos/small/" + photo
-                    //let url = encodeUrl(from:strurl)
-//                    let strEncoded = self.escape(string: "https://alama360.com/lara/public/properties/" + id + "/photos/small/" + photo)
-                    cell.propertyRowSlideShow.setImageInputs([(AlamofireSource(urlString: "https://alama360.com/lara/public/properties/" + id + "/photos/small/" + photo)!)])
-//                    cell.propertyRowSlideShow.setImageInputs([])
+                
+                // Using .addingPercentageEncoding(withAllowedCharacters: .urlQueryAllowed) for unwanted spaces in urls
+                let url = "https://alama360.com/lara/public/properties/\(id)/photos/small/\(photo)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
 
-               print("https://alama360.com/lara/public/properties/" + "\(id )" + "/photos/small/" + "\(photo)")
-                }
+                cell.propertyRowSlideShow.setImageInputs([AlamofireSource(urlString: url)!])
+                
+                print("https://alama360.com/lara/public/properties/" + "\(id )" + "/photos/small/" + "\(photo)")
+                
             }
             
-            // [AlamofireSource(urlString: "https://alama360.com/lara/public/properties/" + id + "/photos/small/" + photo)!]
         }
         
-//        for i in 0...4 {
-//
-//        }
-        
-        
-        
-        
-//        cell.propertyRowSlideShow.setImageInputs([
-//                        ImageSource(image: UIImage(named: "alama_logo")!),
-//                        ImageSource(image: UIImage(named: "alama_logo")!),
-//        //          AlamofireSource(urlString: "https://images.unsplash.com/photo-1432679963831-2dab49187847?w=1080"),
-//
-//                ])
-    
         cell.rowTitle.text = arr_title[indexPath.row]
         
         if arr_districtname[indexPath.row] != "" {
@@ -438,7 +422,7 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
         if arr_dayprice[indexPath.row] != "" {
             cell.rowDayPrice.text = arr_dayprice[indexPath.row]
         }
-         
+        
         return cell
     }
     
