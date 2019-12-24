@@ -15,9 +15,20 @@ class BookingTableViewCell: UITableViewCell {
     @IBOutlet weak var rowCityName: UILabel!
     @IBOutlet weak var rowDayPrice: UILabel!
     
+    @IBOutlet weak var featureImageOne: UIImageView!
+    @IBOutlet weak var featureImageTwo: UIImageView!
+    @IBOutlet weak var featureImageThree: UIImageView!
+    
+    @IBOutlet weak var featureLabelOne: UILabel!
+    @IBOutlet weak var featureLabelTwo: UILabel!
+    @IBOutlet weak var featureLabelThree: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        propertyRowSlideShow.contentScaleMode = .scaleAspectFill
+        propertyRowSlideShow.slideshowInterval = 0.05
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

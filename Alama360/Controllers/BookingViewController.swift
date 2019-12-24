@@ -64,7 +64,10 @@ class BookingViewController: UIViewController {
     
     private var id_picture = [String: String]()
     
+    private var f_col = [String]()
     
+    var property_list = [BookingModel]()
+    var arrrFeatures = [FeatureModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,86 +148,94 @@ class BookingViewController: UIViewController {
                 // Initiatoing resultArray into specific array
                 for i in resultArray.arrayValue {
                     
-                    let id = i["id"].stringValue
-                    self.arr_id.append(id)
+                    let newProperty = BookingModel(json: i)
                     
-                    let property_type = i["property_type"].stringValue
-                    self.arr_property_type.append(property_type)
+                    self.property_list.append(newProperty)
                     
-                    let latitude = i["latitude"].stringValue
-                    self.arr_latitude.append(latitude)
+                    //                    let id = i["id"].stringValue
+                    ////                    self.arr_id.append(id)
+                    //
+                    //                    let property_type = i["property_type"].stringValue
+                    //                    self.arr_property_type.append(property_type)
+                    //
+                    //                    let latitude = i["latitude"].stringValue
+                    //                    self.arr_latitude.append(latitude)
+                    //
+                    //                    let longitude = i["longitude"].stringValue
+                    //                    self.arr_longitude.append(longitude)
+                    //
+                    //                    let search_keywords = i["search_keywords"].stringValue
+                    //                    self.arr_search_keywords.append(search_keywords)
+                    //
+                    //                    let updated_at = i["updated_at"].stringValue
+                    //                    self.arr_updated_at.append(updated_at)
+                    //
+                    //                    let no_roomcaption = i["no_roomcaption"].stringValue
+                    //                    self.arr_no_roomcaption.append(no_roomcaption)
+                    //
+                    //                    let no_bathroomcaption = i["no_bathroomcaption"].stringValue
+                    //                    self.arr_no_bathroomcaption.append(no_bathroomcaption)
+                    //
+                    //                    let evalnumber = i["evalnumber"].stringValue
+                    //                    self.arr_evalnumber.append(evalnumber)
+                    //
+                    //                    let favorite_info = i["favorite_info"].stringValue
+                    //                    self.arr_favorite_info.append(favorite_info)
+                    //
+                    //                    let tour = i["tour"].stringValue
+                    //                    self.arr_tour.append(tour)
+                    //
+                    //                    let dayprice = i["dayprice"].stringValue
+                    //                    self.arr_dayprice.append(dayprice)
+                    //
+                    //                    let title = i["title"].stringValue
+                    ////                    self.arr_title.append(title)
+                    //
+                    //                    let short_des = i["short_des"].stringValue
+                    //                    self.arr_short_des.append(short_des)
+                    //
+                    //                    let address = i["address"].stringValue
+                    //                    self.arr_address.append(address)
+                    //
+                    //                    let cityname = i["cityname"].stringValue
+                    //                    self.arr_cityname.append(cityname)
+                    //
+                    //                    let districtname = i["districtname"].stringValue
+                    //                    self.arr_districtname.append(districtname)
+                    //
+                    //                    self.arr_picture_child.removeAll()
+                    //
+                    //
+                    //                    for j in  i["photos"].arrayValue {
+                    //                        // Object, array index, object
+                    //                        let photos: String! = j["picture"].string
+                    //
+                    ////                        self.arr_picture_child.append(photos)
+                    //                        self.id_picture[photos] = id
+                    //
+                    //                    }
+                    //
+                    //                    let newarr = i["property_dailyfeature"].arrayValue
+                    //
+                    //                    print(newarr)
+                    //                    for j in  newarr {
+                    //                        // Object, array index, object
+                    ////                        let id: String? = j["id"].string
+                    ////                        self.arr_pd_id.append(id ?? "")
+                    ////
+                    ////                        let col1: String? = j["col1"].string
+                    ////                        self.arr_pd_col1.append(col1 ?? "")
+                    ////
+                    ////                        let icon: String? = j["icon"].string
+                    ////                        self.arr_pd_icone.append(icon ?? "")
+                    //
+                    //                        self.arrrFeatures.append(FeatureModel(json: j))
+                    //
+                    //                    }
                     
-                    let longitude = i["longitude"].stringValue
-                    self.arr_longitude.append(longitude)
-                    
-                    let search_keywords = i["search_keywords"].stringValue
-                    self.arr_search_keywords.append(search_keywords)
-                    
-                    let updated_at = i["updated_at"].stringValue
-                    self.arr_updated_at.append(updated_at)
-                    
-                    let no_roomcaption = i["no_roomcaption"].stringValue
-                    self.arr_no_roomcaption.append(no_roomcaption)
-                    
-                    let no_bathroomcaption = i["no_bathroomcaption"].stringValue
-                    self.arr_no_bathroomcaption.append(no_bathroomcaption)
-                    
-                    let evalnumber = i["evalnumber"].stringValue
-                    self.arr_evalnumber.append(evalnumber)
-                    
-                    let favorite_info = i["favorite_info"].stringValue
-                    self.arr_favorite_info.append(favorite_info)
-                    
-                    let tour = i["tour"].stringValue
-                    self.arr_tour.append(tour)
-                    
-                    let dayprice = i["dayprice"].stringValue
-                    self.arr_dayprice.append(dayprice)
-                    
-                    let title = i["title"].stringValue
-                    self.arr_title.append(title)
-                    
-                    let short_des = i["short_des"].stringValue
-                    self.arr_short_des.append(short_des)
-                    
-                    let address = i["address"].stringValue
-                    self.arr_address.append(address)
-                    
-                    let cityname = i["cityname"].stringValue
-                    self.arr_cityname.append(cityname)
-                    
-                    let districtname = i["districtname"].stringValue
-                    self.arr_districtname.append(districtname)
-                    
-                    self.arr_picture_child.removeAll()
-                    
-                    
-                    for j in  i["photos"].arrayValue {
-                        // Object, array index, object
-                        let photos: String! = j["picture"].string
-                        
-                        self.arr_picture_child.append(photos)
-                        self.id_picture[photos] = id
-                        
-                    }
-                    
-                    let newarr = i["property_dailyfeature"].arrayValue
-                    
-                    print(newarr)
-                    for j in  newarr {
-                        // Object, array index, object
-                        let id: String? = j["id"].string
-                        self.arr_pd_id.append(id ?? "")
-                        
-                        let col1: String? = j["col1"].string
-                        self.arr_pd_col1.append(col1 ?? "")
-                        
-                        let icon: String? = j["icon"].string
-                        self.arr_pd_icone.append(icon ?? "")
-                        
-                    }
-                    
-                    //                    self.addProductToDataSource(title: title, id: id, images: self.arr_picture_child)
+                    //                   print(self.arrrFeatures)
+                    //
+                    //                    self.addProductToDataSource(title: title, id: id, images: self.arr_picture_child, features: self.arr_pd_col1)
                     
                     
                     
@@ -233,18 +244,20 @@ class BookingViewController: UIViewController {
                     
                     //                    self.arr_picture.append(photos)
                     
-                    //                    self.tableView.reloadData()
-                    //
-                    //                    self.tableView.delegate = self
-                    //                    self.tableView.dataSource = self
+                    self.tableView.reloadData()
+                    
+                    self.tableView.delegate = self
+                    self.tableView.dataSource = self
+                    
+                    print(self.property_list)
                     
                 }
                 //                print("\n picutures are: \(self.arr_picture_child)")
                 //
-                self.tableView.delegate = self
-                self.tableView.dataSource = self
-                
-                self.tableView.reloadData()
+                //                self.tableView.delegate = self
+                //                self.tableView.dataSource = self
+                //
+                //                self.tableView.reloadData()
                 //
                 //                print("user id: \(self.arr_districtname)")
                 //                print("Total id: \(self.arr_districtname.count)")
@@ -279,7 +292,7 @@ class BookingViewController: UIViewController {
     }
     
     // Recieving and Showing data
-    func addProductToDataSource(title: String, id: String, images: [String]) {
+    func addProductToDataSource(title: String, id: String, images: [String], features: [String]) {
         
         //        for index in 1...productCount {
         //
@@ -294,8 +307,9 @@ class BookingViewController: UIViewController {
         arr_title.append(title)
         arr_id.append(id)
         arr_picture_child = images
+        f_col = features
         
-        print("\(arr_title)  / \(arr_id) /  \(arr_picture_child)")
+        //        print("\(arr_title)  / \(arr_id) /  \(arr_picture_child)")
         
         //        tableView.delegate = self
         //        tableView.dataSource = self
@@ -332,6 +346,55 @@ class BookingViewController: UIViewController {
     }
     @IBAction func sortBtnClicked(_ sender: UIButton) {
         
+    }
+    
+    
+    // Removing unwanted charecters
+    func substringIcon (text: String) ->String {
+        let  i_text = text
+        var mySubstring: String = ""
+        
+        if i_text != "" {
+            let start = i_text.index(i_text.startIndex, offsetBy: 10)
+            let end = i_text.index(i_text.endIndex, offsetBy: -2)
+            let range = start..<end
+            
+            mySubstring = i_text[range].addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+            
+            print("SUBSTRING is: \(mySubstring)")
+
+        } else {
+            mySubstring = "https://png.icons8.com/metro/30/000000/parking.png"
+        }
+        
+        return mySubstring
+        
+    }
+    
+//     For getting image from url
+    func getImage(from string: String) -> UIImage? {
+        //2. Get valid URL
+
+        guard let url = URL(string: string.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+            
+            else {
+                print("Unable to create URL")
+                return nil
+        }
+        
+        var image: UIImage? = nil
+        do {
+            //3. Get valid data
+            let data = try Data(contentsOf: url, options: [])
+            
+            //4. Make image
+            image = UIImage(data: data)
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+        
+        return image
     }
     
     
@@ -390,40 +453,81 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Use Always current DataSource
-        return arr_title.count
+        return property_list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BookingTableViewCell
         
-        for(photo, id) in id_picture {
+        cell.rowTitle.text = property_list[indexPath.row].title
+        
+        if property_list[indexPath.row].districtname != "" {
             
-            if id == arr_id[indexPath.row] {
+            cell.rowCityName.text = property_list[indexPath.row].cityname! + ", " + property_list[indexPath.row].districtname!
+            
+        } else {
+            
+            cell.rowCityName.text = property_list[indexPath.row].cityname!
+        }
+        
+        if property_list[indexPath.row].dayprice != "" {
+            
+            cell.rowDayPrice.text = property_list[indexPath.row].dayprice!
+            
+        }
+        
+        
+        if let photo_array: [String?] = property_list[indexPath.row].photos?.picture {
+            
+//            for i in photo_array {
                 
-                // Using .addingPercentageEncoding(withAllowedCharacters: .urlQueryAllowed) for unwanted spaces in urls
-                let url = "https://alama360.com/lara/public/properties/\(id)/photos/small/\(photo)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-
-                cell.propertyRowSlideShow.setImageInputs([AlamofireSource(urlString: url)!])
+//                let url = "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(i!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
                 
-                print("https://alama360.com/lara/public/properties/" + "\(id )" + "/photos/small/" + "\(photo)")
-                
+                cell.propertyRowSlideShow.setImageInputs([
+                    AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[0]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
+                    AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[1]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
+                    AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[2]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
+                    AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[3]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
+                    AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[4]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+                ])
+//                print("Image Url is: \(url)")
+//            }
+            
+        }
+        
+        if let feature_array: [String] = property_list[indexPath.row].property_dailyfeature?.col1_array {
+            
+            print("individual : \(feature_array)")
+            
+            if feature_array.count == 3 {
+                cell.featureLabelOne.text = feature_array[0]
+                cell.featureLabelTwo.text = feature_array[1]
+                cell.featureLabelThree.text = feature_array[2]
             }
             
         }
         
-        cell.rowTitle.text = arr_title[indexPath.row]
-        
-        if arr_districtname[indexPath.row] != "" {
-            cell.rowCityName.text = arr_cityname[indexPath.row] + ", " + arr_districtname[indexPath.row]
-        } else {
-            cell.rowCityName.text = arr_cityname[indexPath.row]
+        if let icons_array: [String] = property_list[indexPath.row].property_dailyfeature?.icon_array {
+            
+            print("individual : \(icons_array)")
+            
+            if icons_array.count == 3 {
+                
+                let icon1  = substringIcon(text: icons_array[0])
+                let icon2  = substringIcon(text: icons_array[1])
+                let icon3  = substringIcon(text: icons_array[2])
+            
+                cell.featureImageOne.image = getImage(from: icon1)
+                cell.featureImageTwo.image = getImage(from: icon2)
+                cell.featureImageThree.image = getImage(from: icon3)
+
+            }
+  
         }
-        
-        if arr_dayprice[indexPath.row] != "" {
-            cell.rowDayPrice.text = arr_dayprice[indexPath.row]
-        }
-        
+
         return cell
     }
     
 }
+
+
