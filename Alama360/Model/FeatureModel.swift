@@ -45,7 +45,7 @@ struct FeatureModel {
         
         
         
-        print("ekhane col1 paise \(col1_array)")
+//        print("ekhane col1 paise \(col1_array)")
     }
     
 }

@@ -57,7 +57,7 @@ struct BookingModel {
         
         if let value = json?["photos"].arrayValue {
             
-            print("Eta photo response: \(value)")
+//            print("Eta photo response: \(value)")
 //            data[0].photos[0].picture
             let new = Photos(json: JSON(value))
             self.photos = new
@@ -89,10 +89,10 @@ struct Photos {
             
         }
         
-        print("Picture array: \(picture)")
+//        print("Picture array: \(picture)")
         
         
         
-        print("ekhane pic paise \(picture)")
+//        print("ekhane pic paise \(picture)")
     }
 }

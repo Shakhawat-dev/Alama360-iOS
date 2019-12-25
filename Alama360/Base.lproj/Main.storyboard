@@ -225,7 +225,7 @@
                                                 <rect key="frame" x="8" y="8" width="398" height="392"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_container" translatesAutoresizingMaskIntoConstraints="NO" id="Kua-Np-jRf">
-                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="392"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="392.00000000000011"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vg-0A-QgZ">
                                                         <rect key="frame" x="14" y="14" width="370" height="24"/>
@@ -325,7 +325,7 @@
                                                 <rect key="frame" x="8" y="401" width="398" height="507"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_your_chalet" translatesAutoresizingMaskIntoConstraints="NO" id="aOb-pJ-haY">
-                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="168"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="84"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="house" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zCt-OZ-CnI">
                                                         <rect key="frame" x="34" y="18.666666666666515" width="35" height="32"/>
@@ -763,7 +763,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ve-Is-1yH">
-                                                            <rect key="frame" x="8" y="93" width="362" height="21"/>
+                                                            <rect key="frame" x="34" y="93" width="336" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -775,8 +775,9 @@
                                                                 <constraint firstAttribute="width" constant="94" id="AXu-lY-vfx"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfM-5k-AIA">
-                                                            <rect key="frame" x="294" y="29" width="94" height="18"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfM-5k-AIA">
+                                                            <rect key="frame" x="294" y="29" width="94" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -784,14 +785,12 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="bfM-5k-AIA" secondAttribute="trailing" constant="8" id="04n-Yp-Tjm"/>
                                                         <constraint firstItem="5ve-Is-1yH" firstAttribute="top" secondItem="hwb-jb-YuZ" secondAttribute="bottom" constant="2" id="1aV-JY-TAp"/>
-                                                        <constraint firstItem="5ve-Is-1yH" firstAttribute="leading" secondItem="1Hu-gx-m2k" secondAttribute="leading" constant="8" id="1zs-IK-yvT"/>
+                                                        <constraint firstItem="5ve-Is-1yH" firstAttribute="leading" secondItem="1Hu-gx-m2k" secondAttribute="leading" constant="34" id="1zs-IK-yvT"/>
                                                         <constraint firstItem="CnJ-iI-Ei0" firstAttribute="leading" secondItem="KWL-OF-ujn" secondAttribute="trailing" constant="44" id="4qh-FF-RvB"/>
                                                         <constraint firstAttribute="trailing" secondItem="urk-zv-6Oa" secondAttribute="trailing" constant="146" id="4wD-ac-r5K"/>
                                                         <constraint firstItem="oN9-tj-fFU" firstAttribute="leading" secondItem="1Hu-gx-m2k" secondAttribute="leading" constant="8" id="D8K-2Y-wGA"/>
                                                         <constraint firstItem="5ve-Is-1yH" firstAttribute="top" secondItem="CnJ-iI-Ei0" secondAttribute="bottom" constant="17" id="Glm-wr-Tpu"/>
-                                                        <constraint firstItem="CnJ-iI-Ei0" firstAttribute="top" secondItem="bfM-5k-AIA" secondAttribute="bottom" constant="2" id="Hqi-bo-wzY"/>
                                                         <constraint firstItem="Ap8-5d-BlR" firstAttribute="leading" secondItem="1Hu-gx-m2k" secondAttribute="leading" constant="8" id="Lq5-hh-BSC"/>
                                                         <constraint firstItem="VSq-Lt-7vb" firstAttribute="top" secondItem="1Hu-gx-m2k" secondAttribute="top" constant="4" id="Mma-q8-2d0"/>
                                                         <constraint firstItem="KWL-OF-ujn" firstAttribute="leading" secondItem="Txm-sa-7rh" secondAttribute="trailing" constant="8" id="NHw-Ao-dgj"/>
@@ -802,11 +801,9 @@
                                                         <constraint firstItem="Txm-sa-7rh" firstAttribute="leading" secondItem="1Hu-gx-m2k" secondAttribute="leading" constant="8" id="fR0-ux-H3c"/>
                                                         <constraint firstItem="urk-zv-6Oa" firstAttribute="leading" secondItem="oN9-tj-fFU" secondAttribute="trailing" constant="8" id="gnm-rR-jfo"/>
                                                         <constraint firstItem="KWL-OF-ujn" firstAttribute="top" secondItem="urk-zv-6Oa" secondAttribute="bottom" constant="6" id="h9L-HS-sYM"/>
-                                                        <constraint firstItem="bfM-5k-AIA" firstAttribute="top" secondItem="VSq-Lt-7vb" secondAttribute="bottom" constant="4" id="hB4-eJ-JwO"/>
                                                         <constraint firstAttribute="trailing" secondItem="VSq-Lt-7vb" secondAttribute="trailing" constant="8" id="hF2-Z7-9CC"/>
                                                         <constraint firstItem="Txm-sa-7rh" firstAttribute="top" secondItem="oN9-tj-fFU" secondAttribute="bottom" constant="2" id="hOb-2e-xkW"/>
                                                         <constraint firstItem="hwb-jb-YuZ" firstAttribute="leading" secondItem="Ap8-5d-BlR" secondAttribute="trailing" constant="8" id="iVs-yv-6iu"/>
-                                                        <constraint firstItem="bfM-5k-AIA" firstAttribute="leading" secondItem="urk-zv-6Oa" secondAttribute="trailing" constant="44" id="oQ2-WJ-Zhn"/>
                                                         <constraint firstItem="VSq-Lt-7vb" firstAttribute="leading" secondItem="1Hu-gx-m2k" secondAttribute="leading" constant="8" id="oy7-DY-K5T"/>
                                                         <constraint firstAttribute="trailing" secondItem="5ve-Is-1yH" secondAttribute="trailing" constant="26" id="q4y-q2-4JH"/>
                                                         <constraint firstAttribute="trailing" secondItem="hwb-jb-YuZ" secondAttribute="trailing" constant="146" id="wmR-ad-pFo"/>
