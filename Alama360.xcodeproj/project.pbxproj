@@ -24,6 +24,8 @@
 		4B7870C223ADF5A000D360AC /* BookingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7870C123ADF5A000D360AC /* BookingTableViewCell.swift */; };
 		4B7870C523B0D9C100D360AC /* FeatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7870C423B0D9C100D360AC /* FeatureModel.swift */; };
 		4B7870C723B0F7D400D360AC /* BookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7870C623B0F7D400D360AC /* BookingModel.swift */; };
+		4B7870C923B47D9100D360AC /* PropertyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7870C823B47D9000D360AC /* PropertyDetailsViewController.swift */; };
+		4B9012BE23B768B100E8C59D /* StaticUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9012BD23B768B100E8C59D /* StaticUrls.swift */; };
 		4BABFAB723A8BCE400F34EA4 /* addPropertyTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BABFAB623A8BCE400F34EA4 /* addPropertyTermsViewController.swift */; };
 		4BABFAB923A900D900F34EA4 /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BABFAB823A900D900F34EA4 /* iOSDropDown.framework */; };
 		4BABFABB23AA647900F34EA4 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BABFABA23AA647900F34EA4 /* BookingViewController.swift */; };
@@ -53,6 +55,8 @@
 		4B7870C123ADF5A000D360AC /* BookingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTableViewCell.swift; sourceTree = "<group>"; };
 		4B7870C423B0D9C100D360AC /* FeatureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureModel.swift; sourceTree = "<group>"; };
 		4B7870C623B0F7D400D360AC /* BookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingModel.swift; sourceTree = "<group>"; };
+		4B7870C823B47D9000D360AC /* PropertyDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDetailsViewController.swift; sourceTree = "<group>"; };
+		4B9012BD23B768B100E8C59D /* StaticUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticUrls.swift; sourceTree = "<group>"; };
 		4BABFAB623A8BCE400F34EA4 /* addPropertyTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addPropertyTermsViewController.swift; sourceTree = "<group>"; };
 		4BABFAB823A900D900F34EA4 /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BABFABA23AA647900F34EA4 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 		4B04E431239B788000D02BC4 /* Alama360 */ = {
 			isa = PBXGroup;
 			children = (
+				4B9012BA23B75C2800E8C59D /* Utils */,
 				4B7870C323AF7B4C00D360AC /* Model */,
 				4B6DFE1F239E29A900543E3F /* Controllers */,
 				4B04E432239B788000D02BC4 /* AppDelegate.swift */,
@@ -123,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				4B04E436239B788000D02BC4 /* MainViewController.swift */,
+				4B7870C823B47D9000D360AC /* PropertyDetailsViewController.swift */,
 				4BABFAB623A8BCE400F34EA4 /* addPropertyTermsViewController.swift */,
 				4B6DFE1B239E295100543E3F /* MoreViewController.swift */,
 				4B6DFE17239E278600543E3F /* ReservationsViewController.swift */,
@@ -142,6 +148,14 @@
 				4B7870C623B0F7D400D360AC /* BookingModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4B9012BA23B75C2800E8C59D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4B9012BD23B768B100E8C59D /* StaticUrls.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		68D18603BAA83C38C43C5D71 /* Pods */ = {
@@ -271,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BABFAB723A8BCE400F34EA4 /* addPropertyTermsViewController.swift in Sources */,
+				4B9012BE23B768B100E8C59D /* StaticUrls.swift in Sources */,
 				4B6DFE1C239E295100543E3F /* MoreViewController.swift in Sources */,
 				4B7870C223ADF5A000D360AC /* BookingTableViewCell.swift in Sources */,
 				4B04E437239B788000D02BC4 /* MainViewController.swift in Sources */,
@@ -278,6 +293,7 @@
 				4B6DFE1E239E299900543E3F /* SearchViewController.swift in Sources */,
 				4B04E457239B843F00D02BC4 /* LocalizationSystem.swift in Sources */,
 				4B1CE33023A24A7800C0FC01 /* MainCell.swift in Sources */,
+				4B7870C923B47D9100D360AC /* PropertyDetailsViewController.swift in Sources */,
 				4B04E433239B788000D02BC4 /* AppDelegate.swift in Sources */,
 				4B6DFE21239E84AA00543E3F /* ContactViewController.swift in Sources */,
 				4B6DFE18239E278600543E3F /* ReservationsViewController.swift in Sources */,
@@ -443,12 +459,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2UR8A6SD4J;
 				INFOPLIST_FILE = Alama360/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.alama360.web.Alama360;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alama360.web;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -461,12 +478,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2UR8A6SD4J;
 				INFOPLIST_FILE = Alama360/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.alama360.web.Alama360;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alama360.web;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

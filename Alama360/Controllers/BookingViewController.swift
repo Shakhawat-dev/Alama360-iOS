@@ -64,7 +64,7 @@ class BookingViewController: UIViewController {
         
         let params : [String : String] = ["start" : "2019-12-19", "viewType" : "mapview", "lang" : lan, "thumbcat" : thumcate, "address" : address]
         
-        let bUrl = "https://alama360.com/api/android/propertylist?"
+        let bUrl = StaticUrls.BASE_URL_FINAL + "android/propertylist?"
         
         // URL check
         print("Response bUrl is: \(bUrl)" + "\(params)")
@@ -231,19 +231,21 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let alertController = UIAlertController(title: "Selection", message: "Selected: \(currentDataSource[indexPath.row])", preferredStyle: .alert)
+        // let alertController = UIAlertController(title: "Selection", message: "Selected: \(currentDataSource[indexPath.row])", preferredStyle: .alert)
         
-        searchController.isActive = false
+        // searchController.isActive = false
         
-        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
+        // let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        // alertController.addAction(okAction)
+        // present(alertController, animated: true, completion: nil)
         
     }
+    
     func escape(string: String) -> String {
         let allowedCharacters = string.addingPercentEncoding(withAllowedCharacters: CharacterSet(charactersIn: ":=\"#%/<>?@\\^`{|}").inverted) ?? ""
         return allowedCharacters
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Use Always current DataSource
         return property_list.count
@@ -252,7 +254,16 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BookingTableViewCell
         
+//        cell.contentView.layer.cornerRadius = 12
+    
+        
         cell.rowTitle.text = property_list[indexPath.row].title
+        
+        if property_list[indexPath.row].id != "" {
+            cell.propertyId.text = "SA0" + property_list[indexPath.row].id!
+        } else {
+            cell.propertyId.text = "SA0"
+        }
         
         if property_list[indexPath.row].districtname != "" {
             cell.rowCityName.text = property_list[indexPath.row].cityname! + ", " + property_list[indexPath.row].districtname!
@@ -262,8 +273,11 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
         
         if property_list[indexPath.row].dayprice != "" {
             cell.rowDayPrice.text = property_list[indexPath.row].dayprice!
+        } else {
+            cell.rowDayPrice.text = ""
         }
         
+        // Adding images to slider
         if let photo_array: [String?] = property_list[indexPath.row].photos?.picture {
                 
                 cell.propertyRowSlideShow.setImageInputs([

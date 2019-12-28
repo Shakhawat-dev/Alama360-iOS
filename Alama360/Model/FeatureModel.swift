@@ -25,7 +25,7 @@ struct FeatureModel {
     
     init(json: JSON) {
         
-        print("FEature array is: \(json)")
+        // print("FEature array is: \(json)")
         
         for i in json.arrayValue{
             
