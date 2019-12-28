@@ -15,10 +15,6 @@ struct FeatureModel {
     var col1_array = [String]()
     var icon_array = [String]()
     
-    //    var id: String = ""
-    //    var col1: String = ""
-    //    var icon: String = ""
-    
     init() {
         
     }
@@ -43,22 +39,8 @@ struct FeatureModel {
             
         }
         
-        
-        
-//        print("ekhane col1 paise \(col1_array)")
+        //        print("ekhane col1 paise \(col1_array)")
     }
     
 }
 
-//var picture = [String?]()
-//
-//init(json: JSON) {
-//
-//    for i in json.arrayValue{
-//        var value: String?
-//
-//            value = i["picture"].stringValue
-//
-//        picture.append(value)
-//
-//    }

@@ -75,24 +75,4 @@ struct BookingModel {
     
 }
 
-struct Photos {
-    var picture = [String?]()
-    
-    init(json: JSON) {
-        
-        for i in json.arrayValue{
-            var value: String?
-            
-                value = i["picture"].stringValue
-        
-            picture.append(value)
-            
-        }
-        
-//        print("Picture array: \(picture)")
-        
-        
-        
-//        print("ekhane pic paise \(picture)")
-    }
-}
+
