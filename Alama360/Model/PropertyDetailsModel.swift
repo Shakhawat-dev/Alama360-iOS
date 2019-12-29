@@ -1,21 +1,22 @@
 //
-//  BookingModel.swift
+//  PropertyDetailsModel.swift
 //  Alama360
 //
-//  Created by Alama360 on 26/04/1441 AH.
+//  Created by Alama360 on 02/05/1441 AH.
 //  Copyright © 1441 Alama360. All rights reserved.
 //
 
 import Foundation
 import SwiftyJSON
 
-struct BookingModel {
+struct PropertyDetailsModel {
+    
     var id: String?
-    var property_type: String?
+    var thumbnail: String?
     var latitude: String?
     var longitude: String?
     var search_keywords: String?
-    var thumbnail: String?
+    var updated_at: String?
     var no_roomcaption: String?
     var no_bathroomcaption: String?
     var tour: String?
@@ -57,9 +58,9 @@ struct BookingModel {
         
         if let value = json?["photos"].arrayValue {
             
-//            print("Eta photo response: \(value)")
-//            data[0].photos[0].picture
-            let new = PhotosModel(json: JSON(value))
+            //            print("Eta photo response: \(value)")
+            //            data[0].photos[0].picture
+            let new = Photos(json: JSON(value))
             self.photos = new
             
         }
@@ -70,9 +71,7 @@ struct BookingModel {
             self.property_dailyfeature = new
             
         }
-
+        
     }
     
 }
-
-

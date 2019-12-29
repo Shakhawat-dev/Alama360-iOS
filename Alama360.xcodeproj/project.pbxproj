@@ -26,7 +26,8 @@
 		4B7870C723B0F7D400D360AC /* BookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7870C623B0F7D400D360AC /* BookingModel.swift */; };
 		4B7870C923B47D9100D360AC /* PropertyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7870C823B47D9000D360AC /* PropertyDetailsViewController.swift */; };
 		4B9012BE23B768B100E8C59D /* StaticUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9012BD23B768B100E8C59D /* StaticUrls.swift */; };
-		4B9012C023B7738100E8C59D /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9012BF23B7738100E8C59D /* Photos.swift */; };
+		4B9012C423B775AC00E8C59D /* PhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9012C323B775AC00E8C59D /* PhotosModel.swift */; };
+		4B93206E23B7A5B5005861DD /* CustomCollectionGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B93206D23B7A5B5005861DD /* CustomCollectionGrid.swift */; };
 		4BABFAB723A8BCE400F34EA4 /* addPropertyTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BABFAB623A8BCE400F34EA4 /* addPropertyTermsViewController.swift */; };
 		4BABFAB923A900D900F34EA4 /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BABFAB823A900D900F34EA4 /* iOSDropDown.framework */; };
 		4BABFABB23AA647900F34EA4 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BABFABA23AA647900F34EA4 /* BookingViewController.swift */; };
@@ -58,7 +59,8 @@
 		4B7870C623B0F7D400D360AC /* BookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingModel.swift; sourceTree = "<group>"; };
 		4B7870C823B47D9000D360AC /* PropertyDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDetailsViewController.swift; sourceTree = "<group>"; };
 		4B9012BD23B768B100E8C59D /* StaticUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticUrls.swift; sourceTree = "<group>"; };
-		4B9012BF23B7738100E8C59D /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		4B9012C323B775AC00E8C59D /* PhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModel.swift; sourceTree = "<group>"; };
+		4B93206D23B7A5B5005861DD /* CustomCollectionGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionGrid.swift; sourceTree = "<group>"; };
 		4BABFAB623A8BCE400F34EA4 /* addPropertyTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addPropertyTermsViewController.swift; sourceTree = "<group>"; };
 		4BABFAB823A900D900F34EA4 /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BABFABA23AA647900F34EA4 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				4B6DFE20239E84AA00543E3F /* ContactViewController.swift */,
 				4BABFABA23AA647900F34EA4 /* BookingViewController.swift */,
 				4B7870C123ADF5A000D360AC /* BookingTableViewCell.swift */,
+				4B93206D23B7A5B5005861DD /* CustomCollectionGrid.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -148,7 +151,7 @@
 			children = (
 				4B7870C423B0D9C100D360AC /* FeatureModel.swift */,
 				4B7870C623B0F7D400D360AC /* BookingModel.swift */,
-				4B9012BF23B7738100E8C59D /* Photos.swift */,
+				4B9012C323B775AC00E8C59D /* PhotosModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -287,12 +290,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B9012C023B7738100E8C59D /* Photos.swift in Sources */,
 				4BABFAB723A8BCE400F34EA4 /* addPropertyTermsViewController.swift in Sources */,
+				4B93206E23B7A5B5005861DD /* CustomCollectionGrid.swift in Sources */,
 				4B9012BE23B768B100E8C59D /* StaticUrls.swift in Sources */,
 				4B6DFE1C239E295100543E3F /* MoreViewController.swift in Sources */,
 				4B7870C223ADF5A000D360AC /* BookingTableViewCell.swift in Sources */,
 				4B04E437239B788000D02BC4 /* MainViewController.swift in Sources */,
+				4B9012C423B775AC00E8C59D /* PhotosModel.swift in Sources */,
 				4B7870C523B0D9C100D360AC /* FeatureModel.swift in Sources */,
 				4B6DFE1E239E299900543E3F /* SearchViewController.swift in Sources */,
 				4B04E457239B843F00D02BC4 /* LocalizationSystem.swift in Sources */,

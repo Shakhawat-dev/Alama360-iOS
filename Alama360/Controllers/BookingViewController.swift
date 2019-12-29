@@ -34,7 +34,7 @@ class BookingViewController: UIViewController {
     var address = ""
     
     // Response Arrays
-
+    
     
     private var f_col = [String]()
     
@@ -43,7 +43,7 @@ class BookingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         currentDataSource = originalDataSource
         //
         searchController = UISearchController(searchResultsController: nil)
@@ -102,11 +102,11 @@ class BookingViewController: UIViewController {
     
     // Recieving and Showing data
     func addProductToDataSource(title: String, id: String, images: [String], features: [String]) {
-
-//        arr_title.append(title)
-//        arr_id.append(id)
-//        arr_picture_child = images
-//        f_col = features
+        
+        //        arr_title.append(title)
+        //        arr_id.append(id)
+        //        arr_picture_child = images
+        //        f_col = features
         
     }
     
@@ -155,7 +155,7 @@ class BookingViewController: UIViewController {
             mySubstring = i_text[range].addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
             
             // print("SUBSTRING is: \(mySubstring)")
-
+            
         } else {
             mySubstring = "https://png.icons8.com/metro/30/000000/parking.png"
         }
@@ -164,7 +164,7 @@ class BookingViewController: UIViewController {
         
     }
     
-//     For getting image from url
+    //     For getting image from url
     func getImage(from string: String) -> UIImage? {
         
         //2. Get valid URL
@@ -254,8 +254,8 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BookingTableViewCell
         
-//        cell.contentView.layer.cornerRadius = 12
-    
+        //        cell.contentView.layer.cornerRadius = 12
+        
         
         cell.rowTitle.text = property_list[indexPath.row].title
         
@@ -279,14 +279,14 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
         
         // Adding images to slider
         if let photo_array: [String?] = property_list[indexPath.row].photos?.picture {
-                
-                cell.propertyRowSlideShow.setImageInputs([
-                    AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[0]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
-                    AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[1]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
-                    AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[2]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
-                    AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[3]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
-                    AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[4]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
-                ])
+            
+            cell.propertyRowSlideShow.setImageInputs([
+                AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[0]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
+                AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[1]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
+                AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[2]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
+                AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[3]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
+                AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[4]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+            ])
             
         }
         
@@ -311,15 +311,15 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
                 let icon1  = substringIcon(text: icons_array[0])
                 let icon2  = substringIcon(text: icons_array[1])
                 let icon3  = substringIcon(text: icons_array[2])
-            
+                
                 cell.featureImageOne.image = getImage(from: icon1)
                 cell.featureImageTwo.image = getImage(from: icon2)
                 cell.featureImageThree.image = getImage(from: icon3)
-
+                
             }
-  
+            
         }
-
+        
         return cell
     }
     
