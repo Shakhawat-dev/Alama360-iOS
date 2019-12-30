@@ -26,9 +26,12 @@ class PropertyDetailsViewController: UIViewController, WKUIDelegate {
     @IBOutlet weak var thumbFour: UIImageView!
     @IBOutlet weak var thumbFive: UIImageView!
     @IBOutlet weak var textTransparentView: UIView!
+    @IBOutlet weak var shortDesc: UILabel!
     
     @IBOutlet weak var youtubeWebView: UIView!
     @IBOutlet weak var youtubeWkView: WKWebView!
+    
+    @IBOutlet weak var featuresTableView: UITableView!
     
     let url: String = StaticUrls.WEB_360_VIEW_URL
     var lan: String = ""
@@ -39,13 +42,13 @@ class PropertyDetailsViewController: UIViewController, WKUIDelegate {
     
     var pTitle: String?
     var pCityname: String?
-    var pName: String?
+    var pDistName: String?
     var pShort_des: String?
     var pAddress: String?
     var pYoutube_video_url: String? = ""
-    
     var photos: PhotosModel?
     var property_dailyfeature: FeatureModel?
+    var landmark_arr = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +56,10 @@ class PropertyDetailsViewController: UIViewController, WKUIDelegate {
         // Do any additional setup after loading the view.
         get360View()
         getPropertyDetails()
+        
+//       var frame = featuresTableView.frame
+//       frame.size.height = featuresTableView.contentSize.height
+//       featuresTableView.frame = frame
         
     }
     
@@ -105,13 +112,20 @@ class PropertyDetailsViewController: UIViewController, WKUIDelegate {
                 
                 self.pTitle = resultArray["title"].stringValue
                 self.pCityname = resultArray["cityname"].stringValue
-                self.pName = resultArray["dist_districtInfo"]["name"].stringValue
+                self.pDistName = resultArray["dist_districtInfo"]["name"].stringValue
+                self.pShort_des = resultArray["dist_districtInfo"]["description"].stringValue
                 self.pYoutube_video_url = resultArray["youtube_video_url"].stringValue
+                
                 let photoArray = resultArray["photos"]["photosaall"].arrayValue
-                    let new = PhotosModel(json: JSON(photoArray))
-                    self.photos = new
-            
-                 print(self.pYoutube_video_url)
+                let newPhoto = PhotosModel(json: JSON(photoArray))
+                self.photos = newPhoto
+                
+                let featureArray = resultArray["property_dailyfeature"].arrayValue
+                let newFeature = FeatureModel(json: JSON(featureArray))
+                self.property_dailyfeature = newFeature
+                
+                
+                print(self.property_dailyfeature)
                 
                 
                 
@@ -120,6 +134,16 @@ class PropertyDetailsViewController: UIViewController, WKUIDelegate {
                 
                 self.setValues()
                 self.getYoutubeVideo()
+                
+                
+                
+                
+                self.featuresTableView.delegate = self
+                self.featuresTableView.dataSource = self
+                self.featuresTableView.reloadData()
+            
+                self.featuresTableView.layoutIfNeeded()
+                self.featuresTableView.heightAnchor.constraint(equalToConstant: self.featuresTableView.contentSize.height).isActive = true
             }
             
         }
@@ -167,6 +191,10 @@ class PropertyDetailsViewController: UIViewController, WKUIDelegate {
         thumbThree.image =  getImage(from: imageThree!)
         thumbFour.image =  getImage(from: imageFour!)
         thumbFive.image =  getImage(from: imageFive!)
+        districtName.text = self.pDistName
+        shortDesc.text = self.pShort_des
+        
+        
         textTransparentView.layer.opacity = 0.5
         // Test Purpose
         
@@ -184,6 +212,64 @@ class PropertyDetailsViewController: UIViewController, WKUIDelegate {
         
         self.youtubeWkView.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: .new, context: nil)
     }
+    
+    // Removing unwanted charecters
+    func substringIcon (text: String) ->String {
+        
+        let  i_text = text
+        var mySubstring: String = ""
+        
+        if i_text != "" {
+            let start = i_text.index(i_text.startIndex, offsetBy: 10)
+            let end = i_text.index(i_text.endIndex, offsetBy: -2)
+            let range = start..<end
+            
+            mySubstring = i_text[range].addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+            
+            // print("SUBSTRING is: \(mySubstring)")
+            
+        } else {
+            mySubstring = "https://png.icons8.com/metro/30/000000/parking.png"
+        }
+        
+        return mySubstring
+        
+    }
+    
+    
+}
+
+extension PropertyDetailsViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ((property_dailyfeature?.col1_array.count)!)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "featureCell", for: indexPath) as! FeatureTableViewCell
+        
+        
+        
+        if let feature_array: [String] = property_dailyfeature?.col1_array {
+            ///print("individual : \(feature_array)")
+            cell.featureLabel.text = feature_array[indexPath.row]
+        }
+        
+        if let icon_array: [String] = property_dailyfeature?.icon_array{
+            let icon  = substringIcon(text: icon_array[indexPath.row])
+            cell.featureImage.image = getImage(from: icon)
+        }
+        
+        return cell
+    }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        featuresTableView.frame = CGRect(x: featuresTableView.frame.origin.x, y: featuresTableView.frame.origin.y, width: featuresTableView.frame.size.width, height: featuresTableView.contentSize.height)
+//    }
+//
+//    override func viewDidLayoutSubviews() {
+//        featuresTableView.frame = CGRect(x: featuresTableView.frame.origin.x, y: featuresTableView.frame.origin.y, width: featuresTableView.frame.size.width, height: featuresTableView.contentSize.height)
+//        featuresTableView.reloadData()
+//    }
     
     
 }
