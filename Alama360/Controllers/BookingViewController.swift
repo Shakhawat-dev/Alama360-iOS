@@ -85,10 +85,11 @@ class BookingViewController: UIViewController {
                     
                     self.property_list.append(newProperty)
                     
-                    self.tableView.reloadData()
+                    
                     
                     self.tableView.delegate = self
                     self.tableView.dataSource = self
+                    self.tableView.reloadData()
                     
                     // print(self.property_list)
                     

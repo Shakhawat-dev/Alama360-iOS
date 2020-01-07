@@ -31,6 +31,14 @@
 		4B7870C723B0F7D400D360AC /* BookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7870C623B0F7D400D360AC /* BookingModel.swift */; };
 		4B7870C923B47D9100D360AC /* PropertyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7870C823B47D9000D360AC /* PropertyDetailsViewController.swift */; };
 		4B83D88823B8CBC2003F38C9 /* FeatureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83D88723B8CBC2003F38C9 /* FeatureTableViewCell.swift */; };
+		4B84A0FE23C4A922006E5237 /* Property360Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B84A0FD23C4A922006E5237 /* Property360Cell.swift */; };
+		4B84A10223C4A96F006E5237 /* YoutubeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B84A10123C4A96F006E5237 /* YoutubeCell.swift */; };
+		4B84A10423C4A9FC006E5237 /* PhotoGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B84A10323C4A9FC006E5237 /* PhotoGridCell.swift */; };
+		4B84A10623C4AA41006E5237 /* NamePolicyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B84A10523C4AA41006E5237 /* NamePolicyCell.swift */; };
+		4B84A10823C4AA67006E5237 /* FeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B84A10723C4AA67006E5237 /* FeatureCell.swift */; };
+		4B84A10A23C4AA7D006E5237 /* LandmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B84A10923C4AA7D006E5237 /* LandmarkCell.swift */; };
+		4B84A10C23C4AA9F006E5237 /* PropertyMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B84A10B23C4AA9F006E5237 /* PropertyMapCell.swift */; };
+		4B84A10E23C4B135006E5237 /* TbPropertyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B84A10D23C4B135006E5237 /* TbPropertyDetailsViewController.swift */; };
 		4B9012BE23B768B100E8C59D /* StaticUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9012BD23B768B100E8C59D /* StaticUrls.swift */; };
 		4B9012C423B775AC00E8C59D /* PhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9012C323B775AC00E8C59D /* PhotosModel.swift */; };
 		4B93206E23B7A5B5005861DD /* CustomCollectionGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B93206D23B7A5B5005861DD /* CustomCollectionGrid.swift */; };
@@ -70,6 +78,14 @@
 		4B7870C623B0F7D400D360AC /* BookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingModel.swift; sourceTree = "<group>"; };
 		4B7870C823B47D9000D360AC /* PropertyDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDetailsViewController.swift; sourceTree = "<group>"; };
 		4B83D88723B8CBC2003F38C9 /* FeatureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTableViewCell.swift; sourceTree = "<group>"; };
+		4B84A0FD23C4A922006E5237 /* Property360Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property360Cell.swift; sourceTree = "<group>"; };
+		4B84A10123C4A96F006E5237 /* YoutubeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeCell.swift; sourceTree = "<group>"; };
+		4B84A10323C4A9FC006E5237 /* PhotoGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGridCell.swift; sourceTree = "<group>"; };
+		4B84A10523C4AA41006E5237 /* NamePolicyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamePolicyCell.swift; sourceTree = "<group>"; };
+		4B84A10723C4AA67006E5237 /* FeatureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCell.swift; sourceTree = "<group>"; };
+		4B84A10923C4AA7D006E5237 /* LandmarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkCell.swift; sourceTree = "<group>"; };
+		4B84A10B23C4AA9F006E5237 /* PropertyMapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyMapCell.swift; sourceTree = "<group>"; };
+		4B84A10D23C4B135006E5237 /* TbPropertyDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TbPropertyDetailsViewController.swift; sourceTree = "<group>"; };
 		4B9012BD23B768B100E8C59D /* StaticUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticUrls.swift; sourceTree = "<group>"; };
 		4B9012C323B775AC00E8C59D /* PhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModel.swift; sourceTree = "<group>"; };
 		4B93206D23B7A5B5005861DD /* CustomCollectionGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionGrid.swift; sourceTree = "<group>"; };
@@ -157,6 +173,13 @@
 		4B4BBBB023C46FD900DB28C5 /* Tables */ = {
 			isa = PBXGroup;
 			children = (
+				4B84A0FD23C4A922006E5237 /* Property360Cell.swift */,
+				4B84A10123C4A96F006E5237 /* YoutubeCell.swift */,
+				4B84A10323C4A9FC006E5237 /* PhotoGridCell.swift */,
+				4B84A10523C4AA41006E5237 /* NamePolicyCell.swift */,
+				4B84A10723C4AA67006E5237 /* FeatureCell.swift */,
+				4B84A10923C4AA7D006E5237 /* LandmarkCell.swift */,
+				4B84A10B23C4AA9F006E5237 /* PropertyMapCell.swift */,
 			);
 			path = Tables;
 			sourceTree = "<group>";
@@ -177,6 +200,7 @@
 				4B93206D23B7A5B5005861DD /* CustomCollectionGrid.swift */,
 				4B83D88723B8CBC2003F38C9 /* FeatureTableViewCell.swift */,
 				4B4008BB23B9F68E00AEE68C /* LandmarkTableViewCell.swift */,
+				4B84A10D23C4B135006E5237 /* TbPropertyDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -339,23 +363,31 @@
 				4BABFAB723A8BCE400F34EA4 /* addPropertyTermsViewController.swift in Sources */,
 				4B93206E23B7A5B5005861DD /* CustomCollectionGrid.swift in Sources */,
 				4B9012BE23B768B100E8C59D /* StaticUrls.swift in Sources */,
+				4B84A10623C4AA41006E5237 /* NamePolicyCell.swift in Sources */,
 				4B6DFE1C239E295100543E3F /* MoreViewController.swift in Sources */,
+				4B84A10E23C4B135006E5237 /* TbPropertyDetailsViewController.swift in Sources */,
 				4B7870C223ADF5A000D360AC /* BookingTableViewCell.swift in Sources */,
 				4B04E437239B788000D02BC4 /* MainViewController.swift in Sources */,
+				4B84A10C23C4AA9F006E5237 /* PropertyMapCell.swift in Sources */,
 				4B9012C423B775AC00E8C59D /* PhotosModel.swift in Sources */,
 				4B7870C523B0D9C100D360AC /* FeatureModel.swift in Sources */,
 				4B6DFE1E239E299900543E3F /* SearchViewController.swift in Sources */,
 				4B04E457239B843F00D02BC4 /* LocalizationSystem.swift in Sources */,
 				4B1CE33023A24A7800C0FC01 /* MainCell.swift in Sources */,
 				4B7870C923B47D9100D360AC /* PropertyDetailsViewController.swift in Sources */,
+				4B84A0FE23C4A922006E5237 /* Property360Cell.swift in Sources */,
 				4B83D88823B8CBC2003F38C9 /* FeatureTableViewCell.swift in Sources */,
 				4B04E433239B788000D02BC4 /* AppDelegate.swift in Sources */,
+				4B84A10823C4AA67006E5237 /* FeatureCell.swift in Sources */,
 				4B6DFE21239E84AA00543E3F /* ContactViewController.swift in Sources */,
+				4B84A10223C4A96F006E5237 /* YoutubeCell.swift in Sources */,
+				4B84A10A23C4AA7D006E5237 /* LandmarkCell.swift in Sources */,
 				4B6DFE18239E278600543E3F /* ReservationsViewController.swift in Sources */,
 				4B6DFE1A239E292800543E3F /* FavoritesViewController.swift in Sources */,
 				4BABFABB23AA647900F34EA4 /* BookingViewController.swift in Sources */,
 				4B04E435239B788000D02BC4 /* SceneDelegate.swift in Sources */,
 				4B4008BC23B9F68E00AEE68C /* LandmarkTableViewCell.swift in Sources */,
+				4B84A10423C4A9FC006E5237 /* PhotoGridCell.swift in Sources */,
 				4B7870C723B0F7D400D360AC /* BookingModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
