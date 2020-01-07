@@ -17,6 +17,10 @@
 		4B04E457239B843F00D02BC4 /* LocalizationSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B04E456239B843F00D02BC4 /* LocalizationSystem.swift */; };
 		4B1CE33023A24A7800C0FC01 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1CE32F23A24A7800C0FC01 /* MainCell.swift */; };
 		4B4008BC23B9F68E00AEE68C /* LandmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4008BB23B9F68E00AEE68C /* LandmarkTableViewCell.swift */; };
+		4B4BBBA923C46EDF00DB28C5 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4BBBA823C46EDF00DB28C5 /* Search.storyboard */; };
+		4B4BBBAB23C46F1E00DB28C5 /* Reservations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4BBBAA23C46F1E00DB28C5 /* Reservations.storyboard */; };
+		4B4BBBAD23C46F8200DB28C5 /* Favourites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4BBBAC23C46F8200DB28C5 /* Favourites.storyboard */; };
+		4B4BBBAF23C46F9F00DB28C5 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4BBBAE23C46F9F00DB28C5 /* More.storyboard */; };
 		4B6DFE18239E278600543E3F /* ReservationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE17239E278600543E3F /* ReservationsViewController.swift */; };
 		4B6DFE1A239E292800543E3F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE19239E292800543E3F /* FavoritesViewController.swift */; };
 		4B6DFE1C239E295100543E3F /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE1B239E295100543E3F /* MoreViewController.swift */; };
@@ -52,6 +56,10 @@
 		4B04E456239B843F00D02BC4 /* LocalizationSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalizationSystem.swift; path = "../../../IOS-Practices/Localization_to_Arabic_laguage_From_Inside_App-Tutorial-master/Localization-Tutorial/LocalizationSystem.swift"; sourceTree = "<group>"; };
 		4B1CE32F23A24A7800C0FC01 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		4B4008BB23B9F68E00AEE68C /* LandmarkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkTableViewCell.swift; sourceTree = "<group>"; };
+		4B4BBBA823C46EDF00DB28C5 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		4B4BBBAA23C46F1E00DB28C5 /* Reservations.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reservations.storyboard; sourceTree = "<group>"; };
+		4B4BBBAC23C46F8200DB28C5 /* Favourites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favourites.storyboard; sourceTree = "<group>"; };
+		4B4BBBAE23C46F9F00DB28C5 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
 		4B6DFE17239E278600543E3F /* ReservationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationsViewController.swift; sourceTree = "<group>"; };
 		4B6DFE19239E292800543E3F /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		4B6DFE1B239E295100543E3F /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +124,8 @@
 		4B04E431239B788000D02BC4 /* Alama360 */ = {
 			isa = PBXGroup;
 			children = (
+				4B4BBBB023C46FD900DB28C5 /* Tables */,
+				4B4BBBA723C46E9200DB28C5 /* Storyboards */,
 				4B83D88423B8C70B003F38C9 /* Extentions */,
 				4B9012BA23B75C2800E8C59D /* Utils */,
 				4B7870C323AF7B4C00D360AC /* Model */,
@@ -124,13 +134,31 @@
 				4B04E434239B788000D02BC4 /* SceneDelegate.swift */,
 				4B04E456239B843F00D02BC4 /* LocalizationSystem.swift */,
 				4B04E44E239B7D1500D02BC4 /* Localizable.strings */,
-				4B04E438239B788100D02BC4 /* Main.storyboard */,
 				4B1CE32F23A24A7800C0FC01 /* MainCell.swift */,
 				4B04E43B239B788300D02BC4 /* Assets.xcassets */,
-				4B04E43D239B788300D02BC4 /* LaunchScreen.storyboard */,
 				4B04E440239B788300D02BC4 /* Info.plist */,
 			);
 			path = Alama360;
+			sourceTree = "<group>";
+		};
+		4B4BBBA723C46E9200DB28C5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4B4BBBA823C46EDF00DB28C5 /* Search.storyboard */,
+				4B4BBBAA23C46F1E00DB28C5 /* Reservations.storyboard */,
+				4B4BBBAC23C46F8200DB28C5 /* Favourites.storyboard */,
+				4B4BBBAE23C46F9F00DB28C5 /* More.storyboard */,
+				4B04E438239B788100D02BC4 /* Main.storyboard */,
+				4B04E43D239B788300D02BC4 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		4B4BBBB023C46FD900DB28C5 /* Tables */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tables;
 			sourceTree = "<group>";
 		};
 		4B6DFE1F239E29A900543E3F /* Controllers */ = {
@@ -249,9 +277,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B04E43F239B788300D02BC4 /* LaunchScreen.storyboard in Resources */,
+				4B4BBBAF23C46F9F00DB28C5 /* More.storyboard in Resources */,
 				4B04E44C239B7D1500D02BC4 /* Localizable.strings in Resources */,
 				4B04E43C239B788300D02BC4 /* Assets.xcassets in Resources */,
+				4B4BBBAD23C46F8200DB28C5 /* Favourites.storyboard in Resources */,
 				4B04E43A239B788100D02BC4 /* Main.storyboard in Resources */,
+				4B4BBBA923C46EDF00DB28C5 /* Search.storyboard in Resources */,
+				4B4BBBAB23C46F1E00DB28C5 /* Reservations.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5O9-V8-v6K">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Reservatiions-->
+        <scene sceneID="DrY-nT-eI3">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7cK-5X-fxs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="reservation" title="Reservatiions" id="0j7-pV-xno" customClass="ReservationsViewController" customModule="Alama360" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dc7-gR-B5u">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reservation Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oo8-df-5pz">
+                                <rect key="frame" x="131.5" y="436" width="151" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Oo8-df-5pz" firstAttribute="centerY" secondItem="dc7-gR-B5u" secondAttribute="centerY" id="BtK-fe-Oaq"/>
+                            <constraint firstItem="Oo8-df-5pz" firstAttribute="centerX" secondItem="dc7-gR-B5u" secondAttribute="centerX" id="G5u-oB-pzC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="F9h-fg-oKj"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yBC-2h-9NO"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="576.81159420289862" y="155.35714285714286"/>
+        </scene>
+        <!--Reservations-->
+        <scene sceneID="Oug-uu-vut">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5O9-V8-v6K" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Reservations" image="tabcalendar" id="MtN-SB-i5J"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3V0-Pe-fWi">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0j7-pV-xno" kind="relationship" relationship="rootViewController" id="VZ1-9V-P6q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gwr-D6-qJe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-333.33333333333337" y="154.6875"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tabcalendar" width="30" height="30"/>
+    </resources>
+</document>
