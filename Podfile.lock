@@ -3,6 +3,11 @@ PODS:
   - AlamofireImage (3.6.0):
     - Alamofire (~> 4.9)
   - DatePickerDialog (3.0)
+  - GoogleMaps (3.6.0):
+    - GoogleMaps/Maps (= 3.6.0)
+  - GoogleMaps/Base (3.6.0)
+  - GoogleMaps/Maps (3.6.0):
+    - GoogleMaps/Base
   - ImageSlideshow (1.8.1):
     - ImageSlideshow/Core (= 1.8.1)
   - ImageSlideshow/Alamofire (1.8.1):
@@ -17,6 +22,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - DatePickerDialog
+  - GoogleMaps
   - ImageSlideshow (~> 1.8.1)
   - ImageSlideshow/Alamofire
   - iOSDropDown
@@ -29,6 +35,7 @@ SPEC REPOS:
     - Alamofire
     - AlamofireImage
     - DatePickerDialog
+    - GoogleMaps
     - ImageSlideshow
     - iOSDropDown
     - SearchTextField
@@ -39,12 +46,13 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   AlamofireImage: be9963c6582d68b39e89191f64c82a7d7bf40fdd
   DatePickerDialog: 03dbb8350bfa80302ab2a8c83cee1fec70184444
+  GoogleMaps: 82f8fe307193bb4de6ef6bf9e88f1d624b718f9d
   ImageSlideshow: 634865d7d4e96f21e3830a31b51bde768cc94cea
   iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
   SearchTextField: 40dc3cc57def5a211f263cac263622c163bbc25a
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 5e3eda3ebdb38893c00a4948fe8bbaf6b527283b
+PODFILE CHECKSUM: 6205a0b7c069793555223c01dae79615a84f7bd6
 
 COCOAPODS: 1.8.4

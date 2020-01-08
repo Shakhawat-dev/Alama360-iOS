@@ -1,5 +1,5 @@
 //
-//  YoutubeCell.swift
+//  Property360Cell.swift
 //  Alama360
 //
 //  Created by Alama360 on 12/05/1441 AH.
@@ -9,16 +9,17 @@
 import UIKit
 import WebKit
 
-class YoutubeCell: UITableViewCell {
+class Property360Cell: UITableViewCell {
     
-    let url: String = ""
+    let url: String = StaticUrls.WEB_360_VIEW_URL
 
-    @IBOutlet weak var youtubeWkView: WKWebView!
+    @IBOutlet weak var property360WkView: WKWebView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        get360View()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,20 +28,20 @@ class YoutubeCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    // For Youtube View
-    func getYoutubeView(yUrl: String) {
-        let myURL = URL(string: yUrl)
-        print("Youtube view url: \(url)")
+    // For 360 property View
+    func get360View() {
+        let myURL = URL(string: url)
+        print("360 view url: \(url)")
         let myRequest = URLRequest(url: myURL!)
-        self.youtubeWkView.load(myRequest)
+        self.property360WkView.load(myRequest)
         
-        self.youtubeWkView.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: .new, context: nil)
+        self.property360WkView.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: .new, context: nil)
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
         if keyPath == "loading" {
-            if youtubeWkView.isLoading {
+            if property360WkView.isLoading {
                 activityIndicator.startAnimating()
                 activityIndicator.isHidden = false
             } else {

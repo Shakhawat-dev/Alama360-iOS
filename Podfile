@@ -16,6 +16,6 @@ target 'Alama360' do
   #pod 'DatePicker'
   pod 'ImageSlideshow', '~> 1.8.1'
   pod "ImageSlideshow/Alamofire"
-
+  pod 'GoogleMaps'
 
 end

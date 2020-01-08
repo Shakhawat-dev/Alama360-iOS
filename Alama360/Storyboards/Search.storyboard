@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rDq-V5-s9W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rDq-V5-s9W">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1365,16 +1365,17 @@
                                                         <constraint firstAttribute="bottom" secondItem="bYv-o6-nHD" secondAttribute="bottom" constant="8" id="Emr-Bt-EX0"/>
                                                         <constraint firstItem="bYv-o6-nHD" firstAttribute="leading" secondItem="iiA-Ld-Iry" secondAttribute="leading" constant="8" id="EpQ-or-aAe"/>
                                                         <constraint firstAttribute="trailing" secondItem="bYv-o6-nHD" secondAttribute="trailing" constant="8" id="RZL-Hx-6le"/>
+                                                        <constraint firstAttribute="height" constant="36.5" id="X2A-7f-Ms4"/>
                                                         <constraint firstItem="bYv-o6-nHD" firstAttribute="top" secondItem="iiA-Ld-Iry" secondAttribute="top" constant="8" id="aAy-M6-WUu"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uj6-04-Idf">
                                                     <rect key="frame" x="8" y="44.5" width="398" height="167.5"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eba-0p-fxv">
+                                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eba-0p-fxv">
                                                             <rect key="frame" x="0.0" y="0.0" width="398" height="30"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JyD-Y9-EzL">
+                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JyD-Y9-EzL">
                                                                     <rect key="frame" x="8" y="4" width="382" height="22"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                     <nil key="textColor"/>
@@ -1489,6 +1490,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" constant="167.5" id="0gc-fV-mXl"/>
                                                         <constraint firstAttribute="trailing" secondItem="0Zq-pC-bEg" secondAttribute="trailing" constant="12" id="4rQ-RV-oCC"/>
                                                         <constraint firstAttribute="bottom" secondItem="hul-iE-gVx" secondAttribute="bottom" constant="11.5" id="79U-Lq-CFo"/>
                                                         <constraint firstAttribute="trailing" secondItem="Eba-0p-fxv" secondAttribute="trailing" id="Cmr-D2-NVH"/>
@@ -1504,7 +1506,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="uj6-04-Idf" secondAttribute="bottom" constant="8" id="2Lc-dS-iVS"/>
                                                 <constraint firstAttribute="trailing" secondItem="uj6-04-Idf" secondAttribute="trailing" constant="8" id="SIW-16-wuT"/>
@@ -1518,11 +1520,51 @@
                                         <connections>
                                             <outlet property="cityName" destination="kaE-NL-LuN" id="bEF-fX-jLo"/>
                                             <outlet property="districtName" destination="0Zq-pC-bEg" id="qNv-EX-NBG"/>
+                                            <outlet property="pNameView" destination="iiA-Ld-Iry" id="cGb-bl-N1v"/>
+                                            <outlet property="pPolicyView" destination="uj6-04-Idf" id="uyK-iX-9LU"/>
                                             <outlet property="propertyName" destination="bYv-o6-nHD" id="MHg-jY-fQL"/>
+                                            <outlet property="timeViews" destination="KNk-bs-1K7" id="yVg-ta-n7d"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PdDescriptionCell" id="aKs-0I-x6U" customClass="PdDescriptionCell" customModule="Alama360" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1018" width="414" height="50.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aKs-0I-x6U" id="8S1-al-vtU">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ptg-jv-vkW">
+                                                    <rect key="frame" x="8" y="8" width="398" height="34.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQT-AQ-1M7">
+                                                            <rect key="frame" x="8" y="8" width="382" height="18.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="fQT-AQ-1M7" firstAttribute="leading" secondItem="ptg-jv-vkW" secondAttribute="leading" constant="8" id="9ca-k5-m0B"/>
+                                                        <constraint firstAttribute="bottom" secondItem="fQT-AQ-1M7" secondAttribute="bottom" constant="8" id="EWY-6B-yay"/>
+                                                        <constraint firstAttribute="trailing" secondItem="fQT-AQ-1M7" secondAttribute="trailing" constant="8" id="TxB-Ix-uu8"/>
+                                                        <constraint firstItem="fQT-AQ-1M7" firstAttribute="top" secondItem="ptg-jv-vkW" secondAttribute="top" constant="8" id="X8A-Fh-JKP"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="ptg-jv-vkW" secondAttribute="bottom" constant="8" id="8lG-6G-AEp"/>
+                                                <constraint firstAttribute="trailing" secondItem="ptg-jv-vkW" secondAttribute="trailing" constant="8" id="fxR-EU-ma7"/>
+                                                <constraint firstItem="ptg-jv-vkW" firstAttribute="leading" secondItem="8S1-al-vtU" secondAttribute="leading" constant="8" id="y5c-AK-Lsw"/>
+                                                <constraint firstItem="ptg-jv-vkW" firstAttribute="top" secondItem="8S1-al-vtU" secondAttribute="top" constant="8" id="zxw-FY-8hZ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="pDescription" destination="fQT-AQ-1M7" id="rZb-l5-cAj"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeatureCell" rowHeight="29" id="kHp-N2-x8B" customClass="FeatureCell" customModule="Alama360" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1018" width="414" height="29"/>
+                                        <rect key="frame" x="0.0" y="1068.5" width="414" height="29"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kHp-N2-x8B" id="Q0T-nG-ivS">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="29"/>
@@ -1545,7 +1587,6 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="EhY-KT-yLQ" secondAttribute="bottom" constant="3" id="2fs-tC-MPF"/>
                                                         <constraint firstItem="nIW-5s-ANJ" firstAttribute="leading" secondItem="EhY-KT-yLQ" secondAttribute="trailing" constant="8" id="8VP-zY-NHA"/>
@@ -1570,7 +1611,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LandmarkCell" rowHeight="29" id="Qb4-IY-knu" customClass="LandmarkCell" customModule="Alama360" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1047" width="414" height="29"/>
+                                        <rect key="frame" x="0.0" y="1097.5" width="414" height="29"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qb4-IY-knu" id="gEU-1Q-v8o">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="29"/>
@@ -1593,7 +1634,6 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="SYS-kQ-xYM" secondAttribute="trailing" constant="8" id="1wK-N7-1Eh"/>
                                                         <constraint firstItem="SYS-kQ-xYM" firstAttribute="leading" secondItem="NLQ-wG-Q2c" secondAttribute="trailing" constant="8" id="BPh-M7-u3p"/>
@@ -1616,24 +1656,13 @@
                                             <outlet property="landmarkName" destination="SYS-kQ-xYM" id="ci0-er-xUY"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PropertyMapCell" rowHeight="250" id="NqN-a1-BVS" customClass="PropertyMapCell" customModule="Alama360" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1076" width="414" height="250"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PropertyMapCell" id="NqN-a1-BVS" customClass="PropertyMapCell" customModule="Alama360" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1126.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NqN-a1-BVS" id="4lz-U8-D8a">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w6i-K2-SDp">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </view>
-                                            </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <outlet property="propertyMapView" destination="w6i-K2-SDp" id="7G6-Li-c6m"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

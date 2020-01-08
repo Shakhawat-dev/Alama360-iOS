@@ -10,6 +10,7 @@ import UIKit
 import WebKit
 import Alamofire
 import SwiftyJSON
+import GoogleMaps
 
 class TbPropertyDetailsViewController: UIViewController {
     
@@ -22,6 +23,8 @@ class TbPropertyDetailsViewController: UIViewController {
     var pDistName: String?
     var pShort_des: String?
     var pAddress: String?
+    var pLatitude: String?
+    var pLongitude: String?
     var pYoutube_video_url: String? = ""
     var photos: PhotosModel?
     var property_dailyfeature: FeatureModel?
@@ -34,7 +37,7 @@ class TbPropertyDetailsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         getPropertyDetails()
-
+        
     }
     
     // Get Api Call
@@ -64,6 +67,13 @@ class TbPropertyDetailsViewController: UIViewController {
                 self.pDistName = resultArray["dist_districtInfo"]["name"].stringValue
                 self.pShort_des = resultArray["dist_districtInfo"]["description"].stringValue
                 self.pYoutube_video_url = resultArray["youtube_video_url"].stringValue
+                self.pLatitude = resultArray["latitude"].stringValue
+                self.pLongitude = resultArray["longitude"].stringValue
+                
+                for i in resultArray["landmarks"].arrayValue {
+                    let name = i["name"].stringValue
+                    self.landmark_arr.append(name)
+                }
                 
                 let photoArray = resultArray["photos"]["photosaall"].arrayValue
                 let newPhoto = PhotosModel(json: JSON(photoArray))
@@ -79,7 +89,7 @@ class TbPropertyDetailsViewController: UIViewController {
                 self.propertyDetailsTable.dataSource = self
                 self.propertyDetailsTable.reloadData()
 
-                
+                self.getMapView ()
 //                self.setValues()
 //                self.getYoutubeVideo()
 
@@ -89,6 +99,44 @@ class TbPropertyDetailsViewController: UIViewController {
             }
             
         }
+        
+    }
+    
+    func getMapView () {
+        
+        GMSServices.provideAPIKey("AIzaSyDv0ELUI8m5cOL1jLGlkc2TOj1-8PZMPzk")
+        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
+        let mapView = GMSMapView.map(withFrame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 250), camera: camera)
+        propertyDetailsTable.tableFooterView = mapView
+        
+        // Creates a marker in the center of the map.
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
+        marker.title = "Sydney"
+        marker.snippet = "Australia"
+        marker.map = mapView
+    }
+    
+    // Removing unwanted charecters
+    func substringIcon (text: String) ->String {
+        
+        let  i_text = text
+        var mySubstring: String = ""
+        
+        if i_text != "" {
+            let start = i_text.index(i_text.startIndex, offsetBy: 10)
+            let end = i_text.index(i_text.endIndex, offsetBy: -2)
+            let range = start..<end
+            
+            mySubstring = i_text[range].addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+            
+            // print("SUBSTRING is: \(mySubstring)")
+            
+        } else {
+            mySubstring = "https://png.icons8.com/metro/30/000000/parking.png"
+        }
+        
+        return mySubstring
         
     }
     
@@ -125,32 +173,86 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 1
+        return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 5
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let row = indexPath.row
-        
-        if row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Property360Cell") as! Property360Cell
-            
-            return cell
+        if section == 0 {
+            return 5
+        } else if section == 1{
+            return (property_dailyfeature?.col1_array.count)!
+        } else if section == 2 {
+            return landmark_arr.count
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoGridCell") as! PhotoGridCell
-            
-            cell.setValues(tPhotos: photos!)
-            
-            return cell
+            return 1
         }
         
         
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let row = indexPath.row
+        let section = indexPath.section
+        
+        if section == 0 {
+            if row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "Property360Cell") as! Property360Cell
+                
+                return cell
+            } else if row == 1 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoGridCell") as! PhotoGridCell
+                
+                cell.setValues(tPhotos: photos!)
+                
+                return cell
+            } else if row == 2 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "YoutubeCell") as! YoutubeCell
+                
+                cell.getYoutubeView(yUrl: pYoutube_video_url!)
+                
+                return cell
+            } else if row == 3 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "NamePolicyCell") as! NamePolicyCell
+                
+                cell.propertyName.text = pTitle
+                cell.cityName.text = pCityname
+                cell.districtName.text = pDistName
+                
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "PdDescriptionCell") as! PdDescriptionCell
+                
+                cell.pDescription.text = pShort_des
+                
+                return cell
+            }
+        } else if section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FeatureCell") as! FeatureCell
+            
+            cell.featureName.text = property_dailyfeature?.col1_array[indexPath.row]
+            cell.featureImage.image = getImage(from: substringIcon(text: (property_dailyfeature?.icon_array[indexPath.row])!))
+            
+            return cell
+        } else if section == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LandmarkCell") as! LandmarkCell
+            
+            cell.landmarkName.text = landmark_arr[indexPath.row]
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PropertyMapCell") as! PropertyMapCell
+            
+            cell.isHidden = true
+            
+            return cell
+        }
+        
+        
+        
+        
+    }
+     
     
 }
