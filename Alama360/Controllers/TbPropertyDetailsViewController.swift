@@ -23,8 +23,8 @@ class TbPropertyDetailsViewController: UIViewController {
     var pDistName: String?
     var pShort_des: String?
     var pAddress: String?
-    var pLatitude: String?
-    var pLongitude: String?
+    var pLatitude: Double?
+    var pLongitude: Double?
     var pYoutube_video_url: String? = ""
     var photos: PhotosModel?
     var property_dailyfeature: FeatureModel?
@@ -67,8 +67,8 @@ class TbPropertyDetailsViewController: UIViewController {
                 self.pDistName = resultArray["dist_districtInfo"]["name"].stringValue
                 self.pShort_des = resultArray["dist_districtInfo"]["description"].stringValue
                 self.pYoutube_video_url = resultArray["youtube_video_url"].stringValue
-                self.pLatitude = resultArray["latitude"].stringValue
-                self.pLongitude = resultArray["longitude"].stringValue
+                self.pLatitude = resultArray["latitude"].doubleValue
+                self.pLongitude = resultArray["longitude"].doubleValue
                 
                 for i in resultArray["landmarks"].arrayValue {
                     let name = i["name"].stringValue
@@ -104,17 +104,20 @@ class TbPropertyDetailsViewController: UIViewController {
     
     func getMapView () {
         
-        GMSServices.provideAPIKey("AIzaSyDv0ELUI8m5cOL1jLGlkc2TOj1-8PZMPzk")
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
+        GMSServices.provideAPIKey("AIzaSyDod0SP5Eh_eZmNNES7aTJt3eXs1mooFHY")
+        let camera = GMSCameraPosition.camera(withLatitude: pLatitude!, longitude: pLongitude!, zoom: 10.0)
         let mapView = GMSMapView.map(withFrame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 250), camera: camera)
         propertyDetailsTable.tableFooterView = mapView
         
         // Creates a marker in the center of the map.
         let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
+        marker.position = CLLocationCoordinate2D(latitude: pLatitude!, longitude: pLongitude!)
+        marker.title = pTitle
+        marker.snippet = pCityname
+        marker.icon = #imageLiteral(resourceName: "marker_2")
         marker.map = mapView
+        
+        mapView.selectedMarker = marker
     }
     
     // Removing unwanted charecters
@@ -176,13 +179,58 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
         return 4
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: propertyDetailsTable.frame.size.width, height: 18))
+        let label = UILabel(frame: CGRect(x: 10, y: 5, width: propertyDetailsTable.frame.size.width, height: 18))
+        label.font = UIFont.systemFont(ofSize: 14)
+        
+        if section == 0 {
+            label.text = "Property"
+            view.addSubview(label)
+            view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) // Set your background color
+            
+            return view
+        } else if section == 1 {
+            label.text = "Description"
+            view.addSubview(label)
+            view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) // Set your background color
+            
+            return view
+        }  else if section == 2 {
+            label.text = "Features"
+            view.addSubview(label)
+            view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) // Set your background color
+            
+            return view
+        } else if section == 3 {
+            label.text = "Landmarks"
+            view.addSubview(label)
+            view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) // Set your background color
+            
+            return view
+        } else if section == 4 {
+            label.text = "Maps"
+            view.addSubview(label)
+            view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) // Set your background color
+            
+            return view
+        }
+        
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 8
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 {
-            return 5
-        } else if section == 1{
+            return 4
+        } else if section == 2{
             return (property_dailyfeature?.col1_array.count)!
-        } else if section == 2 {
+        } else if section == 3 {
             return landmark_arr.count
         } else {
             return 1
@@ -213,7 +261,7 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
                 cell.getYoutubeView(yUrl: pYoutube_video_url!)
                 
                 return cell
-            } else if row == 3 {
+            } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "NamePolicyCell") as! NamePolicyCell
                 
                 cell.propertyName.text = pTitle
@@ -221,21 +269,22 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
                 cell.districtName.text = pDistName
                 
                 return cell
-            } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "PdDescriptionCell") as! PdDescriptionCell
-                
-                cell.pDescription.text = pShort_des
-                
-                return cell
             }
+              
         } else if section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PdDescriptionCell") as! PdDescriptionCell
+            
+            cell.pDescription.text = pShort_des
+            
+            return cell
+        }  else if section == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FeatureCell") as! FeatureCell
             
             cell.featureName.text = property_dailyfeature?.col1_array[indexPath.row]
             cell.featureImage.image = getImage(from: substringIcon(text: (property_dailyfeature?.icon_array[indexPath.row])!))
             
             return cell
-        } else if section == 2 {
+        } else if section == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LandmarkCell") as! LandmarkCell
             
             cell.landmarkName.text = landmark_arr[indexPath.row]
