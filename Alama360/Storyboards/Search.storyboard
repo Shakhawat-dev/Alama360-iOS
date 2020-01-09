@@ -1261,6 +1261,7 @@
                                                                             </state>
                                                                             <connections>
                                                                                 <action selector="moreBtnTapped:" destination="iWQ-XJ-KP4" eventType="touchUpInside" id="aXm-8d-eF5"/>
+                                                                                <segue destination="bN5-5R-c5l" kind="show" identifier="allPhotoSegue" id="Gl4-P4-7Or"/>
                                                                             </connections>
                                                                         </button>
                                                                     </subviews>
@@ -1684,6 +1685,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qns-re-29L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1876.8115942028987" y="1472.5446428571429"/>
+        </scene>
+        <!--AllPhotosViewController-->
+        <scene sceneID="kjQ-le-675">
+            <objects>
+                <viewController storyboardIdentifier="AllPhotosViewController" title="AllPhotosViewController" id="bN5-5R-c5l" customClass="AllPhotosViewController" customModule="Alama360" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZUK-Ka-PIg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c44-QN-ofz">
+                                <rect key="frame" x="0.0" y="86" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AllPhotosCell" rowHeight="250" id="3lE-1o-CbN" customClass="AllPhotosCell" customModule="Alama360" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="250"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3lE-1o-CbN" id="sB8-SX-1Bl">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_1" translatesAutoresizingMaskIntoConstraints="NO" id="GqV-91-tob">
+                                                    <rect key="frame" x="8" y="8" width="398" height="234"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="234" id="vcR-61-2qS"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="GqV-91-tob" secondAttribute="trailing" constant="8" id="IqN-vd-itY"/>
+                                                <constraint firstItem="GqV-91-tob" firstAttribute="leading" secondItem="sB8-SX-1Bl" secondAttribute="leading" constant="8" id="Mas-wf-BIc"/>
+                                                <constraint firstItem="GqV-91-tob" firstAttribute="top" secondItem="sB8-SX-1Bl" secondAttribute="top" constant="8" id="pFf-Lk-Wvt"/>
+                                                <constraint firstAttribute="bottom" secondItem="GqV-91-tob" secondAttribute="bottom" constant="8" id="rFc-Va-c63"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cellPhoto" destination="GqV-91-tob" id="TAF-6M-n0X"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="4F1-VR-fPU" firstAttribute="top" secondItem="c44-QN-ofz" secondAttribute="top" constant="2" id="1Bx-F7-zP2"/>
+                            <constraint firstItem="c44-QN-ofz" firstAttribute="leading" secondItem="4F1-VR-fPU" secondAttribute="leading" id="ARO-Jt-f3U"/>
+                            <constraint firstItem="4F1-VR-fPU" firstAttribute="bottom" secondItem="c44-QN-ofz" secondAttribute="bottom" constant="2" id="UTq-n6-hvF"/>
+                            <constraint firstItem="4F1-VR-fPU" firstAttribute="trailing" secondItem="c44-QN-ofz" secondAttribute="trailing" id="c82-p4-5nU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4F1-VR-fPU"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4B3-pP-0fF"/>
+                    <connections>
+                        <outlet property="allphotoTableView" destination="c44-QN-ofz" id="Uai-wb-GEn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WEt-DN-GNs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2869.5652173913045" y="1471.875"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DFZ-0s-XRM">

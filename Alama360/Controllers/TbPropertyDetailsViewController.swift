@@ -105,6 +105,7 @@ class TbPropertyDetailsViewController: UIViewController {
     func getMapView () {
         
         GMSServices.provideAPIKey("AIzaSyDod0SP5Eh_eZmNNES7aTJt3eXs1mooFHY")
+        
         let camera = GMSCameraPosition.camera(withLatitude: pLatitude!, longitude: pLongitude!, zoom: 10.0)
         let mapView = GMSMapView.map(withFrame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 250), camera: camera)
         propertyDetailsTable.tableFooterView = mapView
@@ -167,6 +168,14 @@ class TbPropertyDetailsViewController: UIViewController {
         }
         
         return image
+    }
+    
+    // Sending Data to View COntroller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "allPhotoSegue" {
+            let destVC = segue.destination as! AllPhotosViewController
+            destVC.allPhotos = sender as? PhotosModel
+        }
     }
 
 
@@ -252,7 +261,18 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
             } else if row == 1 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoGridCell") as! PhotoGridCell
                 
-                cell.setValues(tPhotos: photos!)
+                
+//                cell.allPhotos = photos
+                
+                cell.setValues(aPhotos: photos!)
+                cell.delegate = self
+                
+//                cell.thumbOne.image = getImage(from: (photos?.picture[0])!)
+//                cell.thumbTwo.image = getImage(from: (photos?.picture[1])!)
+//                cell.thumbThree.image = getImage(from: (photos?.picture[2])!)
+//                cell.thumbFour.image = getImage(from: (photos?.picture[3])!)
+//                cell.thumbFive.image = getImage(from: (photos?.picture[4])!)
+                
                 
                 return cell
             } else if row == 2 {
@@ -303,5 +323,12 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
         
     }
      
+    
+}
+
+extension TbPropertyDetailsViewController: AllPhotoDelegate {
+    func didTapMoreBtn(pPhotos: PhotosModel) {
+        performSegue(withIdentifier: "allPhotoSegue", sender: pPhotos)
+    }
     
 }

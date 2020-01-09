@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AllPhotoDelegate {
+    func didTapMoreBtn(pPhotos: PhotosModel)
+}
+
 class PhotoGridCell: UITableViewCell {
 
     @IBOutlet weak var thumbOne: UIImageView!
@@ -17,9 +21,14 @@ class PhotoGridCell: UITableViewCell {
     @IBOutlet weak var thumbFive: UIImageView!
     @IBOutlet weak var moreButton: UIButton!
     
+    var delegate: AllPhotoDelegate?
+    
+    var allPhotos: PhotosModel?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        // Initialization code\
+//        setValues()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -29,7 +38,7 @@ class PhotoGridCell: UITableViewCell {
     }
 
     @IBAction func moreBtnTapped(_ sender: Any) {
-        
+        delegate?.didTapMoreBtn(pPhotos: allPhotos!)
     }
     
     //     For getting image from url
@@ -58,14 +67,16 @@ class PhotoGridCell: UITableViewCell {
         return image
     }
     
-    func setValues(tPhotos: PhotosModel) {
-        
-        let imageOne = tPhotos.picture[0]
-        let imageTwo = tPhotos.picture[1]
-        let imageThree = tPhotos.picture[2]
-        let imageFour = tPhotos.picture[3]
-        let imageFive = tPhotos.picture[4]
-        
+    func setValues(aPhotos: PhotosModel) {
+
+        allPhotos = aPhotos
+
+        let imageOne = allPhotos!.picture[0]
+        let imageTwo = allPhotos!.picture[1]
+        let imageThree = allPhotos!.picture[2]
+        let imageFour = allPhotos!.picture[3]
+        let imageFive = allPhotos!.picture[4]
+
         thumbOne.image =  getImage(from: imageOne!)
         thumbTwo.image =  getImage(from: imageTwo!)
         thumbThree.image =  getImage(from: imageThree!)
@@ -73,10 +84,10 @@ class PhotoGridCell: UITableViewCell {
         thumbFive.image =  getImage(from: imageFive!)
 
         // Test Purpose
-        
+
         // For 360 property View
-        
-        
-        
+
+
+
     }
 }
