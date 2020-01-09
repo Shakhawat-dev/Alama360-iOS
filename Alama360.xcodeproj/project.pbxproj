@@ -20,6 +20,10 @@
 		4B149C3C23C6116D0021F5EF /* AllPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B149C3B23C6116D0021F5EF /* AllPhotosViewController.swift */; };
 		4B1CE33023A24A7800C0FC01 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1CE32F23A24A7800C0FC01 /* MainCell.swift */; };
 		4B4008BC23B9F68E00AEE68C /* LandmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4008BB23B9F68E00AEE68C /* LandmarkTableViewCell.swift */; };
+		4B43047323C73FB200160663 /* TermsAndConditionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B43047223C73FB200160663 /* TermsAndConditionsCell.swift */; };
+		4B43047523C7401800160663 /* TermsOfUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B43047423C7401800160663 /* TermsOfUseViewController.swift */; };
+		4B43047723C7622F00160663 /* PrivacyPolicyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B43047623C7622F00160663 /* PrivacyPolicyCell.swift */; };
+		4B43047923C762EE00160663 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B43047823C762EE00160663 /* PrivacyPolicyViewController.swift */; };
 		4B4BBBA923C46EDF00DB28C5 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4BBBA823C46EDF00DB28C5 /* Search.storyboard */; };
 		4B4BBBAB23C46F1E00DB28C5 /* Reservations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4BBBAA23C46F1E00DB28C5 /* Reservations.storyboard */; };
 		4B4BBBAD23C46F8200DB28C5 /* Favourites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4BBBAC23C46F8200DB28C5 /* Favourites.storyboard */; };
@@ -70,6 +74,10 @@
 		4B149C3B23C6116D0021F5EF /* AllPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPhotosViewController.swift; sourceTree = "<group>"; };
 		4B1CE32F23A24A7800C0FC01 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		4B4008BB23B9F68E00AEE68C /* LandmarkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkTableViewCell.swift; sourceTree = "<group>"; };
+		4B43047223C73FB200160663 /* TermsAndConditionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsCell.swift; sourceTree = "<group>"; };
+		4B43047423C7401800160663 /* TermsOfUseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseViewController.swift; sourceTree = "<group>"; };
+		4B43047623C7622F00160663 /* PrivacyPolicyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyCell.swift; sourceTree = "<group>"; };
+		4B43047823C762EE00160663 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		4B4BBBA823C46EDF00DB28C5 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		4B4BBBAA23C46F1E00DB28C5 /* Reservations.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reservations.storyboard; sourceTree = "<group>"; };
 		4B4BBBAC23C46F8200DB28C5 /* Favourites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favourites.storyboard; sourceTree = "<group>"; };
@@ -188,6 +196,8 @@
 				4B84A10B23C4AA9F006E5237 /* PropertyMapCell.swift */,
 				4B149C3723C5B6230021F5EF /* PdDescriptionCell.swift */,
 				4B149C3923C6111E0021F5EF /* AllPhotosCell.swift */,
+				4B43047223C73FB200160663 /* TermsAndConditionsCell.swift */,
+				4B43047623C7622F00160663 /* PrivacyPolicyCell.swift */,
 			);
 			path = Tables;
 			sourceTree = "<group>";
@@ -210,6 +220,8 @@
 				4B4008BB23B9F68E00AEE68C /* LandmarkTableViewCell.swift */,
 				4B84A10D23C4B135006E5237 /* TbPropertyDetailsViewController.swift */,
 				4B149C3B23C6116D0021F5EF /* AllPhotosViewController.swift */,
+				4B43047423C7401800160663 /* TermsOfUseViewController.swift */,
+				4B43047823C762EE00160663 /* PrivacyPolicyViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -395,13 +407,16 @@
 				4B84A10E23C4B135006E5237 /* TbPropertyDetailsViewController.swift in Sources */,
 				4B7870C223ADF5A000D360AC /* BookingTableViewCell.swift in Sources */,
 				4B04E437239B788000D02BC4 /* MainViewController.swift in Sources */,
+				4B43047723C7622F00160663 /* PrivacyPolicyCell.swift in Sources */,
 				4B84A10C23C4AA9F006E5237 /* PropertyMapCell.swift in Sources */,
 				4B149C3A23C6111E0021F5EF /* AllPhotosCell.swift in Sources */,
 				4B9012C423B775AC00E8C59D /* PhotosModel.swift in Sources */,
 				4B7870C523B0D9C100D360AC /* FeatureModel.swift in Sources */,
 				4B6DFE1E239E299900543E3F /* SearchViewController.swift in Sources */,
 				4B149C3C23C6116D0021F5EF /* AllPhotosViewController.swift in Sources */,
+				4B43047923C762EE00160663 /* PrivacyPolicyViewController.swift in Sources */,
 				4B04E457239B843F00D02BC4 /* LocalizationSystem.swift in Sources */,
+				4B43047523C7401800160663 /* TermsOfUseViewController.swift in Sources */,
 				4B1CE33023A24A7800C0FC01 /* MainCell.swift in Sources */,
 				4B7870C923B47D9100D360AC /* PropertyDetailsViewController.swift in Sources */,
 				4B84A0FE23C4A922006E5237 /* Property360Cell.swift in Sources */,
@@ -409,6 +424,7 @@
 				4B04E433239B788000D02BC4 /* AppDelegate.swift in Sources */,
 				4B149C3823C5B6230021F5EF /* PdDescriptionCell.swift in Sources */,
 				4B84A10823C4AA67006E5237 /* FeatureCell.swift in Sources */,
+				4B43047323C73FB200160663 /* TermsAndConditionsCell.swift in Sources */,
 				4B6DFE21239E84AA00543E3F /* ContactViewController.swift in Sources */,
 				4B84A10223C4A96F006E5237 /* YoutubeCell.swift in Sources */,
 				4B84A10A23C4AA7D006E5237 /* LandmarkCell.swift in Sources */,
