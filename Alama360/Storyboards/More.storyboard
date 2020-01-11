@@ -522,7 +522,19 @@
                     <view key="view" contentMode="scaleToFill" id="jJ1-W5-Ez1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FdG-SB-j8c" customClass="ACTabScrollView" customModule="ACTabScrollView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hao-IG-9Yq" firstAttribute="bottom" secondItem="FdG-SB-j8c" secondAttribute="bottom" id="D3I-tf-UaZ"/>
+                            <constraint firstItem="FdG-SB-j8c" firstAttribute="leading" secondItem="hao-IG-9Yq" secondAttribute="leading" id="dVg-bF-YhA"/>
+                            <constraint firstItem="hao-IG-9Yq" firstAttribute="trailing" secondItem="FdG-SB-j8c" secondAttribute="trailing" id="e7J-cR-FQU"/>
+                            <constraint firstItem="FdG-SB-j8c" firstAttribute="top" secondItem="hao-IG-9Yq" secondAttribute="top" id="n3i-40-OBP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="hao-IG-9Yq"/>
                     </view>
                     <navigationItem key="navigationItem" id="R0l-xI-8mn"/>
