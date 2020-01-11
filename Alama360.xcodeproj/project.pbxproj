@@ -18,6 +18,8 @@
 		4B149C3823C5B6230021F5EF /* PdDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B149C3723C5B6230021F5EF /* PdDescriptionCell.swift */; };
 		4B149C3A23C6111E0021F5EF /* AllPhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B149C3923C6111E0021F5EF /* AllPhotosCell.swift */; };
 		4B149C3C23C6116D0021F5EF /* AllPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B149C3B23C6116D0021F5EF /* AllPhotosViewController.swift */; };
+		4B188D5223C99C9100CBBA36 /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B188D5123C99C9100CBBA36 /* FAQViewController.swift */; };
+		4B188D5423C9AAB200CBBA36 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B188D5323C9AAB200CBBA36 /* ProfileViewController.swift */; };
 		4B1CE33023A24A7800C0FC01 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1CE32F23A24A7800C0FC01 /* MainCell.swift */; };
 		4B4008BC23B9F68E00AEE68C /* LandmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4008BB23B9F68E00AEE68C /* LandmarkTableViewCell.swift */; };
 		4B43047323C73FB200160663 /* TermsAndConditionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B43047223C73FB200160663 /* TermsAndConditionsCell.swift */; };
@@ -72,6 +74,8 @@
 		4B149C3723C5B6230021F5EF /* PdDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdDescriptionCell.swift; sourceTree = "<group>"; };
 		4B149C3923C6111E0021F5EF /* AllPhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPhotosCell.swift; sourceTree = "<group>"; };
 		4B149C3B23C6116D0021F5EF /* AllPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPhotosViewController.swift; sourceTree = "<group>"; };
+		4B188D5123C99C9100CBBA36 /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
+		4B188D5323C9AAB200CBBA36 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4B1CE32F23A24A7800C0FC01 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		4B4008BB23B9F68E00AEE68C /* LandmarkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkTableViewCell.swift; sourceTree = "<group>"; };
 		4B43047223C73FB200160663 /* TermsAndConditionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsCell.swift; sourceTree = "<group>"; };
@@ -222,6 +226,8 @@
 				4B149C3B23C6116D0021F5EF /* AllPhotosViewController.swift */,
 				4B43047423C7401800160663 /* TermsOfUseViewController.swift */,
 				4B43047823C762EE00160663 /* PrivacyPolicyViewController.swift */,
+				4B188D5123C99C9100CBBA36 /* FAQViewController.swift */,
+				4B188D5323C9AAB200CBBA36 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -419,6 +425,7 @@
 				4B43047523C7401800160663 /* TermsOfUseViewController.swift in Sources */,
 				4B1CE33023A24A7800C0FC01 /* MainCell.swift in Sources */,
 				4B7870C923B47D9100D360AC /* PropertyDetailsViewController.swift in Sources */,
+				4B188D5223C99C9100CBBA36 /* FAQViewController.swift in Sources */,
 				4B84A0FE23C4A922006E5237 /* Property360Cell.swift in Sources */,
 				4B83D88823B8CBC2003F38C9 /* FeatureTableViewCell.swift in Sources */,
 				4B04E433239B788000D02BC4 /* AppDelegate.swift in Sources */,
@@ -426,6 +433,7 @@
 				4B84A10823C4AA67006E5237 /* FeatureCell.swift in Sources */,
 				4B43047323C73FB200160663 /* TermsAndConditionsCell.swift in Sources */,
 				4B6DFE21239E84AA00543E3F /* ContactViewController.swift in Sources */,
+				4B188D5423C9AAB200CBBA36 /* ProfileViewController.swift in Sources */,
 				4B84A10223C4A96F006E5237 /* YoutubeCell.swift in Sources */,
 				4B84A10A23C4AA7D006E5237 /* LandmarkCell.swift in Sources */,
 				4B6DFE18239E278600543E3F /* ReservationsViewController.swift in Sources */,
