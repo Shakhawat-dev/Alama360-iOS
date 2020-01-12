@@ -36,78 +36,78 @@ extension TermsOfUseViewController: UITableViewDelegate, UITableViewDataSource {
         label.font = UIFont.systemFont(ofSize: 14)
         
         if section == 0 {
-            label.text = "Terms and Conditions"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "terms_title", comment: "").localiz()
             view.addSubview(label)
             
             
             return view
         } else if section == 1 {
-            label.text = "1. Copyright :"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term2", comment: "").localiz()
             view.addSubview(label)
             
             return view
         }  else if section == 2 {
-            label.text = "2. Trademarks :"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term4", comment: "").localiz()
             view.addSubview(label)
             
             return view
         } else if section == 3 {
-            label.text = "3. Limits of right of use :"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term6", comment: "").localiz()
             view.addSubview(label)
             
             return view
         } else if section == 4 {
-            label.text = "4. Use the site"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term8", comment: "").localiz()
             view.addSubview(label)
             
             return view
         } else if section == 5 {
-            label.text = "5. Credit card or bank transfer :"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term10", comment: "").localiz()
             view.addSubview(label)
             
             return view
         }else if section == 6 {
-            label.text = "6. Pre-payment, cancellation, non-attendance, and detailed conditions :"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term12", comment: "").localiz()
             view.addSubview(label)
             
             return view
         }else if section == 7 {
-            label.text = "7. DISCLAIMER AND LIMITATIONS OF LIABILITY :"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term14", comment: "").localiz()
             view.addSubview(label)
             
             return view
         }else if section == 8 {
-            label.text = "8. Use of information :"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term16", comment: "").localiz()
             view.addSubview(label)
             
             return view
         }else if section == 9 {
-            label.text = "9. Data :"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term18", comment: "").localiz()
             view.addSubview(label)
             
             return view
         }else if section == 10 {
-            label.text = "10. Privacy :"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term20", comment: "").localiz()
             view.addSubview(label)
             
             return view
         }else if section == 11 {
-            label.text = "11. Your account and password :"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term22", comment: "").localiz()
             view.addSubview(label)
             
             return view
         }else if section == 12 {
-            label.text = "12. Notices :"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term24", comment: "").localiz()
             view.addSubview(label)
             
             return view
         }else if section == 13 {
-            label.text = "13. Termination of contract :"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term26", comment: "").localiz()
             view.addSubview(label)
             
             return view
         }else if section == 14 {
-            label.text = "14. General Provisions :"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term28", comment: "").localiz()
             view.addSubview(label)
             
             return view
@@ -128,82 +128,82 @@ extension TermsOfUseViewController: UITableViewDelegate, UITableViewDataSource {
         
         if section == 0 {
 
-            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "terms_intro", comment: "")
+            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term1", comment: "").localiz()
             return cell
             
         } else if section == 1 {
 
-            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "Copyright", comment: "")
+            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term3", comment: "").localiz()
             return cell
             
         } else if section == 2 {
             
-            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "Trademarks", comment: "")
+            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term5", comment: "").localiz()
             
             return cell
         } else if section == 3 {
             
-            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "Limits", comment: "")
+            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term7", comment: "").localiz()
             
             return cell
         } else if section == 4 {
             
-            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "Use_the_site", comment: "")
+            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term9", comment: "").localiz()
             
             return cell
         } else if section == 5 {
             
-            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "Credit_card_or_bank_transfer", comment: "")
+            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term11", comment: "").localiz()
             
             return cell
         } else if section == 6 {
             
-            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "Pre_payment", comment: "")
+            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term13", comment: "")
             
             return cell
         } else if section == 7 {
             
-            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "DISCLAIMER", comment: "")
+            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term15", comment: "").localiz()
             
             return cell
         } else if section == 8 {
             
-            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "Use_of_information", comment: "")
+            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term17", comment: "").localiz()
             
             return cell
         } else if section == 9 {
             
-            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "Data", comment: "")
+            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term19", comment: "").localiz()
             
             return cell
         } else if section == 10 {
             
-            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "Privacy", comment: "")
+            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term21", comment: "").localiz()
             
             return cell
         } else if section == 11 {
             
-            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "account_and_password", comment: "")
+            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term23", comment: "").localiz()
             
             return cell
         } else if section == 12 {
             
-            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "Notices", comment: "")
+            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term25", comment: "").localiz()
             
             return cell
         } else if section == 13 {
             
-            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "Termination", comment: "")
+            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term27", comment: "").localiz()
             
             return cell
         } else if section == 14 {
             
-            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "General_Provisions", comment: "")
+            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term29", comment: "").localiz()
             
             return cell
         }  else {
             
-            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "Trademarks", comment: "")
+            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "Trademarks", comment: "").localiz()
             
             return cell
         }

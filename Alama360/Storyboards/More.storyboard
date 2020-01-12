@@ -218,7 +218,11 @@
                             <outlet property="delegate" destination="JLM-ep-HQR" id="SEQ-j1-Eno"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ALL-qr-MGI"/>
+                    <navigationItem key="navigationItem" id="ALL-qr-MGI">
+                        <barButtonItem key="rightBarButtonItem" title="En" id="1sQ-ji-39q">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFl-eq-XGu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -285,7 +289,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UqR-Ps-iMG"/>
                     </view>
-                    <navigationItem key="navigationItem" id="qub-Tn-ZpA"/>
+                    <navigationItem key="navigationItem" id="qub-Tn-ZpA">
+                        <barButtonItem key="rightBarButtonItem" title="En" id="Jdf-p2-bCJ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="langBtnTapped:" destination="J0t-wX-PWt" id="ZzE-h7-jd0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="privacyTableView" destination="RNW-0C-k70" id="w8H-O2-sUH"/>
                     </connections>
@@ -313,7 +324,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="3cb-kq-goM"/>
                     </view>
-                    <navigationItem key="navigationItem" id="W66-FU-dc8"/>
+                    <navigationItem key="navigationItem" id="W66-FU-dc8">
+                        <barButtonItem key="rightBarButtonItem" title="En" id="Cz4-Ew-ttT">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wMy-t8-L17" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -497,7 +512,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="q0O-qX-aov"/>
                     </view>
-                    <navigationItem key="navigationItem" id="nca-5A-iEF"/>
+                    <navigationItem key="navigationItem" id="nca-5A-iEF">
+                        <barButtonItem key="rightBarButtonItem" title="En" id="QIf-1w-n2n">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dateOfBirth" destination="vyo-a6-eUa" id="hfM-rA-nLV"/>
                         <outlet property="emailAddress" destination="nwe-M4-uFf" id="Ho4-rH-WQo"/>
@@ -537,7 +556,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hao-IG-9Yq"/>
                     </view>
-                    <navigationItem key="navigationItem" id="R0l-xI-8mn"/>
+                    <navigationItem key="navigationItem" id="R0l-xI-8mn">
+                        <barButtonItem key="rightBarButtonItem" title="En" id="QIM-db-hN7">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ug4-Fc-w1c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -666,7 +689,11 @@
                             <outlet property="delegate" destination="OU5-U2-QaM" id="fal-xd-cZJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="LQC-EO-e4e"/>
+                    <navigationItem key="navigationItem" id="LQC-EO-e4e">
+                        <barButtonItem key="rightBarButtonItem" title="En" id="OFH-9d-4cI">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2nc-rr-JPF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -691,7 +718,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="U0I-xf-sFQ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ToC-05-SrK"/>
+                    <navigationItem key="navigationItem" id="ToC-05-SrK">
+                        <barButtonItem key="rightBarButtonItem" title="En" id="HWc-0O-NLn">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ha7-JQ-TVJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -919,7 +950,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xcH-Sq-iBl"/>
                     </view>
-                    <navigationItem key="navigationItem" id="XBi-6h-O1D"/>
+                    <navigationItem key="navigationItem" id="XBi-6h-O1D">
+                        <barButtonItem key="rightBarButtonItem" title="En" id="k8y-ew-Mz6">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="termsOfUseTable" destination="kRM-2Y-UeI" id="bdV-hs-EEj"/>
                     </connections>
@@ -939,7 +974,14 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.024396336120000001" green="0.62690355330000003" blue="0.44178372469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.024396336120000001" green="0.62690355330000003" blue="0.44178372469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

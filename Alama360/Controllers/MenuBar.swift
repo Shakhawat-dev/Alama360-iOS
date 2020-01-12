@@ -8,16 +8,16 @@
 
 import UIKit
 
-class MenuBar: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class MenuBar: UIView {
     
-    
+//    UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.backgroundColor = #colorLiteral(red: 0.02439633612, green: 0.6269035533, blue: 0.4417837247, alpha: 1)
-        cv.delegate = self
-        cv.dataSource = self
+//        cv.delegate = self
+//        cv.dataSource = self
 
         return cv
     }()
@@ -34,11 +34,11 @@ class MenuBar: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         fatalError("init(coder:) has not been implemented")
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        4
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
-    }
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        4
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//
+//    }
 }

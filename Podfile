@@ -17,5 +17,6 @@ target 'Alama360' do
   pod 'ImageSlideshow', '~> 1.8.1'
   pod "ImageSlideshow/Alamofire"
   pod 'GoogleMaps'
+  pod 'LanguageManager-iOS'
 
 end

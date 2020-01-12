@@ -15,6 +15,7 @@ PODS:
     - ImageSlideshow/Core
   - ImageSlideshow/Core (1.8.1)
   - iOSDropDown (0.3.4)
+  - LanguageManager-iOS (1.2.0)
   - SearchTextField (1.2.4)
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (5.0.0)
@@ -26,6 +27,7 @@ DEPENDENCIES:
   - ImageSlideshow (~> 1.8.1)
   - ImageSlideshow/Alamofire
   - iOSDropDown
+  - LanguageManager-iOS
   - SearchTextField
   - SVProgressHUD
   - SwiftyJSON
@@ -38,6 +40,7 @@ SPEC REPOS:
     - GoogleMaps
     - ImageSlideshow
     - iOSDropDown
+    - LanguageManager-iOS
     - SearchTextField
     - SVProgressHUD
     - SwiftyJSON
@@ -49,10 +52,11 @@ SPEC CHECKSUMS:
   GoogleMaps: 82f8fe307193bb4de6ef6bf9e88f1d624b718f9d
   ImageSlideshow: 634865d7d4e96f21e3830a31b51bde768cc94cea
   iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
+  LanguageManager-iOS: 516c4f088435c83cbdbddfc5179f88e4e0d39eb4
   SearchTextField: 40dc3cc57def5a211f263cac263622c163bbc25a
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 6205a0b7c069793555223c01dae79615a84f7bd6
+PODFILE CHECKSUM: daa5e72e0a73a753a3e4b58f977f63f6afbb0532
 
 COCOAPODS: 1.8.4
