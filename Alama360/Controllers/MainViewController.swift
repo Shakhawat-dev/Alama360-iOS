@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 import Alamofire
+import LanguageManager_iOS
 
 class ViewController: UIViewController {
     
@@ -48,11 +49,35 @@ class ViewController: UIViewController {
         
         if LocalizationSystem.sharedInstance.getLanguage() == "ar" {
             LocalizationSystem.sharedInstance.setLanguage(languageCode: "en")
-            UIView.appearance().semanticContentAttribute = .forceLeftToRight
+            
+            // UIView.appearance().semanticContentAttribute = .forceLeftToRight
+            
+            // change the language
+            LanguageManager.shared.setLanguage(language: .en,
+                                                  viewControllerFactory: { title -> UIViewController in
+                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                 // the view controller that you want to show after changing the language
+                 return storyboard.instantiateInitialViewController()!
+               }) { view in
+                 view.transform = CGAffineTransform(scaleX: 2, y: 2)
+                 view.alpha = 0
+               }
             
         } else {
             LocalizationSystem.sharedInstance.setLanguage(languageCode: "ar")
-            UIView.appearance().semanticContentAttribute = .forceRightToLeft
+            
+            // UIView.appearance().semanticContentAttribute = .forceRightToLeft
+            
+            // change the language
+            LanguageManager.shared.setLanguage(language: .ar,
+                                                  viewControllerFactory: { title -> UIViewController in
+                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                 // the view controller that you want to show after changing the language
+                 return storyboard.instantiateInitialViewController()!
+               }) { view in
+                 view.transform = CGAffineTransform(scaleX: 2, y: 2)
+                 view.alpha = 0
+               }
             
         }
         
@@ -169,6 +194,8 @@ class ViewController: UIViewController {
         lblVerified.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "verified_certified", comment: "")
         lblBooking.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "confirm_booking", comment: "")
         btnSubmit.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "btn_submit", comment: ""), for: .normal)
+        
+         
         
     }
     

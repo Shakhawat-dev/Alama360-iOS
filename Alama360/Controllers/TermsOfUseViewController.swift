@@ -158,7 +158,7 @@ extension TermsOfUseViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         } else if section == 6 {
             
-            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term13", comment: "")
+            cell.introLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "term13", comment: "").localiz()
             
             return cell
         } else if section == 7 {

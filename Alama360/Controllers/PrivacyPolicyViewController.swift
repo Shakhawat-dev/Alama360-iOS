@@ -22,6 +22,7 @@ class PrivacyPolicyViewController: UIViewController {
     }
     @IBAction func langBtnTapped(_ sender: Any) {
         
+        let selectedLanguage: Languages = (sender as AnyObject).tag == 1 ? .en : .ar
          // change the language
         LanguageManager.shared.setLanguage(language: .ar,
                                               viewControllerFactory: { title -> UIViewController in
@@ -51,58 +52,58 @@ extension PrivacyPolicyViewController: UITableViewDelegate, UITableViewDataSourc
         label.font = UIFont.systemFont(ofSize: 14)
         
         if section == 0 {
-            label.text = "privacyTableView"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy2", comment: "").localiz()
             view.addSubview(label)
             
             
             return view
         } else if section == 1 {
-            label.text = "The data we collect"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy4", comment: "").localiz()
             view.addSubview(label)
             
             return view
         }  else if section == 2 {
-            label.text = "Other uses of your personal data"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy6", comment: "").localiz()
             view.addSubview(label)
             
             return view
         } else if section == 3 {
-            label.text = "We may send you"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy8", comment: "").localiz()
             view.addSubview(label)
             
             return view
         } else if section == 4 {
-            label.text = "Disclose your information"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy10", comment: "").localiz()
             view.addSubview(label)
             
             return view
         } else if section == 5 {
-            label.text = "Competitions"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy12", comment: "").localiz()
             view.addSubview(label)
             
             return view
         }else if section == 6 {
-            label.text = "No spam, spyware or impersonation"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy14", comment: "").localiz()
             view.addSubview(label)
             
             return view
         }else if section == 7 {
-            label.text = "Account Protection"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy16", comment: "").localiz()
             view.addSubview(label)
             
             return view
         }else if section == 8 {
-            label.text = "Cookies"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy18", comment: "").localiz()
             view.addSubview(label)
             
             return view
         }else if section == 9 {
-            label.text = "Protection"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy20", comment: "").localiz()
             view.addSubview(label)
             
             return view
         }else if section == 10 {
-            label.text = "Your rights"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy22", comment: "").localiz()
             view.addSubview(label)
             
             return view
@@ -121,57 +122,62 @@ extension PrivacyPolicyViewController: UITableViewDelegate, UITableViewDataSourc
         
         if section == 0 {
 
-            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "Thank_you", comment: "").localiz()
+            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy3", comment: "").localiz()
             return cell
             
         } else if section == 1 {
 
-            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "The_data_we_collect", comment: "").localiz()
+            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy5", comment: "").localiz()
             return cell
             
         } else if section == 2 {
             
-            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "Other_uses", comment: "").localiz()
+            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy7", comment: "").localiz()
             
             return cell
         } else if section == 3 {
             
-            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "We_may_send_you", comment: "").localiz()
+            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy9", comment: "").localiz()
             
             return cell
         } else if section == 4 {
             
-            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "Disclose_your_information", comment: "").localiz()
+            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy11", comment: "").localiz()
             
             return cell
         } else if section == 5 {
             
-            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "Competitions", comment: "").localiz()
+            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy13", comment: "").localiz()
             
             return cell
         } else if section == 6 {
             
-            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "No_spam_spyware", comment: "").localiz()
+            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy15", comment: "").localiz()
             
             return cell
         } else if section == 7 {
             
-            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "Cookies", comment: "").localiz()
+            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy17", comment: "").localiz()
             
             return cell
         } else if section == 8 {
             
-            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "Protection", comment: "").localiz()
+            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy19", comment: "").localiz()
             
             return cell
         } else if section == 9 {
             
-            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "Your_rights", comment: "")
+            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy21", comment: "").localiz()
+            
+            return cell
+        } else if section == 10 {
+            
+            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy23", comment: "").localiz()
             
             return cell
         } else{
             
-            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "Generally_we", comment: "")
+            cell.privacyLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy24", comment: "").localiz()
             
             return cell
         }

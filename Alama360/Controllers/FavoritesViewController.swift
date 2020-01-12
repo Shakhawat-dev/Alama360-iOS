@@ -36,9 +36,6 @@ class FavoritesViewController: UIViewController {
     }
     
     func imageSlideShow() {
-        
-       
-        
 
             slideShow.setImageInputs([
                 ImageSource(image: UIImage(named: "alama_logo")!),

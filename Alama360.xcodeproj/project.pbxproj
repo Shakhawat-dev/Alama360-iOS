@@ -33,7 +33,6 @@
 		4B4BBBAF23C46F9F00DB28C5 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4BBBAE23C46F9F00DB28C5 /* More.storyboard */; };
 		4B6DFE18239E278600543E3F /* ReservationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE17239E278600543E3F /* ReservationsViewController.swift */; };
 		4B6DFE1A239E292800543E3F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE19239E292800543E3F /* FavoritesViewController.swift */; };
-		4B6DFE1C239E295100543E3F /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE1B239E295100543E3F /* MoreViewController.swift */; };
 		4B6DFE1E239E299900543E3F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE1D239E299900543E3F /* SearchViewController.swift */; };
 		4B6DFE21239E84AA00543E3F /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE20239E84AA00543E3F /* ContactViewController.swift */; };
 		4B7870C223ADF5A000D360AC /* BookingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7870C123ADF5A000D360AC /* BookingTableViewCell.swift */; };
@@ -90,7 +89,6 @@
 		4B4BBBAE23C46F9F00DB28C5 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
 		4B6DFE17239E278600543E3F /* ReservationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationsViewController.swift; sourceTree = "<group>"; };
 		4B6DFE19239E292800543E3F /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
-		4B6DFE1B239E295100543E3F /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		4B6DFE1D239E299900543E3F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4B6DFE20239E84AA00543E3F /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		4B7870C123ADF5A000D360AC /* BookingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTableViewCell.swift; sourceTree = "<group>"; };
@@ -214,7 +212,6 @@
 				4B04E436239B788000D02BC4 /* MainViewController.swift */,
 				4B7870C823B47D9000D360AC /* PropertyDetailsViewController.swift */,
 				4BABFAB623A8BCE400F34EA4 /* addPropertyTermsViewController.swift */,
-				4B6DFE1B239E295100543E3F /* MoreViewController.swift */,
 				4B6DFE17239E278600543E3F /* ReservationsViewController.swift */,
 				4B6DFE19239E292800543E3F /* FavoritesViewController.swift */,
 				4B6DFE1D239E299900543E3F /* SearchViewController.swift */,
@@ -412,7 +409,6 @@
 				4B93206E23B7A5B5005861DD /* CustomCollectionGrid.swift in Sources */,
 				4B9012BE23B768B100E8C59D /* StaticUrls.swift in Sources */,
 				4B84A10623C4AA41006E5237 /* NamePolicyCell.swift in Sources */,
-				4B6DFE1C239E295100543E3F /* MoreViewController.swift in Sources */,
 				4B84A10E23C4B135006E5237 /* TbPropertyDetailsViewController.swift in Sources */,
 				4B7870C223ADF5A000D360AC /* BookingTableViewCell.swift in Sources */,
 				4B04E437239B788000D02BC4 /* MainViewController.swift in Sources */,
