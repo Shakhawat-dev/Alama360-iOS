@@ -54,7 +54,13 @@ class BookingViewController: UIViewController {
         searchController.searchBar.delegate = self
         
         getPropertiesForDate()
+        setLocalization()
         
+    }
+    
+    func setLocalization() {
+        mapBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "map", comment: "").localiz(), for: .normal)
+        sortBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "sort", comment: "").localiz(), for: .normal)
     }
     
     // Load Booking List
@@ -299,6 +305,10 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.featureLabelOne.text = feature_array[0]
                 cell.featureLabelTwo.text = feature_array[1]
                 cell.featureLabelThree.text = feature_array[2]
+            } else {
+                cell.featureLabelOne.text = ""
+                cell.featureLabelTwo.text = ""
+                cell.featureLabelThree.text = ""
             }
             
         }
@@ -317,6 +327,10 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.featureImageTwo.image = getImage(from: icon2)
                 cell.featureImageThree.image = getImage(from: icon3)
                 
+            } else {
+                cell.featureImageOne.image = nil
+                    cell.featureImageTwo.image = nil
+                    cell.featureImageThree.image = nil
             }
             
         }

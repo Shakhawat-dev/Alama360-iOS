@@ -25,11 +25,16 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     @IBOutlet weak var chaletCategoryField: UITextField!
     @IBOutlet weak var startDateField: UITextField!
     @IBOutlet weak var categoryDropDown: DropDown!
-    @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet weak var addChaletLabel: UILabel!
     
     @IBOutlet weak var categoryDropDownBtn: UIButton!
     @IBOutlet weak var checkBtb: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var lblSearchTitle: UILabel!
+    @IBOutlet weak var lblSearchDesc: UILabel!
+    @IBOutlet weak var lblSelectDate: UILabel!
+    @IBOutlet weak var btnAdd: UIButton!
     
     
     let defaults = UserDefaults.standard
@@ -57,12 +62,27 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setLocalize()
         loadProperties()
         loadCategories()
         loadPropertyTitle()
         getDatePicker()
         
+        let logo = #imageLiteral(resourceName: "logo")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView
+        
      startDateField.inputView = datePicker
+    }
+    
+    func setLocalize() {
+        lblSearchTitle.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "lvl_search_header", comment: "").localiz()
+        lblSearchDesc.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "for_an_apartment", comment: "").localiz()
+        checkBtb.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "lvl_search", comment: "").localiz(), for: .normal)
+        addChaletLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "add_your_chalat", comment: "").localiz()
+        lblSelectDate.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "select_appropriate_date", comment: "").localiz()
+        btnAdd.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "add_now", comment: "").localiz(), for: .normal)
+        
     }
     
     func getDatePicker() {

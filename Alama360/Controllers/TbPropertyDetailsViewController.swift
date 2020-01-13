@@ -45,7 +45,7 @@ class TbPropertyDetailsViewController: UIViewController {
         
         lan = LocalizationSystem.sharedInstance.getLanguage()
         
-        let pdUrl = StaticUrls.BASE_URL_FINAL + "propertydetails/130?lang=en&userid=124"
+        let pdUrl = StaticUrls.BASE_URL_FINAL + "propertydetails/130?lang=" + lan + "&userid=124"
         
         // URL check
         print("Response bUrl is: \(pdUrl)")
@@ -191,37 +191,34 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let view = UIView(frame: CGRect(x: 0, y: 0, width: propertyDetailsTable.frame.size.width, height: 18))
-        let label = UILabel(frame: CGRect(x: 10, y: 5, width: propertyDetailsTable.frame.size.width, height: 18))
+        view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) // Set your background color
+        
+        let label = UILabel(frame: CGRect(x: 10, y: 5, width: propertyDetailsTable.frame.size.width - 16, height: 18))
         label.font = UIFont.systemFont(ofSize: 14)
         
         if section == 0 {
-            label.text = "Property"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "property", comment: "").localiz()
             view.addSubview(label)
-            view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) // Set your background color
-            
+
             return view
         } else if section == 1 {
-            label.text = "Description"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "description", comment: "").localiz()
             view.addSubview(label)
-            view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) // Set your background color
             
             return view
         }  else if section == 2 {
-            label.text = "Features"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "features", comment: "").localiz()
             view.addSubview(label)
-            view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) // Set your background color
             
             return view
         } else if section == 3 {
-            label.text = "Landmarks"
+            label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "landmarks", comment: "").localiz()
             view.addSubview(label)
-            view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) // Set your background color
             
             return view
         } else if section == 4 {
             label.text = "Maps"
             view.addSubview(label)
-            view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) // Set your background color
             
             return view
         }

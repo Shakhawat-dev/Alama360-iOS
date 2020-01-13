@@ -82,6 +82,8 @@ class PhotoGridCell: UITableViewCell {
         thumbThree.image =  getImage(from: imageThree!)
         thumbFour.image =  getImage(from: imageFour!)
         thumbFive.image =  getImage(from: imageFive!)
+        
+        moreButton.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "more", comment: "").localiz(),for: .normal)
 
         // Test Purpose
 

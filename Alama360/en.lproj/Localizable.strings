@@ -29,6 +29,35 @@
 "office_phone" = "(+966)920006413";
 "office_email" = "info@alama360.com";
 
+// Search Page
+"lvl_search_header" = "Search";
+"for_an_apartment" = "For an apartment, chalet, camp, farm, break, villa, room with ease and honesty";
+"lvl_search" = "Check Availability";
+"add_your_chalat" = "Add your chalat in Alama360";
+"select_appropriate_date" = "Select the appropriate date";
+"add_now" = "Add Now";
+
+// Property Details Page
+"policy" = "Policy";
+"start_time_lvl" = "Start time";
+"start_time" = "12:00 - 00:00";
+"exit_time_lvl" = "Exit time";
+"exit_time" = "09:00 - 12:00";
+"section" = "Section";
+"man_women" = "Man-Women";
+
+"more" = "more...";
+// PD Section Headers
+"property" = "Property";
+"description" = "Description";
+"features" = "Features";
+"landmarks" = "Landmarks";
+
+// Booking Page
+"map" = "Map";
+"sort" = "Sort";
+
+
 
 // Privacy policy part
 "Thank_you" = "Thank you for accessing the Alama360.com site powered by 3D Vision. Werespect your privacy and want to protect your personal data. To learn more,please read our privacy policy. The privacy policy explains how we collect and use (under certain conditions) our personal data. Privacy Policy describes steps we take to protect your personal data. Finally, the privacy policy describes your choices regarding the collection, use and display of your personal data. By visiting the site directly or through another site, you accept the exercises described in this policy. Data protection is your trust and your privacy is important to us. So just use your name and any other information related to you in the privacy policy. We will only collect the necessary information about you and your agreement with us. We will keep your information for the period required by law or as related to the compilation of information. You can visit the site and browse without providing us with your personal details. While browsing the site will remain anonymous and we cannot recognize you unless you have an account on the site and you enter your username and password.";
