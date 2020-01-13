@@ -48,7 +48,7 @@ extension PrivacyPolicyViewController: UITableViewDelegate, UITableViewDataSourc
         let view = UIView(frame: CGRect(x: 0, y: 0, width: privacyTableView.frame.size.width, height: 18))
         view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) // Set your background color
         
-        let label = UILabel(frame: CGRect(x: 10, y: 5, width: privacyTableView.frame.size.width, height: 18))
+        let label = UILabel(frame: CGRect(x: 10, y: 5, width: privacyTableView.frame.size.width - 16, height: 18))
         label.font = UIFont.systemFont(ofSize: 14)
         
         if section == 0 {

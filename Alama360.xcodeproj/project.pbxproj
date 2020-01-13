@@ -31,6 +31,7 @@
 		4B4BBBAB23C46F1E00DB28C5 /* Reservations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4BBBAA23C46F1E00DB28C5 /* Reservations.storyboard */; };
 		4B4BBBAD23C46F8200DB28C5 /* Favourites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4BBBAC23C46F8200DB28C5 /* Favourites.storyboard */; };
 		4B4BBBAF23C46F9F00DB28C5 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4BBBAE23C46F9F00DB28C5 /* More.storyboard */; };
+		4B4EAB2123CB5CAA005AEBA6 /* MoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4EAB2023CB5CAA005AEBA6 /* MoreTableViewController.swift */; };
 		4B6DFE18239E278600543E3F /* ReservationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE17239E278600543E3F /* ReservationsViewController.swift */; };
 		4B6DFE1A239E292800543E3F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE19239E292800543E3F /* FavoritesViewController.swift */; };
 		4B6DFE1E239E299900543E3F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE1D239E299900543E3F /* SearchViewController.swift */; };
@@ -51,6 +52,7 @@
 		4B9012BE23B768B100E8C59D /* StaticUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9012BD23B768B100E8C59D /* StaticUrls.swift */; };
 		4B9012C423B775AC00E8C59D /* PhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9012C323B775AC00E8C59D /* PhotosModel.swift */; };
 		4B93206E23B7A5B5005861DD /* CustomCollectionGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B93206D23B7A5B5005861DD /* CustomCollectionGrid.swift */; };
+		4B9C21EF23CC545400090E94 /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9C21EE23CC545400090E94 /* ContactTableViewController.swift */; };
 		4BABFAB723A8BCE400F34EA4 /* addPropertyTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BABFAB623A8BCE400F34EA4 /* addPropertyTermsViewController.swift */; };
 		4BABFAB923A900D900F34EA4 /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BABFAB823A900D900F34EA4 /* iOSDropDown.framework */; };
 		4BABFABB23AA647900F34EA4 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BABFABA23AA647900F34EA4 /* BookingViewController.swift */; };
@@ -87,6 +89,7 @@
 		4B4BBBAA23C46F1E00DB28C5 /* Reservations.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reservations.storyboard; sourceTree = "<group>"; };
 		4B4BBBAC23C46F8200DB28C5 /* Favourites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favourites.storyboard; sourceTree = "<group>"; };
 		4B4BBBAE23C46F9F00DB28C5 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
+		4B4EAB2023CB5CAA005AEBA6 /* MoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewController.swift; sourceTree = "<group>"; };
 		4B6DFE17239E278600543E3F /* ReservationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationsViewController.swift; sourceTree = "<group>"; };
 		4B6DFE19239E292800543E3F /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		4B6DFE1D239E299900543E3F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +110,7 @@
 		4B9012BD23B768B100E8C59D /* StaticUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticUrls.swift; sourceTree = "<group>"; };
 		4B9012C323B775AC00E8C59D /* PhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModel.swift; sourceTree = "<group>"; };
 		4B93206D23B7A5B5005861DD /* CustomCollectionGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionGrid.swift; sourceTree = "<group>"; };
+		4B9C21EE23CC545400090E94 /* ContactTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
 		4BABFAB623A8BCE400F34EA4 /* addPropertyTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addPropertyTermsViewController.swift; sourceTree = "<group>"; };
 		4BABFAB823A900D900F34EA4 /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BABFABA23AA647900F34EA4 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +232,8 @@
 				4B188D5123C99C9100CBBA36 /* FAQViewController.swift */,
 				4B188D5323C9AAB200CBBA36 /* ProfileViewController.swift */,
 				4B188D5723C9F45900CBBA36 /* MenuBar.swift */,
+				4B4EAB2023CB5CAA005AEBA6 /* MoreTableViewController.swift */,
+				4B9C21EE23CC545400090E94 /* ContactTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -417,6 +423,7 @@
 				4B149C3A23C6111E0021F5EF /* AllPhotosCell.swift in Sources */,
 				4B9012C423B775AC00E8C59D /* PhotosModel.swift in Sources */,
 				4B7870C523B0D9C100D360AC /* FeatureModel.swift in Sources */,
+				4B9C21EF23CC545400090E94 /* ContactTableViewController.swift in Sources */,
 				4B6DFE1E239E299900543E3F /* SearchViewController.swift in Sources */,
 				4B149C3C23C6116D0021F5EF /* AllPhotosViewController.swift in Sources */,
 				4B43047923C762EE00160663 /* PrivacyPolicyViewController.swift in Sources */,
@@ -442,6 +449,7 @@
 				4B04E435239B788000D02BC4 /* SceneDelegate.swift in Sources */,
 				4B4008BC23B9F68E00AEE68C /* LandmarkTableViewCell.swift in Sources */,
 				4B84A10423C4A9FC006E5237 /* PhotoGridCell.swift in Sources */,
+				4B4EAB2123CB5CAA005AEBA6 /* MoreTableViewController.swift in Sources */,
 				4B7870C723B0F7D400D360AC /* BookingModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
