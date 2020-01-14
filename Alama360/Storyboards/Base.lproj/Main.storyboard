@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5ns-Sl-PSe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -206,10 +206,10 @@
             </objects>
             <point key="canvasLocation" x="-1752" y="-20"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="FEB-hE-G1b">
             <objects>
-                <tabBarController modalPresentationStyle="fullScreen" id="5ns-Sl-PSe" sceneMemberID="viewController">
+                <tabBarController modalPresentationStyle="fullScreen" id="5ns-Sl-PSe" customClass="MainTabBarController" customModule="Alama360" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="veu-1x-GOM"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gZu-f1-Elj">

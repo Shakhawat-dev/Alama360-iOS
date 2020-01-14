@@ -41,6 +41,8 @@
 		4B7870C723B0F7D400D360AC /* BookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7870C623B0F7D400D360AC /* BookingModel.swift */; };
 		4B7870C923B47D9100D360AC /* PropertyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7870C823B47D9000D360AC /* PropertyDetailsViewController.swift */; };
 		4B83D88823B8CBC2003F38C9 /* FeatureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83D88723B8CBC2003F38C9 /* FeatureTableViewCell.swift */; };
+		4B8491F223CD7DFD0094B035 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8491F123CD7DFD0094B035 /* MainTabBarController.swift */; };
+		4B8491F423CD83880094B035 /* ReservationTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8491F323CD83880094B035 /* ReservationTabItem.swift */; };
 		4B84A0FE23C4A922006E5237 /* Property360Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B84A0FD23C4A922006E5237 /* Property360Cell.swift */; };
 		4B84A10223C4A96F006E5237 /* YoutubeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B84A10123C4A96F006E5237 /* YoutubeCell.swift */; };
 		4B84A10423C4A9FC006E5237 /* PhotoGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B84A10323C4A9FC006E5237 /* PhotoGridCell.swift */; };
@@ -99,6 +101,8 @@
 		4B7870C623B0F7D400D360AC /* BookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingModel.swift; sourceTree = "<group>"; };
 		4B7870C823B47D9000D360AC /* PropertyDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDetailsViewController.swift; sourceTree = "<group>"; };
 		4B83D88723B8CBC2003F38C9 /* FeatureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTableViewCell.swift; sourceTree = "<group>"; };
+		4B8491F123CD7DFD0094B035 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		4B8491F323CD83880094B035 /* ReservationTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationTabItem.swift; sourceTree = "<group>"; };
 		4B84A0FD23C4A922006E5237 /* Property360Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property360Cell.swift; sourceTree = "<group>"; };
 		4B84A10123C4A96F006E5237 /* YoutubeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeCell.swift; sourceTree = "<group>"; };
 		4B84A10323C4A9FC006E5237 /* PhotoGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGridCell.swift; sourceTree = "<group>"; };
@@ -234,6 +238,8 @@
 				4B188D5723C9F45900CBBA36 /* MenuBar.swift */,
 				4B4EAB2023CB5CAA005AEBA6 /* MoreTableViewController.swift */,
 				4B9C21EE23CC545400090E94 /* ContactTableViewController.swift */,
+				4B8491F123CD7DFD0094B035 /* MainTabBarController.swift */,
+				4B8491F323CD83880094B035 /* ReservationTabItem.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -426,6 +432,7 @@
 				4B9C21EF23CC545400090E94 /* ContactTableViewController.swift in Sources */,
 				4B6DFE1E239E299900543E3F /* SearchViewController.swift in Sources */,
 				4B149C3C23C6116D0021F5EF /* AllPhotosViewController.swift in Sources */,
+				4B8491F423CD83880094B035 /* ReservationTabItem.swift in Sources */,
 				4B43047923C762EE00160663 /* PrivacyPolicyViewController.swift in Sources */,
 				4B04E457239B843F00D02BC4 /* LocalizationSystem.swift in Sources */,
 				4B43047523C7401800160663 /* TermsOfUseViewController.swift in Sources */,
@@ -442,6 +449,7 @@
 				4B188D5423C9AAB200CBBA36 /* ProfileViewController.swift in Sources */,
 				4B84A10223C4A96F006E5237 /* YoutubeCell.swift in Sources */,
 				4B84A10A23C4AA7D006E5237 /* LandmarkCell.swift in Sources */,
+				4B8491F223CD7DFD0094B035 /* MainTabBarController.swift in Sources */,
 				4B6DFE18239E278600543E3F /* ReservationsViewController.swift in Sources */,
 				4B188D5823C9F45900CBBA36 /* MenuBar.swift in Sources */,
 				4B6DFE1A239E292800543E3F /* FavoritesViewController.swift in Sources */,

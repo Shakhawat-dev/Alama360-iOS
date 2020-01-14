@@ -26,7 +26,7 @@
                                                 <rect key="frame" x="8" y="8" width="398" height="392"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_container" translatesAutoresizingMaskIntoConstraints="NO" id="WrS-6J-KF8">
-                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="392.00000000000011"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="392"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHU-7h-Z8W">
                                                         <rect key="frame" x="14" y="14" width="370" height="24"/>
@@ -126,7 +126,7 @@
                                                 <rect key="frame" x="8" y="401" width="398" height="507"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_your_chalet" translatesAutoresizingMaskIntoConstraints="NO" id="BUB-4l-toD">
-                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="84"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="168"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="house" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dd0-du-186">
                                                         <rect key="frame" x="28" y="21.5" width="30" height="29.5"/>
@@ -280,9 +280,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4E3-wA-vZ8"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Search" id="XyP-qa-uVI">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="sOK-mE-ofD"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="XyP-qa-uVI"/>
                     <connections>
                         <outlet property="addChaletLabel" destination="1CK-Ej-ZR5" id="0hz-NF-7Vk"/>
                         <outlet property="btnAdd" destination="PAx-ck-2sK" id="Q7f-o8-A9T"/>

@@ -83,6 +83,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         lblSelectDate.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "select_appropriate_date", comment: "").localiz()
         btnAdd.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "add_now", comment: "").localiz(), for: .normal)
         
+        titlePropertyAuto.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "property_title", comment: "").localiz()
+        categoryDropDown.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "search_category", comment: "").localiz()
+        startDateField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "start_date", comment: "").localiz()
     }
     
     func getDatePicker() {

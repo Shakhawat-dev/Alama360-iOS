@@ -37,6 +37,10 @@
 "select_appropriate_date" = "اختار تاريخ المناسب";
 "add_now" = "إضافة الآن";
 
+"property_title" = "اسم العقار";
+"search_category" = "ابحث بحسب تصنيفات الشاليهات";
+"start_date" = "تاريخ البدء";
+
 // Property Details Page
 "policy" = "سياسات";
 "start_time_lvl" = "وقت دخول";
@@ -56,6 +60,9 @@
 // Booking Page
 "map" = "خريطة";
 "sort" = "فرز";
+
+// Tab Bar Item
+"reservations" = "الحجز";
 
 
 // Terms and Condition part
