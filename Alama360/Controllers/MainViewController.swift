@@ -136,19 +136,23 @@ class ViewController: UIViewController {
             
             // For taking the value of action text field
             var inputTextField: UITextField?
+            var alertTitle = LocalizationSystem.sharedInstance.localizedStringForKey(key: "alert_title", comment: "").localiz()
+            var alertMessage = LocalizationSystem.sharedInstance.localizedStringForKey(key: "alert_message", comment: "").localiz()
+            var alertBtn = LocalizationSystem.sharedInstance.localizedStringForKey(key: "alert_btn", comment: "").localiz()
             
             //Aler Dialoge Initiated
-            let alert = UIAlertController(title: "Verification Code", message: "Enter the verification code recieved on the number \(fPhone)", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: alertTitle, message: alertMessage + " \(fPhone)", preferredStyle: UIAlertController.Style.alert)
             
             alert.addTextField(configurationHandler: {(textField: UITextField!) in
-                textField.placeholder = "Four digit code:"
+//                textField.placeholder = "Four digit code:"
+//                textField.type
                 textField.isSecureTextEntry = false // for password input
                 
                 inputTextField = textField
                 
             })
             
-            alert.addAction(UIAlertAction(title: "Next", style: UIAlertAction.Style.default, handler: { (action) -> Void in
+            alert.addAction(UIAlertAction(title: alertBtn, style: UIAlertAction.Style.default, handler: { (action) -> Void in
                 print("Entered \(inputTextField?.text ?? "") ")
                 
                 if inputTextField?.text ?? "" == self.code {
@@ -184,16 +188,16 @@ class ViewController: UIViewController {
     
     func changeLanguage() {
         
-        lblHeader.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "header_text", comment: "")
-        lblCurrentLanguage.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "change_language", comment: "")
+        lblHeader.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "header_text", comment: "").localiz()
+        lblCurrentLanguage.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "change_language", comment: "").localiz()
         
-        btnChangeLanguage.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "language", comment: ""), for: .normal)
+        btnChangeLanguage.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "language", comment: "").localiz(), for: .normal)
         
-        lblChalets.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "hundreds_of_chalets", comment: "")
-        lblSecure.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "secure_payment", comment: "")
-        lblVerified.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "verified_certified", comment: "")
-        lblBooking.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "confirm_booking", comment: "")
-        btnSubmit.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "btn_submit", comment: ""), for: .normal)
+        lblChalets.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "hundreds_of_chalets", comment: "").localiz()
+        lblSecure.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "secure_payment", comment: "").localiz()
+        lblVerified.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "verified_certified", comment: "").localiz()
+        lblBooking.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "confirm_booking", comment: "").localiz()
+        btnSubmit.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "btn_submit", comment: "").localiz(), for: .normal)
         
          
         
