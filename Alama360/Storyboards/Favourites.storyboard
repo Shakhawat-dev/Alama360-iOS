@@ -50,11 +50,11 @@
             </objects>
             <point key="canvasLocation" x="2555.072463768116" y="740.625"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Favorites-->
         <scene sceneID="ivn-r6-cZp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DJA-cJ-Wz9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="cHa-MH-GKK"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="star.fill" catalog="system" id="cHa-MH-GKK"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="C88-7M-Fc3">
@@ -73,4 +73,7 @@
             <point key="canvasLocation" x="1644.9275362318842" y="740.625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="star.fill" catalog="system" width="64" height="58"/>
+    </resources>
 </document>

@@ -1079,11 +1079,11 @@
             </objects>
             <point key="canvasLocation" x="2880" y="69"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--More-->
         <scene sceneID="wlP-Cd-VCX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ee7-wa-PNZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="uYU-33-Ska"/>
+                    <tabBarItem key="tabBarItem" title="More" image="circle.grid.3x3.fill" catalog="system" id="uYU-33-Ska"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jgt-UW-7bX">
@@ -1109,6 +1109,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="circle.grid.3x3.fill" catalog="system" width="64" height="56"/>
         <image name="ic_add_new" width="30" height="30"/>
         <image name="ic_contact" width="30" height="30"/>
         <image name="ic_email" width="30" height="30"/>

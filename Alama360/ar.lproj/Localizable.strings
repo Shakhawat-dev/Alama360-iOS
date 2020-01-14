@@ -67,7 +67,10 @@
 "sort" = "فرز";
 
 // Tab Bar Item
+"search" = "بحث";
 "reservations" = "الحجز";
+"favorites" = "المفضلة";
+"more" = "أكثر";
 
 
 // Terms and Condition part

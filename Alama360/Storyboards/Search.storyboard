@@ -1771,11 +1771,11 @@
             </objects>
             <point key="canvasLocation" x="1672" y="1473"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Search-->
         <scene sceneID="DFZ-0s-XRM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rDq-V5-s9W" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="Tpr-rv-5J1"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="Tpr-rv-5J1"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SYx-JX-w4v">
@@ -1806,6 +1806,7 @@
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="img_1" width="1200" height="600"/>
         <image name="location" catalog="system" width="64" height="56"/>
+        <image name="magnifyingglass" catalog="system" width="64" height="56"/>
         <image name="pencil.slash" catalog="system" width="64" height="56"/>
         <image name="search_container" width="369" height="392"/>
         <image name="text_field_container" width="345" height="262"/>

@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         changeLanguage()
         
         lblCountryCOde.layer.cornerRadius = 4
-        
+        changeLanguage()
     }
     
     @IBAction func changeLanguage(_ sender: Any) {
@@ -78,10 +78,13 @@ class ViewController: UIViewController {
                  view.transform = CGAffineTransform(scaleX: 2, y: 2)
                  view.alpha = 0
                }
-            
         }
         
-        changeLanguage()
+        let vc = self.storyboard?.instantiateInitialViewController() as! ViewController
+        let appDlg = UIApplication.shared.delegate as! AppDelegate
+        appDlg.window?.rootViewController = vc
+        
+//        changeLanguage()
         
     }
     
@@ -136,9 +139,9 @@ class ViewController: UIViewController {
             
             // For taking the value of action text field
             var inputTextField: UITextField?
-            var alertTitle = LocalizationSystem.sharedInstance.localizedStringForKey(key: "alert_title", comment: "").localiz()
-            var alertMessage = LocalizationSystem.sharedInstance.localizedStringForKey(key: "alert_message", comment: "").localiz()
-            var alertBtn = LocalizationSystem.sharedInstance.localizedStringForKey(key: "alert_btn", comment: "").localiz()
+            let alertTitle = LocalizationSystem.sharedInstance.localizedStringForKey(key: "alert_title", comment: "").localiz()
+            let alertMessage = LocalizationSystem.sharedInstance.localizedStringForKey(key: "alert_message", comment: "").localiz()
+            let alertBtn = LocalizationSystem.sharedInstance.localizedStringForKey(key: "alert_btn", comment: "").localiz()
             
             //Aler Dialoge Initiated
             let alert = UIAlertController(title: alertTitle, message: alertMessage + " \(fPhone)", preferredStyle: UIAlertController.Style.alert)

@@ -24,8 +24,10 @@ class MainTabBarController: UITabBarController {
     
         guard let items = tabBar.items else { return }
     
-        
+        items[0].title = LocalizationSystem.sharedInstance.localizedStringForKey(key: "search", comment: "").localiz()
         items[1].title = LocalizationSystem.sharedInstance.localizedStringForKey(key: "reservations", comment: "").localiz()
+        items[2].title = LocalizationSystem.sharedInstance.localizedStringForKey(key: "favorites", comment: "").localiz()
+        items[3].title = LocalizationSystem.sharedInstance.localizedStringForKey(key: "more", comment: "").localiz()
     }
     
 
