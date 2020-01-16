@@ -27,7 +27,6 @@
 		4B43047523C7401800160663 /* TermsOfUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B43047423C7401800160663 /* TermsOfUseViewController.swift */; };
 		4B43047723C7622F00160663 /* PrivacyPolicyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B43047623C7622F00160663 /* PrivacyPolicyCell.swift */; };
 		4B43047923C762EE00160663 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B43047823C762EE00160663 /* PrivacyPolicyViewController.swift */; };
-		4B4BBBA923C46EDF00DB28C5 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4BBBA823C46EDF00DB28C5 /* Search.storyboard */; };
 		4B4BBBAB23C46F1E00DB28C5 /* Reservations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4BBBAA23C46F1E00DB28C5 /* Reservations.storyboard */; };
 		4B4BBBAD23C46F8200DB28C5 /* Favourites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4BBBAC23C46F8200DB28C5 /* Favourites.storyboard */; };
 		4B4BBBAF23C46F9F00DB28C5 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4BBBAE23C46F9F00DB28C5 /* More.storyboard */; };
@@ -58,6 +57,7 @@
 		4BABFAB723A8BCE400F34EA4 /* addPropertyTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BABFAB623A8BCE400F34EA4 /* addPropertyTermsViewController.swift */; };
 		4BABFAB923A900D900F34EA4 /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BABFAB823A900D900F34EA4 /* iOSDropDown.framework */; };
 		4BABFABB23AA647900F34EA4 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BABFABA23AA647900F34EA4 /* BookingViewController.swift */; };
+		4BEB3D4123CEECD7004C7F33 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BEB3D4323CEECD7004C7F33 /* Search.storyboard */; };
 		875FBF4D4627B61E14B5C514 /* Pods_Alama360.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBFCD9432EC28BE6EAE7BBFC /* Pods_Alama360.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,7 +70,6 @@
 		4B04E43B239B788300D02BC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B04E43E239B788300D02BC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B04E440239B788300D02BC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4B04E448239B7C7B00D02BC4 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
 		4B04E449239B7C7B00D02BC4 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4B04E44D239B7D1500D02BC4 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4B04E44F239B7D1F00D02BC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -87,7 +86,6 @@
 		4B43047423C7401800160663 /* TermsOfUseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseViewController.swift; sourceTree = "<group>"; };
 		4B43047623C7622F00160663 /* PrivacyPolicyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyCell.swift; sourceTree = "<group>"; };
 		4B43047823C762EE00160663 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
-		4B4BBBA823C46EDF00DB28C5 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		4B4BBBAA23C46F1E00DB28C5 /* Reservations.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reservations.storyboard; sourceTree = "<group>"; };
 		4B4BBBAC23C46F8200DB28C5 /* Favourites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favourites.storyboard; sourceTree = "<group>"; };
 		4B4BBBAE23C46F9F00DB28C5 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
@@ -118,6 +116,9 @@
 		4BABFAB623A8BCE400F34EA4 /* addPropertyTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addPropertyTermsViewController.swift; sourceTree = "<group>"; };
 		4BABFAB823A900D900F34EA4 /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BABFABA23AA647900F34EA4 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
+		4BEB3D4223CEECD7004C7F33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
+		4BEB3D4523CEED0C004C7F33 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Search.strings; sourceTree = "<group>"; };
+		4BEB3D4923CEFD6B004C7F33 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
 		61791E7D0797207E2B2380D0 /* Pods-Alama360.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alama360.release.xcconfig"; path = "Target Support Files/Pods-Alama360/Pods-Alama360.release.xcconfig"; sourceTree = "<group>"; };
 		AFFB3C0B381BEDFC77A7831A /* Pods-Alama360.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alama360.debug.xcconfig"; path = "Target Support Files/Pods-Alama360/Pods-Alama360.debug.xcconfig"; sourceTree = "<group>"; };
 		DBFCD9432EC28BE6EAE7BBFC /* Pods_Alama360.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alama360.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,7 +187,7 @@
 		4B4BBBA723C46E9200DB28C5 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				4B4BBBA823C46EDF00DB28C5 /* Search.storyboard */,
+				4BEB3D4323CEECD7004C7F33 /* Search.storyboard */,
 				4B4BBBAA23C46F1E00DB28C5 /* Reservations.storyboard */,
 				4B4BBBAC23C46F8200DB28C5 /* Favourites.storyboard */,
 				4B4BBBAE23C46F9F00DB28C5 /* More.storyboard */,
@@ -346,7 +347,7 @@
 				4B04E43C239B788300D02BC4 /* Assets.xcassets in Resources */,
 				4B4BBBAD23C46F8200DB28C5 /* Favourites.storyboard in Resources */,
 				4B04E43A239B788100D02BC4 /* Main.storyboard in Resources */,
-				4B4BBBA923C46EDF00DB28C5 /* Search.storyboard in Resources */,
+				4BEB3D4123CEECD7004C7F33 /* Search.storyboard in Resources */,
 				4B4BBBAB23C46F1E00DB28C5 /* Reservations.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,7 +470,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4B04E439239B788100D02BC4 /* Base */,
-				4B04E448239B7C7B00D02BC4 /* ar */,
+				4BEB3D4923CEFD6B004C7F33 /* ar */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -490,6 +491,15 @@
 				4B04E44F239B7D1F00D02BC4 /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		4BEB3D4323CEECD7004C7F33 /* Search.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4BEB3D4223CEECD7004C7F33 /* Base */,
+				4BEB3D4523CEED0C004C7F33 /* ar */,
+			);
+			name = Search.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

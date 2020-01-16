@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rDq-V5-s9W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rDq-V5-s9W">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController title="Search" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wei-rW-Jzg" customClass="SearchViewController" customModule="Alama360" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bmu-Ie-Lrx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PuZ-73-ZRw">
-                                <rect key="frame" x="0.0" y="88" width="375" height="1329"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="929"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d3b-Es-atr" userLabel="main container view">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="708"/>
@@ -281,7 +281,7 @@
                         <viewLayoutGuide key="safeArea" id="4E3-wA-vZ8"/>
                     </view>
                     <navigationItem key="navigationItem" id="XyP-qa-uVI"/>
-                    <size key="freeformSize" width="375" height="1500"/>
+                    <size key="freeformSize" width="375" height="1100"/>
                     <connections>
                         <outlet property="addChaletLabel" destination="1CK-Ej-ZR5" id="0hz-NF-7Vk"/>
                         <outlet property="btnAdd" destination="PAx-ck-2sK" id="Q7f-o8-A9T"/>

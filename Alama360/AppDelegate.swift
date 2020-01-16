@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 //        UITabBar.appearance().barTintColor = .
-        LocalizationSystem.sharedInstance.setLanguage(languageCode: "ar")
-        LanguageManager.shared.defaultLanguage = .ar
+//        LocalizationSystem.sharedInstance.setLanguage(languageCode: "ar")
+        LanguageManager.shared.defaultLanguage = .en
         
         return true
     }

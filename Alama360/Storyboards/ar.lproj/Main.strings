@@ -1,1 +1,39 @@
 
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "BJ9-4H-3na"; */
+"BJ9-4H-3na.title" = "Item";
+
+/* Class = "UILabel"; text = "Verified and Certified Reviews"; ObjectID = "LIM-1t-ePr"; */
+"LIM-1t-ePr.text" = "تقييمات موثوفة ومصدقة";
+
+/* Class = "UILabel"; text = "Confirmed booking in three steps"; ObjectID = "Mte-wj-IIs"; */
+"Mte-wj-IIs.text" ="حجز مؤكد بثلاث خطوات بسيطة";
+
+/* Class = "UILabel"; text = "Enter your mobile no"; ObjectID = "Pyv-kP-BGU"; */
+"Pyv-kP-BGU.text" = "اللغة الحالية";
+
+/* Class = "UIButton"; normalTitle = "عربى"; ObjectID = "UuF-D2-iYb"; */
+"UuF-D2-iYb.normalTitle" = "EN";
+
+/* Class = "UILabel"; text = "100% Secure Payment"; ObjectID = "Y14-Av-MEM"; */
+"Y14-Av-MEM.text" = " دفع امن و مضمونة ١٠٠%";
+
+/* Class = "UILabel"; text = "Enter your mobile number to create an account or login"; ObjectID = "c65-bb-Fw9"; */
+"c65-bb-Fw9.text" = "أدخل رقم جوالك لإنشاء حساب أو تسجيل الدخول";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "hEE-4t-wjg"; */
+"hEE-4t-wjg.title" = "Item";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "lHJ-8l-MjX"; */
+"lHJ-8l-MjX.title" = "Item";
+
+/* Class = "UILabel"; text = "+966"; ObjectID = "qXV-U4-fbW"; */
+"qXV-U4-fbW.text" = "+966";
+
+/* Class = "UIButton"; normalTitle = "Submit / Register"; ObjectID = "qaj-Gv-vsF"; */
+"qaj-Gv-vsF.normalTitle" = "إرسال / تسجيل";
+
+/* Class = "UILabel"; text = "Hundreds of Chalets near you at competative prices"; ObjectID = "wgX-ki-m7Y"; */
+"wgX-ki-m7Y.text" = " مئات الشاليهات القريبة منك بأسعار تنافسية";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "yM0-4H-WCo"; */
+"yM0-4H-WCo.title" = "Item";

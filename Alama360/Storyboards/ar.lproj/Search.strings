@@ -1,0 +1,165 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "0Zq-pC-bEg"; */
+"0Zq-pC-bEg.text" = "Label";
+
+/* Class = "UILabel"; text = "Add your Chalet in Alama360"; ObjectID = "1CK-Ej-ZR5"; */
+"1CK-Ej-ZR5.text" = "Add your Chalet in Alama360";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "1fk-sP-oFX"; */
+"1fk-sP-oFX.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "more..."; ObjectID = "23c-hk-vio"; */
+"23c-hk-vio.normalTitle" = "more...";
+
+/* Class = "UILabel"; text = "Feature 1"; ObjectID = "2S3-mj-TXe"; */
+"2S3-mj-TXe.text" = "Feature 1";
+
+/* Class = "UILabel"; text = "Exit Time"; ObjectID = "3EZ-73-2ep"; */
+"3EZ-73-2ep.text" = "Exit Time";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "3ta-ep-aiN"; */
+"3ta-ep-aiN.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Sort"; ObjectID = "8Cy-Ja-pEf"; */
+"8Cy-Ja-pEf.normalTitle" = "Sort";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ArV-Sg-0xg"; */
+"ArV-Sg-0xg.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "AuE-2n-rxc"; */
+"AuE-2n-rxc.text" = "Label";
+
+/* Class = "UILabel"; text = "Start Time"; ObjectID = "BMG-an-lQK"; */
+"BMG-an-lQK.text" = "Start Time";
+
+/* Class = "UILabel"; text = "Feature 1"; ObjectID = "Bps-av-R0s"; */
+"Bps-av-R0s.text" = "Feature 1";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "FMT-zw-zbz"; */
+"FMT-zw-zbz.text" = "Label";
+
+/* Class = "UILabel"; text = "Property Title"; ObjectID = "FXb-x2-V2C"; */
+"FXb-x2-V2C.text" = "Property Title";
+
+/* Class = "UILabel"; text = "For an Apartment, Chalet, Camp, Farm, Break, Villa, Room with ease and honesty"; ObjectID = "Fc4-Rj-uWd"; */
+"Fc4-Rj-uWd.text" = "For an Apartment, Chalet, Camp, Farm, Break, Villa, Room with ease and honesty";
+
+/* Class = "UILabel"; text = "Policy"; ObjectID = "GLl-5Y-Gft"; */
+"GLl-5Y-Gft.text" = "Policy";
+
+/* Class = "UILabel"; text = "Start Time"; ObjectID = "Guv-ig-r28"; */
+"Guv-ig-r28.text" = "Start Time";
+
+/* Class = "UILabel"; text = "Select the appropriate date"; ObjectID = "Hs8-3j-ceW"; */
+"Hs8-3j-ceW.text" = "Select the appropriate date";
+
+/* Class = "UILabel"; text = "Policy"; ObjectID = "JyD-Y9-EzL"; */
+"JyD-Y9-EzL.text" = "Policy";
+
+/* Class = "UILabel"; text = "12:00 - 00:00"; ObjectID = "Jyf-7H-vnt"; */
+"Jyf-7H-vnt.text" = "12:00 - 00:00";
+
+/* Class = "UILabel"; text = "09:00 - 12:00"; ObjectID = "KY4-0I-ECS"; */
+"KY4-0I-ECS.text" = "09:00 - 12:00";
+
+/* Class = "UILabel"; text = "Search"; ObjectID = "OHU-7h-Z8W"; */
+"OHU-7h-Z8W.text" = "Search";
+
+/* Class = "UIButton"; normalTitle = "Map"; ObjectID = "Ohx-Yq-a5B"; */
+"Ohx-Yq-a5B.normalTitle" = "Map";
+
+/* Class = "UIButton"; normalTitle = "Add Now"; ObjectID = "PAx-ck-2sK"; */
+"PAx-ck-2sK.normalTitle" = "Add Now";
+
+/* Class = "UILabel"; text = "Features"; ObjectID = "RR9-Ht-n27"; */
+"RR9-Ht-n27.text" = "Features";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "SYS-kQ-xYM"; */
+"SYS-kQ-xYM.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Search"; ObjectID = "Tpr-rv-5J1"; */
+"Tpr-rv-5J1.title" = "Search";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "V19-pV-lJi"; */
+"V19-pV-lJi.text" = "Label";
+
+/* Class = "UILabel"; text = "Section"; ObjectID = "Vln-1v-nxy"; */
+"Vln-1v-nxy.text" = "Section";
+
+/* Class = "UILabel"; text = "12:00 - 00:00"; ObjectID = "Vz9-YK-dWM"; */
+"Vz9-YK-dWM.text" = "12:00 - 00:00";
+
+/* Class = "UIViewController"; title = "Add Property Terms"; ObjectID = "W2Y-LT-I1r"; */
+"W2Y-LT-I1r.title" = "Add Property Terms";
+
+/* Class = "UIViewController"; title = "Search"; ObjectID = "Wei-rW-Jzg"; */
+"Wei-rW-Jzg.title" = "Search";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Y5x-6r-LbQ"; */
+"Y5x-6r-LbQ.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Check Availability"; ObjectID = "YFq-Fh-NzR"; */
+"YFq-Fh-NzR.normalTitle" = "Check Availability";
+
+/* Class = "UILabel"; text = "Start Time"; ObjectID = "aRL-Nl-2yY"; */
+"aRL-Nl-2yY.text" = "Start Time";
+
+/* Class = "UILabel"; text = "12:00 - 00:00"; ObjectID = "bI6-Fa-LSE"; */
+"bI6-Fa-LSE.text" = "12:00 - 00:00";
+
+/* Class = "UIViewController"; title = "AllPhotosViewController"; ObjectID = "bN5-5R-c5l"; */
+"bN5-5R-c5l.title" = "AllPhotosViewController";
+
+/* Class = "UITextField"; placeholder = "Start Date"; ObjectID = "bO1-IB-A5N"; */
+"bO1-IB-A5N.placeholder" = "Start Date";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "bYv-o6-nHD"; */
+"bYv-o6-nHD.text" = "Label";
+
+/* Class = "UIView"; accessibilityLabel = "Search"; ObjectID = "bmu-Ie-Lrx"; */
+"bmu-Ie-Lrx.accessibilityLabel" = "Search";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ccF-BA-lBM"; */
+"ccF-BA-lBM.text" = "Label";
+
+/* Class = "UILabel"; text = "Man - Women"; ObjectID = "dur-GS-0rc"; */
+"dur-GS-0rc.text" = "Man - Women";
+
+/* Class = "UITextField"; placeholder = "Select Categories"; ObjectID = "fEX-eP-WTH"; */
+"fEX-eP-WTH.placeholder" = "Select Categories";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "fQT-AQ-1M7"; */
+"fQT-AQ-1M7.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Property Title"; ObjectID = "h5l-31-HyS"; */
+"h5l-31-HyS.placeholder" = "Property Title";
+
+/* Class = "UILabel"; text = "Property Name"; ObjectID = "hHp-nw-l2U"; */
+"hHp-nw-l2U.text" = "Property Name";
+
+/* Class = "UILabel"; text = "I  Agree"; ObjectID = "jqX-5f-Pfc"; */
+"jqX-5f-Pfc.text" = "I  Agree";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "kaE-NL-LuN"; */
+"kaE-NL-LuN.text" = "Label";
+
+/* Class = "UILabel"; text = "Man - Women"; ObjectID = "maV-ar-thk"; */
+"maV-ar-thk.text" = "Man - Women";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "nIW-5s-ANJ"; */
+"nIW-5s-ANJ.text" = "Label";
+
+/* Class = "UILabel"; text = "Section"; ObjectID = "uif-L6-w2o"; */
+"uif-L6-w2o.text" = "Section";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "vws-2D-WRq"; */
+"vws-2D-WRq.normalTitle" = "Next";
+
+/* Class = "UILabel"; text = "More..."; ObjectID = "xb9-kM-ZGb"; */
+"xb9-kM-ZGb.text" = "More...";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "xt5-8X-RDk"; */
+"xt5-8X-RDk.text" = "Label";
+
+/* Class = "UILabel"; text = "Feature 1"; ObjectID = "yY6-oh-YZ4"; */
+"yY6-oh-YZ4.text" = "Feature 1";

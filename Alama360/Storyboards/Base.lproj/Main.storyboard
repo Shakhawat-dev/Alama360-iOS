@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,16 +19,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="w8x-Vy-Bjl">
-                                <rect key="frame" x="20" y="250.00000000000003" width="335" height="64.333333333333343"/>
+                                <rect key="frame" x="20" y="249.99999999999997" width="335" height="84.666666666666657"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pyv-kP-BGU">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your mobile no" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pyv-kP-BGU">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c65-bb-Fw9">
-                                        <rect key="frame" x="0.0" y="44" width="335" height="20.333333333333329"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your mobile number to create an account or login" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c65-bb-Fw9">
+                                        <rect key="frame" x="0.0" y="44" width="335" height="40.666666666666657"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -36,7 +36,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONS-ZE-8vk" userLabel="field button">
-                                <rect key="frame" x="8" y="330.33333333333331" width="359" height="150"/>
+                                <rect key="frame" x="8" y="350.66666666666669" width="359" height="150"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yEN-Gf-Sa9">
                                         <rect key="frame" x="86" y="18" width="261" height="48"/>
@@ -87,7 +87,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hundreds of Chalets near you at competative prices" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgX-ki-m7Y">
-                                <rect key="frame" x="20" y="488.33333333333331" width="335" height="40.666666666666686"/>
+                                <rect key="frame" x="20" y="508.66666666666669" width="335" height="40.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -98,15 +98,15 @@
                                     <constraint firstAttribute="height" constant="30" id="Mp1-NN-5cX"/>
                                     <constraint firstAttribute="width" constant="100" id="xbs-fj-XQ2"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="عربى">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="changeLanguage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZT8-mN-lfL"/>
+                                    <action selector="btnLangguage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hh8-lt-fgj"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vRf-I1-2eg">
-                                <rect key="frame" x="3" y="537" width="368" height="126.66666666666663"/>
+                                <rect key="frame" x="3" y="557.33333333333337" width="368" height="126.66666666666663"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="co6-yv-Xdc">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="126.66666666666667"/>
@@ -220,7 +220,7 @@
                     </view>
                     <connections>
                         <outlet property="_phoneInput" destination="yEN-Gf-Sa9" id="AmP-sC-Bkx"/>
-                        <outlet property="btnChangeLanguage" destination="UuF-D2-iYb" id="5bl-Tv-R91"/>
+                        <outlet property="btnChangeLanguage" destination="UuF-D2-iYb" id="wDc-Kf-lcp"/>
                         <outlet property="btnSubmit" destination="qaj-Gv-vsF" id="dKs-t5-wKi"/>
                         <outlet property="lblBooking" destination="Mte-wj-IIs" id="Z39-wr-xTK"/>
                         <outlet property="lblChalets" destination="wgX-ki-m7Y" id="Hbv-hs-eqz"/>

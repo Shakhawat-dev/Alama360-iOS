@@ -39,52 +39,79 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        changeLanguage()
+//        changeLanguage()
         
         lblCountryCOde.layer.cornerRadius = 4
-        changeLanguage()
+//        changeLanguage()
+    }
+    @IBAction func btnLangguage(_ sender: UIButton) {
+        if LanguageManager.shared.currentLanguage.rawValue == "ar" {
+            // change the language
+            LanguageManager.shared.setLanguage(language: .en, viewControllerFactory: { title -> UIViewController in
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                // the view controller that you want to show after changing the language
+                return storyboard.instantiateInitialViewController()!
+            }) { view in
+                view.transform = CGAffineTransform(scaleX: 2, y: 2)
+                view.alpha = 0
+            }
+            changeLanguage()
+        } else {
+            LanguageManager.shared.setLanguage(language: .ar, viewControllerFactory: { title -> UIViewController in
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                // the view controller that you want to show after changing the language
+                return storyboard.instantiateInitialViewController()!
+            }) { view in
+                view.transform = CGAffineTransform(scaleX: 2, y: 2)
+                view.alpha = 0
+            }
+            changeLanguage()
+        }
+        
+        
     }
     
     @IBAction func changeLanguage(_ sender: Any) {
         
-        if LocalizationSystem.sharedInstance.getLanguage() == "ar" {
-            LocalizationSystem.sharedInstance.setLanguage(languageCode: "en")
-            
-            // UIView.appearance().semanticContentAttribute = .forceLeftToRight
-            
-            // change the language
-            LanguageManager.shared.setLanguage(language: .en,
-                                                  viewControllerFactory: { title -> UIViewController in
-                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                 // the view controller that you want to show after changing the language
-                 return storyboard.instantiateInitialViewController()!
-               }) { view in
-                 view.transform = CGAffineTransform(scaleX: 2, y: 2)
-                 view.alpha = 0
-               }
-            
-        } else {
-            LocalizationSystem.sharedInstance.setLanguage(languageCode: "ar")
-            
-            // UIView.appearance().semanticContentAttribute = .forceRightToLeft
-            
-            // change the language
-            LanguageManager.shared.setLanguage(language: .ar,
-                                                  viewControllerFactory: { title -> UIViewController in
-                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                 // the view controller that you want to show after changing the language
-                 return storyboard.instantiateInitialViewController()!
-               }) { view in
-                 view.transform = CGAffineTransform(scaleX: 2, y: 2)
-                 view.alpha = 0
-               }
-        }
-        
-        let vc = self.storyboard?.instantiateInitialViewController() as! ViewController
-        let appDlg = UIApplication.shared.delegate as! AppDelegate
-        appDlg.window?.rootViewController = vc
-        
+//        if LocalizationSystem.sharedInstance.getLanguage() == "ar" {
+//            LocalizationSystem.sharedInstance.setLanguage(languageCode: "en")
+//
+//            // UIView.appearance().semanticContentAttribute = .forceLeftToRight
+//
+//            // change the language
+//            LanguageManager.shared.setLanguage(language: .en,
+//                                                  viewControllerFactory: { title -> UIViewController in
+//                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                 // the view controller that you want to show after changing the language
+//                 return storyboard.instantiateInitialViewController()!
+//               }) { view in
+//                 view.transform = CGAffineTransform(scaleX: 2, y: 2)
+//                 view.alpha = 0
+//               }
+//
+//        } else {
+//            LocalizationSystem.sharedInstance.setLanguage(languageCode: "ar")
+//
+//            // UIView.appearance().semanticContentAttribute = .forceRightToLeft
+//
+//            // change the language
+//            LanguageManager.shared.setLanguage(language: .ar,
+//                                                  viewControllerFactory: { title -> UIViewController in
+//                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                 // the view controller that you want to show after changing the language
+//                 return storyboard.instantiateInitialViewController()!
+//               }) { view in
+//                 view.transform = CGAffineTransform(scaleX: 2, y: 2)
+//                 view.alpha = 0
+//               }
+//        }
+//
+//        let vc = self.storyboard?.instantiateInitialViewController() as! ViewController
+//        let appDlg = UIApplication.shared.delegate as! AppDelegate
+//        appDlg.window?.rootViewController = vc
+//
 //        changeLanguage()
+        
         
     }
     
@@ -106,7 +133,7 @@ class ViewController: UIViewController {
         
         let fPhone = "966"+phone
         //            let lan = btnChangeLanguage.currentTitle!
-        let lan = LocalizationSystem.sharedInstance.getLanguage()
+        let lan = LanguageManager.shared.currentLanguage.rawValue
         
         
         let params : [String : String] = ["mobile" : fPhone, "lang" : lan]
@@ -191,16 +218,19 @@ class ViewController: UIViewController {
     
     func changeLanguage() {
         
-        lblHeader.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "header_text", comment: "").localiz()
-        lblCurrentLanguage.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "change_language", comment: "").localiz()
+//        lblHeader.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "header_text", comment: "").localiz()
+//        lblCurrentLanguage.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "change_language", comment: "").localiz()
+//
+//        btnChangeLanguage.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "language", comment: "").localiz(), for: .normal)
+//
+//        lblChalets.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "hundreds_of_chalets", comment: "").localiz()
+//        lblSecure.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "secure_payment", comment: "").localiz()
+//        lblVerified.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "verified_certified", comment: "").localiz()
+//        lblBooking.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "confirm_booking", comment: "").localiz()
+//        btnSubmit.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "btn_submit", comment: "").localiz(), for: .normal)
         
-        btnChangeLanguage.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "language", comment: "").localiz(), for: .normal)
-        
-        lblChalets.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "hundreds_of_chalets", comment: "").localiz()
-        lblSecure.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "secure_payment", comment: "").localiz()
-        lblVerified.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "verified_certified", comment: "").localiz()
-        lblBooking.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "confirm_booking", comment: "").localiz()
-        btnSubmit.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "btn_submit", comment: "").localiz(), for: .normal)
+        lblHeader.text = NSLocalizedString("header_text", comment: "").localiz()
+        lblCurrentLanguage.text = NSLocalizedString("chage_language", comment: "").localiz()
         
          
         
@@ -212,10 +242,10 @@ class ViewController: UIViewController {
         
         print("ites here... \(regPhone)")
         
-        let lan = btnChangeLanguage.currentTitle!
+        let lan = LanguageManager.shared.currentLanguage.rawValue
         
         
-        let params : [String : String] = ["mobile" : regPhone!, "lang" : "en"]
+        let params : [String : String] = ["mobile" : regPhone!, "lang" : lan]
         
         let nUrl = "https://alama360.net/api/createOrupdateuser?"
         
