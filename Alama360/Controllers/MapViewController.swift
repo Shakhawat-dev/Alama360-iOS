@@ -12,14 +12,19 @@ import Alamofire
 import SwiftyJSON
 import GoogleMaps
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, GMSMapViewDelegate {
+    
+    @IBOutlet weak var mapView: GMSMapView!
     
     var mapProperties: MapModel?
     var lan: String?
+    var tappedMarker : GMSMarker?
+    var propertryInfoWindow : PropertyInfoWindow?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        GMSServices.provideAPIKey("AIzaSyDod0SP5Eh_eZmNNES7aTJt3eXs1mooFHY")
+        
+        
         // Do any additional setup after loading the view.
         loadMap()
     }
@@ -49,48 +54,27 @@ class MapViewController: UIViewController {
                     
                     let latitude = i["latitude"].doubleValue
                     let longitude = i["longitude"].doubleValue
+                    let title = i["title"].stringValue
 
                     // Creates a marker in the center of the map.
                     let marker = GMSMarker()
                     marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-                    //        marker.title = pTitle
+                            marker.title = title
                     //        marker.snippet = pCityname
                     marker.icon = #imageLiteral(resourceName: "marker_2")
                     marker.map = mapView
                     
                     mapView.selectedMarker = marker
-                    //                    mapView.delegate = self as! GMSMapViewDelegate
+                    
+                    self.tappedMarker = GMSMarker()
+                    self.propertryInfoWindow = PropertyInfoWindow().loadView()
+//                    self.mapView.delegate = self
                 }
                 
-                self.showMap()
             }
             
         }
         
     }
     
-    func showMap() {
-        //        GMSServices.provideAPIKey("AIzaSyDod0SP5Eh_eZmNNES7aTJt3eXs1mooFHY")
-        //
-        //
-        //
-        //        let latitude = mapProperties?.latitude
-        //        let longitude = mapProperties?.longitude
-        //
-        //
-        //        let camera = GMSCameraPosition.camera(withLatitude: latitude!, longitude: longitude!, zoom: 10.0)
-        //        let mapView = GMSMapView.map(withFrame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 250), camera: camera)
-        //        view = mapView
-        //
-        //        // Creates a marker in the center of the map.
-        //        let marker = GMSMarker()
-        //        marker.position = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
-        ////        marker.title = pTitle
-        ////        marker.snippet = pCityname
-        //        marker.icon = #imageLiteral(resourceName: "marker_2")
-        //        marker.map = mapView
-        //
-        //        mapView.selectedMarker = marker
-        
-    }
 }

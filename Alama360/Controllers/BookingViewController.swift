@@ -142,7 +142,8 @@ class BookingViewController: UIViewController {
         
     }
     @IBAction func sortBtnClicked(_ sender: UIButton) {
-        
+//        self.property_list.sort { $0.dayprice < $1.dayprice }
+        self.tableView.reloadData()
     }
     
     
@@ -276,8 +277,8 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
             cell.rowCityName.text = property_list[indexPath.row].cityname!
         }
         
-        if property_list[indexPath.row].dayprice != "" {
-            cell.rowDayPrice.text = property_list[indexPath.row].dayprice!
+        if property_list[indexPath.row].dayprice != nil {
+            cell.rowDayPrice.text = "\(property_list[indexPath.row].dayprice)"
         } else {
             cell.rowDayPrice.text = ""
         }

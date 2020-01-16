@@ -8,6 +8,7 @@
 
 import UIKit
 import LanguageManager_iOS
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 //        UITabBar.appearance().barTintColor = .
-        
+        // Google Map Api for MapView
+        GMSServices.provideAPIKey("AIzaSyDod0SP5Eh_eZmNNES7aTJt3eXs1mooFHY")
         
         LocalizationSystem.sharedInstance.setLanguage(languageCode: "ar")
         LanguageManager.shared.defaultLanguage = .ar
