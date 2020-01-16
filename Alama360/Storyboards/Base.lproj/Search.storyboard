@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -434,6 +435,22 @@
             </objects>
             <point key="canvasLocation" x="-604" y="2231"/>
         </scene>
+        <!--Map view-->
+        <scene sceneID="NZl-py-AvI">
+            <objects>
+                <viewController title="Map view" id="HLn-xf-RTv" customClass="MapViewController" customModule="Alama360" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NLe-KK-eKM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="9dV-0B-FhI"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="JtM-a6-Mjd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iDT-dQ-Dd4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="153" y="2231"/>
+        </scene>
         <!--Booking View Controller-->
         <scene sceneID="Ni6-f2-63d">
             <objects>
@@ -452,41 +469,46 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eif-da-8Nv" userLabel="MapAndSortContainer">
                                 <rect key="frame" x="0.0" y="140" width="375" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ohx-Yq-a5B">
-                                        <rect key="frame" x="8" y="0.0" width="137" height="50"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Map" image="location" catalog="system">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="mapBtnClicked:" destination="40a-U0-n0G" eventType="touchUpInside" id="BMN-Hu-p1k"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Cy-Ja-pEf">
-                                        <rect key="frame" x="192" y="0.0" width="175" height="50"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="175" id="51c-rf-zQI"/>
-                                        </constraints>
-                                        <state key="normal" title="Sort" image="chevron.up.chevron.down" catalog="system">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="sortBtnClicked:" destination="40a-U0-n0G" eventType="touchUpInside" id="zW7-eh-896"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BqK-tK-uhO">
+                                        <rect key="frame" x="8" y="2" width="359" height="46"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ohx-Yq-a5B">
+                                                <rect key="frame" x="0.0" y="5" width="175.66666666666666" height="36"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="4tA-en-uty"/>
+                                                </constraints>
+                                                <state key="normal" title="Map" image="location" catalog="system">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="mapBtnClicked:" destination="40a-U0-n0G" eventType="touchUpInside" id="BMN-Hu-p1k"/>
+                                                    <segue destination="HLn-xf-RTv" kind="show" id="P8F-jY-QlH"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Cy-Ja-pEf">
+                                                <rect key="frame" x="183.66666666666663" y="5" width="175.33333333333337" height="36"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="jK1-f2-nDd"/>
+                                                </constraints>
+                                                <state key="normal" title="Sort" image="chevron.up.chevron.down" catalog="system">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="sortBtnClicked:" destination="40a-U0-n0G" eventType="touchUpInside" id="zW7-eh-896"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="8Cy-Ja-pEf" firstAttribute="top" secondItem="Eif-da-8Nv" secondAttribute="top" id="7tC-8g-MMi"/>
-                                    <constraint firstItem="Ohx-Yq-a5B" firstAttribute="top" secondItem="Eif-da-8Nv" secondAttribute="top" id="CL6-8F-3Um"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ohx-Yq-a5B" secondAttribute="bottom" id="Kof-Mf-On3"/>
-                                    <constraint firstItem="Ohx-Yq-a5B" firstAttribute="leading" secondItem="Eif-da-8Nv" secondAttribute="leading" constant="8" id="Lgj-os-TRP"/>
-                                    <constraint firstItem="8Cy-Ja-pEf" firstAttribute="leading" secondItem="Ohx-Yq-a5B" secondAttribute="trailing" constant="47" id="Qzq-QM-gBt"/>
-                                    <constraint firstAttribute="trailing" secondItem="8Cy-Ja-pEf" secondAttribute="trailing" constant="8" id="gX4-OJ-2aw"/>
+                                    <constraint firstAttribute="trailing" secondItem="BqK-tK-uhO" secondAttribute="trailing" constant="8" id="Vt0-4t-kff"/>
+                                    <constraint firstItem="BqK-tK-uhO" firstAttribute="leading" secondItem="Eif-da-8Nv" secondAttribute="leading" constant="8" id="Zrh-zh-4gb"/>
+                                    <constraint firstAttribute="bottom" secondItem="BqK-tK-uhO" secondAttribute="bottom" constant="2" id="aar-AR-XO9"/>
                                     <constraint firstAttribute="height" constant="50" id="gyS-o8-GI6"/>
-                                    <constraint firstItem="8Cy-Ja-pEf" firstAttribute="leading" secondItem="Ohx-Yq-a5B" secondAttribute="trailing" priority="250" constant="47" id="pNH-q3-T1e"/>
-                                    <constraint firstAttribute="bottom" secondItem="8Cy-Ja-pEf" secondAttribute="bottom" id="yXO-Bg-gS9"/>
+                                    <constraint firstItem="BqK-tK-uhO" firstAttribute="top" secondItem="Eif-da-8Nv" secondAttribute="top" constant="2" id="xBo-gl-GNa"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XRH-cz-Z13">
@@ -1172,7 +1194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lmW-2S-UCM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="154" y="2231"/>
+            <point key="canvasLocation" x="-1404" y="2231"/>
         </scene>
         <!--Tb Property Details View Controller-->
         <scene sceneID="z4t-Vf-9GF">

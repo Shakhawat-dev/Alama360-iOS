@@ -22,6 +22,8 @@
 		4B188D5423C9AAB200CBBA36 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B188D5323C9AAB200CBBA36 /* ProfileViewController.swift */; };
 		4B188D5823C9F45900CBBA36 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B188D5723C9F45900CBBA36 /* MenuBar.swift */; };
 		4B1CE33023A24A7800C0FC01 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1CE32F23A24A7800C0FC01 /* MainCell.swift */; };
+		4B30DEBF23D0464F00069DBC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B30DEBE23D0464F00069DBC /* MapViewController.swift */; };
+		4B30DEC123D0494C00069DBC /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B30DEC023D0494C00069DBC /* MapModel.swift */; };
 		4B4008BC23B9F68E00AEE68C /* LandmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4008BB23B9F68E00AEE68C /* LandmarkTableViewCell.swift */; };
 		4B43047323C73FB200160663 /* TermsAndConditionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B43047223C73FB200160663 /* TermsAndConditionsCell.swift */; };
 		4B43047523C7401800160663 /* TermsOfUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B43047423C7401800160663 /* TermsOfUseViewController.swift */; };
@@ -81,6 +83,8 @@
 		4B188D5323C9AAB200CBBA36 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4B188D5723C9F45900CBBA36 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		4B1CE32F23A24A7800C0FC01 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
+		4B30DEBE23D0464F00069DBC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		4B30DEC023D0494C00069DBC /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		4B4008BB23B9F68E00AEE68C /* LandmarkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkTableViewCell.swift; sourceTree = "<group>"; };
 		4B43047223C73FB200160663 /* TermsAndConditionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsCell.swift; sourceTree = "<group>"; };
 		4B43047423C7401800160663 /* TermsOfUseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseViewController.swift; sourceTree = "<group>"; };
@@ -241,6 +245,7 @@
 				4B9C21EE23CC545400090E94 /* ContactTableViewController.swift */,
 				4B8491F123CD7DFD0094B035 /* MainTabBarController.swift */,
 				4B8491F323CD83880094B035 /* ReservationTabItem.swift */,
+				4B30DEBE23D0464F00069DBC /* MapViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 				4B7870C423B0D9C100D360AC /* FeatureModel.swift */,
 				4B7870C623B0F7D400D360AC /* BookingModel.swift */,
 				4B9012C323B775AC00E8C59D /* PhotosModel.swift */,
+				4B30DEC023D0494C00069DBC /* MapModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -429,6 +435,7 @@
 				4B84A10C23C4AA9F006E5237 /* PropertyMapCell.swift in Sources */,
 				4B149C3A23C6111E0021F5EF /* AllPhotosCell.swift in Sources */,
 				4B9012C423B775AC00E8C59D /* PhotosModel.swift in Sources */,
+				4B30DEBF23D0464F00069DBC /* MapViewController.swift in Sources */,
 				4B7870C523B0D9C100D360AC /* FeatureModel.swift in Sources */,
 				4B9C21EF23CC545400090E94 /* ContactTableViewController.swift in Sources */,
 				4B6DFE1E239E299900543E3F /* SearchViewController.swift in Sources */,
@@ -445,6 +452,7 @@
 				4B04E433239B788000D02BC4 /* AppDelegate.swift in Sources */,
 				4B149C3823C5B6230021F5EF /* PdDescriptionCell.swift in Sources */,
 				4B84A10823C4AA67006E5237 /* FeatureCell.swift in Sources */,
+				4B30DEC123D0494C00069DBC /* MapModel.swift in Sources */,
 				4B43047323C73FB200160663 /* TermsAndConditionsCell.swift in Sources */,
 				4B6DFE21239E84AA00543E3F /* ContactViewController.swift in Sources */,
 				4B188D5423C9AAB200CBBA36 /* ProfileViewController.swift in Sources */,
