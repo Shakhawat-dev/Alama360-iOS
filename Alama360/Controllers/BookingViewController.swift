@@ -142,7 +142,7 @@ class BookingViewController: UIViewController {
         
     }
     @IBAction func sortBtnClicked(_ sender: UIButton) {
-//        self.property_list.sort { $0.dayprice < $1.dayprice }
+        self.property_list.sort { $0.dayprice! > $1.dayprice! }
         self.tableView.reloadData()
     }
     
@@ -328,8 +328,8 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
                 
             } else {
                 cell.featureImageOne.image = nil
-                    cell.featureImageTwo.image = nil
-                    cell.featureImageThree.image = nil
+                cell.featureImageTwo.image = nil
+                cell.featureImageThree.image = nil
             }
             
         }
