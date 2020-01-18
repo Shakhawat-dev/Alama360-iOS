@@ -66,6 +66,8 @@
 // Booking Page
 "map" = "Map";
 "sort" = "Sort";
+"sort_high" = "High Price";
+"sort_low" = "Low Price";
 
 // Tab Bar Item
 "search" = "Search";

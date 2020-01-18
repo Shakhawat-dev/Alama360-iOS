@@ -18,5 +18,6 @@ target 'Alama360' do
   pod "ImageSlideshow/Alamofire"
   pod 'GoogleMaps'
   pod 'LanguageManager-iOS'
+  pod 'DropDown'
 
 end

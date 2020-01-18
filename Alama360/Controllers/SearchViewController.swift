@@ -44,7 +44,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     private var datePicker: UIDatePicker?
     
     
-    let Url = "https://alama360.net/api/"
+    let Url = "https://alama360.com/api/"
     var thumbImage = [UIImage]()
     var arr_cateName = [String]()
     var arr_imageUrl = [String]()

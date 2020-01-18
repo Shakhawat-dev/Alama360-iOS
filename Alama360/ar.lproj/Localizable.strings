@@ -65,6 +65,8 @@
 // Booking Page
 "map" = "خريطة";
 "sort" = "فرز";
+"sort_high" = "غالي السعر";
+"sort_low" = "سعر منخفض";
 
 // Tab Bar Item
 "search" = "بحث";

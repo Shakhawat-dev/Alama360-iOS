@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 import ImageSlideshow
 import AlamofireImage
+import DropDown
 
 class BookingViewController: UIViewController {
     
@@ -22,10 +23,11 @@ class BookingViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var propertySlideShow: ImageSlideshow!
+    let sortDropDown = DropDown()
     
     var searchController: UISearchController!
-    var originalDataSource: [String] = []
-    var currentDataSource: [String] = []
+    var originalDataSource = [BookingModel]()
+    var currentDataSource = [BookingModel]()
     
     // Param Variables
     var startDate = ""
@@ -44,7 +46,7 @@ class BookingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currentDataSource = originalDataSource
+//        currentDataSource = originalDataSource
         //
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
@@ -55,6 +57,7 @@ class BookingViewController: UIViewController {
         
         getPropertiesForDate()
         setLocalization()
+        loadSortDropDown()
         
     }
     
@@ -91,6 +94,8 @@ class BookingViewController: UIViewController {
                     
                     self.property_list.append(newProperty)
                     
+                    self.currentDataSource = self.property_list
+                    
                     self.tableView.delegate = self
                     self.tableView.dataSource = self
                     self.tableView.reloadData()
@@ -106,12 +111,9 @@ class BookingViewController: UIViewController {
     }
     
     // Recieving and Showing data
-    func addProductToDataSource(title: String, id: String, images: [String], features: [String]) {
+    func addProductToDataSource() {
         
-        //        arr_title.append(title)
-        //        arr_id.append(id)
-        //        arr_picture_child = images
-        //        f_col = features
+        
         
     }
     
@@ -120,13 +122,14 @@ class BookingViewController: UIViewController {
         
         if searchTerm.count > 0 {
             
-            currentDataSource = originalDataSource
+            currentDataSource = property_list
             
-            let filteredResult = currentDataSource.filter {
-                $0.replacingOccurrences(of: " ", with: "").lowercased().contains(searchTerm.replacingOccurrences(of: " ", with: "").lowercased())
-            }
+//            let filteredResult = currentDataSource.filter {
+//                $0.replacingOccurrences(of: " ", with: "").lowercased().contains(searchTerm.replacingOccurrences(of: " ", with: "").lowercased())
+//            }
+//            let filteredResult = currentDataSource.filter({$0.title?.prefix(searchTerm.count)})
             
-            currentDataSource = filteredResult
+//            currentDataSource = filteredResult
             tableView.reloadData()
             
         }
@@ -141,9 +144,36 @@ class BookingViewController: UIViewController {
     @IBAction func mapBtnClicked(_ sender: UIButton) {
         
     }
+    
+    func loadSortDropDown() {
+        sortDropDown.anchorView = mapSortContainerView
+        sortDropDown.direction = .bottom
+        sortDropDown.dataSource = [LocalizationSystem.sharedInstance.localizedStringForKey(key: "sort_high", comment: "").localiz(), LocalizationSystem.sharedInstance.localizedStringForKey(key: "sort_low", comment: "").localiz()]
+        sortDropDown.cellConfiguration = { (index, item) in return "\(item)" }
+    
+    }
+    
     @IBAction func sortBtnClicked(_ sender: UIButton) {
-        self.property_list.sort { $0.dayprice! > $1.dayprice! }
-        self.tableView.reloadData()
+        
+        sortDropDown.selectionAction = {
+            (index: Int, item: String) in
+            print("Selected item: \(item) at index: \(index)")
+            if index == 0 {
+                self.property_list.sort { $0.dayprice! > $1.dayprice! }
+                self.tableView.reloadData()
+            } else {
+                self.property_list.sort { $0.dayprice! < $1.dayprice! }
+                self.tableView.reloadData()
+            }
+            
+        }
+        
+        sortDropDown.width = view.bounds.width
+        
+        sortDropDown.bottomOffset = CGPoint(x: 0, y:(sortDropDown.anchorView?.plainView.bounds.height)!)
+
+        sortDropDown.show()
+
     }
     
     

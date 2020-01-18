@@ -138,7 +138,7 @@ class ViewController: UIViewController {
         
         let params : [String : String] = ["mobile" : fPhone, "lang" : lan]
         
-        let nUrl = "https://alama360.net/api/userbymobile?"
+        let nUrl = "https://alama360.com/api/userbymobile?"
         
         Alamofire.request(nUrl, method: .post, parameters: params, headers: nil).responseJSON{ (mysresponse) in
             
@@ -249,7 +249,7 @@ class ViewController: UIViewController {
         
         let params : [String : String] = ["mobile" : regPhone!, "lang" : lan]
         
-        let nUrl = "https://alama360.net/api/createOrupdateuser?"
+        let nUrl = "https://alama360.com/api/createOrupdateuser?"
         
         Alamofire.request(nUrl, method: .post, parameters: params, headers: nil).responseJSON{ (mysresponse) in
             
