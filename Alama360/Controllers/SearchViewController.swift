@@ -125,7 +125,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         let lan = defaults.string(forKey: "language") ?? ""
         print("lan is \(lan)")
         
-        let tUrl = Url + "daily-rental/for-rent?page=1&lang=" + lan + "&viewType=mapview"
+        let tUrl = StaticUrls.BASE_URL_FINAL + "daily-rental/for-rent?page=1&lang=" + lan + "&viewType=mapview"
         print("Title list Url is \(tUrl)")
         
         Alamofire.request(tUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in

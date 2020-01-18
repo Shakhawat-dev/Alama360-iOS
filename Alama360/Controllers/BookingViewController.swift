@@ -277,8 +277,8 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
             cell.rowCityName.text = property_list[indexPath.row].cityname!
         }
         
-        if property_list[indexPath.row].dayprice != nil {
-            cell.rowDayPrice.text = "\(property_list[indexPath.row].dayprice)"
+        if property_list[indexPath.row].dayprice! > 0 {
+            cell.rowDayPrice.text = String(describing: property_list[indexPath.row].dayprice!)
         } else {
             cell.rowDayPrice.text = ""
         }
