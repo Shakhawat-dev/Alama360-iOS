@@ -16,7 +16,7 @@ class TbPropertyDetailsViewController: UIViewController {
     
     var lan: String = ""
     var userId: String = ""
-    var id: String?
+    var id: String = "130"
 
     var pTitle: String?
     var pCityname: String?
@@ -45,7 +45,7 @@ class TbPropertyDetailsViewController: UIViewController {
         
         lan = LocalizationSystem.sharedInstance.getLanguage()
         
-        let pdUrl = StaticUrls.BASE_URL_FINAL + "propertydetails/130?lang=" + lan + "&userid=124"
+        let pdUrl = StaticUrls.BASE_URL_FINAL + "propertydetails/" + id + "?lang=" + lan + "&userid=124"
         
         // URL check
         print("Response bUrl is: \(pdUrl)")
@@ -174,7 +174,7 @@ class TbPropertyDetailsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "allPhotoSegue" {
             let destVC = segue.destination as! AllPhotosViewController
-            destVC.allPhotos = sender as? PhotosModel
+            destVC.id = sender as? String
         }
     }
 
@@ -263,6 +263,7 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
                 
                 cell.setValues(aPhotos: photos!)
                 cell.delegate = self
+//                cell.allPhotos = photos!
                 
 //                cell.thumbOne.image = getImage(from: (photos?.picture[0])!)
 //                cell.thumbTwo.image = getImage(from: (photos?.picture[1])!)
@@ -324,8 +325,15 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
 }
 
 extension TbPropertyDetailsViewController: AllPhotoDelegate {
-    func didTapMoreBtn(pPhotos: PhotosModel) {
-        performSegue(withIdentifier: "allPhotoSegue", sender: pPhotos)
+    func didTapMoreBtn() {
+        print("From tb did tap: \(photos)")
+        
+        performSegue(withIdentifier: "allPhotoSegue", sender: id)
     }
+//
+//    func didTapMoreBtn() {
+//
+//
+//    }
     
 }

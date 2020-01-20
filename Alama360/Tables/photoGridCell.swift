@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AllPhotoDelegate {
-    func didTapMoreBtn(pPhotos: PhotosModel)
+    func didTapMoreBtn()
 }
 
 class PhotoGridCell: UITableViewCell {
@@ -23,7 +23,7 @@ class PhotoGridCell: UITableViewCell {
     
     var delegate: AllPhotoDelegate?
     
-    var allPhotos: PhotosModel?
+    var allPhotos: PhotosModel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,7 +38,7 @@ class PhotoGridCell: UITableViewCell {
     }
 
     @IBAction func moreBtnTapped(_ sender: Any) {
-        delegate?.didTapMoreBtn(pPhotos: allPhotos!)
+        delegate?.didTapMoreBtn()
     }
     
     //     For getting image from url
@@ -66,7 +66,7 @@ class PhotoGridCell: UITableViewCell {
         
         return image
     }
-    
+//    aPhotos: PhotosModel
     func setValues(aPhotos: PhotosModel) {
 
         allPhotos = aPhotos
