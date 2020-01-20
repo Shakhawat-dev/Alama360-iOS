@@ -29,12 +29,17 @@ class YoutubeCell: UITableViewCell {
     
     // For Youtube View
     func getYoutubeView(yUrl: String) {
-        let myURL = URL(string: yUrl)
-        print("Youtube view url: \(url)")
-        let myRequest = URLRequest(url: myURL!)
-        self.youtubeWkView.load(myRequest)
         
-        self.youtubeWkView.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: .new, context: nil)
+        if yUrl != "" {
+
+            let myURL = URL(string: yUrl)
+            print("Youtube view url: \(url)")
+            let myRequest = URLRequest(url: myURL!)
+            self.youtubeWkView.load(myRequest)
+            
+            self.youtubeWkView.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: .new, context: nil)
+        }
+        
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {

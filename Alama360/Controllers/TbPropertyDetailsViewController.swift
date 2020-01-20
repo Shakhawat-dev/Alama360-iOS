@@ -16,7 +16,7 @@ class TbPropertyDetailsViewController: UIViewController {
     
     var lan: String = ""
     var userId: String = ""
-    var id: String = "130"
+    var id: String?
 
     var pTitle: String?
     var pCityname: String?
@@ -25,7 +25,7 @@ class TbPropertyDetailsViewController: UIViewController {
     var pAddress: String?
     var pLatitude: Double?
     var pLongitude: Double?
-    var pYoutube_video_url: String? = ""
+    var pYoutube_video_url: String?
     var photos: PhotosModel?
     var property_dailyfeature: FeatureModel?
     var landmark_arr = [String]()
@@ -45,7 +45,7 @@ class TbPropertyDetailsViewController: UIViewController {
         
         lan = LocalizationSystem.sharedInstance.getLanguage()
         
-        let pdUrl = StaticUrls.BASE_URL_FINAL + "propertydetails/" + id + "?lang=" + lan + "&userid=124"
+        let pdUrl = StaticUrls.BASE_URL_FINAL + "propertydetails/\(id!)?lang=\(lan)&userid=124"
         
         // URL check
         print("Response bUrl is: \(pdUrl)")
@@ -275,8 +275,10 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
                 return cell
             } else if row == 2 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "YoutubeCell") as! YoutubeCell
+                if pYoutube_video_url != "" {
+                    cell.getYoutubeView(yUrl: pYoutube_video_url!)
+                }
                 
-                cell.getYoutubeView(yUrl: pYoutube_video_url!)
                 
                 return cell
             } else {
@@ -315,13 +317,9 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
             
             return cell
         }
-        
-        
-        
-        
+
     }
-     
-    
+
 }
 
 extension TbPropertyDetailsViewController: AllPhotoDelegate {

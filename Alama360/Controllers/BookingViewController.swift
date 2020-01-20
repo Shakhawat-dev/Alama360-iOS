@@ -34,6 +34,7 @@ class BookingViewController: UIViewController {
     var lan = ""
     var thumcate = ""
     var address = ""
+    var id = ""
     
     // Response Arrays
     
@@ -226,6 +227,14 @@ class BookingViewController: UIViewController {
         return image
     }
     
+    // Sending Data to View COntroller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetails" {
+            let destVC = segue.destination as! TbPropertyDetailsViewController
+            destVC.id = (sender as? String)!
+        }
+    }
+    
     
 }
 
@@ -274,6 +283,8 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
         // let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         // alertController.addAction(okAction)
         // present(alertController, animated: true, completion: nil)
+        id = property_list[indexPath.row].id!
+        performSegue(withIdentifier: "showDetails", sender: id)
         
     }
     

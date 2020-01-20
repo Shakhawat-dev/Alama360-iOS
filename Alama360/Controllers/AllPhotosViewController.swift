@@ -17,6 +17,7 @@ class AllPhotosViewController: UIViewController {
     var photos = [String?]()
     var id: String?
     var lan: String = ""
+    var inputSources: [InputSource]?
     
     @IBOutlet weak var allphotoTableView: UITableView!
     var slideshowTransitioningDelegate: ZoomAnimatedTransitioningDelegate? = nil
@@ -44,7 +45,7 @@ class AllPhotosViewController: UIViewController {
             lan = LocalizationSystem.sharedInstance.getLanguage()
             
 //            let photoUrl = StaticUrls.BASE_URL_FINAL + "propertydetails/" + id + "?lang=" + lan + "&userid=124"
-            let photoUrl = StaticUrls.BASE_URL_FINAL + "propertydetails/130?lang=" + lan + "&userid=124"
+            let photoUrl = StaticUrls.BASE_URL_FINAL + "propertydetails/\(id!))?lang=" + lan + "&userid=124"
             
             // URL check
             print("Response bUrl is: \(photoUrl)")
@@ -75,7 +76,7 @@ class AllPhotosViewController: UIViewController {
                     self.allphotoTableView.dataSource = self
                     self.allphotoTableView.reloadData()
                     
-                    
+                    self.inputSources = self.photoInputs(photos: self.photos)
 
     
                 }
@@ -153,18 +154,6 @@ extension AllPhotosViewController: UITableViewDelegate, UITableViewDataSource {
         if let allArr: [String?] = allPhotos?.picture {
             cell.cellPhoto.image = getImage(from: allArr[indexPath.row]!)
         }
-//        cell.cellPhoto.image = getImage(from: (allPhotos?.picture[0])!)
-//        cell.cellPhoto.image = getImage(from: (allPhotos?.picture[1])!)
-//        cell.cellPhoto.image = getImage(from: (allPhotos?.picture[2])!)
-//        cell.cellPhoto.image = getImage(from: (allPhotos?.picture[3])!)
-//        cell.cellPhoto.image = getImage(from: (allPhotos?.picture[4])!)
-//        cell.cellPhoto.image = getImage(from: (allPhotos?.picture[5])!)
-//        cell.cellPhoto.image = getImage(from: (allPhotos?.picture[6])!)
-//        cell.cellPhoto.image = getImage(from: (allPhotos?.picture[7])!)
-//        cell.cellPhoto.image = getImage(from: (allPhotos?.picture[8])!)
-//        cell.cellPhoto.image = getImage(from: (allPhotos?.picture[9])!)
-//        cell.cellPhoto.image = getImage(from: (allPhotos?.picture[10])!)
-//        cell.cellPhoto.image = getImage(from: (photos[indexPath.row]))
         
         return cell
         
@@ -175,22 +164,9 @@ extension AllPhotosViewController: UITableViewDelegate, UITableViewDataSource {
         
 //        let models = [AllPhotoGalleryModel(image: getImage(from: (allPhotos?.picture[indexPath.row])!)!)] // Works but single
         
-        
-        
         let fullScreenController = FullScreenSlideshowViewController()
-//        var inputSources = [InputSource]()
-//
-//        let  inputSource = ImageSource(image: getImage(from: photos[indexPath.row]!)!)
-//        inputSources.append(inputSource)
-//        let  inputSource1 = ImageSource(image: getImage(from: photos[indexPath.row]!)!)
-//        inputSources.append(inputSource1)
-//        var inputSource: InputSource {
-//            return ImageSource(image: image)
-//        }
-        
-        let inputSources = photoInputs(photos: photos)
-        
 //        fullScreenController.inputs = models.map { $0.inputSource }
+        
         fullScreenController.inputs = inputSources
         
 //        fullScreenController.inputs = InputSource(getImage(from: (allPhotos?.picture[indexPath.row])!)!)
