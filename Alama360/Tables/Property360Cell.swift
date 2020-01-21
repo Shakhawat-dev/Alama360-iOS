@@ -10,8 +10,8 @@ import UIKit
 import WebKit
 
 class Property360Cell: UITableViewCell {
-    
-    let url: String = StaticUrls.WEB_360_VIEW_URL
+//    StaticUrls.WEB_360_VIEW_URL
+    var url: String = ""
 
     @IBOutlet weak var property360WkView: WKWebView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -19,7 +19,7 @@ class Property360Cell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        get360View()
+//        get360View()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -29,13 +29,16 @@ class Property360Cell: UITableViewCell {
     }
     
     // For 360 property View
-    func get360View() {
-        let myURL = URL(string: url)
-        print("360 view url: \(url)")
-        let myRequest = URLRequest(url: myURL!)
-        self.property360WkView.load(myRequest)
+    func get360View(url: String) {
+        if url != "" {
+            let myURL = URL(string: url)
+            print("360 view url: \(url)")
+            let myRequest = URLRequest(url: myURL!)
+            self.property360WkView.load(myRequest)
+            
+            self.property360WkView.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: .new, context: nil)
+        }
         
-        self.property360WkView.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: .new, context: nil)
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {

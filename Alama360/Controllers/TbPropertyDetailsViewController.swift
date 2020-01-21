@@ -17,7 +17,8 @@ class TbPropertyDetailsViewController: UIViewController {
     var lan: String = ""
     var userId: String = ""
     var id: String?
-
+    var rCount: Int = 0
+    
     var pTitle: String?
     var pCityname: String?
     var pDistName: String?
@@ -25,18 +26,22 @@ class TbPropertyDetailsViewController: UIViewController {
     var pAddress: String?
     var pLatitude: Double?
     var pLongitude: Double?
+    var tour: String?
     var pYoutube_video_url: String?
     var photos: PhotosModel?
     var property_dailyfeature: FeatureModel?
     var landmark_arr = [String]()
-
+    //    var cellRowClass : [String: String] = ["" : ""]
+    var cellRowClass = [String]()
+    
     @IBOutlet weak var propertyDetailsTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         getPropertyDetails()
+        rowCount ()
         
     }
     
@@ -66,6 +71,7 @@ class TbPropertyDetailsViewController: UIViewController {
                 self.pCityname = resultArray["cityname"].stringValue
                 self.pDistName = resultArray["dist_districtInfo"]["name"].stringValue
                 self.pShort_des = resultArray["dist_districtInfo"]["description"].stringValue
+                self.tour = resultArray["tour"].stringValue
                 self.pYoutube_video_url = resultArray["youtube_video_url"].stringValue
                 self.pLatitude = resultArray["latitude"].doubleValue
                 self.pLongitude = resultArray["longitude"].doubleValue
@@ -82,20 +88,42 @@ class TbPropertyDetailsViewController: UIViewController {
                 let featureArray = resultArray["property_dailyfeature"].arrayValue
                 let newFeature = FeatureModel(json: JSON(featureArray))
                 self.property_dailyfeature = newFeature
-
+                
                 print(self.property_dailyfeature)
+                
                 
                 self.propertyDetailsTable.delegate = self
                 self.propertyDetailsTable.dataSource = self
                 self.propertyDetailsTable.reloadData()
-
+                
                 self.getMapView ()
-//                self.setValues()
-//                self.getYoutubeVideo()
-
-            
-//                self.featuresTableView.layoutIfNeeded()
-//                self.featuresTableView.heightAnchor.constraint(equalToConstant: self.featuresTableView.contentSize.height).isActive = true
+                //                self.setValues()
+                //                self.getYoutubeVideo()
+                
+                
+                //                self.featuresTableView.layoutIfNeeded()
+                //                self.featuresTableView.heightAnchor.constraint(equalToConstant: self.featuresTableView.contentSize.height).isActive = true
+                
+                // For setting row in tableview
+//                if self.tour != "" {
+//                    self.rCount += 1
+//                    self.cellRowClass.append("Property360Cell")
+//                }
+//                if (self.photos?.picture[0])! != "" {
+//                    self.rCount += 1
+//                    self.cellRowClass.append("PhotoGridCell")
+//                }
+//                if self.pYoutube_video_url != "" {
+//                    self.rCount += 1
+//                    self.cellRowClass.append("YoutubeCell")
+//                }
+//                if self.title != "" {
+//                    self.rCount += 1
+//                    self.cellRowClass.append("NamePolicyCell")
+//                }
+//
+//                print("Row Count is : \(self.rCount)")
+                
             }
             
         }
@@ -177,15 +205,33 @@ class TbPropertyDetailsViewController: UIViewController {
             destVC.id = sender as? String
         }
     }
-
-
+    
+    // Count for row
+    func rowCount () {}
+    
+    
+    
 }
 
 extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
+        //        if pShort_des == "" && property_dailyfeature?.col1_array == nil && landmark_arr[0] == "" {
+        //            return 1
+        //        } else if pShort_des == "" && property_dailyfeature?.col1_array == nil {
+        //            return 2
+        //        } else if pShort_des == "" && landmark_arr[0] == "" {
+        //            return 2
+        //        } else if landmark_arr[0] == "" && property_dailyfeature?.col1_array == nil {
+        //            return 2
+        //        } else if pShort_des == "" || property_dailyfeature?.col1_array == nil || landmark_arr[0] == ""  {
+        //            return 3
+        //        } else {
+        //            return 4
+        //        }
         return 4
+        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -199,9 +245,9 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
         if section == 0 {
             label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "property", comment: "").localiz()
             view.addSubview(label)
-
+            
             return view
-        } else if section == 1 {
+        } else if section == 1  {
             label.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "description", comment: "").localiz()
             view.addSubview(label)
             
@@ -231,8 +277,20 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        let row: Int = 4
         if section == 0 {
+            
+            //            if tour != "" && pYoutube_video_url != "" && photos?.picture[0] != "" {
+            //                row = 4
+            //            } else if pYoutube_video_url != "" && tour != "" {
+            //                row = 3
+            //            } else if tour != "" && photos?.picture[0] != "" {
+            //                row = 3
+            //            } else if photos?.picture[0] != "" && pYoutube_video_url != "" {
+            //                row = 3
+            //            }
+            
+            
             return 4
         } else if section == 2{
             return (property_dailyfeature?.col1_array.count)!
@@ -245,40 +303,76 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
         
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var rowHeight:CGFloat = 0.0
+        //        let frame = tableView.rectForRow(at: indexPath)
+        if indexPath.row == 0 {
+            if tour == "" {
+                rowHeight = 0.0
+            } else {
+                rowHeight = tableView.rowHeight
+            }
+            return rowHeight
+            
+        } else if indexPath.row == 1 {
+            
+            if photos?.picture[0] == "" {
+                rowHeight = 0.0
+            } else {
+                rowHeight = tableView.rowHeight
+            }
+            return rowHeight
+            
+        } else if indexPath.row == 2 {
+            
+            if pYoutube_video_url == "" {
+                rowHeight = 0.0
+            } else {
+                rowHeight = tableView.rowHeight
+            }
+            return rowHeight
+            
+        } else {
+            
+            rowHeight = tableView.rowHeight
+            
+            return rowHeight
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let row = indexPath.row
         let section = indexPath.section
         
         if section == 0 {
+            
             if row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Property360Cell") as! Property360Cell
+                if tour != "" {
+                    cell.get360View(url: tour!)
+                    print("360 view url: \(tour)")
+                }
+                
                 
                 return cell
             } else if row == 1 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoGridCell") as! PhotoGridCell
                 
-                
-//                cell.allPhotos = photos
-                
-                cell.setValues(aPhotos: photos!)
-                cell.delegate = self
-//                cell.allPhotos = photos!
-                
-//                cell.thumbOne.image = getImage(from: (photos?.picture[0])!)
-//                cell.thumbTwo.image = getImage(from: (photos?.picture[1])!)
-//                cell.thumbThree.image = getImage(from: (photos?.picture[2])!)
-//                cell.thumbFour.image = getImage(from: (photos?.picture[3])!)
-//                cell.thumbFive.image = getImage(from: (photos?.picture[4])!)
-                
-                
-                return cell
+                if photos?.picture[0] == "" {
+                    
+                    cell.isHidden = true
+                    
+                    return cell
+                } else {
+                    cell.setValues(aPhotos: photos!)
+                    cell.delegate = self
+                    
+                    return cell }
             } else if row == 2 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "YoutubeCell") as! YoutubeCell
-                if pYoutube_video_url != "" {
-                    cell.getYoutubeView(yUrl: pYoutube_video_url!)
-                }
                 
+                cell.getYoutubeView(yUrl: pYoutube_video_url!)
                 
                 return cell
             } else {
@@ -290,8 +384,51 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
                 
                 return cell
             }
-              
-        } else if section == 1 {
+            
+            //            var rcell: UITableViewCell?
+            //
+            //            for i in 0...rCount {
+            //                if row == i {
+            //                    if cellRowClass[i] == "Property360Cell" {
+            //                        let cell = tableView.dequeueReusableCell(withIdentifier: "Property360Cell") as! Property360Cell
+            //
+            //                        rcell = cell
+            //                    }
+            //                    else if cellRowClass[i] == "PhotoGridCell" {
+            //                        let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoGridCell") as! PhotoGridCell
+            //
+            //                            cell.setValues(aPhotos: photos!)
+            //                            cell.delegate = self
+            //
+            //                        rcell = cell
+            //                    }
+            //                    else if cellRowClass[i] == "YoutubeCell" {
+            //                        let cell = tableView.dequeueReusableCell(withIdentifier: "YoutubeCell") as! YoutubeCell
+            //
+            //                        cell.getYoutubeView(yUrl: pYoutube_video_url!)
+            //
+            //                        rcell = cell
+            //                    }
+            //                    else  {
+            ////                        if cellRowClass[i] == "NamePolicyCell"
+            //                        let cell = tableView.dequeueReusableCell(withIdentifier: "NamePolicyCell") as! NamePolicyCell
+            //
+            //                        cell.propertyName.text = pTitle
+            //                         cell.cityName.text = pCityname
+            //                         cell.districtName.text = pDistName
+            //
+            //                        rcell = cell
+            //                    }
+            //                    return rcell!
+            //                }
+            //
+            //
+            //            }
+            //
+            //            return rcell!
+            
+            
+        } else if section == 1 && pShort_des != "" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PdDescriptionCell") as! PdDescriptionCell
             
             cell.pDescription.text = pShort_des
@@ -317,9 +454,9 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
             
             return cell
         }
-
+        
     }
-
+    
 }
 
 extension TbPropertyDetailsViewController: AllPhotoDelegate {
@@ -328,10 +465,10 @@ extension TbPropertyDetailsViewController: AllPhotoDelegate {
         
         performSegue(withIdentifier: "allPhotoSegue", sender: id)
     }
-//
-//    func didTapMoreBtn() {
-//
-//
-//    }
+    //
+    //    func didTapMoreBtn() {
+    //
+    //
+    //    }
     
 }
