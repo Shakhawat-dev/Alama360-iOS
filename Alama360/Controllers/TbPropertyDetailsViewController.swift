@@ -11,13 +11,20 @@ import WebKit
 import Alamofire
 import SwiftyJSON
 import GoogleMaps
+import LanguageManager_iOS
 
 class TbPropertyDetailsViewController: UIViewController {
+    //For storing user data
+    let defaults = UserDefaults.standard
     
     var lan: String = ""
     var userId: String = ""
     var id: String?
     var rCount: Int = 0
+    var message: String = ""
+    var status: String = ""
+    var isFav: Bool = true
+    var favorite_info: String = ""
     
     var pTitle: String?
     var pCityname: String?
@@ -35,13 +42,14 @@ class TbPropertyDetailsViewController: UIViewController {
     var cellRowClass = [String]()
     
     @IBOutlet weak var propertyDetailsTable: UITableView!
+    @IBOutlet weak var favBtn: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userId = defaults.string(forKey: "userID")!
         
         // Do any additional setup after loading the view.
         getPropertyDetails()
-        rowCount ()
         
     }
     
@@ -50,13 +58,12 @@ class TbPropertyDetailsViewController: UIViewController {
         
         lan = LocalizationSystem.sharedInstance.getLanguage()
         
-        let pdUrl = StaticUrls.BASE_URL_FINAL + "propertydetails/\(id!)?lang=\(lan)&userid=124"
+        let pdUrl = StaticUrls.BASE_URL_FINAL + "propertydetails/\(id!)?lang=\(lan)&userid=\(userId)"
         
         // URL check
         print("Response bUrl is: \(pdUrl)")
         
         Alamofire.request(pdUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
-            
             if mysresponse.result.isSuccess {
                 
                 let myResult = try? JSON(data: mysresponse.data!)
@@ -64,9 +71,8 @@ class TbPropertyDetailsViewController: UIViewController {
                 
                 print(resultArray as Any)
                 
-                // Initiatoing resultArray into specific array
-                
-                
+                // Initiating resultArray into specific array
+
                 self.pTitle = resultArray["title"].stringValue
                 self.pCityname = resultArray["cityname"].stringValue
                 self.pDistName = resultArray["dist_districtInfo"]["name"].stringValue
@@ -75,6 +81,7 @@ class TbPropertyDetailsViewController: UIViewController {
                 self.pYoutube_video_url = resultArray["youtube_video_url"].stringValue
                 self.pLatitude = resultArray["latitude"].doubleValue
                 self.pLongitude = resultArray["longitude"].doubleValue
+                let fav = resultArray["favorite_info"].rawString()
                 
                 for i in resultArray["landmarks"].arrayValue {
                     let name = i["name"].stringValue
@@ -89,46 +96,79 @@ class TbPropertyDetailsViewController: UIViewController {
                 let newFeature = FeatureModel(json: JSON(featureArray))
                 self.property_dailyfeature = newFeature
                 
-                print(self.property_dailyfeature)
                 
+                print("Favourite info is: \(fav)")
+                if fav! == "null" {
+//                    print("Favourite info is: \(fav!)")
+                    self.isFav = false
+                    let btnImage: UIImage = UIImage(systemName: "heart")!
+                    self.favBtn.image = btnImage
+                } else {
+                    self.isFav = true
+                    let btnImage: UIImage = UIImage(systemName: "heart.fill")!
+                    self.favBtn.image = btnImage
+                }
                 
                 self.propertyDetailsTable.delegate = self
                 self.propertyDetailsTable.dataSource = self
                 self.propertyDetailsTable.reloadData()
                 
                 self.getMapView ()
-                //                self.setValues()
-                //                self.getYoutubeVideo()
-                
-                
-                //                self.featuresTableView.layoutIfNeeded()
-                //                self.featuresTableView.heightAnchor.constraint(equalToConstant: self.featuresTableView.contentSize.height).isActive = true
-                
-                // For setting row in tableview
-//                if self.tour != "" {
-//                    self.rCount += 1
-//                    self.cellRowClass.append("Property360Cell")
-//                }
-//                if (self.photos?.picture[0])! != "" {
-//                    self.rCount += 1
-//                    self.cellRowClass.append("PhotoGridCell")
-//                }
-//                if self.pYoutube_video_url != "" {
-//                    self.rCount += 1
-//                    self.cellRowClass.append("YoutubeCell")
-//                }
-//                if self.title != "" {
-//                    self.rCount += 1
-//                    self.cellRowClass.append("NamePolicyCell")
-//                }
-//
-//                print("Row Count is : \(self.rCount)")
-                
+   
             }
             
         }
         
     }
+    
+    @IBAction func favoriteBtnTapped(_ sender: Any) {
+        let lan = LanguageManager.shared.currentLanguage.rawValue
+        //        let user = defaults.string(forKey: "userID")!
+        print("User ID is: \(userId)")
+        
+        let params : [String : String] = ["lang" : lan, "userid" : userId, "property_id" : id!]
+        
+        let fUrl = StaticUrls.BASE_URL_FINAL + "togglefavorites?"
+        
+        Alamofire.request(fUrl, method: .post, parameters: params, headers: nil).responseJSON{ (mysresponse) in
+            
+            if mysresponse.result.isSuccess {
+                
+                let myResult = try? JSON(data: mysresponse.data!)
+                
+                let resultArray = myResult![]
+                
+                print(resultArray)
+                
+                self.message = resultArray["message"].stringValue
+                self.status = resultArray["status"].stringValue
+                
+                
+                print("Status is: \(self.status)")
+                print("Message is: \(self.message)")
+                
+                if self.status == "1" {
+                    self.favSet()
+                }
+                
+            }
+        }
+    }
+    
+    func favSet() {
+        if self.isFav {
+            self.isFav = false
+            let btnImage:UIImage = UIImage(systemName: "heart")!
+            //                    self.favBtn.setBackgroundImage(btnImage, for: .normal, style: .plain, barMetrics: .default)
+            self.favBtn.image = btnImage
+        } else {
+            self.isFav = true
+            let btnImage: UIImage = UIImage(systemName: "heart.fill")!
+            //                    self.favBtn.setBackgroundImage(btnImage, for: .normal, style: .plain, barMetrics: .default)
+            self.favBtn.image = btnImage
+        }
+    }
+    
     
     func getMapView () {
         
@@ -169,7 +209,6 @@ class TbPropertyDetailsViewController: UIViewController {
         }
         
         return mySubstring
-        
     }
     
     //     For getting image from url
@@ -205,33 +244,13 @@ class TbPropertyDetailsViewController: UIViewController {
             destVC.id = sender as? String
         }
     }
-    
-    // Count for row
-    func rowCount () {}
-    
-    
-    
+
 }
 
 extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        
-        //        if pShort_des == "" && property_dailyfeature?.col1_array == nil && landmark_arr[0] == "" {
-        //            return 1
-        //        } else if pShort_des == "" && property_dailyfeature?.col1_array == nil {
-        //            return 2
-        //        } else if pShort_des == "" && landmark_arr[0] == "" {
-        //            return 2
-        //        } else if landmark_arr[0] == "" && property_dailyfeature?.col1_array == nil {
-        //            return 2
-        //        } else if pShort_des == "" || property_dailyfeature?.col1_array == nil || landmark_arr[0] == ""  {
-        //            return 3
-        //        } else {
-        //            return 4
-        //        }
         return 4
-        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -277,20 +296,8 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let row: Int = 4
+        
         if section == 0 {
-            
-            //            if tour != "" && pYoutube_video_url != "" && photos?.picture[0] != "" {
-            //                row = 4
-            //            } else if pYoutube_video_url != "" && tour != "" {
-            //                row = 3
-            //            } else if tour != "" && photos?.picture[0] != "" {
-            //                row = 3
-            //            } else if photos?.picture[0] != "" && pYoutube_video_url != "" {
-            //                row = 3
-            //            }
-            
-            
             return 4
         } else if section == 2{
             return (property_dailyfeature?.col1_array.count)!
@@ -299,8 +306,7 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
         } else {
             return 1
         }
-        
-        
+
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -384,49 +390,6 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
                 
                 return cell
             }
-            
-            //            var rcell: UITableViewCell?
-            //
-            //            for i in 0...rCount {
-            //                if row == i {
-            //                    if cellRowClass[i] == "Property360Cell" {
-            //                        let cell = tableView.dequeueReusableCell(withIdentifier: "Property360Cell") as! Property360Cell
-            //
-            //                        rcell = cell
-            //                    }
-            //                    else if cellRowClass[i] == "PhotoGridCell" {
-            //                        let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoGridCell") as! PhotoGridCell
-            //
-            //                            cell.setValues(aPhotos: photos!)
-            //                            cell.delegate = self
-            //
-            //                        rcell = cell
-            //                    }
-            //                    else if cellRowClass[i] == "YoutubeCell" {
-            //                        let cell = tableView.dequeueReusableCell(withIdentifier: "YoutubeCell") as! YoutubeCell
-            //
-            //                        cell.getYoutubeView(yUrl: pYoutube_video_url!)
-            //
-            //                        rcell = cell
-            //                    }
-            //                    else  {
-            ////                        if cellRowClass[i] == "NamePolicyCell"
-            //                        let cell = tableView.dequeueReusableCell(withIdentifier: "NamePolicyCell") as! NamePolicyCell
-            //
-            //                        cell.propertyName.text = pTitle
-            //                         cell.cityName.text = pCityname
-            //                         cell.districtName.text = pDistName
-            //
-            //                        rcell = cell
-            //                    }
-            //                    return rcell!
-            //                }
-            //
-            //
-            //            }
-            //
-            //            return rcell!
-            
             
         } else if section == 1 && pShort_des != "" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PdDescriptionCell") as! PdDescriptionCell

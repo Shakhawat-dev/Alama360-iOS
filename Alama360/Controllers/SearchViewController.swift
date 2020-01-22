@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 import SearchTextField
 import iOSDropDown
+import LanguageManager_iOS
 
 
 

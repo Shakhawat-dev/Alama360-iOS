@@ -275,6 +275,10 @@ class ViewController: UIViewController {
                 print("user id: \(self.userid)")
                 print("Message: \(self.message)")
                 
+                self.defaults.set(self.userid, forKey: "userID")
+                self.defaults.set(regPhone, forKey: "phoneNumber")
+                self.defaults.set(lan, forKey: "language")
+                
             }
         }
         
