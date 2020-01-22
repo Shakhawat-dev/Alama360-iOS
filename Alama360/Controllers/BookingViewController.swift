@@ -36,11 +36,7 @@ class BookingViewController: UIViewController {
     var address = ""
     var id = ""
     
-    // Response Arrays
-    
-    
     private var f_col = [String]()
-    
     var property_list = [BookingModel]()
     var arrrFeatures = [FeatureModel]()
     
@@ -48,7 +44,7 @@ class BookingViewController: UIViewController {
         super.viewDidLoad()
         
 //        currentDataSource = originalDataSource
-        //
+
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         // For search view focus
