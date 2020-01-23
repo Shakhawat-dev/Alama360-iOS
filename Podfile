@@ -19,5 +19,6 @@ target 'Alama360' do
   pod 'GoogleMaps'
   pod 'LanguageManager-iOS'
   pod 'DropDown'
+  pod 'FSCalendar'
 
 end

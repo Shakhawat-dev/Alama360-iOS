@@ -12,7 +12,7 @@ import SwiftyJSON
 import SearchTextField
 import iOSDropDown
 import LanguageManager_iOS
-
+import FSCalendar
 
 
 class CellClass: UITableViewCell{
@@ -37,6 +37,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     @IBOutlet weak var lblSelectDate: UILabel!
     @IBOutlet weak var btnAdd: UIButton!
     
+    // Fs Calender
+    fileprivate weak var calendar: FSCalendar!
     
     let defaults = UserDefaults.standard
     
@@ -69,11 +71,20 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         loadPropertyTitle()
         getDatePicker()
         
+        self.startDateField.delegate = self
+        
         let logo = #imageLiteral(resourceName: "logo")
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
         
-     startDateField.inputView = datePicker
+//     startDateField.inputView = datePicker
+        
+        // In loadView or viewDidLoad
+//        let calendar = FSCalendar(frame: CGRect(x: 0, y: 0, width: 320, height: 300))
+//        calendar.dataSource = self as? FSCalendarDataSource
+//        calendar.delegate = self as? FSCalendarDelegate
+//        startDateField.inputView = calendar
+//        self.calendar = calendar
     }
     
     func setLocalize() {
@@ -91,14 +102,17 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     
     func getDatePicker() {
         
-        datePicker = UIDatePicker()
-        datePicker?.locale = NSLocale.init(localeIdentifier: "ar") as Locale
+//        datePicker = UIDatePicker()
+//        datePicker?.locale = NSLocale.init(localeIdentifier: "ar") as Locale
+//
+//        datePicker?.datePickerMode = .date
+//        datePicker?.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
+//
+//        startDateField.inputView = datePicker
         
-        datePicker?.datePickerMode = .date
-        datePicker?.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
         
-        startDateField.inputView = datePicker
-
+        
+        
         
     }
     
@@ -293,11 +307,27 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         }
         
     }
+   
+    // Sending Data to View COntroller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "openCalender" {
+            let destVC = segue.destination as! FCalenderViewController
+//            destVC.id = sender as? String
+        }
+    }
     
-    
-    
+     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool   {
+            //Load your VC here
+            performSegue(withIdentifier: "openCalender", sender: nil)
+    //        performSegue(withIdentifier: "openCalender", sender: )
+            return false
+        }
     
 }
+
+//extension SearchViewController : UITextFieldDelegate {
+//   
+//}
 
 
 
