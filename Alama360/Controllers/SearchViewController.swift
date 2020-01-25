@@ -77,14 +77,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
         
-//     startDateField.inputView = datePicker
+        //     startDateField.inputView = datePicker
         
         // In loadView or viewDidLoad
-//        let calendar = FSCalendar(frame: CGRect(x: 0, y: 0, width: 320, height: 300))
-//        calendar.dataSource = self as? FSCalendarDataSource
-//        calendar.delegate = self as? FSCalendarDelegate
-//        startDateField.inputView = calendar
-//        self.calendar = calendar
+        //        let calendar = FSCalendar(frame: CGRect(x: 0, y: 0, width: 320, height: 300))
+        //        calendar.dataSource = self as? FSCalendarDataSource
+        //        calendar.delegate = self as? FSCalendarDelegate
+        //        startDateField.inputView = calendar
+        //        self.calendar = calendar
     }
     
     func setLocalize() {
@@ -102,13 +102,13 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     
     func getDatePicker() {
         
-//        datePicker = UIDatePicker()
-//        datePicker?.locale = NSLocale.init(localeIdentifier: "ar") as Locale
-//
-//        datePicker?.datePickerMode = .date
-//        datePicker?.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
-//
-//        startDateField.inputView = datePicker
+        //        datePicker = UIDatePicker()
+        //        datePicker?.locale = NSLocale.init(localeIdentifier: "ar") as Locale
+        //
+        //        datePicker?.datePickerMode = .date
+        //        datePicker?.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
+        //
+        //        startDateField.inputView = datePicker
         
         
         
@@ -221,7 +221,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     // Getting image form Json URL
     func getImage(from string: String) -> UIImage? {
         //2. Get valid URL
-
+        
         guard let url = URL(string: string.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
             
             else {
@@ -307,22 +307,33 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         }
         
     }
-   
+    
     // Sending Data to View COntroller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "openCalender" {
             let destVC = segue.destination as! FCalenderViewController
-//            destVC.id = sender as? String
+            destVC.titleCate = sender as? (title: String, cate: String)
         }
     }
     
-     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool   {
-            //Load your VC here
-            performSegue(withIdentifier: "openCalender", sender: nil)
-    //        performSegue(withIdentifier: "openCalender", sender: )
-            return false
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool   {
+        //Load your VC here
+        if categoryDropDown.text != "" {
+            let titleCate = (title : titlePropertyAuto.text,  cate: arr_id[categoryDropDown.selectedIndex!] )
+            print(titleCate)
+            performSegue(withIdentifier: "openCalender", sender: titleCate)
+        } else {
+            let titleCate = (title : titlePropertyAuto.text,  cate: categoryDropDown.text)
+            print(titleCate)
+            performSegue(withIdentifier: "openCalender", sender: titleCate)
         }
+        
+        
+        
+        return false
+    }
     
+   
 }
 
 //extension SearchViewController : UITextFieldDelegate {

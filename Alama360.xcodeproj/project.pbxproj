@@ -37,6 +37,7 @@
 		4B4BBBAD23C46F8200DB28C5 /* Favourites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4BBBAC23C46F8200DB28C5 /* Favourites.storyboard */; };
 		4B4BBBAF23C46F9F00DB28C5 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4BBBAE23C46F9F00DB28C5 /* More.storyboard */; };
 		4B4EAB2123CB5CAA005AEBA6 /* MoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4EAB2023CB5CAA005AEBA6 /* MoreTableViewController.swift */; };
+		4B5C17E623DC15EC00EE2310 /* CustomBtnGreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C17E523DC15EC00EE2310 /* CustomBtnGreen.swift */; };
 		4B6DFE18239E278600543E3F /* ReservationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE17239E278600543E3F /* ReservationsViewController.swift */; };
 		4B6DFE1A239E292800543E3F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE19239E292800543E3F /* FavoritesViewController.swift */; };
 		4B6DFE1E239E299900543E3F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE1D239E299900543E3F /* SearchViewController.swift */; };
@@ -103,6 +104,7 @@
 		4B4BBBAC23C46F8200DB28C5 /* Favourites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favourites.storyboard; sourceTree = "<group>"; };
 		4B4BBBAE23C46F9F00DB28C5 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
 		4B4EAB2023CB5CAA005AEBA6 /* MoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewController.swift; sourceTree = "<group>"; };
+		4B5C17E523DC15EC00EE2310 /* CustomBtnGreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBtnGreen.swift; sourceTree = "<group>"; };
 		4B6DFE17239E278600543E3F /* ReservationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationsViewController.swift; sourceTree = "<group>"; };
 		4B6DFE19239E292800543E3F /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		4B6DFE1D239E299900543E3F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				4B04E43B239B788300D02BC4 /* Assets.xcassets */,
 				4B04E440239B788300D02BC4 /* Info.plist */,
 				4B2ECC2723D092F100F56435 /* PropertyInfoWindow.xib */,
+				4B5C17E523DC15EC00EE2310 /* CustomBtnGreen.swift */,
 			);
 			path = Alama360;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				4B84A0FE23C4A922006E5237 /* Property360Cell.swift in Sources */,
 				4B83D88823B8CBC2003F38C9 /* FeatureTableViewCell.swift in Sources */,
 				4B04E433239B788000D02BC4 /* AppDelegate.swift in Sources */,
+				4B5C17E623DC15EC00EE2310 /* CustomBtnGreen.swift in Sources */,
 				4B149C3823C5B6230021F5EF /* PdDescriptionCell.swift in Sources */,
 				4B84A10823C4AA67006E5237 /* FeatureCell.swift in Sources */,
 				4B30DEC123D0494C00069DBC /* MapModel.swift in Sources */,

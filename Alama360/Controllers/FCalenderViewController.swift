@@ -12,66 +12,58 @@ import FSCalendar
 class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate {
     @IBOutlet weak var calendar: FSCalendar!
     
+    var titleCate : (title: String, cate: String)?
+    
+    // first date in the range
+    private var firstDate: Date?
+    // last date in the range
+    private var lastDate: Date?
+    private var datesRange: [Date]?
+    
+    var fDate: String?
+    var lDate: String?
     
     fileprivate let gregorian = Calendar(identifier: .gregorian)
     fileprivate let formatter: DateFormatter = {
         let formatter = DateFormatter()
+        formatter.locale = NSLocale(localeIdentifier: "en") as Locale
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter
     }()
-    
-//    override func loadView() {
-//
-//        calendar.dataSource = self
-//        calendar.delegate = self
-//        calendar.allowsMultipleSelection = true
-//
-//        calendar.today = nil // Hide the today circle
-//        calendar.register(DIYCalenderCell.self, forCellReuseIdentifier: "cell")
-//        //        calendar.clipsToBounds = true // Remove top/bottom line
-//
-//        calendar.swipeToChooseGesture.isEnabled = true // Swipe-To-Choose
-//
-//        let scopeGesture = UIPanGestureRecognizer(target: calendar, action: #selector(calendar.handleScopeGesture(_:)));
-//        calendar.addGestureRecognizer(scopeGesture)
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("From FS Cal\(titleCate)")
+        
         calendar.dataSource = self
         calendar.delegate = self
         calendar.allowsMultipleSelection = true
         calendar.register(DIYCalenderCell.self, forCellReuseIdentifier: "cell")
          calendar.swipeToChooseGesture.isEnabled = true // Swipe-To-Choose
         
+        
         let scopeGesture = UIPanGestureRecognizer(target: calendar, action: #selector(calendar.handleScopeGesture(_:)));
         calendar.addGestureRecognizer(scopeGesture)
         
-        
-//        let dates = [
-//            self.gregorian.date(byAdding: .day, value: -1, to: Date()),
-//            Date(),
-//            self.gregorian.date(byAdding: .day, value: 1, to: Date())
-//        ]
-//        dates.forEach { (date) in
-//            self.calendar.select(date, scrollToDate: false)
-//        }
     }
     
+    func datesRange(from: Date, to: Date) -> [Date] {
+        // in case of the "from" date is more than "to" date,
+        // it should returns an empty array:
+        if from > to { return [Date]() }
     
+        var tempDate = from
+        var array = [tempDate]
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        while tempDate < to {
+            tempDate = Calendar.current.date(byAdding: .day, value: 1, to: tempDate)!
+            array.append(tempDate)
+        }
+    
+        return array
     }
-    */
-    
+
     // Disables selecting previous dates
     func calendar(_ calendar: FSCalendar, shouldSelect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
         
@@ -84,14 +76,121 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
 
         return true
     }
+    
+    
 
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        
+        
+        // nothing selected:
+            if firstDate == nil {
+                firstDate = date
+                datesRange = [firstDate!]
+        
+                print("datesRange contains: \(datesRange!)")
+        
+                return
+            }
+        
+        // only first date is selected:
+            if firstDate != nil && lastDate == nil {
+                // handle the case of if the last date is less than the first date:
+                if date <= firstDate! {
+                    calendar.deselect(firstDate!)
+                    firstDate = date
+                    datesRange = [firstDate!]
+        
+                    print("datesRange contains: \(datesRange!)")
+        
+                    return
+                }
+        
+                let range = datesRange(from: firstDate!, to: date)
+        
+                lastDate = range.last
+        
+                for d in range {
+                    calendar.select(d)
+                }
+        
+                datesRange = range
+        
+                print("datesRange contains: \(datesRange!)")
+        
+                return
+            }
+        
+        // both are selected:
+            if firstDate != nil && lastDate != nil {
+                for d in calendar.selectedDates {
+                    calendar.deselect(d)
+                }
+        
+                lastDate = nil
+                firstDate = nil
+        
+                datesRange = []
+        
+                print("datesRange contains: \(datesRange!)")
+            }
+        
         print("did select date \(self.formatter.string(from: date))")
-//        self.configureVisibleCells()
+    }
+    
+    @IBAction func clearBtnTapped(_ sender: UIButton) {
+        for d in calendar.selectedDates {
+            calendar.deselect(d)
+        }
+        
+        lastDate = nil
+        firstDate = nil
+        
+        datesRange = []
+        
+        print("datesRange contains: \(datesRange!)")
+    }
+    
+    // Sending Data to View COntroller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "calToPropSegue" {
+            let destVC = segue.destination as! BookingViewController
+            destVC.propParam = sender as? (title: String, cate: String, startDate: String, endDate: String)
+        }
+    }
+    
+    @IBAction func okBtnTapped(_ sender: UIButton) {
+        
+        fDate = formatter.string(from: (datesRange?.first)!)
+        lDate = formatter.string(from: (datesRange?.last)!)
+        
+        let propParam = (title : titleCate?.title, cate : titleCate?.cate, startDate: fDate, endDate: lDate )
+        print("property Param is : \(propParam)")
+            performSegue(withIdentifier: "calToPropSegue", sender: propParam)
     }
     
     func calendar(_ calendar: FSCalendar, didDeselect date: Date) {
+        
+        // NOTE: the is a REDUANDENT CODE:
+            if firstDate != nil && lastDate != nil {
+                for d in calendar.selectedDates {
+                    calendar.deselect(d)
+                }
+        
+                lastDate = nil
+                firstDate = nil
+        
+                datesRange = []
+                print("datesRange contains: \(datesRange!)")
+            }
+        
         print("did deselect date \(self.formatter.string(from: date))")
-//        self.configureVisibleCells()
     }
+    
+    // Detectibg Navigation Bar Back Button Tap
+       override func viewWillDisappear(_ animated : Bool) {
+           super.viewWillDisappear(animated)
+           if self.isMovingFromParent {
+               print("something")
+           }
+       }
 }
