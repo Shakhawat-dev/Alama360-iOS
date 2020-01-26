@@ -302,7 +302,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRq-9l-J3U" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="88" width="375" height="571"/>
+                                <rect key="frame" x="0.0" y="132" width="375" height="527"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="adjustsBoundingRectWhenChangingMonths" value="YES"/>
@@ -352,6 +352,7 @@
                         <viewLayoutGuide key="safeArea" id="iVl-UT-UVE"/>
                     </view>
                     <navigationItem key="navigationItem" id="I9I-W5-X2Z"/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="calendar" destination="dRq-9l-J3U" id="JiU-xk-Hag"/>
                         <segue destination="40a-U0-n0G" kind="show" identifier="calToPropSegue" id="PuD-aE-wVX"/>
@@ -424,7 +425,7 @@
                                         <rect key="frame" x="0.0" y="678" width="375" height="12"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BR1-TO-e14">
-                                                <rect key="frame" x="27" y="7" width="30" height="120"/>
+                                                <rect key="frame" x="27" y="7" width="30" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="vr8-OP-f7a"/>
                                                 </constraints>
@@ -435,13 +436,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I  Agree" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqX-5f-Pfc">
-                                                <rect key="frame" x="65" y="12" width="58" height="110"/>
+                                                <rect key="frame" x="65" y="12" width="58" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vws-2D-WRq">
-                                                <rect key="frame" x="28" y="135" width="319" height="30"/>
+                                                <rect key="frame" x="28" y="75" width="319" height="30"/>
                                                 <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Next">
                                                     <color key="titleColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1902,6 +1903,6 @@
         <image name="text_field_container" width="345" height="262"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PuD-aE-wVX"/>
+        <segue reference="qUZ-Hl-Es2"/>
     </inferredMetricsTieBreakers>
 </document>

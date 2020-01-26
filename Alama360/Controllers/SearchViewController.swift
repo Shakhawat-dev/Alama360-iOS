@@ -59,8 +59,16 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     var arr_title = [String]()
     
     var dataSource = [String]()
+    var sDates: [Date]?
+    var starDate: String = ""
+    var endDate: String = ""
     
-    
+    fileprivate let formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = NSLocale(localeIdentifier: "en") as Locale
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +84,13 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         let logo = #imageLiteral(resourceName: "logo")
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
+        
+        if sDates != nil {
+            starDate = formatter.string(from: (sDates?.first)!)
+            endDate = formatter.string(from: (sDates?.last)!)
+            
+            setDateField()
+        }
         
         //     startDateField.inputView = datePicker
         
@@ -126,7 +141,18 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     }
     
     @IBAction func checkBtnPressed(_ sender: UIButton) {
-        
+        if startDateField.text == "" {
+            if categoryDropDown.text != "" {
+                let titleCate = (title : titlePropertyAuto.text,  cate: arr_id[categoryDropDown.selectedIndex!] )
+                print(titleCate)
+                performSegue(withIdentifier: "openCalender", sender: titleCate)
+            } else {
+                let titleCate = (title : titlePropertyAuto.text,  cate: categoryDropDown.text)
+                print(titleCate)
+                performSegue(withIdentifier: "openCalender", sender: titleCate)
+            }
+
+        }
     }
     
     
@@ -308,6 +334,12 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         
     }
     
+    func setDateField () {
+        print("From set method \(starDate + endDate)")
+        startDateField.text = starDate + " to " + endDate
+        
+    }
+    
     // Sending Data to View COntroller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "openCalender" {
@@ -336,9 +368,11 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
    
 }
 
-//extension SearchViewController : UITextFieldDelegate {
-//   
-//}
+extension SearchViewController: PassDateToVC {
+    func passDate(dates: [Date]) {
+        sDates = dates
+    }
+}
 
 
 

@@ -9,6 +9,10 @@
 import UIKit
 import FSCalendar
 
+protocol PassDateToVC {
+    func passDate(dates: [Date])
+}
+
 class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate {
     @IBOutlet weak var calendar: FSCalendar!
     
@@ -20,8 +24,12 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
     private var lastDate: Date?
     private var datesRange: [Date]?
     
+//    var datesRange: [Dates]?
+    
     var fDate: String?
     var lDate: String?
+    
+    var delegate: PassDateToVC?
     
     fileprivate let gregorian = Calendar(identifier: .gregorian)
     fileprivate let formatter: DateFormatter = {
@@ -38,9 +46,10 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
         
         calendar.dataSource = self
         calendar.delegate = self
+//        calendar.today = nil // Hide the today circle
         calendar.allowsMultipleSelection = true
         calendar.register(DIYCalenderCell.self, forCellReuseIdentifier: "cell")
-         calendar.swipeToChooseGesture.isEnabled = true // Swipe-To-Choose
+        calendar.swipeToChooseGesture.isEnabled = true // Swipe-To-Choose
         
         
         let scopeGesture = UIPanGestureRecognizer(target: calendar, action: #selector(calendar.handleScopeGesture(_:)));
@@ -156,6 +165,11 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
             let destVC = segue.destination as! BookingViewController
             destVC.propParam = sender as? (title: String, cate: String, startDate: String, endDate: String)
         }
+        
+//        if segue.identifier == "setDateToSearchSegue" {
+//            let destVC = segue.destination as? SearchViewController
+//            destVC?.dates = sender as? (String, String)
+//        }
     }
     
     @IBAction func okBtnTapped(_ sender: UIButton) {
@@ -187,10 +201,27 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
     }
     
     // Detectibg Navigation Bar Back Button Tap
-       override func viewWillDisappear(_ animated : Bool) {
-           super.viewWillDisappear(animated)
-           if self.isMovingFromParent {
-               print("something")
-           }
-       }
+//       override func viewWillDisappear(_ animated : Bool) {
+//           super.viewWillDisappear(animated)
+//        print("From view will disappear \(datesRange)")
+//        delegate!.passDate(dates: datesRange)
+
+//        fDate = formatter.string(from: (datesRange?.first)!)
+//        lDate = formatter.string(from: (datesRange?.last)!)
+//        let dates = (fDate, lDate)
+//           if self.isMovingFromParent {
+//
+//               print("something \(dates)")
+//
+//            performSegue(withIdentifier: "setDateToSearchSegue", sender: dates)
+//
+//           }
+//      }
 }
+
+//extension FCalenderViewController: UINavigationControllerDelegate {
+//
+//    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+//        (viewController as? SearchViewController)?.dates =  // Here you pass the to your original view controller
+//    }
+//}
