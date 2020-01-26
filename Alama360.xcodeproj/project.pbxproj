@@ -67,6 +67,7 @@
 		4BABFABB23AA647900F34EA4 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BABFABA23AA647900F34EA4 /* BookingViewController.swift */; };
 		4BC7B2F423DD824E003DD257 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC7B2F323DD824E003DD257 /* Dates.swift */; };
 		4BC7B2F723DDBEEF003DD257 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC7B2F623DDBEEF003DD257 /* Toast.swift */; };
+		4BC7B2F923DDD54F003DD257 /* AddPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC7B2F823DDD54F003DD257 /* AddPropertyViewController.swift */; };
 		4BEB3D4123CEECD7004C7F33 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BEB3D4323CEECD7004C7F33 /* Search.storyboard */; };
 		875FBF4D4627B61E14B5C514 /* Pods_Alama360.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBFCD9432EC28BE6EAE7BBFC /* Pods_Alama360.framework */; };
 /* End PBXBuildFile section */
@@ -136,6 +137,7 @@
 		4BABFABA23AA647900F34EA4 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
 		4BC7B2F323DD824E003DD257 /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
 		4BC7B2F623DDBEEF003DD257 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		4BC7B2F823DDD54F003DD257 /* AddPropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPropertyViewController.swift; sourceTree = "<group>"; };
 		4BEB3D4223CEECD7004C7F33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
 		4BEB3D4523CEED0C004C7F33 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Search.strings; sourceTree = "<group>"; };
 		4BEB3D4923CEFD6B004C7F33 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
@@ -187,7 +189,6 @@
 		4B04E431239B788000D02BC4 /* Alama360 */ = {
 			isa = PBXGroup;
 			children = (
-				4BC7B2F523DDBEAC003DD257 /* Extras */,
 				4B4BBBB023C46FD900DB28C5 /* Tables */,
 				4B4BBBA723C46E9200DB28C5 /* Views */,
 				4B83D88423B8C70B003F38C9 /* Extentions */,
@@ -202,7 +203,6 @@
 				4B04E43B239B788300D02BC4 /* Assets.xcassets */,
 				4B04E440239B788300D02BC4 /* Info.plist */,
 				4B2ECC2723D092F100F56435 /* PropertyInfoWindow.xib */,
-				4B5C17E523DC15EC00EE2310 /* CustomBtnGreen.swift */,
 			);
 			path = Alama360;
 			sourceTree = "<group>";
@@ -268,6 +268,7 @@
 				4B30DEBE23D0464F00069DBC /* MapViewController.swift */,
 				4B2ECC2923D0947600F56435 /* PropertyInfoWindow.swift */,
 				4B3666B323D988700062EE8F /* FCalenderViewController.swift */,
+				4BC7B2F823DDD54F003DD257 /* AddPropertyViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -288,6 +289,8 @@
 		4B83D88423B8C70B003F38C9 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
+				4B5C17E523DC15EC00EE2310 /* CustomBtnGreen.swift */,
+				4BC7B2F623DDBEEF003DD257 /* Toast.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -298,14 +301,6 @@
 				4B9012BD23B768B100E8C59D /* StaticUrls.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		4BC7B2F523DDBEAC003DD257 /* Extras */ = {
-			isa = PBXGroup;
-			children = (
-				4BC7B2F623DDBEEF003DD257 /* Toast.swift */,
-			);
-			path = Extras;
 			sourceTree = "<group>";
 		};
 		68D18603BAA83C38C43C5D71 /* Pods */ = {
@@ -504,6 +499,7 @@
 				4B6DFE1A239E292800543E3F /* FavoritesViewController.swift in Sources */,
 				4BABFABB23AA647900F34EA4 /* BookingViewController.swift in Sources */,
 				4B04E435239B788000D02BC4 /* SceneDelegate.swift in Sources */,
+				4BC7B2F923DDD54F003DD257 /* AddPropertyViewController.swift in Sources */,
 				4B4008BC23B9F68E00AEE68C /* LandmarkTableViewCell.swift in Sources */,
 				4B84A10423C4A9FC006E5237 /* PhotoGridCell.swift in Sources */,
 				4B4EAB2123CB5CAA005AEBA6 /* MoreTableViewController.swift in Sources */,

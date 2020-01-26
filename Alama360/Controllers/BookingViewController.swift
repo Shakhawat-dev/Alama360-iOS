@@ -46,13 +46,13 @@ class BookingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        currentDataSource = originalDataSource
+        //        currentDataSource = originalDataSource
         startDate = propParam!.startDate
         endDate = propParam!.endDate
         thumbcate = propParam!.thumbcate
         address = propParam!.title
         pType = propParam!.cate
-
+        
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         // For search view focus
@@ -131,12 +131,12 @@ class BookingViewController: UIViewController {
             
             currentDataSource = property_list
             
-//            let filteredResult = currentDataSource.filter {
-//                $0.replacingOccurrences(of: " ", with: "").lowercased().contains(searchTerm.replacingOccurrences(of: " ", with: "").lowercased())
-//            }
-//            let filteredResult = currentDataSource.filter({$0.title?.prefix(searchTerm.count)})
+            //            let filteredResult = currentDataSource.filter {
+            //                $0.replacingOccurrences(of: " ", with: "").lowercased().contains(searchTerm.replacingOccurrences(of: " ", with: "").lowercased())
+            //            }
+            //            let filteredResult = currentDataSource.filter({$0.title?.prefix(searchTerm.count)})
             
-//            currentDataSource = filteredResult
+            //            currentDataSource = filteredResult
             tableView.reloadData()
             
         }
@@ -157,7 +157,7 @@ class BookingViewController: UIViewController {
         sortDropDown.direction = .bottom
         sortDropDown.dataSource = [LocalizationSystem.sharedInstance.localizedStringForKey(key: "sort_high", comment: "").localiz(), LocalizationSystem.sharedInstance.localizedStringForKey(key: "sort_low", comment: "").localiz()]
         sortDropDown.cellConfiguration = { (index, item) in return "\(item)" }
-    
+        
     }
     
     @IBAction func sortBtnClicked(_ sender: UIButton) {
@@ -178,9 +178,9 @@ class BookingViewController: UIViewController {
         sortDropDown.width = view.bounds.width
         
         sortDropDown.bottomOffset = CGPoint(x: 0, y:(sortDropDown.anchorView?.plainView.bounds.height)!)
-
+        
         sortDropDown.show()
-
+        
     }
     
     

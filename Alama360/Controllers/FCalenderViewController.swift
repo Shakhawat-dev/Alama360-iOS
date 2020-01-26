@@ -24,7 +24,7 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
     private var lastDate: Date?
     private var datesRange: [Date]?
     
-//    var datesRange: [Dates]?
+    //    var datesRange: [Dates]?
     
     var fDate: String = ""
     var lDate: String = ""
@@ -38,15 +38,15 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         print("From FS Cal\(titleCate)")
         
         calendar.dataSource = self
         calendar.delegate = self
-//        calendar.today = nil // Hide the today circle
+        //        calendar.today = nil // Hide the today circle
         calendar.allowsMultipleSelection = true
         calendar.register(DIYCalenderCell.self, forCellReuseIdentifier: "cell")
         calendar.swipeToChooseGesture.isEnabled = true // Swipe-To-Choose
@@ -61,18 +61,18 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
         // in case of the "from" date is more than "to" date,
         // it should returns an empty array:
         if from > to { return [Date]() }
-    
+        
         var tempDate = from
         var array = [tempDate]
-    
+        
         while tempDate < to {
             tempDate = Calendar.current.date(byAdding: .day, value: 1, to: tempDate)!
             array.append(tempDate)
         }
-    
+        
         return array
     }
-
+    
     // Disables selecting previous dates
     func calendar(_ calendar: FSCalendar, shouldSelect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
         
@@ -82,66 +82,66 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
         if  formatter.string(from: calendar.today!) > formatter.string(from: date) {
             return false
         }
-
+        
         return true
     }
     
     
-
+    
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         
         
         // nothing selected:
-            if firstDate == nil {
-                firstDate = date
-                datesRange = [firstDate!]
-        
-                print("datesRange contains: \(datesRange!)")
-        
-                return
-            }
+        if firstDate == nil {
+            firstDate = date
+            datesRange = [firstDate!]
+            
+            print("datesRange contains: \(datesRange!)")
+            
+            return
+        }
         
         // only first date is selected:
-            if firstDate != nil && lastDate == nil {
-                // handle the case of if the last date is less than the first date:
-                if date <= firstDate! {
-                    calendar.deselect(firstDate!)
-                    firstDate = date
-                    datesRange = [firstDate!]
-        
-                    print("datesRange contains: \(datesRange!)")
-        
-                    return
-                }
-        
-                let range = datesRange(from: firstDate!, to: date)
-        
-                lastDate = range.last
-        
-                for d in range {
-                    calendar.select(d)
-                }
-        
-                datesRange = range
-        
+        if firstDate != nil && lastDate == nil {
+            // handle the case of if the last date is less than the first date:
+            if date <= firstDate! {
+                calendar.deselect(firstDate!)
+                firstDate = date
+                datesRange = [firstDate!]
+                
                 print("datesRange contains: \(datesRange!)")
-        
+                
                 return
             }
+            
+            let range = datesRange(from: firstDate!, to: date)
+            
+            lastDate = range.last
+            
+            for d in range {
+                calendar.select(d)
+            }
+            
+            datesRange = range
+            
+            print("datesRange contains: \(datesRange!)")
+            
+            return
+        }
         
         // both are selected:
-            if firstDate != nil && lastDate != nil {
-                for d in calendar.selectedDates {
-                    calendar.deselect(d)
-                }
-        
-                lastDate = nil
-                firstDate = nil
-        
-                datesRange = []
-        
-                print("datesRange contains: \(datesRange!)")
+        if firstDate != nil && lastDate != nil {
+            for d in calendar.selectedDates {
+                calendar.deselect(d)
             }
+            
+            lastDate = nil
+            firstDate = nil
+            
+            datesRange = []
+            
+            print("datesRange contains: \(datesRange!)")
+        }
         
         print("did select date \(self.formatter.string(from: date))")
     }
@@ -166,10 +166,10 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
             destVC.propParam = sender as? (title: String, cate: String, thumbcate: String, startDate: String, endDate: String)
         }
         
-//        if segue.identifier == "setDateToSearchSegue" {
-//            let destVC = segue.destination as? SearchViewController
-//            destVC?.dates = sender as? (String, String)
-//        }
+        //        if segue.identifier == "setDateToSearchSegue" {
+        //            let destVC = segue.destination as? SearchViewController
+        //            destVC?.dates = sender as? (String, String)
+        //        }
     }
     
     @IBAction func okBtnTapped(_ sender: UIButton) {
@@ -180,15 +180,15 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
             
             let propParam = (title : titleCate?.title, cate : titleCate?.cate, thumbcate: titleCate?.thumbcate, startDate: fDate, endDate: lDate )
             print("property Param is : \(propParam)")
-                performSegue(withIdentifier: "calToPropSegue", sender: propParam)
+            performSegue(withIdentifier: "calToPropSegue", sender: propParam)
         } else {
-            let alert = UIAlertController(title: "Select Date", message: "Please select dates to continue", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Select Date", message: "Please select date's to continue", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-            NSLog("The \"OK\" alert occured.")
+                NSLog("The \"OK\" alert occured.")
             }))
             self.present(alert, animated: true, completion: nil)
             
-//            Toast.show( message: "Please select Dates to proceed.", controller: self )
+            //            Toast.show( message: "Please select Dates to proceed.", controller: self )
         }
         
     }
@@ -196,50 +196,40 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
     func calendar(_ calendar: FSCalendar, didDeselect date: Date) {
         
         // NOTE: the is a REDUANDENT CODE:
-            if firstDate != nil && lastDate != nil {
-                for d in calendar.selectedDates {
-                    calendar.deselect(d)
-                }
-        
-                lastDate = nil
-                firstDate = nil
-        
-                datesRange = []
-                print("datesRange contains: \(datesRange!)")
+        if firstDate != nil && lastDate != nil {
+            for d in calendar.selectedDates {
+                calendar.deselect(d)
             }
+            
+            lastDate = nil
+            firstDate = nil
+            
+            datesRange = []
+            print("datesRange contains: \(datesRange!)")
+        }
         
         print("did deselect date \(self.formatter.string(from: date))")
     }
     
-//    func showToast (controller: UIViewController, message : String, seconds: Double) {
-//        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-//        alert.view.backgroundColor = .black
-//        alert.view.alpha = 0.5
-//        alert.view.layer.cornerRadius = 15
-//        controller.present(alert, animated: true)
-//
-//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + seconds) {
-//            alert.dismiss(animated: true)
-//        }
-//    }
+    
     
     // Detectibg Navigation Bar Back Button Tap
-//       override func viewWillDisappear(_ animated : Bool) {
-//           super.viewWillDisappear(animated)
-//        print("From view will disappear \(datesRange)")
-//        delegate!.passDate(dates: datesRange)
-
-//        fDate = formatter.string(from: (datesRange?.first)!)
-//        lDate = formatter.string(from: (datesRange?.last)!)
-//        let dates = (fDate, lDate)
-//           if self.isMovingFromParent {
-//
-//               print("something \(dates)")
-//
-//            performSegue(withIdentifier: "setDateToSearchSegue", sender: dates)
-//
-//           }
-//      }
+    //       override func viewWillDisappear(_ animated : Bool) {
+    //           super.viewWillDisappear(animated)
+    //        print("From view will disappear \(datesRange)")
+    //        delegate!.passDate(dates: datesRange)
+    
+    //        fDate = formatter.string(from: (datesRange?.first)!)
+    //        lDate = formatter.string(from: (datesRange?.last)!)
+    //        let dates = (fDate, lDate)
+    //           if self.isMovingFromParent {
+    //
+    //               print("something \(dates)")
+    //
+    //            performSegue(withIdentifier: "setDateToSearchSegue", sender: dates)
+    //
+    //           }
+    //      }
 }
 
 //extension FCalenderViewController: UINavigationControllerDelegate {

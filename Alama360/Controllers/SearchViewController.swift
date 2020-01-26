@@ -125,11 +125,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         //        datePicker?.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
         //
         //        startDateField.inputView = datePicker
-        
-        
-        
-        
-        
+ 
     }
     
     @objc func dateChanged(datePicker: UIDatePicker) {
@@ -152,7 +148,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
                 print(titleCate)
                 performSegue(withIdentifier: "openCalender", sender: titleCate)
             }
-
+            
         }
     }
     
@@ -225,7 +221,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
                 self.arr_imageUrl.removeAll()
                 self.thumbId.removeAll()
                 
-                 print(resultArray)
+                print(resultArray)
                 
                 for i in resultArray.arrayValue {
                     let cateName = i["catname"].stringValue
@@ -342,8 +338,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
                 print(self.arr_col1.count)
                 
             }
-            
-            
+
         }
         
     }
@@ -379,7 +374,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         return false
     }
     
-   
+    
 }
 
 extension SearchViewController: PassDateToVC {
