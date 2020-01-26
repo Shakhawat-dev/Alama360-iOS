@@ -29,12 +29,12 @@ class BookingViewController: UIViewController {
     var originalDataSource = [BookingModel]()
     var currentDataSource = [BookingModel]()
     
-    var propParam : (title: String, cate: String, startDate: String, endDate: String)?
+    var propParam : (title: String, cate: String, thumbcate: String, startDate: String, endDate: String)?
     // Param Variables
     var startDate = ""
     var endDate = ""
     var lan = ""
-    var thumcate = ""
+    var thumbcate = ""
     var address = ""
     var pType = ""
     var id = ""
@@ -49,6 +49,7 @@ class BookingViewController: UIViewController {
 //        currentDataSource = originalDataSource
         startDate = propParam!.startDate
         endDate = propParam!.endDate
+        thumbcate = propParam!.thumbcate
         address = propParam!.title
         pType = propParam!.cate
 
@@ -77,7 +78,7 @@ class BookingViewController: UIViewController {
         
         lan = LocalizationSystem.sharedInstance.getLanguage()
         
-        let params : [String : String] = ["page" : "1", "lang" : lan, "viewType" : "mapview", "start" : startDate, "end" : endDate, "property_type" : pType, "thumbcat" : thumcate, "address" : address]
+        let params : [String : String] = ["page" : "1", "lang" : lan, "viewType" : "mapview", "start" : startDate, "end" : endDate, "property_type" : pType, "thumbcat" : thumbcate, "address" : address]
         
         let bUrl = StaticUrls.BASE_URL_FINAL + "android/propertylist?"
         

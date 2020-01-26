@@ -16,7 +16,7 @@ protocol PassDateToVC {
 class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate {
     @IBOutlet weak var calendar: FSCalendar!
     
-    var titleCate : (title: String, cate: String)?
+    var titleCate : (title: String, cate: String, thumbcate: String)?
     
     // first date in the range
     private var firstDate: Date?
@@ -26,8 +26,8 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
     
 //    var datesRange: [Dates]?
     
-    var fDate: String?
-    var lDate: String?
+    var fDate: String = ""
+    var lDate: String = ""
     
     var delegate: PassDateToVC?
     
@@ -163,7 +163,7 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "calToPropSegue" {
             let destVC = segue.destination as! BookingViewController
-            destVC.propParam = sender as? (title: String, cate: String, startDate: String, endDate: String)
+            destVC.propParam = sender as? (title: String, cate: String, thumbcate: String, startDate: String, endDate: String)
         }
         
 //        if segue.identifier == "setDateToSearchSegue" {
@@ -174,12 +174,23 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
     
     @IBAction func okBtnTapped(_ sender: UIButton) {
         
-        fDate = formatter.string(from: (datesRange?.first)!)
-        lDate = formatter.string(from: (datesRange?.last)!)
+        if datesRange?.first != nil {
+            fDate = formatter.string(from: (datesRange?.first)!)
+            lDate = formatter.string(from: (datesRange?.last)!)
+            
+            let propParam = (title : titleCate?.title, cate : titleCate?.cate, thumbcate: titleCate?.thumbcate, startDate: fDate, endDate: lDate )
+            print("property Param is : \(propParam)")
+                performSegue(withIdentifier: "calToPropSegue", sender: propParam)
+        } else {
+            let alert = UIAlertController(title: "Select Date", message: "Please select dates to continue", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+            }))
+            self.present(alert, animated: true, completion: nil)
+            
+//            Toast.show( message: "Please select Dates to proceed.", controller: self )
+        }
         
-        let propParam = (title : titleCate?.title, cate : titleCate?.cate, startDate: fDate, endDate: lDate )
-        print("property Param is : \(propParam)")
-            performSegue(withIdentifier: "calToPropSegue", sender: propParam)
     }
     
     func calendar(_ calendar: FSCalendar, didDeselect date: Date) {
@@ -199,6 +210,18 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
         
         print("did deselect date \(self.formatter.string(from: date))")
     }
+    
+//    func showToast (controller: UIViewController, message : String, seconds: Double) {
+//        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+//        alert.view.backgroundColor = .black
+//        alert.view.alpha = 0.5
+//        alert.view.layer.cornerRadius = 15
+//        controller.present(alert, animated: true)
+//
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + seconds) {
+//            alert.dismiss(animated: true)
+//        }
+//    }
     
     // Detectibg Navigation Bar Back Button Tap
 //       override func viewWillDisappear(_ animated : Bool) {

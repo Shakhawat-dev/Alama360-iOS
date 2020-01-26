@@ -66,6 +66,7 @@
 		4BABFAB923A900D900F34EA4 /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BABFAB823A900D900F34EA4 /* iOSDropDown.framework */; };
 		4BABFABB23AA647900F34EA4 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BABFABA23AA647900F34EA4 /* BookingViewController.swift */; };
 		4BC7B2F423DD824E003DD257 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC7B2F323DD824E003DD257 /* Dates.swift */; };
+		4BC7B2F723DDBEEF003DD257 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC7B2F623DDBEEF003DD257 /* Toast.swift */; };
 		4BEB3D4123CEECD7004C7F33 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BEB3D4323CEECD7004C7F33 /* Search.storyboard */; };
 		875FBF4D4627B61E14B5C514 /* Pods_Alama360.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBFCD9432EC28BE6EAE7BBFC /* Pods_Alama360.framework */; };
 /* End PBXBuildFile section */
@@ -134,6 +135,7 @@
 		4BABFAB823A900D900F34EA4 /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BABFABA23AA647900F34EA4 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
 		4BC7B2F323DD824E003DD257 /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
+		4BC7B2F623DDBEEF003DD257 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		4BEB3D4223CEECD7004C7F33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
 		4BEB3D4523CEED0C004C7F33 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Search.strings; sourceTree = "<group>"; };
 		4BEB3D4923CEFD6B004C7F33 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		4B04E431239B788000D02BC4 /* Alama360 */ = {
 			isa = PBXGroup;
 			children = (
+				4BC7B2F523DDBEAC003DD257 /* Extras */,
 				4B4BBBB023C46FD900DB28C5 /* Tables */,
 				4B4BBBA723C46E9200DB28C5 /* Views */,
 				4B83D88423B8C70B003F38C9 /* Extentions */,
@@ -295,6 +298,14 @@
 				4B9012BD23B768B100E8C59D /* StaticUrls.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		4BC7B2F523DDBEAC003DD257 /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				4BC7B2F623DDBEEF003DD257 /* Toast.swift */,
+			);
+			path = Extras;
 			sourceTree = "<group>";
 		};
 		68D18603BAA83C38C43C5D71 /* Pods */ = {
@@ -465,6 +476,7 @@
 				4B8491F423CD83880094B035 /* ReservationTabItem.swift in Sources */,
 				4B43047923C762EE00160663 /* PrivacyPolicyViewController.swift in Sources */,
 				4B04E457239B843F00D02BC4 /* LocalizationSystem.swift in Sources */,
+				4BC7B2F723DDBEEF003DD257 /* Toast.swift in Sources */,
 				4B43047523C7401800160663 /* TermsOfUseViewController.swift in Sources */,
 				4B3666B623D9B5FF0062EE8F /* DIYCalenderCell.swift in Sources */,
 				4B1CE33023A24A7800C0FC01 /* MainCell.swift in Sources */,

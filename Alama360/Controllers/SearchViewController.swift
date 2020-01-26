@@ -51,6 +51,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     var thumbImage = [UIImage]()
     var arr_cateName = [String]()
     var arr_imageUrl = [String]()
+    var thumbId = [String]()
     
     var arr_id = [String]()
     var arr_col1 = [String]()
@@ -143,11 +144,11 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     @IBAction func checkBtnPressed(_ sender: UIButton) {
         if startDateField.text == "" {
             if categoryDropDown.text != "" {
-                let titleCate = (title : titlePropertyAuto.text,  cate: arr_id[categoryDropDown.selectedIndex!] )
+                let titleCate = (title : titlePropertyAuto.text,  cate: arr_id[categoryDropDown.selectedIndex!], thumbcate: "" )
                 print(titleCate)
                 performSegue(withIdentifier: "openCalender", sender: titleCate)
             } else {
-                let titleCate = (title : titlePropertyAuto.text,  cate: categoryDropDown.text)
+                let titleCate = (title : titlePropertyAuto.text,  cate: categoryDropDown.text, thumbcate: "")
                 print(titleCate)
                 performSegue(withIdentifier: "openCalender", sender: titleCate)
             }
@@ -210,7 +211,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         let lan = defaults.string(forKey: "language") ?? ""
         print("lan is \(lan)")
         
-        let pUrl = Url + "homethumbcat?page=1&lang=" + lan
+        let pUrl = StaticUrls.BASE_URL_FINAL + "homethumbcat?page=1&lang=" + lan
         print("lan is \(pUrl)")
         
         Alamofire.request(pUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
@@ -222,14 +223,19 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
                 
                 self.arr_cateName.removeAll()
                 self.arr_imageUrl.removeAll()
+                self.thumbId.removeAll()
                 
-                // print(resultArray)
+                 print(resultArray)
+                
                 for i in resultArray.arrayValue {
                     let cateName = i["catname"].stringValue
                     self.arr_cateName.append(cateName)
                     
                     let imageUrl = i["thumbnail"].stringValue
                     self.arr_imageUrl.append(imageUrl)
+                    
+                    let thId = i["id"].stringValue
+                    self.thumbId.append(thId)
                     
                 }
                 
@@ -284,6 +290,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         
         return cell
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if thumbId[indexPath.row] != "" {
+            let titleCate = (title : titlePropertyAuto.text,  cate: categoryDropDown.text, thumbcate: thumbId[indexPath.row] )
+            print(titleCate)
+            performSegue(withIdentifier: "openCalender", sender: titleCate)
+        }
     }
     
     // Getting categories from Api
@@ -344,18 +358,18 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "openCalender" {
             let destVC = segue.destination as! FCalenderViewController
-            destVC.titleCate = sender as? (title: String, cate: String)
+            destVC.titleCate = sender as? (title: String, cate: String, thumbcate: String)
         }
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool   {
         //Load your VC here
         if categoryDropDown.text != "" {
-            let titleCate = (title : titlePropertyAuto.text,  cate: arr_id[categoryDropDown.selectedIndex!] )
+            let titleCate = (title : titlePropertyAuto.text,  cate: arr_id[categoryDropDown.selectedIndex!], thumbcate: "" )
             print(titleCate)
             performSegue(withIdentifier: "openCalender", sender: titleCate)
         } else {
-            let titleCate = (title : titlePropertyAuto.text,  cate: categoryDropDown.text)
+            let titleCate = (title : titlePropertyAuto.text,  cate: categoryDropDown.text, thumbcate: "" )
             print(titleCate)
             performSegue(withIdentifier: "openCalender", sender: titleCate)
         }
