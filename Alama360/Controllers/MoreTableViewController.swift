@@ -117,5 +117,24 @@ class MoreTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 7 {
+            
+            
+            let alert = UIAlertController(title: "Sign Out", message: "De you want to Sign Out?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+                UserDefaults.standard.set(false, forKey: "loggedIn")
+                Switcher.updateRootVC()
+            }))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Default action"), style: .cancel, handler: { _ in
+                NSLog("The \"Cancel\" alert occured.")
+            }))
+            self.present(alert, animated: true, completion: nil)
+            
+//            Switcher.updateRootVC()
+        }
+    }
 
 }

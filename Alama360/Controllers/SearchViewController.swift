@@ -152,6 +152,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         }
     }
     
+    @IBAction func addPropertyTapped(_ sender: Any) {
+        performSegue(withIdentifier: "addPropertySegue", sender: nil)
+    }
     
     @IBAction func startDateClicked(_ sender: Any) {
         
@@ -355,6 +358,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
             let destVC = segue.destination as! FCalenderViewController
             destVC.titleCate = sender as? (title: String, cate: String, thumbcate: String)
         }
+//        if segue.identifier == "addPropertySegue" {
+//            let destVC = segue.destination as! AddPropertyViewController
+//            destVC.addProperty()
+//        }
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool   {

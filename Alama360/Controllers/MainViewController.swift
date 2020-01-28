@@ -21,13 +21,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var lblBooking: UILabel!
     @IBOutlet weak var lblVerified: UILabel!
     
-    @IBOutlet weak var lblCountryCOde: UILabel!
+    @IBOutlet weak var ccField: UITextField!
     @IBOutlet weak var _phoneInput: UITextField!
     @IBOutlet weak var btnSubmit: UIButton!
+    @IBOutlet weak var txtFieldholderVIew: UIView!
     
     //For storing user data
     let defaults = UserDefaults.standard
-    
+    var userLoggedIn: Bool = false
     var userexist = ""
     var code = ""
     var message = ""
@@ -35,13 +36,18 @@ class ViewController: UIViewController {
     var usertype = ""
     var status = ""
     
+    //HomePage segue
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        changeLanguage()
+    
+        ccField.semanticContentAttribute = UISemanticContentAttribute.forceLeftToRight
+        _phoneInput.semanticContentAttribute = UISemanticContentAttribute.forceLeftToRight
+        txtFieldholderVIew.semanticContentAttribute = .forceLeftToRight
         
-        lblCountryCOde.layer.cornerRadius = 4
+        changeLanguage()
+        checkLogin()
 //        changeLanguage()
     }
     @IBAction func btnLangguage(_ sender: UIButton) {
@@ -112,6 +118,10 @@ class ViewController: UIViewController {
 
         changeLanguage()
         
+        
+    }
+    
+    func checkLogin() {
         
     }
     
@@ -190,9 +200,14 @@ class ViewController: UIViewController {
                 if inputTextField?.text ?? "" == self.code {
                     
                     if self.userexist == "1" {
-                        self.performSegue(withIdentifier: "HomePage", sender:nil)
+//                        self.performSegue(withIdentifier: "HomePage", sender:nil)
+                        self.userLoggedIn = true
+                        self.defaults.set(self.userLoggedIn, forKey: "loggedIn")
+                        Switcher.updateRootVC()
+                        
                     } else {
                         self.register()
+                        
                     }
                     
                     
@@ -247,10 +262,10 @@ class ViewController: UIViewController {
         let lan = LanguageManager.shared.currentLanguage.rawValue
         
         
-        let params : [String : String] = ["mobile" : regPhone!, "lang" : lan]
+        let params : [String : String] = ["mobile" : regPhone!, "lang" : lan, "userid" : ""]
         
         let nUrl = "https://alama360.com/api/createOrupdateuser?"
-        
+
         Alamofire.request(nUrl, method: .post, parameters: params, headers: nil).responseJSON{ (mysresponse) in
             
             if mysresponse.result.isSuccess {
@@ -269,7 +284,10 @@ class ViewController: UIViewController {
                 self.usertype = resultArray["usertype"].stringValue
                 
                 if self.status == "1" {
-                    self.performSegue(withIdentifier: "HomePage", sender:nil)
+//                    self.performSegue(withIdentifier: "HomePage", sender:nil)
+                    self.userLoggedIn = true
+                    self.defaults.set(self.userLoggedIn, forKey: "loggedIn")
+                    Switcher.updateRootVC()
                 }
                 //
                 print("user id: \(self.userid)")

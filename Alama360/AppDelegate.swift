@@ -15,15 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    let defaults = UserDefaults.standard
+    var userLoggedIn: Bool?
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 //        UITabBar.appearance().barTintColor = .
         // Google Map Api for MapView
         GMSServices.provideAPIKey("AIzaSyDod0SP5Eh_eZmNNES7aTJt3eXs1mooFHY")
+        userLoggedIn = defaults.bool(forKey: "loggedIn")
         
-        LocalizationSystem.sharedInstance.setLanguage(languageCode: "ar")
-        LanguageManager.shared.defaultLanguage = .ar
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
         
         return true
     }

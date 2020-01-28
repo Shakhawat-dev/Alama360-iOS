@@ -260,7 +260,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="80j-6i-b7N" kind="show" id="zvC-mP-mby"/>
+                                            <segue destination="9yF-53-LOM" kind="show" id="e4M-9i-U1X"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="64" id="gjN-c1-Ipv">
@@ -294,9 +294,6 @@
                                                 <constraint firstItem="lk0-hW-BmB" firstAttribute="trailing" secondItem="Hgs-kX-F1u" secondAttribute="trailingMargin" id="fio-Fd-JKc"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="DFc-fy-VFo" kind="show" id="U5Y-jv-8lr"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -398,32 +395,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t2F-jq-inY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3593" y="68"/>
+            <point key="canvasLocation" x="4322" y="68"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Bes-GE-EBE">
+        <!--AddPropertyViewController-->
+        <scene sceneID="ePN-BK-lIR">
             <objects>
-                <viewController id="80j-6i-b7N" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kVt-Eq-tXV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add new properrty page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hid-2E-2Zu">
-                                <rect key="frame" x="114" y="438" width="186" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="3cb-kq-goM"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="W66-FU-dc8"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wMy-t8-L17" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Search" referencedIdentifier="AddPropertyViewController" id="9yF-53-LOM" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="HIN-gC-QyO"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g4I-9o-udc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4313" y="68"/>
+            <point key="canvasLocation" x="2880" y="-245"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="bU7-1d-g8E">
@@ -1077,7 +1059,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dzx-FZ-kqp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2880" y="69"/>
+            <point key="canvasLocation" x="3609" y="68"/>
         </scene>
         <!--More-->
         <scene sceneID="wlP-Cd-VCX">

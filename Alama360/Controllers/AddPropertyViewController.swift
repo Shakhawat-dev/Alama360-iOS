@@ -7,24 +7,53 @@
 //
 
 import UIKit
+import WebKit
 
 class AddPropertyViewController: UIViewController {
-
+    
+    @IBOutlet weak var addPropertyWKView: WKWebView!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
+    
+    let defaults = UserDefaults.standard
+    var lan: String = ""
+    var userId: String = ""
+    var phone: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        
+        
+        addProperty()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func addProperty() {
+        
+        userId = defaults.string(forKey: "userID")!
+        lan = LocalizationSystem.sharedInstance.getLanguage()
+        phone = defaults.string(forKey: "phoneNumber")!
+        
+        let addUrl = StaticUrls.ADD_PROPERTY_URL + "userid=\(userId)&lang=\(lan)&mobile=\(phone)&token=Ddhfkjdshgfjshgkjldsahgdniudhagiuashdfiughd&actiontype=addproperty"
+        print("Add property url: \(addUrl)")
+        
+        let myURL = URL(string: addUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+        
+        let myRequest = URLRequest(url: myURL!)
+        addPropertyWKView.load(myRequest)
+        
+        addPropertyWKView.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: .new, context: nil)
     }
-    */
-
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        if keyPath == "loading" {
+            if addPropertyWKView.isLoading {
+                loader.startAnimating()
+                loader.isHidden = false
+            } else {
+                loader.stopAnimating()
+            }
+        }
+    }
+    
 }

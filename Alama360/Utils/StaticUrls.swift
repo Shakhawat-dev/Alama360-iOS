@@ -18,5 +18,6 @@ class StaticUrls {
     static let IMAGE_TYPE = "/photos/small/"
     static let WEB_360_VIEW_URL = "https://www.alama360.com/public/tour/130/app-files/index.html"
     static let THUMBNAIL_SIZE : Int = 1000
+    static let ADD_PROPERTY_URL = "https://alama360.com/submit_your_property.html?"
     
 }
