@@ -20,5 +20,6 @@ target 'Alama360' do
   pod 'LanguageManager-iOS'
   pod 'DropDown'
   pod 'FSCalendar'
+  pod 'SVPinView', '~> 1.0'
 
 end

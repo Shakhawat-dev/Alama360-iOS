@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OtpAlertView" customModule="Alama360" customModuleProvider="target">
+            <connections>
+                <outlet property="actionBtn" destination="Opy-3C-3PR" id="cKf-mM-Xvi"/>
+                <outlet property="alertView" destination="e1O-6h-vSh" id="YrV-ph-OMU"/>
+                <outlet property="messageText" destination="Vlc-Wr-meR" id="IRo-gW-a78"/>
+                <outlet property="parentView" destination="iN0-l3-epB" id="7hs-9c-zxi"/>
+                <outlet property="textInputField" destination="9AZ-eD-5lZ" id="Lme-T9-0G7"/>
+                <outlet property="titleText" destination="6I7-Eu-LPt" id="Qvg-O3-paR"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VYx-VE-FXq">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1O-6h-vSh">
+                            <rect key="frame" x="50" y="350" width="314" height="196"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6I7-Eu-LPt">
+                                    <rect key="frame" x="20" y="20" width="274" height="23"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9AZ-eD-5lZ">
+                                    <rect key="frame" x="20" y="104" width="274" height="34"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Opy-3C-3PR" customClass="CustomBtnGreen" customModule="Alama360" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="146" width="274" height="30"/>
+                                    <color key="backgroundColor" red="0.024396336120000001" green="0.62690355330000003" blue="0.44178372469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" title="Continue">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="titleShadowColor" red="0.024396336120000001" green="0.62690355330000003" blue="0.44178372469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the code you recieved on the number +966888888888" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vlc-Wr-meR">
+                                    <rect key="frame" x="20" y="51" width="274" height="41"/>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="6I7-Eu-LPt" firstAttribute="top" secondItem="e1O-6h-vSh" secondAttribute="top" constant="20" id="6U2-me-Deg"/>
+                                <constraint firstItem="9AZ-eD-5lZ" firstAttribute="leading" secondItem="e1O-6h-vSh" secondAttribute="leading" constant="20" id="729-Ut-q8R"/>
+                                <constraint firstAttribute="bottom" secondItem="Opy-3C-3PR" secondAttribute="bottom" constant="20" id="7Xd-RY-XK4"/>
+                                <constraint firstItem="Opy-3C-3PR" firstAttribute="leading" secondItem="e1O-6h-vSh" secondAttribute="leading" constant="20" id="9Ev-8x-0oZ"/>
+                                <constraint firstItem="Vlc-Wr-meR" firstAttribute="leading" secondItem="e1O-6h-vSh" secondAttribute="leading" constant="20" id="AFW-2P-ClQ"/>
+                                <constraint firstAttribute="trailing" secondItem="9AZ-eD-5lZ" secondAttribute="trailing" constant="20" id="HGb-vJ-fAU"/>
+                                <constraint firstAttribute="trailing" secondItem="Opy-3C-3PR" secondAttribute="trailing" constant="20" id="NJC-fz-7Ip"/>
+                                <constraint firstAttribute="trailing" secondItem="Vlc-Wr-meR" secondAttribute="trailing" constant="20" id="dia-Z1-la8"/>
+                                <constraint firstItem="Vlc-Wr-meR" firstAttribute="top" secondItem="6I7-Eu-LPt" secondAttribute="bottom" constant="8" id="f9m-pz-q5Q"/>
+                                <constraint firstAttribute="height" constant="196" id="hW1-Fj-reM"/>
+                                <constraint firstItem="6I7-Eu-LPt" firstAttribute="leading" secondItem="e1O-6h-vSh" secondAttribute="leading" constant="20" id="iVy-Up-ytw"/>
+                                <constraint firstItem="Opy-3C-3PR" firstAttribute="top" secondItem="9AZ-eD-5lZ" secondAttribute="bottom" constant="8" id="ikf-d0-mu3"/>
+                                <constraint firstAttribute="trailing" secondItem="6I7-Eu-LPt" secondAttribute="trailing" constant="20" id="s4s-13-Jhk"/>
+                                <constraint firstAttribute="width" constant="314" id="srI-N1-eTw"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.34931506849315069" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="e1O-6h-vSh" secondAttribute="bottom" constant="350" id="HxS-Ss-iXw"/>
+                        <constraint firstItem="e1O-6h-vSh" firstAttribute="centerX" secondItem="VYx-VE-FXq" secondAttribute="centerX" id="Ih0-FF-ZtR"/>
+                        <constraint firstItem="e1O-6h-vSh" firstAttribute="leading" secondItem="VYx-VE-FXq" secondAttribute="leading" constant="50" id="Y9i-qD-Xm3"/>
+                        <constraint firstItem="e1O-6h-vSh" firstAttribute="top" secondItem="VYx-VE-FXq" secondAttribute="top" constant="350" id="egY-4L-VOs"/>
+                        <constraint firstAttribute="trailing" secondItem="e1O-6h-vSh" secondAttribute="trailing" constant="50" id="joK-GZ-05u"/>
+                        <constraint firstItem="e1O-6h-vSh" firstAttribute="centerY" secondItem="VYx-VE-FXq" secondAttribute="centerY" id="s9N-Cn-lAp"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="VYx-VE-FXq" secondAttribute="bottom" id="Byt-Au-S1t"/>
+                <constraint firstItem="VYx-VE-FXq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Hyt-Vn-Xeq"/>
+                <constraint firstAttribute="trailing" secondItem="VYx-VE-FXq" secondAttribute="trailing" id="rx4-Bv-v1V"/>
+                <constraint firstItem="VYx-VE-FXq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="zxA-wY-SCF"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-542" y="-63"/>
+        </view>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4Jr-aV-zPB">
+            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal" title="Button"/>
+            <point key="canvasLocation" x="230" y="301"/>
+        </button>
+    </objects>
+</document>

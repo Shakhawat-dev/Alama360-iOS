@@ -10,11 +10,12 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 import LanguageManager_iOS
+import SVPinView
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var lblHeader: UILabel!
-    @IBOutlet weak var lblCurrentLanguage: UILabel!
+    @IBOutlet weak var lblSubHeader: UILabel!
     @IBOutlet weak var btnChangeLanguage: UIButton!
     @IBOutlet weak var lblChalets: UILabel!
     @IBOutlet weak var lblSecure: UILabel!
@@ -25,6 +26,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var _phoneInput: UITextField!
     @IBOutlet weak var btnSubmit: UIButton!
     @IBOutlet weak var txtFieldholderVIew: UIView!
+    @IBOutlet weak var textFieldStackView: UIStackView!
     
     //For storing user data
     let defaults = UserDefaults.standard
@@ -40,40 +42,42 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    
+
+        _phoneInput.delegate = self
+        
         ccField.semanticContentAttribute = UISemanticContentAttribute.forceLeftToRight
         _phoneInput.semanticContentAttribute = UISemanticContentAttribute.forceLeftToRight
         txtFieldholderVIew.semanticContentAttribute = .forceLeftToRight
+        textFieldStackView.semanticContentAttribute = .forceLeftToRight
         
         changeLanguage()
         checkLogin()
-//        changeLanguage()
+        //        changeLanguage()
     }
     @IBAction func btnLangguage(_ sender: UIButton) {
-//        if LanguageManager.shared.currentLanguage.rawValue == "ar" {
-//            // change the language
-//            LanguageManager.shared.setLanguage(language: .en, viewControllerFactory: { title -> UIViewController in
-//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                // the view controller that you want to show after changing the language
-//                return storyboard.instantiateInitialViewController()!
-//            }) { view in
-//                view.transform = CGAffineTransform(scaleX: 2, y: 2)
-//                view.alpha = 0
-//            }
-//            changeLanguage()
-//        } else {
-//            LanguageManager.shared.setLanguage(language: .ar, viewControllerFactory: { title -> UIViewController in
-//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                // the view controller that you want to show after changing the language
-//                return storyboard.instantiateInitialViewController()!
-//            }) { view in
-//                view.transform = CGAffineTransform(scaleX: 2, y: 2)
-//                view.alpha = 0
-//            }
-//            changeLanguage()
-//        }
-//
+        //        if LanguageManager.shared.currentLanguage.rawValue == "ar" {
+        //            // change the language
+        //            LanguageManager.shared.setLanguage(language: .en, viewControllerFactory: { title -> UIViewController in
+        //                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //                // the view controller that you want to show after changing the language
+        //                return storyboard.instantiateInitialViewController()!
+        //            }) { view in
+        //                view.transform = CGAffineTransform(scaleX: 2, y: 2)
+        //                view.alpha = 0
+        //            }
+        //            changeLanguage()
+        //        } else {
+        //            LanguageManager.shared.setLanguage(language: .ar, viewControllerFactory: { title -> UIViewController in
+        //                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //                // the view controller that you want to show after changing the language
+        //                return storyboard.instantiateInitialViewController()!
+        //            }) { view in
+        //                view.transform = CGAffineTransform(scaleX: 2, y: 2)
+        //                view.alpha = 0
+        //            }
+        //            changeLanguage()
+        //        }
+        //
         
     }
     
@@ -81,42 +85,62 @@ class ViewController: UIViewController {
         
         if LocalizationSystem.sharedInstance.getLanguage() == "ar" {
             LocalizationSystem.sharedInstance.setLanguage(languageCode: "en")
-
+            
             // UIView.appearance().semanticContentAttribute = .forceLeftToRight
-
+            
             // change the language
             LanguageManager.shared.setLanguage(language: .en,
-                                                  viewControllerFactory: { title -> UIViewController in
-                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                 // the view controller that you want to show after changing the language
-                 return storyboard.instantiateInitialViewController()!
-               }) { view in
-                 view.transform = CGAffineTransform(scaleX: 2, y: 2)
-                 view.alpha = 0
-               }
-
+                                               viewControllerFactory: { title -> UIViewController in
+                                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                                // the view controller that you want to show after changing the language
+                                                return storyboard.instantiateInitialViewController()!
+            }) { view in
+                view.transform = CGAffineTransform(scaleX: 2, y: 2)
+                view.alpha = 0
+            }
+            
         } else {
             LocalizationSystem.sharedInstance.setLanguage(languageCode: "ar")
-
+            
             // UIView.appearance().semanticContentAttribute = .forceRightToLeft
-
+            
             // change the language
             LanguageManager.shared.setLanguage(language: .ar,
-                                                  viewControllerFactory: { title -> UIViewController in
-                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                 // the view controller that you want to show after changing the language
-                 return storyboard.instantiateInitialViewController()!
-               }) { view in
-                 view.transform = CGAffineTransform(scaleX: 2, y: 2)
-                 view.alpha = 0
-               }
+                                               viewControllerFactory: { title -> UIViewController in
+                                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                                // the view controller that you want to show after changing the language
+                                                return storyboard.instantiateInitialViewController()!
+            }) { view in
+                view.transform = CGAffineTransform(scaleX: 2, y: 2)
+                view.alpha = 0
+            }
         }
-
-//        let vc = self.storyboard?.instantiateInitialViewController() as! ViewController
-//        let appDlg = UIApplication.shared.delegate as! AppDelegate
-//        appDlg.window?.rootViewController = vc
-
+        
+        //        let vc = self.storyboard?.instantiateInitialViewController() as! ViewController
+        //        let appDlg = UIApplication.shared.delegate as! AppDelegate
+        //        appDlg.window?.rootViewController = vc
+        
         changeLanguage()
+        
+        
+    }
+    
+    func changeLanguage() {
+        
+        lblHeader.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "header_text", comment: "").localiz()
+        lblSubHeader.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "sub_header", comment: "").localiz()
+        
+        btnChangeLanguage.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "language", comment: "").localiz(), for: .normal)
+        
+        lblChalets.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "hundreds_of_chalets", comment: "").localiz()
+        lblSecure.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "secure_payment", comment: "").localiz()
+        lblVerified.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "verified_certified", comment: "").localiz()
+        lblBooking.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "confirm_booking", comment: "").localiz()
+        btnSubmit.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "btn_submit", comment: "").localiz(), for: .normal)
+        
+        //        lblHeader.text = NSLocalizedString("header_text", comment: "").localiz()
+        //        lblCurrentLanguage.text = NSLocalizedString("chage_language", comment: "").localiz()
+        
         
         
     }
@@ -131,177 +155,45 @@ class ViewController: UIViewController {
         
         if(phonenumber == "") {
             
-            return
-            
-        }
-        
-        DoLogin(phonenumber!)
-        
-    }
-    
-    func DoLogin(_ phone:String) {
-        
-        let fPhone = "966"+phone
-        //            let lan = btnChangeLanguage.currentTitle!
-        let lan = LanguageManager.shared.currentLanguage.rawValue
-        
-        
-        let params : [String : String] = ["mobile" : fPhone, "lang" : lan]
-        
-        let nUrl = "https://alama360.com/api/userbymobile?"
-        
-        Alamofire.request(nUrl, method: .post, parameters: params, headers: nil).responseJSON{ (mysresponse) in
-            
-            if mysresponse.result.isSuccess {
-                
-                let myResult = try? JSON(data: mysresponse.data!)
-                
-                let resultArray = myResult![]
-                
-                print(resultArray)
-                
-                self.userid = resultArray["userid"].stringValue
-                self.status = resultArray["status"].stringValue
-                self.code = resultArray["code"].stringValue
-                self.message = resultArray["message"].stringValue
-                self.userexist = resultArray["userexist"].stringValue
-                self.usertype = resultArray["usertype"].stringValue
-                
-                print("user id: \(self.userid)")
-                print("verification code: \(self.code)")
-                
-                
-            }
-            
-            
-            // For taking the value of action text field
-            var inputTextField: UITextField?
-            let alertTitle = LocalizationSystem.sharedInstance.localizedStringForKey(key: "alert_title", comment: "").localiz()
-            let alertMessage = LocalizationSystem.sharedInstance.localizedStringForKey(key: "alert_message", comment: "").localiz()
-            let alertBtn = LocalizationSystem.sharedInstance.localizedStringForKey(key: "alert_btn", comment: "").localiz()
-            
-            //Aler Dialoge Initiated
-            let alert = UIAlertController(title: alertTitle, message: alertMessage + " \(fPhone)", preferredStyle: UIAlertController.Style.alert)
-            
-            alert.addTextField(configurationHandler: {(textField: UITextField!) in
-//                textField.placeholder = "Four digit code:"
-//                textField.type
-                textField.keyboardType = .numberPad
-                textField.textContentType = .oneTimeCode
-                textField.isSecureTextEntry = false // for password input
-                
-                inputTextField = textField
-                
-            })
-            
-            alert.addAction(UIAlertAction(title: alertBtn, style: UIAlertAction.Style.default, handler: { (action) -> Void in
-                print("Entered \(inputTextField?.text ?? "") ")
-                
-                if inputTextField?.text ?? "" == self.code {
-                    
-                    if self.userexist == "1" {
-//                        self.performSegue(withIdentifier: "HomePage", sender:nil)
-                        self.userLoggedIn = true
-                        self.defaults.set(self.userLoggedIn, forKey: "loggedIn")
-                        Switcher.updateRootVC()
-                        
-                    } else {
-                        self.register()
-                        
-                    }
-                    
-                    
-                }
-                
+            let alert = UIAlertController(title: "Enter Number!", message: "Please Enter your mobile number", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
             }))
-            
             self.present(alert, animated: true, completion: nil)
             
-        }
-        
-        
-        
-        defaults.set(userid, forKey: "userID")
-        defaults.set(status, forKey: "Status")
-        defaults.set(fPhone, forKey: "phoneNumber")
-        defaults.set(lan, forKey: "language")
-        
-        
-        
-        
-    }
-    
-    
-    
-    func changeLanguage() {
-        
-        lblHeader.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "header_text", comment: "").localiz()
-        lblCurrentLanguage.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "change_language", comment: "").localiz()
-
-        btnChangeLanguage.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "language", comment: "").localiz(), for: .normal)
-
-        lblChalets.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "hundreds_of_chalets", comment: "").localiz()
-        lblSecure.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "secure_payment", comment: "").localiz()
-        lblVerified.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "verified_certified", comment: "").localiz()
-        lblBooking.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "confirm_booking", comment: "").localiz()
-        btnSubmit.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "btn_submit", comment: "").localiz(), for: .normal)
-        
-//        lblHeader.text = NSLocalizedString("header_text", comment: "").localiz()
-//        lblCurrentLanguage.text = NSLocalizedString("chage_language", comment: "").localiz()
-        
-         
-        
-    }
-    
-    func register () {
-        
-        let regPhone = _phoneInput.text
-        
-        print("ites here... \(regPhone)")
-        
-        let lan = LanguageManager.shared.currentLanguage.rawValue
-        
-        
-        let params : [String : String] = ["mobile" : regPhone!, "lang" : lan, "userid" : ""]
-        
-        let nUrl = "https://alama360.com/api/createOrupdateuser?"
-
-        Alamofire.request(nUrl, method: .post, parameters: params, headers: nil).responseJSON{ (mysresponse) in
+            return
             
-            if mysresponse.result.isSuccess {
-                
-                let myResult = try? JSON(data: mysresponse.data!)
-                
-                let resultArray = myResult![]
-                
-                print(resultArray)
-                
-                self.userid = resultArray["userid"].stringValue
-                self.status = resultArray["status"].stringValue
-                //                self.code = resultArray["code"].stringValue
-                self.message = resultArray["message"].stringValue
-                //                self.userexist = resultArray["userexist"].stringValue
-                self.usertype = resultArray["usertype"].stringValue
-                
-                if self.status == "1" {
-//                    self.performSegue(withIdentifier: "HomePage", sender:nil)
-                    self.userLoggedIn = true
-                    self.defaults.set(self.userLoggedIn, forKey: "loggedIn")
-                    Switcher.updateRootVC()
-                }
-                //
-                print("user id: \(self.userid)")
-                print("Message: \(self.message)")
-                
-                self.defaults.set(self.userid, forKey: "userID")
-                self.defaults.set(regPhone, forKey: "phoneNumber")
-                self.defaults.set(lan, forKey: "language")
-                
-            }
+        } else {
+            let fPhone = "966" + phonenumber!
+            performSegue(withIdentifier: "pinviewSegue", sender: fPhone)
         }
-        
     }
     
-    
+    // Sending Data to View COntroller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pinviewSegue" {
+            let destVC = segue.destination as! OtpAlertViewController
+            destVC.phoneNumber = sender as! String
+        }
+    }
+
+    @IBAction func jdsg(_ sender: Any) {
+//        print("here \(_phoneInput.text)")
+        let mynum = Int(_phoneInput.text!)
+        _phoneInput.text = String(mynum!)
+        print("here \(mynum)")
+    }
+
 }
 
+extension ViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let maxLength = 9
+        let currentString: NSString = textField.text! as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
+        
+    }
+}

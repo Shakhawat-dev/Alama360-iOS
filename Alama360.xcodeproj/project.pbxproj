@@ -67,6 +67,9 @@
 		4BABFABB23AA647900F34EA4 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BABFABA23AA647900F34EA4 /* BookingViewController.swift */; };
 		4BB8864D23DED4E400CB415F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB8864C23DED4E400CB415F /* SplashViewController.swift */; };
 		4BB8864F23DEE74600CB415F /* Switcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB8864E23DEE74600CB415F /* Switcher.swift */; };
+		4BB8867723E19E1C00CB415F /* OTPalertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BB8867623E19E1C00CB415F /* OTPalertView.xib */; };
+		4BB8867923E1A4A300CB415F /* OtpAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB8867823E1A4A300CB415F /* OtpAlertView.swift */; };
+		4BB8867B23E1C14800CB415F /* OtpAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB8867A23E1C14800CB415F /* OtpAlertViewController.swift */; };
 		4BC7B2F423DD824E003DD257 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC7B2F323DD824E003DD257 /* Dates.swift */; };
 		4BC7B2F723DDBEEF003DD257 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC7B2F623DDBEEF003DD257 /* Toast.swift */; };
 		4BC7B2F923DDD54F003DD257 /* AddPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC7B2F823DDD54F003DD257 /* AddPropertyViewController.swift */; };
@@ -139,6 +142,9 @@
 		4BABFABA23AA647900F34EA4 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
 		4BB8864C23DED4E400CB415F /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		4BB8864E23DEE74600CB415F /* Switcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switcher.swift; sourceTree = "<group>"; };
+		4BB8867623E19E1C00CB415F /* OTPalertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OTPalertView.xib; sourceTree = "<group>"; };
+		4BB8867823E1A4A300CB415F /* OtpAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpAlertView.swift; sourceTree = "<group>"; };
+		4BB8867A23E1C14800CB415F /* OtpAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpAlertViewController.swift; sourceTree = "<group>"; };
 		4BC7B2F323DD824E003DD257 /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
 		4BC7B2F623DDBEEF003DD257 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		4BC7B2F823DDD54F003DD257 /* AddPropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPropertyViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +280,7 @@
 				4B3666B323D988700062EE8F /* FCalenderViewController.swift */,
 				4BC7B2F823DDD54F003DD257 /* AddPropertyViewController.swift */,
 				4BB8864C23DED4E400CB415F /* SplashViewController.swift */,
+				4BB8867A23E1C14800CB415F /* OtpAlertViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -297,6 +304,8 @@
 				4B5C17E523DC15EC00EE2310 /* CustomBtnGreen.swift */,
 				4BC7B2F623DDBEEF003DD257 /* Toast.swift */,
 				4BB8864E23DEE74600CB415F /* Switcher.swift */,
+				4BB8867623E19E1C00CB415F /* OTPalertView.xib */,
+				4BB8867823E1A4A300CB415F /* OtpAlertView.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -383,6 +392,7 @@
 				4B04E43F239B788300D02BC4 /* LaunchScreen.storyboard in Resources */,
 				4B4BBBAF23C46F9F00DB28C5 /* More.storyboard in Resources */,
 				4B04E44C239B7D1500D02BC4 /* Localizable.strings in Resources */,
+				4BB8867723E19E1C00CB415F /* OTPalertView.xib in Resources */,
 				4B04E43C239B788300D02BC4 /* Assets.xcassets in Resources */,
 				4B4BBBAD23C46F8200DB28C5 /* Favourites.storyboard in Resources */,
 				4B04E43A239B788100D02BC4 /* Main.storyboard in Resources */,
@@ -483,6 +493,7 @@
 				4B3666B623D9B5FF0062EE8F /* DIYCalenderCell.swift in Sources */,
 				4B1CE33023A24A7800C0FC01 /* MainCell.swift in Sources */,
 				4B7870C923B47D9100D360AC /* PropertyDetailsViewController.swift in Sources */,
+				4BB8867B23E1C14800CB415F /* OtpAlertViewController.swift in Sources */,
 				4B188D5223C99C9100CBBA36 /* FAQViewController.swift in Sources */,
 				4B84A0FE23C4A922006E5237 /* Property360Cell.swift in Sources */,
 				4B83D88823B8CBC2003F38C9 /* FeatureTableViewCell.swift in Sources */,
@@ -501,6 +512,7 @@
 				4B84A10A23C4AA7D006E5237 /* LandmarkCell.swift in Sources */,
 				4BB8864D23DED4E400CB415F /* SplashViewController.swift in Sources */,
 				4B8491F223CD7DFD0094B035 /* MainTabBarController.swift in Sources */,
+				4BB8867923E1A4A300CB415F /* OtpAlertView.swift in Sources */,
 				4B2ECC2A23D0947600F56435 /* PropertyInfoWindow.swift in Sources */,
 				4B6DFE18239E278600543E3F /* ReservationsViewController.swift in Sources */,
 				4B188D5823C9F45900CBBA36 /* MenuBar.swift in Sources */,

@@ -12,6 +12,7 @@ import Alamofire
 import SwiftyJSON
 import GoogleMaps
 import LanguageManager_iOS
+import SVProgressHUD
 
 class TbPropertyDetailsViewController: UIViewController {
     //For storing user data
@@ -56,6 +57,8 @@ class TbPropertyDetailsViewController: UIViewController {
     // Get Api Call
     func getPropertyDetails() {
         
+        SVProgressHUD.show()
+        
         lan = LocalizationSystem.sharedInstance.getLanguage()
         
         let pdUrl = StaticUrls.BASE_URL_FINAL + "propertydetails/\(id!)?lang=\(lan)&userid=\(userId)"
@@ -65,6 +68,9 @@ class TbPropertyDetailsViewController: UIViewController {
         
         Alamofire.request(pdUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
             if mysresponse.result.isSuccess {
+                
+                self.propertyDetailsTable.delegate = self
+                self.propertyDetailsTable.dataSource = self
                 
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult!["data"]
@@ -109,15 +115,27 @@ class TbPropertyDetailsViewController: UIViewController {
                     self.favBtn.image = btnImage
                 }
                 
-                self.propertyDetailsTable.delegate = self
-                self.propertyDetailsTable.dataSource = self
-                self.propertyDetailsTable.reloadData()
+                
+                
+                
+                
+//                self.propertyDetailsTable.delegate = self
+//                self.propertyDetailsTable.dataSource = self
+//                self.propertyDetailsTable.reloadData()
                 
                 self.getMapView ()
    
             }
             
+            DispatchQueue.main.async {
+               self.propertyDetailsTable.reloadData()
+                SVProgressHUD.dismiss()
+            }
+            
+            
         }
+        
+       
         
     }
     

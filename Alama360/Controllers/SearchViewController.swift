@@ -41,6 +41,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     fileprivate weak var calendar: FSCalendar!
     
     let defaults = UserDefaults.standard
+    let lan = LanguageManager.shared.currentLanguage.rawValue
     
     let transparentVIew = UIView()
     let categoryTableView = UITableView()
@@ -163,7 +164,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     // Load proerty Titles Auto
     func loadPropertyTitle() {
         
-        let lan = defaults.string(forKey: "language") ?? ""
+//        let lan = defaults.string(forKey: "language") ?? ""
         print("lan is \(lan)")
         
         let tUrl = StaticUrls.BASE_URL_FINAL + "daily-rental/for-rent?page=1&lang=" + lan + "&viewType=mapview"
@@ -207,7 +208,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         
         // https://alama360.net/api/homethumbcat?page=1&lang=en
         
-        let lan = defaults.string(forKey: "language") ?? ""
+//        let lan = defaults.string(forKey: "language") ?? ""
         print("lan is \(lan)")
         
         let pUrl = StaticUrls.BASE_URL_FINAL + "homethumbcat?page=1&lang=" + lan
@@ -304,7 +305,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         
         // https://alama360.com/api/getLookUpByCat/80?lang=en&limit=10
         
-        let lan = defaults.string(forKey: "language") ?? ""
+//        let lan = defaults.string(forKey: "language") ?? ""
         
         
         print("lan is \(lan)")

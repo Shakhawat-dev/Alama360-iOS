@@ -12,6 +12,7 @@ import SwiftyJSON
 import ImageSlideshow
 import AlamofireImage
 import DropDown
+import SVProgressHUD
 
 class BookingViewController: UIViewController {
     
@@ -75,6 +76,10 @@ class BookingViewController: UIViewController {
     
     // Load Booking List
     func getPropertiesForDate() {
+        SVProgressHUD.show()
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         
         lan = LocalizationSystem.sharedInstance.getLanguage()
         
@@ -89,6 +94,8 @@ class BookingViewController: UIViewController {
             
             if mysresponse.result.isSuccess {
                 
+                
+                
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult!["data"]
                 
@@ -102,13 +109,14 @@ class BookingViewController: UIViewController {
                     self.property_list.append(newProperty)
                     
                     self.currentDataSource = self.property_list
-                    
-                    self.tableView.delegate = self
-                    self.tableView.dataSource = self
-                    self.tableView.reloadData()
-                    
+   
                     // print(self.property_list)
                     
+                }
+                
+                DispatchQueue.main.async {
+                   self.tableView.reloadData()
+                     SVProgressHUD.dismiss()
                 }
                 
             }

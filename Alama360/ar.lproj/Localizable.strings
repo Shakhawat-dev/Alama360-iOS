@@ -7,14 +7,14 @@
 */
 // Main Page
 "language" = "EN";
-"header_text" = "اللغة الحالية";
-"change_language" = "أدخل رقم جوالك لإنشاء حساب أو تسجيل الدخول";
+"header_text" = " أدخل رقم جوالك";
+"sub_header" = "أدخل رقم جوالك لإنشاء حساب أو تسجيل الدخول";
 "hundreds_of_chalets" = " مئات الشاليهات القريبة منك بأسعار تنافسية";
 "secure_payment" = " دفع امن و مضمونة ١٠٠%";
 "verified_certified" = "تقييمات موثوفة ومصدقة";
 "confirm_booking" = "حجز مؤكد بثلاث خطوات بسيطة";
 "btn_submit" = "إرسال / تسجيل";
-"alert_title" = "شيفرة التأكيد";
+"alert_title" = "رمز التحقق";
 "alert_message" = "أدخل رمز التحقق المستلم على الرقم";
 "alert_placeholder" = "رمز من أربعة أرقام";
 "alert_btn" = "التالى";

@@ -10,6 +10,7 @@ import UIKit
 import ImageSlideshow
 import Alamofire
 import SwiftyJSON
+import SVProgressHUD
 
 class AllPhotosViewController: UIViewController {
 
@@ -41,7 +42,7 @@ class AllPhotosViewController: UIViewController {
     
     // Get Api Call
         func getPropertyDetails() {
-            
+            SVProgressHUD.show()
             lan = LocalizationSystem.sharedInstance.getLanguage()
             
 //            let photoUrl = StaticUrls.BASE_URL_FINAL + "propertydetails/" + id + "?lang=" + lan + "&userid=124"
@@ -52,7 +53,11 @@ class AllPhotosViewController: UIViewController {
             
             Alamofire.request(photoUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
                 
+                
                 if mysresponse.result.isSuccess {
+                    
+                    self.allphotoTableView.delegate = self
+                    self.allphotoTableView.dataSource = self
                     
                     let myResult = try? JSON(data: mysresponse.data!)
                     let resultArray = myResult!["data"]
@@ -72,13 +77,17 @@ class AllPhotosViewController: UIViewController {
                     
                     
                     
-                    self.allphotoTableView.delegate = self
-                    self.allphotoTableView.dataSource = self
-                    self.allphotoTableView.reloadData()
+                    
+                    
                     
                     self.inputSources = self.photoInputs(photos: self.photos)
 
     
+                }
+                
+                DispatchQueue.main.async {
+                    self.allphotoTableView.reloadData()
+                    SVProgressHUD.dismiss()
                 }
                 
             }

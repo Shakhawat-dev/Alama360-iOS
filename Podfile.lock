@@ -19,6 +19,7 @@ PODS:
   - iOSDropDown (0.3.4)
   - LanguageManager-iOS (1.2.0)
   - SearchTextField (1.2.4)
+  - SVPinView (1.0.7)
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (5.0.0)
 
@@ -33,6 +34,7 @@ DEPENDENCIES:
   - iOSDropDown
   - LanguageManager-iOS
   - SearchTextField
+  - SVPinView (~> 1.0)
   - SVProgressHUD
   - SwiftyJSON
 
@@ -48,6 +50,7 @@ SPEC REPOS:
     - iOSDropDown
     - LanguageManager-iOS
     - SearchTextField
+    - SVPinView
     - SVProgressHUD
     - SwiftyJSON
 
@@ -62,9 +65,10 @@ SPEC CHECKSUMS:
   iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
   LanguageManager-iOS: 516c4f088435c83cbdbddfc5179f88e4e0d39eb4
   SearchTextField: 40dc3cc57def5a211f263cac263622c163bbc25a
+  SVPinView: 6c1da57e4a1273298802f460c60511ba10f7c831
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 8a5204a782592dbf079cb60e7b00fe0701530bc4
+PODFILE CHECKSUM: 420e0aa8628b927f1a840c3d645a609067aa8155
 
 COCOAPODS: 1.8.4
