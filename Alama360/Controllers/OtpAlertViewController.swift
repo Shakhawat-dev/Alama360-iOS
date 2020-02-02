@@ -19,6 +19,8 @@ class OtpAlertViewController: UIViewController {
     @IBOutlet weak var alertInfo: UILabel!
     @IBOutlet weak var pinview: SVPinView!
     @IBOutlet weak var okBtn: UIButton!
+    @IBOutlet weak var otpField: OTPTextField!
+    @IBOutlet weak var invalidLabel: UILabel!
     
     //For storing user data
     let defaults = UserDefaults.standard
@@ -40,7 +42,12 @@ class OtpAlertViewController: UIViewController {
         otpAlertView.layer.cornerRadius = 12
         DoLogin()
         
-        // Do any additional setup after loading the view.
+        otpField.configure()
+        otpField.didEnterLastDigit = { [weak self] pinCode in
+            print(pinCode)
+            
+            self?.checkLogin (pinCode: pinCode)
+        }
     }
     
     func localize() {
@@ -48,18 +55,52 @@ class OtpAlertViewController: UIViewController {
         alertInfo.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "alert_message", comment: "").localiz() + " \(phoneNumber)"
         okBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "alert_btn", comment: "").localiz(), for: .normal)
         
-        pinview.semanticContentAttribute = .forceLeftToRight
-        pinview.isContentTypeOneTimeCode = true
+//        view.semanticContentAttribute = .forceLeftToRight
+//        pinview.semanticContentAttribute = .forceLeftToRight
+//        pinview.isContentTypeOneTimeCode = true
         
         
     }
     
-    @IBAction func okBtnTapped(_ sender: Any) {
-        
-        if pinview.getPin() == self.code {
+    func checkLogin (pinCode: String) {
+        if pinCode == self.code {
             if self.userexist == "1" {
+                invalidLabel.text = ""
                 self.userLoggedIn = true
                 self.defaults.set(self.userLoggedIn, forKey: "loggedIn")
+                
+                // Move to Home
+                Switcher.updateRootVC()
+                
+                defaults.set(userid, forKey: "userID")
+                defaults.set(status, forKey: "Status")
+                defaults.set(phoneNumber, forKey: "phoneNumber")
+                defaults.set(lan, forKey: "language")
+                
+            } else {
+                // Reg and Move to Home
+                self.register()
+            }
+            
+        } else {
+//            let alert = UIAlertController(title: "Invalid Code", message: "Please enter valid  to continue", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+//                NSLog("The \"OK\" alert occured.")
+//            }))
+//            self.present(alert, animated: true, completion: nil)
+            invalidLabel.text = "Invlide Code!"
+            
+        }
+    }
+    
+    @IBAction func okBtnTapped(_ sender: Any) {
+        
+        if otpField.text == self.code {
+            if self.userexist == "1" {
+                invalidLabel.text = ""
+                self.userLoggedIn = true
+                self.defaults.set(self.userLoggedIn, forKey: "loggedIn")
+                
                 Switcher.updateRootVC()
                 
                 defaults.set(userid, forKey: "userID")
@@ -71,14 +112,21 @@ class OtpAlertViewController: UIViewController {
                 self.register()
             }
             
+        } else {
+//            let alert = UIAlertController(title: "Invalid Code", message: "Please enter valid  to continue", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+//                NSLog("The \"OK\" alert occured.")
+//            }))
+//            self.present(alert, animated: true, completion: nil)
+            invalidLabel.text = "Invlide Code!"
         }
         
-        pinview.didFinishCallback = { pin in
-            print("The pin entered is \(pin)")
+//        pinview.didFinishCallback = { pin in
+//            print("The pin entered is \(pin)")
             
             
             
-        }
+//        }
         
         //        if userexist == "1" {
         //            Switcher.updateRootVC()
