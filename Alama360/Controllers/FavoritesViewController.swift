@@ -172,7 +172,8 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
         
         //        cell.contentView.layer.cornerRadius = 12
         
-        
+        cell.index = indexPath
+        cell.tapDelegate = self
         cell.rowTitle.text = property_list[indexPath.row].title
         
         if property_list[indexPath.row].id != "" {
@@ -247,5 +248,12 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    
+}
+extension FavoritesViewController: SlideTapDelegate {
+    func didTapSlideShow(index: Int) {
+        id = property_list[index].id!
+        performSegue(withIdentifier: "showFavDetails", sender: id)
+    }
     
 }

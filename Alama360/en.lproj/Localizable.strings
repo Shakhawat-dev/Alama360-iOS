@@ -18,7 +18,9 @@
 "alert_message" = "Enter the verification code recieved on the number";
 "alert_placeholder" = "Four digit code";
 "alert_btn" = "Next";
-
+"alert_error" = "Invalid Code!";
+"nAlert_title" = "Enter Number";
+"nAlert_message" = "Please Enter your mobile number";
 // Popup Alert
 
 
@@ -49,6 +51,12 @@
 "property_title" = "Property Title";
 "search_category" = "Search by Chalet categories";
 "start_date" = "Start Date";
+
+// Calender VC
+"cAlert_title" = "Select Date";
+"cAlert_message" = "Please select date's to continue";
+"cOk" = "Ok";
+"btnClear" = "Clear";
 
 // Property Details Page
 "policy" = "Policy";
@@ -187,3 +195,9 @@
 "privacy23" = " If you are concerned about your data you have the right to request access to personal data that we may hold or process about you. You have the right to ask us to correct any errors in your data for free. At any stage you also have the right to ask us to stop using personal data for direct marketing purposes www.ALAMA360.com";
 
 "privacy24" = " ( Generally  we may modify this privacy policy at any time by placing the modified terms on this site)";
+
+// SignOut
+"sAlert_title" = "Sign Out";
+"sAlert_message" = "Do you want to Sign Out?";
+"aAlert_ok" = "Ok";
+"sAlert_cancel" = "Cancel";

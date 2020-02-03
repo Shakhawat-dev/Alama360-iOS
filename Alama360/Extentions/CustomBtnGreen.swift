@@ -27,7 +27,7 @@ class CustomBtnGreen: UIButton {
         layer.masksToBounds = false
         layer.shadowRadius = 8
         layer.shadowOpacity = 1.0
-        layer.shadowOffset = CGSize(width: 1, height: 1)
+        layer.shadowOffset = CGSize(width: 0.4, height: 0.4)
         layer.shadowColor = #colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)
         
     }

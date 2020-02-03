@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnSubmit: UIButton!
     @IBOutlet weak var txtFieldholderVIew: UIView!
     @IBOutlet weak var textFieldStackView: UIStackView!
+    @IBOutlet weak var textFieldHolder: UIView!
     
     //For storing user data
     let defaults = UserDefaults.standard
@@ -42,9 +43,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // For Hiding keyboard on Tap
+        self.hideKeyboardWhenTappedAround()
+        
         _phoneInput.delegate = self
         
+        textFieldHolder.layer.cornerRadius = 8
         ccField.semanticContentAttribute = UISemanticContentAttribute.forceLeftToRight
         _phoneInput.semanticContentAttribute = UISemanticContentAttribute.forceLeftToRight
         txtFieldholderVIew.semanticContentAttribute = .forceLeftToRight
@@ -86,8 +91,6 @@ class ViewController: UIViewController {
         if LocalizationSystem.sharedInstance.getLanguage() == "ar" {
             LocalizationSystem.sharedInstance.setLanguage(languageCode: "en")
             
-            // UIView.appearance().semanticContentAttribute = .forceLeftToRight
-            
             // change the language
             LanguageManager.shared.setLanguage(language: .en,
                                                viewControllerFactory: { title -> UIViewController in
@@ -101,9 +104,6 @@ class ViewController: UIViewController {
             
         } else {
             LocalizationSystem.sharedInstance.setLanguage(languageCode: "ar")
-            
-            // UIView.appearance().semanticContentAttribute = .forceRightToLeft
-            
             // change the language
             LanguageManager.shared.setLanguage(language: .ar,
                                                viewControllerFactory: { title -> UIViewController in
@@ -115,10 +115,6 @@ class ViewController: UIViewController {
                 view.alpha = 0
             }
         }
-        
-        //        let vc = self.storyboard?.instantiateInitialViewController() as! ViewController
-        //        let appDlg = UIApplication.shared.delegate as! AppDelegate
-        //        appDlg.window?.rootViewController = vc
         
         changeLanguage()
         
@@ -155,8 +151,12 @@ class ViewController: UIViewController {
         
         if(phonenumber == "") {
             
-            let alert = UIAlertController(title: "Enter Number!", message: "Please Enter your mobile number", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+            let aTitle = LocalizationSystem.sharedInstance.localizedStringForKey(key: "nAlert_title", comment: "").localiz()
+            let aMessage = LocalizationSystem.sharedInstance.localizedStringForKey(key: "nAlert_message", comment: "").localiz()
+            let aAction = LocalizationSystem.sharedInstance.localizedStringForKey(key: "cOk", comment: "").localiz()
+            
+            let alert = UIAlertController(title: aTitle, message: aMessage, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: aAction, style: .default, handler: { _ in
                 NSLog("The \"OK\" alert occured.")
             }))
             self.present(alert, animated: true, completion: nil)
@@ -176,16 +176,16 @@ class ViewController: UIViewController {
             destVC.phoneNumber = sender as! String
         }
     }
-
+    
     @IBAction func jdsg(_ sender: Any) {
-//        print("here \(_phoneInput.text)")
+        //        print("here \(_phoneInput.text)")
         let mynum = Int(_phoneInput.text!)
         let mynumstring = _phoneInput.text!
         if(mynumstring.count>8){
-        _phoneInput.text = String(mynum!)
+            _phoneInput.text = String(mynum!)
         }
     }
-
+    
 }
 
 extension ViewController: UITextFieldDelegate {
@@ -199,3 +199,4 @@ extension ViewController: UITextFieldDelegate {
         
     }
 }
+

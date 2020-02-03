@@ -47,6 +47,9 @@ class BookingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // For Hiding keyboard on Tap
+        self.hideKeyboardWhenTappedAround()
+        
         //        currentDataSource = originalDataSource
         startDate = propParam!.startDate
         endDate = propParam!.endDate
@@ -319,6 +322,8 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
         
         
         cell.rowTitle.text = property_list[indexPath.row].title
+        cell.tapDelegate = self
+        cell.index = indexPath
         
         if property_list[indexPath.row].id != "" {
             cell.propertyId.text = "SA0" + property_list[indexPath.row].id!
@@ -390,6 +395,14 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         return cell
+    }
+    
+}
+
+extension BookingViewController: SlideTapDelegate {
+    func didTapSlideShow(index: Int) {
+        id = property_list[index].id!
+        performSegue(withIdentifier: "showDetails", sender: id)
     }
     
 }

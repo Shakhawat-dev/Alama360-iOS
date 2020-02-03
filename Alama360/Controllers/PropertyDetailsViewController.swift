@@ -123,21 +123,12 @@ class PropertyDetailsViewController: UIViewController, WKUIDelegate {
                 let featureArray = resultArray["property_dailyfeature"].arrayValue
                 let newFeature = FeatureModel(json: JSON(featureArray))
                 self.property_dailyfeature = newFeature
-                
-                
+
                 print(self.property_dailyfeature)
-                
-                
-                
-                
-                
-                
+
                 self.setValues()
                 self.getYoutubeVideo()
-                
-                
-                
-                
+
                 self.featuresTableView.delegate = self
                 self.featuresTableView.dataSource = self
                 self.featuresTableView.reloadData()
@@ -193,15 +184,9 @@ class PropertyDetailsViewController: UIViewController, WKUIDelegate {
         thumbFive.image =  getImage(from: imageFive!)
         districtName.text = self.pDistName
         shortDesc.text = self.pShort_des
-        
-        
+
         textTransparentView.layer.opacity = 0.5
-        // Test Purpose
-        
-        // For 360 property View
-        
-        
-        
+
     }
     
     func getYoutubeVideo() {
@@ -261,15 +246,5 @@ extension PropertyDetailsViewController: UITableViewDataSource, UITableViewDeleg
         
         return cell
     }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        featuresTableView.frame = CGRect(x: featuresTableView.frame.origin.x, y: featuresTableView.frame.origin.y, width: featuresTableView.frame.size.width, height: featuresTableView.contentSize.height)
-//    }
-//
-//    override func viewDidLayoutSubviews() {
-//        featuresTableView.frame = CGRect(x: featuresTableView.frame.origin.x, y: featuresTableView.frame.origin.y, width: featuresTableView.frame.size.width, height: featuresTableView.contentSize.height)
-//        featuresTableView.reloadData()
-//    }
-    
     
 }

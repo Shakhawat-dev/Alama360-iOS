@@ -63,6 +63,7 @@
 		4B93206E23B7A5B5005861DD /* CustomCollectionGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B93206D23B7A5B5005861DD /* CustomCollectionGrid.swift */; };
 		4B9C21EF23CC545400090E94 /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9C21EE23CC545400090E94 /* ContactTableViewController.swift */; };
 		4BAA2FE723E6DE5500721EA5 /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAA2FE623E6DE5500721EA5 /* OTPTextField.swift */; };
+		4BAA2FE923E7F6C300721EA5 /* TapKeyboardHide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAA2FE823E7F6C200721EA5 /* TapKeyboardHide.swift */; };
 		4BABFAB723A8BCE400F34EA4 /* addPropertyTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BABFAB623A8BCE400F34EA4 /* addPropertyTermsViewController.swift */; };
 		4BABFAB923A900D900F34EA4 /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BABFAB823A900D900F34EA4 /* iOSDropDown.framework */; };
 		4BABFABB23AA647900F34EA4 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BABFABA23AA647900F34EA4 /* BookingViewController.swift */; };
@@ -75,6 +76,8 @@
 		4BC7B2F723DDBEEF003DD257 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC7B2F623DDBEEF003DD257 /* Toast.swift */; };
 		4BC7B2F923DDD54F003DD257 /* AddPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC7B2F823DDD54F003DD257 /* AddPropertyViewController.swift */; };
 		4BEB3D4123CEECD7004C7F33 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BEB3D4323CEECD7004C7F33 /* Search.storyboard */; };
+		4BFF10B723E82AFF00E164F1 /* ReservationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF10B623E82AFF00E164F1 /* ReservationModel.swift */; };
+		4BFF10B923E8351C00E164F1 /* ReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF10B823E8351C00E164F1 /* ReservationTableViewCell.swift */; };
 		875FBF4D4627B61E14B5C514 /* Pods_Alama360.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBFCD9432EC28BE6EAE7BBFC /* Pods_Alama360.framework */; };
 /* End PBXBuildFile section */
 
@@ -139,6 +142,7 @@
 		4B93206D23B7A5B5005861DD /* CustomCollectionGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionGrid.swift; sourceTree = "<group>"; };
 		4B9C21EE23CC545400090E94 /* ContactTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
 		4BAA2FE623E6DE5500721EA5 /* OTPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextField.swift; sourceTree = "<group>"; };
+		4BAA2FE823E7F6C200721EA5 /* TapKeyboardHide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapKeyboardHide.swift; sourceTree = "<group>"; };
 		4BABFAB623A8BCE400F34EA4 /* addPropertyTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addPropertyTermsViewController.swift; sourceTree = "<group>"; };
 		4BABFAB823A900D900F34EA4 /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BABFABA23AA647900F34EA4 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 		4BEB3D4223CEECD7004C7F33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
 		4BEB3D4523CEED0C004C7F33 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Search.strings; sourceTree = "<group>"; };
 		4BEB3D4923CEFD6B004C7F33 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
+		4BFF10B623E82AFF00E164F1 /* ReservationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationModel.swift; sourceTree = "<group>"; };
+		4BFF10B823E8351C00E164F1 /* ReservationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationTableViewCell.swift; sourceTree = "<group>"; };
 		61791E7D0797207E2B2380D0 /* Pods-Alama360.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alama360.release.xcconfig"; path = "Target Support Files/Pods-Alama360/Pods-Alama360.release.xcconfig"; sourceTree = "<group>"; };
 		AFFB3C0B381BEDFC77A7831A /* Pods-Alama360.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alama360.debug.xcconfig"; path = "Target Support Files/Pods-Alama360/Pods-Alama360.debug.xcconfig"; sourceTree = "<group>"; };
 		DBFCD9432EC28BE6EAE7BBFC /* Pods_Alama360.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alama360.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -247,6 +253,7 @@
 				4B43047223C73FB200160663 /* TermsAndConditionsCell.swift */,
 				4B43047623C7622F00160663 /* PrivacyPolicyCell.swift */,
 				4B3666B523D9B5FF0062EE8F /* DIYCalenderCell.swift */,
+				4BFF10B823E8351C00E164F1 /* ReservationTableViewCell.swift */,
 			);
 			path = Tables;
 			sourceTree = "<group>";
@@ -296,6 +303,7 @@
 				4B30DEC023D0494C00069DBC /* MapModel.swift */,
 				4B8A9D7023D5A2550019EC17 /* AllPhotoGalleryModel.swift */,
 				4BC7B2F323DD824E003DD257 /* Dates.swift */,
+				4BFF10B623E82AFF00E164F1 /* ReservationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -309,6 +317,7 @@
 				4BB8867623E19E1C00CB415F /* OTPalertView.xib */,
 				4BB8867823E1A4A300CB415F /* OtpAlertView.swift */,
 				4BAA2FE623E6DE5500721EA5 /* OTPTextField.swift */,
+				4BAA2FE823E7F6C200721EA5 /* TapKeyboardHide.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -493,6 +502,7 @@
 				4B43047923C762EE00160663 /* PrivacyPolicyViewController.swift in Sources */,
 				4B04E457239B843F00D02BC4 /* LocalizationSystem.swift in Sources */,
 				4BC7B2F723DDBEEF003DD257 /* Toast.swift in Sources */,
+				4BAA2FE923E7F6C300721EA5 /* TapKeyboardHide.swift in Sources */,
 				4B43047523C7401800160663 /* TermsOfUseViewController.swift in Sources */,
 				4B3666B623D9B5FF0062EE8F /* DIYCalenderCell.swift in Sources */,
 				4B1CE33023A24A7800C0FC01 /* MainCell.swift in Sources */,
@@ -508,6 +518,7 @@
 				4B30DEC123D0494C00069DBC /* MapModel.swift in Sources */,
 				4BC7B2F423DD824E003DD257 /* Dates.swift in Sources */,
 				4B8A9D7123D5A2550019EC17 /* AllPhotoGalleryModel.swift in Sources */,
+				4BFF10B923E8351C00E164F1 /* ReservationTableViewCell.swift in Sources */,
 				4B43047323C73FB200160663 /* TermsAndConditionsCell.swift in Sources */,
 				4B6DFE21239E84AA00543E3F /* ContactViewController.swift in Sources */,
 				4B188D5423C9AAB200CBBA36 /* ProfileViewController.swift in Sources */,
@@ -522,6 +533,7 @@
 				4B188D5823C9F45900CBBA36 /* MenuBar.swift in Sources */,
 				4B6DFE1A239E292800543E3F /* FavoritesViewController.swift in Sources */,
 				4BABFABB23AA647900F34EA4 /* BookingViewController.swift in Sources */,
+				4BFF10B723E82AFF00E164F1 /* ReservationModel.swift in Sources */,
 				4B04E435239B788000D02BC4 /* SceneDelegate.swift in Sources */,
 				4BC7B2F923DDD54F003DD257 /* AddPropertyViewController.swift in Sources */,
 				4B4008BC23B9F68E00AEE68C /* LandmarkTableViewCell.swift in Sources */,

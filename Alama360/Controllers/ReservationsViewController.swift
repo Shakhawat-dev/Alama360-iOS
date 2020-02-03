@@ -7,42 +7,74 @@
 //
 
 import UIKit
-import SearchTextField
-import GoogleMaps
+import Alamofire
+import SwiftyJSON
 
 class ReservationsViewController: UIViewController{
-
+    
+    @IBOutlet weak var reservationTable: UITableView!
+    
+    let defaults = UserDefaults.standard
+    
+    // Param Variables
+    var lan = ""
+    var id = ""
+    
+    var reservationArray = [ReservationModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        // getting default values
+        lan = LocalizationSystem.sharedInstance.getLanguage()
+        id = defaults.string(forKey: "userID")!
         
-       
-        GMSServices.provideAPIKey("AIzaSyDv0ELUI8m5cOL1jLGlkc2TOj1-8PZMPzk")
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
-        let mapView = GMSMapView.map(withFrame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 250), camera: camera)
-            view = mapView
-        
-            // Creates a marker in the center of the map.
-            let marker = GMSMarker()
-            marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-            marker.title = "Sydney"
-            marker.snippet = "Australia"
-            marker.map = mapView
-
+        loadReservation()
+        reservationTable.delegate = self
+        reservationTable.dataSource = self
     }
-//    override func loadView() {
-//        // Create a GMSCameraPosition that tells the map to display the
-//        // coordinate -33.86,151.20 at zoom level 6.
-//        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
-//        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-//        view = mapView
-//
-//        // Creates a marker in the center of the map.
-//        let marker = GMSMarker()
-//        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-//        marker.title = "Sydney"
-//        marker.snippet = "Australia"
-//        marker.map = mapView
-//      }
+    
+    func loadReservation() {
+        let rUrl = StaticUrls.BASE_URL_FINAL + "fetch_customer_bookings?lang=\(lan)&userid=140"
+        
+        Alamofire.request(rUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
+            
+            if mysresponse.result.isSuccess {
+                
+                let myResult = try? JSON(data: mysresponse.data!)
+                let resultArray = myResult!["reservations"]
+                
+                let dataArray = resultArray["data"]
+                print(resultArray as Any)
+//                print(dataArray as Any)
+                
+                // Initiatoing resultArray into specific array
+                for i in dataArray.arrayValue {
+                    
+                    let newReserv = ReservationModel(json: i)
+                    self.reservationArray.append(newReserv)
+//                     print(self.reservationArray)
+                    
+                    self.reservationTable.reloadData()
+                }
+                
+            }
+        }
+    }
+}
+
+extension ReservationsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        reservationArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReservationTableViewCell", for: indexPath) as! ReservationTableViewCell
+        cell.setValues(reserveData: reservationArray[indexPath.row])
+        
+        return cell
+    }
+    
+    
 }
 
 

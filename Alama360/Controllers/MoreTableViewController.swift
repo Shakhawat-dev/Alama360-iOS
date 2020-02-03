@@ -121,14 +121,18 @@ class MoreTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 7 {
             
+            let aTitle = LocalizationSystem.sharedInstance.localizedStringForKey(key: "sAlert_title", comment: "").localiz()
+            let aMessage = LocalizationSystem.sharedInstance.localizedStringForKey(key: "sAlert_message", comment: "").localiz()
+            let aOk = LocalizationSystem.sharedInstance.localizedStringForKey(key: "aAlert_ok", comment: "").localiz()
+            let aCancel = LocalizationSystem.sharedInstance.localizedStringForKey(key: "sAlert_cancel", comment: "").localiz()
             
-            let alert = UIAlertController(title: "Sign Out", message: "De you want to Sign Out?", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+            let alert = UIAlertController(title: aTitle, message: aMessage, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: aOk, style: .default, handler: { _ in
                 NSLog("The \"OK\" alert occured.")
                 UserDefaults.standard.set(false, forKey: "loggedIn")
                 Switcher.updateRootVC()
             }))
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Default action"), style: .cancel, handler: { _ in
+            alert.addAction(UIAlertAction(title: aCancel, style: .cancel, handler: { _ in
                 NSLog("The \"Cancel\" alert occured.")
             }))
             self.present(alert, animated: true, completion: nil)

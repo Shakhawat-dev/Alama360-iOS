@@ -9,6 +9,10 @@
 import UIKit
 import ImageSlideshow
 
+protocol SlideTapDelegate {
+    func didTapSlideShow(index: Int)
+}
+
 class BookingTableViewCell: UITableViewCell {
     @IBOutlet weak var propertyRowSlideShow: ImageSlideshow!
     @IBOutlet weak var propertyId: UILabel!
@@ -27,8 +31,15 @@ class BookingTableViewCell: UITableViewCell {
     @IBOutlet weak var propertyIdVIew: UIView!
     @IBOutlet weak var rowContainerView: UIView!
     @IBOutlet weak var textAreaView: UIView!
+    
+    private var id = ""
+    var tapDelegate: SlideTapDelegate?
+    var index: IndexPath?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        
         // Initialization code
 //        propertyRowSlideShow.layer.cornerRadius = 12
         propertyIdVIew.layer.cornerRadius = 12
@@ -37,6 +48,13 @@ class BookingTableViewCell: UITableViewCell {
         rowContainerView.layer.cornerRadius = 12
         rowContainerView.layer.shadowOffset = CGSize(width: 2, height: 2)
         rowContainerView.layer.shadowOpacity = 0.3
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.didTap))
+        propertyRowSlideShow.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    @objc func didTap() {
+        tapDelegate?.didTapSlideShow(index: index!.row)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

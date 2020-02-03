@@ -74,6 +74,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // For Hiding keyboard on Tap
+        self.hideKeyboardWhenTappedAround()
         
         setLocalize()
         loadProperties()

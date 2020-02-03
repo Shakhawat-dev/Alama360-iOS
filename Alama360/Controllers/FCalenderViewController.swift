@@ -15,6 +15,8 @@ protocol PassDateToVC {
 
 class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate {
     @IBOutlet weak var calendar: FSCalendar!
+    @IBOutlet weak var okBtn: CustomBtnGreen!
+    @IBOutlet weak var clearBtn: CustomBtnGreen!
     
     var titleCate : (title: String, cate: String, thumbcate: String)?
     
@@ -41,6 +43,7 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setLocalize()
         
         print("From FS Cal\(titleCate)")
         
@@ -55,6 +58,12 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
         let scopeGesture = UIPanGestureRecognizer(target: calendar, action: #selector(calendar.handleScopeGesture(_:)));
         calendar.addGestureRecognizer(scopeGesture)
         
+    }
+    
+    func setLocalize() {
+        
+        okBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "cOk", comment: "").localiz(), for: .normal)
+        clearBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "btnClear", comment: "").localiz(), for: .normal)
     }
     
     func datesRange(from: Date, to: Date) -> [Date] {
@@ -182,9 +191,14 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
             print("property Param is : \(propParam)")
             performSegue(withIdentifier: "calToPropSegue", sender: propParam)
         } else {
-            let alert = UIAlertController(title: "Select Date", message: "Please select date's to continue", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-                NSLog("The \"OK\" alert occured.")
+            
+            let aTitle = LocalizationSystem.sharedInstance.localizedStringForKey(key: "cAlert_title", comment: "").localiz()
+            let aMessage = LocalizationSystem.sharedInstance.localizedStringForKey(key: "cAlert_message", comment: "").localiz()
+            let aAction = LocalizationSystem.sharedInstance.localizedStringForKey(key: "cOk", comment: "").localiz()
+            
+            let alert = UIAlertController(title: aTitle, message: aMessage, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: aAction, style: .default, handler: { _ in
+//                NSLog("The \"OK\" alert occured.")
             }))
             self.present(alert, animated: true, completion: nil)
             
@@ -210,31 +224,6 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
         
         print("did deselect date \(self.formatter.string(from: date))")
     }
-    
-    
-    
-    // Detectibg Navigation Bar Back Button Tap
-    //       override func viewWillDisappear(_ animated : Bool) {
-    //           super.viewWillDisappear(animated)
-    //        print("From view will disappear \(datesRange)")
-    //        delegate!.passDate(dates: datesRange)
-    
-    //        fDate = formatter.string(from: (datesRange?.first)!)
-    //        lDate = formatter.string(from: (datesRange?.last)!)
-    //        let dates = (fDate, lDate)
-    //           if self.isMovingFromParent {
-    //
-    //               print("something \(dates)")
-    //
-    //            performSegue(withIdentifier: "setDateToSearchSegue", sender: dates)
-    //
-    //           }
-    //      }
+
 }
 
-//extension FCalenderViewController: UINavigationControllerDelegate {
-//
-//    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-//        (viewController as? SearchViewController)?.dates =  // Here you pass the to your original view controller
-//    }
-//}
