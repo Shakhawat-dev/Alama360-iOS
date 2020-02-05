@@ -30,6 +30,10 @@ class MoreTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let logo = #imageLiteral(resourceName: "logo")
+//        let imageView = UIImageView(image:logo)
+        self.navigationItem.title = "More"
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -64,12 +68,12 @@ class MoreTableViewController: UITableViewController {
     }
 
     /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->  {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
 
-        return cell
+        return cellUITableViewCell
     }
     */
 

@@ -57,6 +57,10 @@
 		4B84A10A23C4AA7D006E5237 /* LandmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B84A10923C4AA7D006E5237 /* LandmarkCell.swift */; };
 		4B84A10C23C4AA9F006E5237 /* PropertyMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B84A10B23C4AA9F006E5237 /* PropertyMapCell.swift */; };
 		4B84A10E23C4B135006E5237 /* TbPropertyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B84A10D23C4B135006E5237 /* TbPropertyDetailsViewController.swift */; };
+		4B8544E623EAC6260071FF2D /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4B8544E523EAC6260071FF2D /* Resources.bundle */; };
+		4B8544F423EAE10B0071FF2D /* paytabs-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8544F323EAE10B0071FF2D /* paytabs-iOS.framework */; };
+		4B8544F623EB05D40071FF2D /* DateAvailabilityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8544F523EB05D40071FF2D /* DateAvailabilityTableViewCell.swift */; };
+		4B8544F823EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8544F723EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift */; };
 		4B8A9D7123D5A2550019EC17 /* AllPhotoGalleryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8A9D7023D5A2550019EC17 /* AllPhotoGalleryModel.swift */; };
 		4B9012BE23B768B100E8C59D /* StaticUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9012BD23B768B100E8C59D /* StaticUrls.swift */; };
 		4B9012C423B775AC00E8C59D /* PhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9012C323B775AC00E8C59D /* PhotosModel.swift */; };
@@ -136,6 +140,11 @@
 		4B84A10923C4AA7D006E5237 /* LandmarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkCell.swift; sourceTree = "<group>"; };
 		4B84A10B23C4AA9F006E5237 /* PropertyMapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyMapCell.swift; sourceTree = "<group>"; };
 		4B84A10D23C4B135006E5237 /* TbPropertyDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TbPropertyDetailsViewController.swift; sourceTree = "<group>"; };
+		4B8544E523EAC6260071FF2D /* Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resources.bundle; sourceTree = "<group>"; };
+		4B8544E823EAD29F0071FF2D /* Alama360-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Alama360-Bridging-Header.h"; sourceTree = "<group>"; };
+		4B8544F323EAE10B0071FF2D /* paytabs-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "paytabs-iOS.framework"; sourceTree = "<group>"; };
+		4B8544F523EB05D40071FF2D /* DateAvailabilityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAvailabilityTableViewCell.swift; sourceTree = "<group>"; };
+		4B8544F723EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAvailabilityTitleTableViewCell.swift; sourceTree = "<group>"; };
 		4B8A9D7023D5A2550019EC17 /* AllPhotoGalleryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPhotoGalleryModel.swift; sourceTree = "<group>"; };
 		4B9012BD23B768B100E8C59D /* StaticUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticUrls.swift; sourceTree = "<group>"; };
 		4B9012C323B775AC00E8C59D /* PhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModel.swift; sourceTree = "<group>"; };
@@ -169,6 +178,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B8544F423EAE10B0071FF2D /* paytabs-iOS.framework in Frameworks */,
 				4BABFAB923A900D900F34EA4 /* iOSDropDown.framework in Frameworks */,
 				875FBF4D4627B61E14B5C514 /* Pods_Alama360.framework in Frameworks */,
 			);
@@ -180,6 +190,7 @@
 		3DC409E57523834DB58C98FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4B8544F323EAE10B0071FF2D /* paytabs-iOS.framework */,
 				4BABFAB823A900D900F34EA4 /* iOSDropDown.framework */,
 				DBFCD9432EC28BE6EAE7BBFC /* Pods_Alama360.framework */,
 			);
@@ -215,12 +226,14 @@
 				4B6DFE1F239E29A900543E3F /* Controllers */,
 				4B04E432239B788000D02BC4 /* AppDelegate.swift */,
 				4B04E434239B788000D02BC4 /* SceneDelegate.swift */,
+				4B8544E523EAC6260071FF2D /* Resources.bundle */,
 				4B04E456239B843F00D02BC4 /* LocalizationSystem.swift */,
 				4B04E44E239B7D1500D02BC4 /* Localizable.strings */,
 				4B1CE32F23A24A7800C0FC01 /* MainCell.swift */,
 				4B04E43B239B788300D02BC4 /* Assets.xcassets */,
 				4B04E440239B788300D02BC4 /* Info.plist */,
 				4B2ECC2723D092F100F56435 /* PropertyInfoWindow.xib */,
+				4B8544E823EAD29F0071FF2D /* Alama360-Bridging-Header.h */,
 			);
 			path = Alama360;
 			sourceTree = "<group>";
@@ -254,6 +267,8 @@
 				4B43047623C7622F00160663 /* PrivacyPolicyCell.swift */,
 				4B3666B523D9B5FF0062EE8F /* DIYCalenderCell.swift */,
 				4BFF10B823E8351C00E164F1 /* ReservationTableViewCell.swift */,
+				4B8544F523EB05D40071FF2D /* DateAvailabilityTableViewCell.swift */,
+				4B8544F723EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift */,
 			);
 			path = Tables;
 			sourceTree = "<group>";
@@ -403,6 +418,7 @@
 			files = (
 				4B04E43F239B788300D02BC4 /* LaunchScreen.storyboard in Resources */,
 				4B4BBBAF23C46F9F00DB28C5 /* More.storyboard in Resources */,
+				4B8544E623EAC6260071FF2D /* Resources.bundle in Resources */,
 				4B04E44C239B7D1500D02BC4 /* Localizable.strings in Resources */,
 				4BB8867723E19E1C00CB415F /* OTPalertView.xib in Resources */,
 				4B04E43C239B788300D02BC4 /* Assets.xcassets in Resources */,
@@ -489,6 +505,7 @@
 				4B7870C223ADF5A000D360AC /* BookingTableViewCell.swift in Sources */,
 				4B04E437239B788000D02BC4 /* MainViewController.swift in Sources */,
 				4B43047723C7622F00160663 /* PrivacyPolicyCell.swift in Sources */,
+				4B8544F623EB05D40071FF2D /* DateAvailabilityTableViewCell.swift in Sources */,
 				4B84A10C23C4AA9F006E5237 /* PropertyMapCell.swift in Sources */,
 				4B149C3A23C6111E0021F5EF /* AllPhotosCell.swift in Sources */,
 				4B9012C423B775AC00E8C59D /* PhotosModel.swift in Sources */,
@@ -530,6 +547,7 @@
 				4BB8867923E1A4A300CB415F /* OtpAlertView.swift in Sources */,
 				4B2ECC2A23D0947600F56435 /* PropertyInfoWindow.swift in Sources */,
 				4B6DFE18239E278600543E3F /* ReservationsViewController.swift in Sources */,
+				4B8544F823EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift in Sources */,
 				4B188D5823C9F45900CBBA36 /* MenuBar.swift in Sources */,
 				4B6DFE1A239E292800543E3F /* FavoritesViewController.swift in Sources */,
 				4BABFABB23AA647900F34EA4 /* BookingViewController.swift in Sources */,
@@ -709,6 +727,11 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UR8A6SD4J;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Alama360",
+				);
 				INFOPLIST_FILE = Alama360/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -717,6 +740,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.alama360;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Alama360/Alama360-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -730,6 +754,11 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UR8A6SD4J;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Alama360",
+				);
 				INFOPLIST_FILE = Alama360/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -738,6 +767,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.alama360;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Alama360/Alama360-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -28,6 +28,12 @@ class ReservationsViewController: UIViewController{
         lan = LocalizationSystem.sharedInstance.getLanguage()
         id = defaults.string(forKey: "userID")!
         
+//        let logo = #imageLiteral(resourceName: "logo")
+//        let imageView = UIImageView(image:logo)
+//        let title = UILabel("Reservations")
+        
+        self.navigationItem.title = "Reservations"
+        
         loadReservation()
         reservationTable.delegate = self
         reservationTable.dataSource = self

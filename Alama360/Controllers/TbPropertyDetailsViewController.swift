@@ -44,6 +44,7 @@ class TbPropertyDetailsViewController: UIViewController {
     
     @IBOutlet weak var propertyDetailsTable: UITableView!
     @IBOutlet weak var favBtn: UIBarButtonItem!
+    @IBOutlet weak var reservationBtn: CustomBtnGreen!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,7 +118,10 @@ class TbPropertyDetailsViewController: UIViewController {
                 
                 
                 
-                
+                DispatchQueue.main.async {
+                   self.propertyDetailsTable.reloadData()
+                    SVProgressHUD.dismiss()
+                }
                 
 //                self.propertyDetailsTable.delegate = self
 //                self.propertyDetailsTable.dataSource = self
@@ -127,10 +131,7 @@ class TbPropertyDetailsViewController: UIViewController {
    
             }
             
-            DispatchQueue.main.async {
-               self.propertyDetailsTable.reloadData()
-                SVProgressHUD.dismiss()
-            }
+            
             
             
         }
@@ -139,6 +140,9 @@ class TbPropertyDetailsViewController: UIViewController {
         
     }
     
+    @IBAction func resevationBtnTapped(_ sender: Any) {
+        
+    }
     @IBAction func favoriteBtnTapped(_ sender: Any) {
         let lan = LanguageManager.shared.currentLanguage.rawValue
         //        let user = defaults.string(forKey: "userID")!
