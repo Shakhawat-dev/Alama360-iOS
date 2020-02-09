@@ -18,9 +18,13 @@ class TbPropertyDetailsViewController: UIViewController {
     //For storing user data
     let defaults = UserDefaults.standard
     
+    var pdParams: (id: String, startDate: String, endDate: String)?
+    var startDate = ""
+    var endDate = ""
     var lan: String = ""
     var userId: String = ""
     var id: String?
+    
     var rCount: Int = 0
     var message: String = ""
     var status: String = ""
@@ -42,6 +46,8 @@ class TbPropertyDetailsViewController: UIViewController {
     //    var cellRowClass : [String: String] = ["" : ""]
     var cellRowClass = [String]()
     
+    var rentsalPriceArray = [RentalPriceModel]()
+    
     @IBOutlet weak var propertyDetailsTable: UITableView!
     @IBOutlet weak var favBtn: UIBarButtonItem!
     @IBOutlet weak var reservationBtn: CustomBtnGreen!
@@ -49,9 +55,16 @@ class TbPropertyDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userId = defaults.string(forKey: "userID")!
+        startDate = defaults.string(forKey: "firstDate")!
+        endDate = defaults.string(forKey: "lastDate")!
+        
+        //        id = pdParams?.id
+        //        startDate = pdParams!.startDate
+        //        endDate = pdParams!.endDate  // May come nil if not selected...
         
         // Do any additional setup after loading the view.
         getPropertyDetails()
+        getRentalPrice()
         
     }
     
@@ -60,8 +73,9 @@ class TbPropertyDetailsViewController: UIViewController {
         
         SVProgressHUD.show()
         
-        lan = LocalizationSystem.sharedInstance.getLanguage()
-        
+        print("Property ID is: \(id)")
+        //        lan = LocalizationSystem.sharedInstance.getLanguage()
+        lan = LanguageManager.shared.currentLanguage.rawValue
         let pdUrl = StaticUrls.BASE_URL_FINAL + "propertydetails/\(id!)?lang=\(lan)&userid=\(userId)"
         
         // URL check
@@ -79,7 +93,6 @@ class TbPropertyDetailsViewController: UIViewController {
                 print(resultArray as Any)
                 
                 // Initiating resultArray into specific array
-
                 self.pTitle = resultArray["title"].stringValue
                 self.pCityname = resultArray["cityname"].stringValue
                 self.pDistName = resultArray["dist_districtInfo"]["name"].stringValue
@@ -103,10 +116,9 @@ class TbPropertyDetailsViewController: UIViewController {
                 let newFeature = FeatureModel(json: JSON(featureArray))
                 self.property_dailyfeature = newFeature
                 
-                
                 print("Favourite info is: \(fav)")
                 if fav! == "null" {
-//                    print("Favourite info is: \(fav!)")
+                    //                    print("Favourite info is: \(fav!)")
                     self.isFav = false
                     let btnImage: UIImage = UIImage(systemName: "heart")!
                     self.favBtn.image = btnImage
@@ -116,27 +128,60 @@ class TbPropertyDetailsViewController: UIViewController {
                     self.favBtn.image = btnImage
                 }
                 
-                
+                self.propertyDetailsTable.delegate = self
+                self.propertyDetailsTable.dataSource = self
                 
                 DispatchQueue.main.async {
-                   self.propertyDetailsTable.reloadData()
+                    self.propertyDetailsTable.reloadData()
                     SVProgressHUD.dismiss()
                 }
+                //                self.propertyDetailsTable.delegate = self
+                //                self.propertyDetailsTable.dataSource = self
+                //                self.propertyDetailsTable.reloadData()
                 
-//                self.propertyDetailsTable.delegate = self
-//                self.propertyDetailsTable.dataSource = self
-//                self.propertyDetailsTable.reloadData()
+                // To show map on Footer
+                //                self.getMapView ()
                 
-                self.getMapView ()
-   
             }
-            
-            
-            
             
         }
         
-       
+    }
+    
+    func getRentalPrice() {
+        
+        lan = LanguageManager.shared.currentLanguage.rawValue
+        
+        let pdUrl = StaticUrls.BASE_URL_FINAL + "getandroiddailyrentalprice?lang=\(lan)&propertyid=\(id!)&startdate=\(startDate)&enddate=\(endDate)"
+        
+        // URL check
+        print("Response bUrl is: \(pdUrl)")
+        
+        Alamofire.request(pdUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
+            if mysresponse.result.isSuccess {
+                
+                self.propertyDetailsTable.delegate = self
+                self.propertyDetailsTable.dataSource = self
+                
+                let myResult = try? JSON(data: mysresponse.data!)
+                let resultArray = myResult!["data"]
+                
+                print("Prperty Rental Price array is: \(resultArray)")
+                for i in resultArray.arrayValue {
+                    let rentalPrice = RentalPriceModel(json: i)
+                    self.rentsalPriceArray.append(rentalPrice)
+                }
+                
+                //                        print("Rental Array is: \(self.rentsalPriceArray)")
+                
+                DispatchQueue.main.async {
+                    self.propertyDetailsTable.reloadData()
+                    SVProgressHUD.dismiss()
+                }
+                
+            }
+            
+        }
         
     }
     
@@ -149,22 +194,18 @@ class TbPropertyDetailsViewController: UIViewController {
         print("User ID is: \(userId)")
         
         let params : [String : String] = ["lang" : lan, "userid" : userId, "property_id" : id!]
-        
         let fUrl = StaticUrls.BASE_URL_FINAL + "togglefavorites?"
         
         Alamofire.request(fUrl, method: .post, parameters: params, headers: nil).responseJSON{ (mysresponse) in
-            
             if mysresponse.result.isSuccess {
                 
                 let myResult = try? JSON(data: mysresponse.data!)
-                
                 let resultArray = myResult![]
                 
-                print(resultArray)
+                print("Favorites response \(resultArray)")
                 
                 self.message = resultArray["message"].stringValue
                 self.status = resultArray["status"].stringValue
-                
                 
                 print("Status is: \(self.status)")
                 print("Message is: \(self.message)")
@@ -192,24 +233,26 @@ class TbPropertyDetailsViewController: UIViewController {
     }
     
     
-    func getMapView () {
-        
-        GMSServices.provideAPIKey("AIzaSyDod0SP5Eh_eZmNNES7aTJt3eXs1mooFHY")
-        
-        let camera = GMSCameraPosition.camera(withLatitude: pLatitude!, longitude: pLongitude!, zoom: 10.0)
-        let mapView = GMSMapView.map(withFrame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 250), camera: camera)
-        propertyDetailsTable.tableFooterView = mapView
-        
-        // Creates a marker in the center of the map.
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: pLatitude!, longitude: pLongitude!)
-        marker.title = pTitle
-        marker.snippet = pCityname
-        marker.icon = #imageLiteral(resourceName: "marker_2")
-        marker.map = mapView
-        
-        mapView.selectedMarker = marker
-    }
+    //    func getMapView () {
+    //
+    //        GMSServices.provideAPIKey("AIzaSyDod0SP5Eh_eZmNNES7aTJt3eXs1mooFHY")
+    //
+    //        let camera = GMSCameraPosition.camera(withLatitude: pLatitude!, longitude: pLongitude!, zoom: 10.0)
+    //        let mapView = GMSMapView.map(withFrame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 250), camera: camera)
+    //
+    //        // Using map as footerview
+    //        propertyDetailsTable.tableFooterView = mapView
+    //
+    //        // Creates a marker in the center of the map.
+    //        let marker = GMSMarker()
+    //        marker.position = CLLocationCoordinate2D(latitude: pLatitude!, longitude: pLongitude!)
+    //        marker.title = pTitle
+    //        marker.snippet = pCityname
+    //        marker.icon = #imageLiteral(resourceName: "marker_2")
+    //        marker.map = mapView
+    //
+    //        mapView.selectedMarker = marker
+    //    }
     
     // Removing unwanted charecters
     func substringIcon (text: String) ->String {
@@ -266,13 +309,43 @@ class TbPropertyDetailsViewController: UIViewController {
             destVC.id = sender as? String
         }
     }
-
+    
 }
 
 extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 8
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if section == 0 {
+            return 4
+        } else if section == 1{
+            return 1
+        } else if section == 2{
+            
+            if property_dailyfeature!.col1_array.count != 0 {
+                return (property_dailyfeature?.col1_array.count)!
+            } else { return 0 }
+            
+        } else if section == 3 {
+            return landmark_arr.count
+        } else if section == 4{
+            return 1
+        } else if section == 5{
+            return 1
+        } else if section == 6{
+            print(rentsalPriceArray.count)
+            return rentsalPriceArray.count
+        } else if section == 7 {
+            return 1
+        } else {
+            return 0
+        }
+        
+        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -308,33 +381,43 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
             view.addSubview(label)
             
             return view
+        } else if section == 6 {
+            
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: propertyDetailsTable.frame.size.width, height: 0))
+            view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) // Set your background color
+            let label = UILabel(frame: CGRect(x: 10, y: 5, width: propertyDetailsTable.frame.size.width - 16, height: 0))
+            
+            return nil
         }
         
-        return view
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 4 {
+            return 0
+        } else if section == 5 {
+            return 0
+        } else if section == 6 {
+            return 0
+        } else if section == 7 {
+            return 0
+        }
+        
+        return tableView.sectionHeaderHeight
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 8
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if section == 0 {
-            return 4
-        } else if section == 2{
-            return (property_dailyfeature?.col1_array.count)!
-        } else if section == 3 {
-            return landmark_arr.count
-        } else {
-            return 1
-        }
-
-    }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         var rowHeight:CGFloat = 0.0
         //        let frame = tableView.rectForRow(at: indexPath)
-        if indexPath.row == 0 {
+        if indexPath.row == 0 && indexPath.section == 0 {
             if tour == "" {
                 rowHeight = 0.0
             } else {
@@ -342,7 +425,7 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
             }
             return rowHeight
             
-        } else if indexPath.row == 1 {
+        } else if indexPath.row == 1 && indexPath.section == 0 {
             
             if photos?.picture[0] == "" {
                 rowHeight = 0.0
@@ -351,9 +434,18 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
             }
             return rowHeight
             
-        } else if indexPath.row == 2 {
+        } else if indexPath.row == 2 && indexPath.section == 0 {
             
             if pYoutube_video_url == "" {
+                rowHeight = 0.0
+            } else {
+                rowHeight = tableView.rowHeight
+            }
+            return rowHeight
+            
+        } else if indexPath.section == 5 {
+            
+            if rentsalPriceArray.count == 0 {
                 rowHeight = 0.0
             } else {
                 rowHeight = tableView.rowHeight
@@ -373,71 +465,100 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
         let row = indexPath.row
         let section = indexPath.section
         
-        if section == 0 {
+        if section == 0 && row == 0 {
             
-            if row == 0 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "Property360Cell") as! Property360Cell
-                if tour != "" {
-                    cell.get360View(url: tour!)
-                    print("360 view url: \(tour)")
-                }
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Property360Cell") as! Property360Cell
+            if tour != "" {
+                cell.get360View(url: tour!)
+                print("360 view url: \(tour)")
+            }
+            return cell
+            
+        } else if section == 0 && row == 1 {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoGridCell") as! PhotoGridCell
+            if photos?.picture[0] != "" {
                 
-                
-                return cell
-            } else if row == 1 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoGridCell") as! PhotoGridCell
-                
-                if photos?.picture[0] == "" {
-                    
-                    cell.isHidden = true
-                    
-                    return cell
-                } else {
-                    cell.setValues(aPhotos: photos!)
-                    cell.delegate = self
-                    
-                    return cell }
-            } else if row == 2 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "YoutubeCell") as! YoutubeCell
-                
-                cell.getYoutubeView(yUrl: pYoutube_video_url!)
-                
-                return cell
-            } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "NamePolicyCell") as! NamePolicyCell
-                
-                cell.propertyName.text = pTitle
-                cell.cityName.text = pCityname
-                cell.districtName.text = pDistName
+                cell.setValues(aPhotos: photos!)
+                cell.delegate = self
                 
                 return cell
             }
             
-        } else if section == 1 && pShort_des != "" {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PdDescriptionCell") as! PdDescriptionCell
+            return cell
             
+        } else if section == 0 && row == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "YoutubeCell") as! YoutubeCell
+            if pYoutube_video_url != "" {
+                cell.getYoutubeView(yUrl: pYoutube_video_url!)
+            }
+            
+            return cell
+            
+        } else if section == 0 && row == 3 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NamePolicyCell") as! NamePolicyCell
+            cell.propertyName.text = pTitle
+            cell.cityName.text = pCityname
+            cell.districtName.text = pDistName
+            
+            return cell
+            
+        } else if section == 1 {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PdDescriptionCell") as! PdDescriptionCell
             cell.pDescription.text = pShort_des
             
             return cell
-        }  else if section == 2 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FeatureCell") as! FeatureCell
             
+        }  else if section == 2 {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FeatureCell") as! FeatureCell
             cell.featureName.text = property_dailyfeature?.col1_array[indexPath.row]
             cell.featureImage.image = getImage(from: substringIcon(text: (property_dailyfeature?.icon_array[indexPath.row])!))
             
             return cell
-        } else if section == 3 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "LandmarkCell") as! LandmarkCell
             
+        } else if section == 3 {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LandmarkCell") as! LandmarkCell
             cell.landmarkName.text = landmark_arr[indexPath.row]
             
             return cell
-        } else {
+            
+        } else if section == 4 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PropertyMapCell") as! PropertyMapCell
             
-            cell.isHidden = true
+            cell.getMapValues(lat: pLatitude!, longi: pLongitude!, title: pTitle!, cityName: pCityname!)
             
             return cell
+            
+        } else if section == 5 {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DateAvailabilityTitleTableViewCell") as! DateAvailabilityTitleTableViewCell
+            
+            return cell
+            
+        } else if section == 6 {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DateAvailabilityTableViewCell") as! DateAvailabilityTableViewCell
+            cell.setValues(rentalPrices: rentsalPriceArray[indexPath.row])
+
+            return cell
+            
+        } else if section == 7 {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TotalPriceTableViewCell") as! TotalPriceTableViewCell
+            cell.setValues(price: rentsalPriceArray)
+            
+            return cell
+            
+        } else {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TotalPriceTableViewCell") as! TotalPriceTableViewCell
+            cell.setValues(price: rentsalPriceArray)
+            
+            return cell
+            
         }
         
     }

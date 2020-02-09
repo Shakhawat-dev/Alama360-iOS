@@ -38,6 +38,7 @@ class ViewController: UIViewController {
     var userid = ""
     var usertype = ""
     var status = ""
+    var lan = LanguageManager.shared.currentLanguage
     
     //HomePage segue
     
@@ -122,6 +123,17 @@ class ViewController: UIViewController {
     }
     
     func changeLanguage() {
+        
+//        // change the language
+//        LanguageManager.shared.setLanguage(language: lan,
+//                                           viewControllerFactory: { title -> UIViewController in
+//                                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                                            // the view controller that you want to show after changing the language
+//                                            return storyboard.instantiateInitialViewController()!
+//        }) { view in
+//            view.transform = CGAffineTransform(scaleX: 2, y: 2)
+//            view.alpha = 0
+//        }
         
         lblHeader.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "header_text", comment: "").localiz()
         lblSubHeader.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "sub_header", comment: "").localiz()

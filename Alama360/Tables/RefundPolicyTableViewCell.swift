@@ -1,18 +1,17 @@
 //
-//  DateAvailabilityTitleTableViewCell.swift
+//  RefundPolicyTableViewCell.swift
 //  Alama360
 //
-//  Created by Alama360 on 11/06/1441 AH.
+//  Created by Alama360 on 15/06/1441 AH.
 //  Copyright © 1441 Alama360. All rights reserved.
 //
 
 import UIKit
 
-class DateAvailabilityTitleTableViewCell: UITableViewCell {
+class RefundPolicyTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var dateTitle: UILabel!
-    @IBOutlet weak var priceTitle: UILabel!
-    @IBOutlet weak var availabilityTitle: UILabel!
+    @IBOutlet weak var refundTitleLbl: UILabel!
+    @IBOutlet weak var refundDescLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

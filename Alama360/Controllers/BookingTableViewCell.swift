@@ -19,6 +19,7 @@ class BookingTableViewCell: UITableViewCell {
     @IBOutlet weak var rowTitle: UILabel!
     @IBOutlet weak var rowCityName: UILabel!
     @IBOutlet weak var rowDayPrice: UILabel!
+    @IBOutlet weak var totalDaysLbl: UILabel!
     
     @IBOutlet weak var featureImageOne: UIImageView!
     @IBOutlet weak var featureImageTwo: UIImageView!

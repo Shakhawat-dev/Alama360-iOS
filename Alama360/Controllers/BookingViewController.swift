@@ -52,7 +52,7 @@ class BookingViewController: UIViewController {
         
         //        currentDataSource = originalDataSource
         startDate = propParam!.startDate
-        endDate = propParam!.endDate
+        endDate = propParam!.endDate // May come nil if not selected...
         thumbcate = propParam!.thumbcate
         address = propParam!.title
         pType = propParam!.cate
@@ -86,7 +86,7 @@ class BookingViewController: UIViewController {
         
         lan = LocalizationSystem.sharedInstance.getLanguage()
         
-        let params : [String : String] = ["page" : "1", "lang" : lan, "viewType" : "mapview", "start" : startDate, "end" : endDate, "property_type" : pType, "thumbcat" : thumbcate, "address" : address]
+        let params : [String : String] = ["page" : "1", "lang" : lan, "viewType" : "mapview", "startdate" : startDate, "enddate" : endDate, "property_type" : pType, "thumbcat" : thumbcate, "address" : address]
         
         let bUrl = StaticUrls.BASE_URL_FINAL + "android/propertylist?"
         
@@ -248,7 +248,7 @@ class BookingViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetails" {
             let destVC = segue.destination as! TbPropertyDetailsViewController
-            destVC.id = (sender as? String)!
+            destVC.id = sender as? String
         }
     }
     
@@ -300,8 +300,13 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
         // let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         // alertController.addAction(okAction)
         // present(alertController, animated: true, completion: nil)
+        
         id = property_list[indexPath.row].id!
         performSegue(withIdentifier: "showDetails", sender: id)
+        
+//        let pdParams = (id : id, startDate: startDate, endDate: endDate )
+//        print("property Param is : \(pdParams)")
+//        performSegue(withIdentifier: "showDetails", sender: pdParams)
         
     }
     
@@ -341,6 +346,12 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
             cell.rowDayPrice.text = String(describing: property_list[indexPath.row].dayprice!)
         } else {
             cell.rowDayPrice.text = ""
+        }
+        
+        if property_list[indexPath.row].dayprice! > 0 {
+            cell.totalDaysLbl.text = String(describing: property_list[indexPath.row].totalday!) + " Days"
+        } else {
+            cell.totalDaysLbl.text = ""
         }
         
         // Adding images to slider

@@ -62,6 +62,7 @@
 		4B8544F623EB05D40071FF2D /* DateAvailabilityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8544F523EB05D40071FF2D /* DateAvailabilityTableViewCell.swift */; };
 		4B8544F823EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8544F723EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift */; };
 		4B8A9D7123D5A2550019EC17 /* AllPhotoGalleryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8A9D7023D5A2550019EC17 /* AllPhotoGalleryModel.swift */; };
+		4B8DD1EB23EC062F0082E387 /* RentalPriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD1EA23EC062F0082E387 /* RentalPriceModel.swift */; };
 		4B9012BE23B768B100E8C59D /* StaticUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9012BD23B768B100E8C59D /* StaticUrls.swift */; };
 		4B9012C423B775AC00E8C59D /* PhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9012C323B775AC00E8C59D /* PhotosModel.swift */; };
 		4B93206E23B7A5B5005861DD /* CustomCollectionGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B93206D23B7A5B5005861DD /* CustomCollectionGrid.swift */; };
@@ -79,6 +80,12 @@
 		4BC7B2F423DD824E003DD257 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC7B2F323DD824E003DD257 /* Dates.swift */; };
 		4BC7B2F723DDBEEF003DD257 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC7B2F623DDBEEF003DD257 /* Toast.swift */; };
 		4BC7B2F923DDD54F003DD257 /* AddPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC7B2F823DDD54F003DD257 /* AddPropertyViewController.swift */; };
+		4BD52D7523EED6F0009E6C27 /* TotalPriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D7423EED6F0009E6C27 /* TotalPriceTableViewCell.swift */; };
+		4BD52D7723F00BF7009E6C27 /* ReservationDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D7623F00BF6009E6C27 /* ReservationDetailsTableViewCell.swift */; };
+		4BD52D7923F00C65009E6C27 /* CheckInOutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D7823F00C65009E6C27 /* CheckInOutTableViewCell.swift */; };
+		4BD52D7B23F00C86009E6C27 /* RefundPolicyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D7A23F00C86009E6C27 /* RefundPolicyTableViewCell.swift */; };
+		4BD52D7D23F00CBB009E6C27 /* ReservationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D7C23F00CBB009E6C27 /* ReservationDetailsViewController.swift */; };
+		4BD52D7F23F00DF2009E6C27 /* ReservationprogressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D7E23F00DF2009E6C27 /* ReservationprogressTableViewCell.swift */; };
 		4BEB3D4123CEECD7004C7F33 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BEB3D4323CEECD7004C7F33 /* Search.storyboard */; };
 		4BFF10B723E82AFF00E164F1 /* ReservationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF10B623E82AFF00E164F1 /* ReservationModel.swift */; };
 		4BFF10B923E8351C00E164F1 /* ReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF10B823E8351C00E164F1 /* ReservationTableViewCell.swift */; };
@@ -146,6 +153,7 @@
 		4B8544F523EB05D40071FF2D /* DateAvailabilityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAvailabilityTableViewCell.swift; sourceTree = "<group>"; };
 		4B8544F723EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAvailabilityTitleTableViewCell.swift; sourceTree = "<group>"; };
 		4B8A9D7023D5A2550019EC17 /* AllPhotoGalleryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPhotoGalleryModel.swift; sourceTree = "<group>"; };
+		4B8DD1EA23EC062F0082E387 /* RentalPriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentalPriceModel.swift; sourceTree = "<group>"; };
 		4B9012BD23B768B100E8C59D /* StaticUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticUrls.swift; sourceTree = "<group>"; };
 		4B9012C323B775AC00E8C59D /* PhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModel.swift; sourceTree = "<group>"; };
 		4B93206D23B7A5B5005861DD /* CustomCollectionGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionGrid.swift; sourceTree = "<group>"; };
@@ -163,6 +171,12 @@
 		4BC7B2F323DD824E003DD257 /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
 		4BC7B2F623DDBEEF003DD257 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		4BC7B2F823DDD54F003DD257 /* AddPropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPropertyViewController.swift; sourceTree = "<group>"; };
+		4BD52D7423EED6F0009E6C27 /* TotalPriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalPriceTableViewCell.swift; sourceTree = "<group>"; };
+		4BD52D7623F00BF6009E6C27 /* ReservationDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		4BD52D7823F00C65009E6C27 /* CheckInOutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInOutTableViewCell.swift; sourceTree = "<group>"; };
+		4BD52D7A23F00C86009E6C27 /* RefundPolicyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundPolicyTableViewCell.swift; sourceTree = "<group>"; };
+		4BD52D7C23F00CBB009E6C27 /* ReservationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailsViewController.swift; sourceTree = "<group>"; };
+		4BD52D7E23F00DF2009E6C27 /* ReservationprogressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationprogressTableViewCell.swift; sourceTree = "<group>"; };
 		4BEB3D4223CEECD7004C7F33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
 		4BEB3D4523CEED0C004C7F33 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Search.strings; sourceTree = "<group>"; };
 		4BEB3D4923CEFD6B004C7F33 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
@@ -269,6 +283,11 @@
 				4BFF10B823E8351C00E164F1 /* ReservationTableViewCell.swift */,
 				4B8544F523EB05D40071FF2D /* DateAvailabilityTableViewCell.swift */,
 				4B8544F723EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift */,
+				4BD52D7423EED6F0009E6C27 /* TotalPriceTableViewCell.swift */,
+				4BD52D7623F00BF6009E6C27 /* ReservationDetailsTableViewCell.swift */,
+				4BD52D7823F00C65009E6C27 /* CheckInOutTableViewCell.swift */,
+				4BD52D7A23F00C86009E6C27 /* RefundPolicyTableViewCell.swift */,
+				4BD52D7E23F00DF2009E6C27 /* ReservationprogressTableViewCell.swift */,
 			);
 			path = Tables;
 			sourceTree = "<group>";
@@ -305,6 +324,7 @@
 				4BC7B2F823DDD54F003DD257 /* AddPropertyViewController.swift */,
 				4BB8864C23DED4E400CB415F /* SplashViewController.swift */,
 				4BB8867A23E1C14800CB415F /* OtpAlertViewController.swift */,
+				4BD52D7C23F00CBB009E6C27 /* ReservationDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -319,6 +339,7 @@
 				4B8A9D7023D5A2550019EC17 /* AllPhotoGalleryModel.swift */,
 				4BC7B2F323DD824E003DD257 /* Dates.swift */,
 				4BFF10B623E82AFF00E164F1 /* ReservationModel.swift */,
+				4B8DD1EA23EC062F0082E387 /* RentalPriceModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -508,6 +529,7 @@
 				4B8544F623EB05D40071FF2D /* DateAvailabilityTableViewCell.swift in Sources */,
 				4B84A10C23C4AA9F006E5237 /* PropertyMapCell.swift in Sources */,
 				4B149C3A23C6111E0021F5EF /* AllPhotosCell.swift in Sources */,
+				4BD52D7D23F00CBB009E6C27 /* ReservationDetailsViewController.swift in Sources */,
 				4B9012C423B775AC00E8C59D /* PhotosModel.swift in Sources */,
 				4B30DEBF23D0464F00069DBC /* MapViewController.swift in Sources */,
 				4B7870C523B0D9C100D360AC /* FeatureModel.swift in Sources */,
@@ -516,8 +538,10 @@
 				4B6DFE1E239E299900543E3F /* SearchViewController.swift in Sources */,
 				4B149C3C23C6116D0021F5EF /* AllPhotosViewController.swift in Sources */,
 				4B8491F423CD83880094B035 /* ReservationTabItem.swift in Sources */,
+				4BD52D7B23F00C86009E6C27 /* RefundPolicyTableViewCell.swift in Sources */,
 				4B43047923C762EE00160663 /* PrivacyPolicyViewController.swift in Sources */,
 				4B04E457239B843F00D02BC4 /* LocalizationSystem.swift in Sources */,
+				4BD52D7923F00C65009E6C27 /* CheckInOutTableViewCell.swift in Sources */,
 				4BC7B2F723DDBEEF003DD257 /* Toast.swift in Sources */,
 				4BAA2FE923E7F6C300721EA5 /* TapKeyboardHide.swift in Sources */,
 				4B43047523C7401800160663 /* TermsOfUseViewController.swift in Sources */,
@@ -529,6 +553,7 @@
 				4B84A0FE23C4A922006E5237 /* Property360Cell.swift in Sources */,
 				4B83D88823B8CBC2003F38C9 /* FeatureTableViewCell.swift in Sources */,
 				4B04E433239B788000D02BC4 /* AppDelegate.swift in Sources */,
+				4BD52D7723F00BF7009E6C27 /* ReservationDetailsTableViewCell.swift in Sources */,
 				4B5C17E623DC15EC00EE2310 /* CustomBtnGreen.swift in Sources */,
 				4B149C3823C5B6230021F5EF /* PdDescriptionCell.swift in Sources */,
 				4B84A10823C4AA67006E5237 /* FeatureCell.swift in Sources */,
@@ -546,11 +571,14 @@
 				4B8491F223CD7DFD0094B035 /* MainTabBarController.swift in Sources */,
 				4BB8867923E1A4A300CB415F /* OtpAlertView.swift in Sources */,
 				4B2ECC2A23D0947600F56435 /* PropertyInfoWindow.swift in Sources */,
+				4BD52D7523EED6F0009E6C27 /* TotalPriceTableViewCell.swift in Sources */,
 				4B6DFE18239E278600543E3F /* ReservationsViewController.swift in Sources */,
 				4B8544F823EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift in Sources */,
 				4B188D5823C9F45900CBBA36 /* MenuBar.swift in Sources */,
 				4B6DFE1A239E292800543E3F /* FavoritesViewController.swift in Sources */,
+				4BD52D7F23F00DF2009E6C27 /* ReservationprogressTableViewCell.swift in Sources */,
 				4BABFABB23AA647900F34EA4 /* BookingViewController.swift in Sources */,
+				4B8DD1EB23EC062F0082E387 /* RentalPriceModel.swift in Sources */,
 				4BFF10B723E82AFF00E164F1 /* ReservationModel.swift in Sources */,
 				4B04E435239B788000D02BC4 /* SceneDelegate.swift in Sources */,
 				4BC7B2F923DDD54F003DD257 /* AddPropertyViewController.swift in Sources */,

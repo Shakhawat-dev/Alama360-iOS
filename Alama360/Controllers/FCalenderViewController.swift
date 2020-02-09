@@ -18,6 +18,9 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
     @IBOutlet weak var okBtn: CustomBtnGreen!
     @IBOutlet weak var clearBtn: CustomBtnGreen!
     
+    //For storing user data
+    let defaults = UserDefaults.standard
+    
     var titleCate : (title: String, cate: String, thumbcate: String)?
     
     // first date in the range
@@ -174,11 +177,7 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
             let destVC = segue.destination as! BookingViewController
             destVC.propParam = sender as? (title: String, cate: String, thumbcate: String, startDate: String, endDate: String)
         }
-        
-        //        if segue.identifier == "setDateToSearchSegue" {
-        //            let destVC = segue.destination as? SearchViewController
-        //            destVC?.dates = sender as? (String, String)
-        //        }
+
     }
     
     @IBAction func okBtnTapped(_ sender: UIButton) {
@@ -186,6 +185,9 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
         if datesRange?.first != nil {
             fDate = formatter.string(from: (datesRange?.first)!)
             lDate = formatter.string(from: (datesRange?.last)!)
+            
+            defaults.set(fDate, forKey: "firstDate")
+            defaults.set(lDate, forKey: "lastDate")
             
             let propParam = (title : titleCate?.title, cate : titleCate?.cate, thumbcate: titleCate?.thumbcate, startDate: fDate, endDate: lDate )
             print("property Param is : \(propParam)")

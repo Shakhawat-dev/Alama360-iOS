@@ -20,6 +20,7 @@ struct BookingModel {
     var no_bathroomcaption: String?
     var tour: String?
     var dayprice: Int?
+    var totalday: Int?
     var title: String?
     var short_des: String?
     var address: String?
@@ -47,6 +48,7 @@ struct BookingModel {
         self.no_bathroomcaption = json?["no_bathroomcaption"].stringValue
         self.tour = json?["tour"].stringValue
         self.dayprice = json?["dayprice"].intValue
+        self.totalday = json?["totalday"].intValue
         self.title = json?["title"].stringValue
         self.short_des = json?["short_des"].stringValue
         self.address = json?["address"].stringValue
