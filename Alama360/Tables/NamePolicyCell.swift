@@ -52,5 +52,21 @@ class NamePolicyCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func setNamePolicy(title: String, city: String, dist: String, man: Int, women: Int) {
+        propertyName.text = title
+        cityName.text = city
+        districtName.text = dist
+        
+        if man == 1 && women == 2 {
+            lblManWomen.text = "Man - Women"
+        } else if man == 1 && women == 0 {
+            lblManWomen.text = "Man"
+        } else if man == 0 && women == 2 {
+            lblManWomen.text = "Women"
+        } else {
+            lblManWomen.text = "--- -----"
+        }
+    }
 
 }

@@ -86,6 +86,8 @@
 		4BD52D7B23F00C86009E6C27 /* RefundPolicyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D7A23F00C86009E6C27 /* RefundPolicyTableViewCell.swift */; };
 		4BD52D7D23F00CBB009E6C27 /* ReservationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D7C23F00CBB009E6C27 /* ReservationDetailsViewController.swift */; };
 		4BD52D7F23F00DF2009E6C27 /* ReservationprogressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D7E23F00DF2009E6C27 /* ReservationprogressTableViewCell.swift */; };
+		4BD52D8123F017F6009E6C27 /* RDdatesPriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D8023F017F6009E6C27 /* RDdatesPriceTableViewCell.swift */; };
+		4BD52D8323F0181E009E6C27 /* RDdatePriceTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D8223F0181E009E6C27 /* RDdatePriceTitleTableViewCell.swift */; };
 		4BEB3D4123CEECD7004C7F33 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BEB3D4323CEECD7004C7F33 /* Search.storyboard */; };
 		4BFF10B723E82AFF00E164F1 /* ReservationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF10B623E82AFF00E164F1 /* ReservationModel.swift */; };
 		4BFF10B923E8351C00E164F1 /* ReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF10B823E8351C00E164F1 /* ReservationTableViewCell.swift */; };
@@ -177,6 +179,8 @@
 		4BD52D7A23F00C86009E6C27 /* RefundPolicyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundPolicyTableViewCell.swift; sourceTree = "<group>"; };
 		4BD52D7C23F00CBB009E6C27 /* ReservationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailsViewController.swift; sourceTree = "<group>"; };
 		4BD52D7E23F00DF2009E6C27 /* ReservationprogressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationprogressTableViewCell.swift; sourceTree = "<group>"; };
+		4BD52D8023F017F6009E6C27 /* RDdatesPriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RDdatesPriceTableViewCell.swift; sourceTree = "<group>"; };
+		4BD52D8223F0181E009E6C27 /* RDdatePriceTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RDdatePriceTitleTableViewCell.swift; sourceTree = "<group>"; };
 		4BEB3D4223CEECD7004C7F33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
 		4BEB3D4523CEED0C004C7F33 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Search.strings; sourceTree = "<group>"; };
 		4BEB3D4923CEFD6B004C7F33 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
@@ -288,6 +292,8 @@
 				4BD52D7823F00C65009E6C27 /* CheckInOutTableViewCell.swift */,
 				4BD52D7A23F00C86009E6C27 /* RefundPolicyTableViewCell.swift */,
 				4BD52D7E23F00DF2009E6C27 /* ReservationprogressTableViewCell.swift */,
+				4BD52D8023F017F6009E6C27 /* RDdatesPriceTableViewCell.swift */,
+				4BD52D8223F0181E009E6C27 /* RDdatePriceTitleTableViewCell.swift */,
 			);
 			path = Tables;
 			sourceTree = "<group>";
@@ -540,9 +546,11 @@
 				4B8491F423CD83880094B035 /* ReservationTabItem.swift in Sources */,
 				4BD52D7B23F00C86009E6C27 /* RefundPolicyTableViewCell.swift in Sources */,
 				4B43047923C762EE00160663 /* PrivacyPolicyViewController.swift in Sources */,
+				4BD52D8123F017F6009E6C27 /* RDdatesPriceTableViewCell.swift in Sources */,
 				4B04E457239B843F00D02BC4 /* LocalizationSystem.swift in Sources */,
 				4BD52D7923F00C65009E6C27 /* CheckInOutTableViewCell.swift in Sources */,
 				4BC7B2F723DDBEEF003DD257 /* Toast.swift in Sources */,
+				4BD52D8323F0181E009E6C27 /* RDdatePriceTitleTableViewCell.swift in Sources */,
 				4BAA2FE923E7F6C300721EA5 /* TapKeyboardHide.swift in Sources */,
 				4B43047523C7401800160663 /* TermsOfUseViewController.swift in Sources */,
 				4B3666B623D9B5FF0062EE8F /* DIYCalenderCell.swift in Sources */,

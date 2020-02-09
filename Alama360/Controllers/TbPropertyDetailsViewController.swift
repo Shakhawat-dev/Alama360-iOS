@@ -31,6 +31,7 @@ class TbPropertyDetailsViewController: UIViewController {
     var isFav: Bool = true
     var favorite_info: String = ""
     
+    var thumbnail: String?
     var pTitle: String?
     var pCityname: String?
     var pDistName: String?
@@ -39,6 +40,8 @@ class TbPropertyDetailsViewController: UIViewController {
     var pLatitude: Double?
     var pLongitude: Double?
     var tour: String?
+    var building_sec_man: Int?
+    var building_sec_wman: Int?
     var pYoutube_video_url: String?
     var photos: PhotosModel?
     var property_dailyfeature: FeatureModel?
@@ -93,6 +96,7 @@ class TbPropertyDetailsViewController: UIViewController {
                 print(resultArray as Any)
                 
                 // Initiating resultArray into specific array
+                self.thumbnail = resultArray["thumbnail"].stringValue
                 self.pTitle = resultArray["title"].stringValue
                 self.pCityname = resultArray["cityname"].stringValue
                 self.pDistName = resultArray["dist_districtInfo"]["name"].stringValue
@@ -101,6 +105,11 @@ class TbPropertyDetailsViewController: UIViewController {
                 self.pYoutube_video_url = resultArray["youtube_video_url"].stringValue
                 self.pLatitude = resultArray["latitude"].doubleValue
                 self.pLongitude = resultArray["longitude"].doubleValue
+                self.building_sec_man = resultArray["event_property_info"][0]["building_sec_man"].intValue
+                self.building_sec_wman = resultArray["event_property_info"][0]["building_sec_wman"].intValue
+                
+                print("\(self.building_sec_man) \(self.building_sec_wman)")
+                
                 let fav = resultArray["favorite_info"].rawString()
                 
                 for i in resultArray["landmarks"].arrayValue {
@@ -186,8 +195,11 @@ class TbPropertyDetailsViewController: UIViewController {
     }
     
     @IBAction func resevationBtnTapped(_ sender: Any) {
-        
+        let propParam = (title : pTitle, city : pCityname, district: pDistName, thumbnail: thumbnail, id: id, man: building_sec_man, women: building_sec_wman)
+        print("property Param is : \(propParam)")
+        performSegue(withIdentifier: "pdToRd", sender: propParam)
     }
+    
     @IBAction func favoriteBtnTapped(_ sender: Any) {
         let lan = LanguageManager.shared.currentLanguage.rawValue
         //        let user = defaults.string(forKey: "userID")!
@@ -307,6 +319,10 @@ class TbPropertyDetailsViewController: UIViewController {
         if segue.identifier == "allPhotoSegue" {
             let destVC = segue.destination as! AllPhotosViewController
             destVC.id = sender as? String
+        }
+        if segue.identifier == "pdToRd" {
+            let destVC = segue.destination as! ReservationDetailsViewController
+            destVC.rdParams = sender as? (title: String, city: String, district: String, thumbnail: String, id: String, man: Int, women: Int)
         }
     }
     
@@ -497,9 +513,8 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
             
         } else if section == 0 && row == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NamePolicyCell") as! NamePolicyCell
-            cell.propertyName.text = pTitle
-            cell.cityName.text = pCityname
-            cell.districtName.text = pDistName
+           
+            cell.setNamePolicy(title: pTitle!, city: pCityname!, dist: pDistName!, man: building_sec_man!, women: building_sec_wman!)
             
             return cell
             

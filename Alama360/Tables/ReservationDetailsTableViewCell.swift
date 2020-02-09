@@ -12,8 +12,6 @@ class ReservationDetailsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var propertyThumb: UIImageView!
     @IBOutlet weak var propertyTitle: UILabel!
-    @IBOutlet weak var ratingContainerView: UIView!
-    @IBOutlet weak var ratingLbl: UILabel!
     @IBOutlet weak var cityLbl: UILabel!
     @IBOutlet weak var districtLbl: UILabel!
     @IBOutlet weak var sectionLbl: UILabel!
@@ -28,6 +26,22 @@ class ReservationDetailsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setPropertyInfo(thumb: String, title: String, city: String, dist: String, man: Int, women: Int) {
+        propertyTitle.text = title
+        cityLbl.text = city
+        districtLbl.text = dist
+        
+        if man == 1 && women == 2 {
+            sectionLbl.text = "Section: Man - Women"
+        } else if man == 1 && women == 0 {
+            sectionLbl.text = "Section: Man"
+        } else if man == 0 && women == 2 {
+            sectionLbl.text = "Section: Women"
+        } else {
+            sectionLbl.text = "Section: --- -----"
+        }
     }
 
 }
