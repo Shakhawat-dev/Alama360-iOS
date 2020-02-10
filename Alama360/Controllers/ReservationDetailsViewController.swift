@@ -20,7 +20,7 @@ class ReservationDetailsViewController: UIViewController {
     //For storing user data
     let defaults = UserDefaults.standard
     
-    var rdParams: (title: String, city: String, district: String, thumbnail: String, id: String, man: Int, women: Int)?
+    var rdParams: (title: String, city: String, district: String, thumbnail: String, id: String, man: Int, women: Int, checkinTime: String, checkOutTime: String)?
     var startDate = ""
     var endDate = ""
     var lan: String = ""
@@ -33,12 +33,15 @@ class ReservationDetailsViewController: UIViewController {
     var thumbnail: String?
     var man: Int?
     var women: Int?
+    var checkintime: String?
+    var checkOutTime: String?
     
     var rentsalPriceArray = [RentalPriceModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    completeReservationBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "complete_reservations", comment: "").localiz(),for: .normal)
+        
         // Setting values from segue data
         pTitle = rdParams?.title
         pCityname = rdParams?.city
@@ -47,6 +50,8 @@ class ReservationDetailsViewController: UIViewController {
         id = rdParams?.id
         man = rdParams?.man
         women = rdParams?.women
+        checkintime = rdParams?.checkinTime
+        checkOutTime = rdParams?.checkOutTime
         
         startDate = defaults.string(forKey: "firstDate")!
         endDate = defaults.string(forKey: "lastDate")!
@@ -70,18 +75,18 @@ class ReservationDetailsViewController: UIViewController {
                 
                 self.reservationDetailsTableView.delegate = self
                 self.reservationDetailsTableView.dataSource = self
-
+                
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult!["data"]
-
+                
                 print("Prperty Rental Price array is: \(resultArray)")
                 for i in resultArray.arrayValue {
                     let rentalPrice = RentalPriceModel(json: i)
                     self.rentsalPriceArray.append(rentalPrice)
                 }
-
-                //                        print("Rental Array is: \(self.rentsalPriceArray)")
-
+                
+                // print("Rental Array is: \(self.rentsalPriceArray)")
+                
                 DispatchQueue.main.async {
                     self.reservationDetailsTableView.reloadData()
                     SVProgressHUD.dismiss()
@@ -92,6 +97,7 @@ class ReservationDetailsViewController: UIViewController {
         }
     }
     
+    
     @IBAction func completeReservationTapped(_ sender: Any) {
     }
     
@@ -99,7 +105,7 @@ class ReservationDetailsViewController: UIViewController {
 
 extension ReservationDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -113,7 +119,7 @@ extension ReservationDetailsViewController: UITableViewDelegate, UITableViewData
             return 0
         }
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 && indexPath.row == 0 {
@@ -126,12 +132,47 @@ extension ReservationDetailsViewController: UITableViewDelegate, UITableViewData
             cell.setPropertyInfo(thumb: thumbnail!, title: pTitle!, city: pCityname!, dist: pDistName!, man: man!, women: women!)
             
             return cell
+        }
+        else if indexPath.section == 0 && indexPath.row == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RDdatePriceTitleTableViewCell") as! RDdatePriceTitleTableViewCell
+
+            return cell
+        }
+        
+        else if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RDdatesPriceTableViewCell") as! RDdatesPriceTableViewCell
+
+            cell.setPrices(rentalPrices: rentsalPriceArray[indexPath.row])
+            cell.delegate = self
+            cell.index = indexPath
+            
+            return cell
+        }
+        else if indexPath.section == 2 && indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CheckInOutTableViewCell") as! CheckInOutTableViewCell
+
+            cell.setValues(price: rentsalPriceArray, checkIn: checkintime!, checkOut: checkOutTime!)
+
+            return cell
+        }
+        else if indexPath.section == 2 && indexPath.row == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RefundPolicyTableViewCell") as! RefundPolicyTableViewCell
+            
+            return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "RefundPolicyTableViewCell") as! RefundPolicyTableViewCell
             
             return cell
         }
     }
+    
+    
+}
 
+extension ReservationDetailsViewController: PriceCellDelegate {
+    func didTapDelBtn(index: Int) {
+        rentsalPriceArray.remove(at: index)
+        reservationDetailsTableView.reloadData()
+    }
 
 }

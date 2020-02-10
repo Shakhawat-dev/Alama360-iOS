@@ -17,6 +17,9 @@ class DateAvailabilityTitleTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        dateTitle.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "date", comment: "").localiz()
+        priceTitle.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "price", comment: "").localiz()
+        availabilityTitle.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "availablity", comment: "").localiz()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -63,6 +63,15 @@
 "exit_time" = "09:00 - 12:00";
 "section" = "القسم";
 "man_women" = "رجال - نساء";
+"man" = "رجل";
+"women" = "نساء";
+"date" = "تاريخ";
+"price" = "السعر";
+"availablity" = "توفر";
+"available" = "متاح";
+"total_price" = "السعر الكلي";
+"sar" = "ريال";
+"reserve" = "الاحتياطي";
 
 "more" = "أكثر...";
 // PD Section Headers
@@ -70,6 +79,15 @@
 "description" = "وصف";
 "features" = "المميزات";
 "landmarks" = "معالم";
+
+// Reservation Details Page
+"action" = "عمل";
+"check_start_time" = "وقت الوصول";
+"check_out_time" = "وقت المغادرة";
+"total_price" = "السعر الكلي";
+"lvl_policy" = "سياسة الاسترجاع";
+"lvl_policy_details" = "يمكن إلغاء الحجز واسترداد المبلغ قبل 5 أيام من تاريخ الحجز";
+"complete_reservations" = "اكمل الحجز";
 
 // Booking Page
 "map" = "خريطة";

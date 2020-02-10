@@ -88,6 +88,7 @@
 		4BD52D7F23F00DF2009E6C27 /* ReservationprogressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D7E23F00DF2009E6C27 /* ReservationprogressTableViewCell.swift */; };
 		4BD52D8123F017F6009E6C27 /* RDdatesPriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D8023F017F6009E6C27 /* RDdatesPriceTableViewCell.swift */; };
 		4BD52D8323F0181E009E6C27 /* RDdatePriceTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D8223F0181E009E6C27 /* RDdatePriceTitleTableViewCell.swift */; };
+		4BD52D8523F15FE6009E6C27 /* NewFeatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D8423F15FE5009E6C27 /* NewFeatureModel.swift */; };
 		4BEB3D4123CEECD7004C7F33 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BEB3D4323CEECD7004C7F33 /* Search.storyboard */; };
 		4BFF10B723E82AFF00E164F1 /* ReservationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF10B623E82AFF00E164F1 /* ReservationModel.swift */; };
 		4BFF10B923E8351C00E164F1 /* ReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF10B823E8351C00E164F1 /* ReservationTableViewCell.swift */; };
@@ -181,8 +182,8 @@
 		4BD52D7E23F00DF2009E6C27 /* ReservationprogressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationprogressTableViewCell.swift; sourceTree = "<group>"; };
 		4BD52D8023F017F6009E6C27 /* RDdatesPriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RDdatesPriceTableViewCell.swift; sourceTree = "<group>"; };
 		4BD52D8223F0181E009E6C27 /* RDdatePriceTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RDdatePriceTitleTableViewCell.swift; sourceTree = "<group>"; };
+		4BD52D8423F15FE5009E6C27 /* NewFeatureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureModel.swift; sourceTree = "<group>"; };
 		4BEB3D4223CEECD7004C7F33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
-		4BEB3D4523CEED0C004C7F33 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Search.strings; sourceTree = "<group>"; };
 		4BEB3D4923CEFD6B004C7F33 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
 		4BFF10B623E82AFF00E164F1 /* ReservationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationModel.swift; sourceTree = "<group>"; };
 		4BFF10B823E8351C00E164F1 /* ReservationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationTableViewCell.swift; sourceTree = "<group>"; };
@@ -346,6 +347,7 @@
 				4BC7B2F323DD824E003DD257 /* Dates.swift */,
 				4BFF10B623E82AFF00E164F1 /* ReservationModel.swift */,
 				4B8DD1EA23EC062F0082E387 /* RentalPriceModel.swift */,
+				4BD52D8423F15FE5009E6C27 /* NewFeatureModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -562,6 +564,7 @@
 				4B83D88823B8CBC2003F38C9 /* FeatureTableViewCell.swift in Sources */,
 				4B04E433239B788000D02BC4 /* AppDelegate.swift in Sources */,
 				4BD52D7723F00BF7009E6C27 /* ReservationDetailsTableViewCell.swift in Sources */,
+				4BD52D8523F15FE6009E6C27 /* NewFeatureModel.swift in Sources */,
 				4B5C17E623DC15EC00EE2310 /* CustomBtnGreen.swift in Sources */,
 				4B149C3823C5B6230021F5EF /* PdDescriptionCell.swift in Sources */,
 				4B84A10823C4AA67006E5237 /* FeatureCell.swift in Sources */,
@@ -631,7 +634,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				4BEB3D4223CEECD7004C7F33 /* Base */,
-				4BEB3D4523CEED0C004C7F33 /* ar */,
 			);
 			name = Search.storyboard;
 			sourceTree = "<group>";

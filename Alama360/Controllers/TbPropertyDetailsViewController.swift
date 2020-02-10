@@ -42,9 +42,12 @@ class TbPropertyDetailsViewController: UIViewController {
     var tour: String?
     var building_sec_man: Int?
     var building_sec_wman: Int?
+    var check_in_start: String = ""
+    var check_out_start: String = ""
     var pYoutube_video_url: String?
     var photos: PhotosModel?
-    var property_dailyfeature: FeatureModel?
+//    var property_dailyfeature: FeatureModel?
+    var property_dailyfeature = [NewFeatureModel]()
     var landmark_arr = [String]()
     //    var cellRowClass : [String: String] = ["" : ""]
     var cellRowClass = [String]()
@@ -60,7 +63,7 @@ class TbPropertyDetailsViewController: UIViewController {
         userId = defaults.string(forKey: "userID")!
         startDate = defaults.string(forKey: "firstDate")!
         endDate = defaults.string(forKey: "lastDate")!
-        
+    reservationBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "reserve", comment: "").localiz(),for: .normal)
         //        id = pdParams?.id
         //        startDate = pdParams!.startDate
         //        endDate = pdParams!.endDate  // May come nil if not selected...
@@ -107,6 +110,8 @@ class TbPropertyDetailsViewController: UIViewController {
                 self.pLongitude = resultArray["longitude"].doubleValue
                 self.building_sec_man = resultArray["event_property_info"][0]["building_sec_man"].intValue
                 self.building_sec_wman = resultArray["event_property_info"][0]["building_sec_wman"].intValue
+                self.check_in_start = resultArray["event_property_info"][0]["check_in_start"].stringValue
+                self.check_out_start = resultArray["event_property_info"][0]["check_out_start"].stringValue
                 
                 print("\(self.building_sec_man) \(self.building_sec_wman)")
                 
@@ -122,8 +127,12 @@ class TbPropertyDetailsViewController: UIViewController {
                 self.photos = newPhoto
                 
                 let featureArray = resultArray["property_dailyfeature"].arrayValue
-                let newFeature = FeatureModel(json: JSON(featureArray))
-                self.property_dailyfeature = newFeature
+//                let newFeature = NewFeatureModel(json: JSON(featureArray))
+//                self.property_dailyfeature.append(newFeature)
+                for i in featureArray {
+                    let newFeature = NewFeatureModel(json: JSON(i))
+                    self.property_dailyfeature.append(newFeature)
+                }
                 
                 print("Favourite info is: \(fav)")
                 if fav! == "null" {
@@ -169,8 +178,7 @@ class TbPropertyDetailsViewController: UIViewController {
         Alamofire.request(pdUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
             if mysresponse.result.isSuccess {
                 
-                self.propertyDetailsTable.delegate = self
-                self.propertyDetailsTable.dataSource = self
+                
                 
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult!["data"]
@@ -183,10 +191,13 @@ class TbPropertyDetailsViewController: UIViewController {
                 
                 //                        print("Rental Array is: \(self.rentsalPriceArray)")
                 
+                self.propertyDetailsTable.delegate = self
+                self.propertyDetailsTable.dataSource = self
                 DispatchQueue.main.async {
-                    self.propertyDetailsTable.reloadData()
-                    SVProgressHUD.dismiss()
+                self.propertyDetailsTable.reloadData()
+                SVProgressHUD.dismiss()
                 }
+                
                 
             }
             
@@ -195,7 +206,7 @@ class TbPropertyDetailsViewController: UIViewController {
     }
     
     @IBAction func resevationBtnTapped(_ sender: Any) {
-        let propParam = (title : pTitle, city : pCityname, district: pDistName, thumbnail: thumbnail, id: id, man: building_sec_man, women: building_sec_wman)
+        let propParam = (title : pTitle, city : pCityname, district: pDistName, thumbnail: thumbnail, id: id, man: building_sec_man, women: building_sec_wman, checkinTime: check_in_start, checkOutTime: check_out_start)
         print("property Param is : \(propParam)")
         performSegue(withIdentifier: "pdToRd", sender: propParam)
     }
@@ -322,7 +333,7 @@ class TbPropertyDetailsViewController: UIViewController {
         }
         if segue.identifier == "pdToRd" {
             let destVC = segue.destination as! ReservationDetailsViewController
-            destVC.rdParams = sender as? (title: String, city: String, district: String, thumbnail: String, id: String, man: Int, women: Int)
+            destVC.rdParams = sender as? (title: String, city: String, district: String, thumbnail: String, id: String, man: Int, women: Int, checkinTime: String, checkOutTime: String)
         }
     }
     
@@ -341,11 +352,7 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
         } else if section == 1{
             return 1
         } else if section == 2{
-            
-            if property_dailyfeature!.col1_array.count != 0 {
-                return (property_dailyfeature?.col1_array.count)!
-            } else { return 0 }
-            
+            return property_dailyfeature.count
         } else if section == 3 {
             return landmark_arr.count
         } else if section == 4{
@@ -484,7 +491,7 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
         if section == 0 && row == 0 {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "Property360Cell") as! Property360Cell
-            if tour != "" {
+            if tour != nil {
                 cell.get360View(url: tour!)
                 print("360 view url: \(tour)")
             }
@@ -493,7 +500,7 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
         } else if section == 0 && row == 1 {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoGridCell") as! PhotoGridCell
-            if photos?.picture[0] != "" {
+            if let pp = photos?.picture {
                 
                 cell.setValues(aPhotos: photos!)
                 cell.delegate = self
@@ -505,7 +512,7 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
             
         } else if section == 0 && row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "YoutubeCell") as! YoutubeCell
-            if pYoutube_video_url != "" {
+            if pYoutube_video_url != nil {
                 cell.getYoutubeView(yUrl: pYoutube_video_url!)
             }
             
@@ -513,7 +520,7 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
             
         } else if section == 0 && row == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NamePolicyCell") as! NamePolicyCell
-           
+            
             cell.setNamePolicy(title: pTitle!, city: pCityname!, dist: pDistName!, man: building_sec_man!, women: building_sec_wman!)
             
             return cell
@@ -528,8 +535,8 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
         }  else if section == 2 {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "FeatureCell") as! FeatureCell
-            cell.featureName.text = property_dailyfeature?.col1_array[indexPath.row]
-            cell.featureImage.image = getImage(from: substringIcon(text: (property_dailyfeature?.icon_array[indexPath.row])!))
+            cell.featureName.text = property_dailyfeature[indexPath.row].col1
+            cell.featureImage.image = getImage(from: substringIcon(text: property_dailyfeature[indexPath.row].icon))
             
             return cell
             
@@ -557,7 +564,7 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "DateAvailabilityTableViewCell") as! DateAvailabilityTableViewCell
             cell.setValues(rentalPrices: rentsalPriceArray[indexPath.row])
-
+            
             return cell
             
         } else if section == 7 {

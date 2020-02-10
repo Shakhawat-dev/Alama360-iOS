@@ -44,7 +44,7 @@ class NamePolicyCell: UITableViewCell {
         lblExitTime.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "exit_time_lvl", comment: "").localiz()
         lblExitTimeValue.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "exit_time", comment: "").localiz()
         lblSection.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "section", comment: "").localiz()
-        lblManWomen.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "man_women", comment: "").localiz()
+//        lblManWomen.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "man_women", comment: "").localiz()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -59,11 +59,11 @@ class NamePolicyCell: UITableViewCell {
         districtName.text = dist
         
         if man == 1 && women == 2 {
-            lblManWomen.text = "Man - Women"
+            lblManWomen.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "man_women", comment: "").localiz()
         } else if man == 1 && women == 0 {
-            lblManWomen.text = "Man"
+            lblManWomen.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "man", comment: "").localiz()
         } else if man == 0 && women == 2 {
-            lblManWomen.text = "Women"
+            lblManWomen.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "women", comment: "").localiz()
         } else {
             lblManWomen.text = "--- -----"
         }

@@ -33,7 +33,7 @@ class DateAvailabilityTableViewCell: UITableViewCell {
 
         if rentalPrices.availabity == "1" {
             availabilityLabel.textColor = #colorLiteral(red: 0.02439633612, green: 0.6269035533, blue: 0.4417837247, alpha: 1)
-            availabilityLabel.text = "Available"
+            availabilityLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "available", comment: "").localiz()
         } else {
             availabilityLabel.textColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
             availabilityLabel.text = "Unavailable"

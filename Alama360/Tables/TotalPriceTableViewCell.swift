@@ -22,6 +22,8 @@ class TotalPriceTableViewCell: UITableViewCell {
         tpContainerView.layer.shadowOffset = CGSize(width: 0.4, height: 0.4)
         tpContainerView.layer.shadowRadius = 8
         tpContainerView.layer.shadowColor = #colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)
+        
+        totalPriceLbl.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "total_price", comment: "").localiz()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -36,7 +38,7 @@ class TotalPriceTableViewCell: UITableViewCell {
             total += Int(i.price!)!
         }
 
-        priceLbl.text = "SAR \(total)"
+        priceLbl.text = ": " + LocalizationSystem.sharedInstance.localizedStringForKey(key: "sar", comment: "").localiz() + " \(total)"
     }
 
 }
