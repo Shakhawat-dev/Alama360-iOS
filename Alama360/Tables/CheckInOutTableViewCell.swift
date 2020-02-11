@@ -44,12 +44,13 @@ class CheckInOutTableViewCell: UITableViewCell {
 
         var total: Int = 0
         for i in price {
-            
+
             if i.availabity == "1" {
                 total += Int(i.price!)!
             }
-            
+
         }
+
         if checkIn == "" && checkOut == "" {
             checkInStack.isHidden = true
             checkOutStack.isHidden = true

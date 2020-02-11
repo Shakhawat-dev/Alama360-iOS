@@ -57,8 +57,6 @@
 		4B84A10A23C4AA7D006E5237 /* LandmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B84A10923C4AA7D006E5237 /* LandmarkCell.swift */; };
 		4B84A10C23C4AA9F006E5237 /* PropertyMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B84A10B23C4AA9F006E5237 /* PropertyMapCell.swift */; };
 		4B84A10E23C4B135006E5237 /* TbPropertyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B84A10D23C4B135006E5237 /* TbPropertyDetailsViewController.swift */; };
-		4B8544E623EAC6260071FF2D /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4B8544E523EAC6260071FF2D /* Resources.bundle */; };
-		4B8544F423EAE10B0071FF2D /* paytabs-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8544F323EAE10B0071FF2D /* paytabs-iOS.framework */; };
 		4B8544F623EB05D40071FF2D /* DateAvailabilityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8544F523EB05D40071FF2D /* DateAvailabilityTableViewCell.swift */; };
 		4B8544F823EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8544F723EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift */; };
 		4B8A9D7123D5A2550019EC17 /* AllPhotoGalleryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8A9D7023D5A2550019EC17 /* AllPhotoGalleryModel.swift */; };
@@ -89,6 +87,10 @@
 		4BD52D8123F017F6009E6C27 /* RDdatesPriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D8023F017F6009E6C27 /* RDdatesPriceTableViewCell.swift */; };
 		4BD52D8323F0181E009E6C27 /* RDdatePriceTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D8223F0181E009E6C27 /* RDdatePriceTitleTableViewCell.swift */; };
 		4BD52D8523F15FE6009E6C27 /* NewFeatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D8423F15FE5009E6C27 /* NewFeatureModel.swift */; };
+		4BD52D9023F288A7009E6C27 /* CalcTotal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D8F23F288A7009E6C27 /* CalcTotal.swift */; };
+		4BD52D9623F2B744009E6C27 /* paytabs-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD52D9523F2B744009E6C27 /* paytabs-iOS.framework */; };
+		4BD52D9823F2B749009E6C27 /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4BD52D9723F2B748009E6C27 /* Resources.bundle */; };
+		4BD52D9A23F2C296009E6C27 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D9923F2C296009E6C27 /* WelcomeViewController.swift */; };
 		4BEB3D4123CEECD7004C7F33 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BEB3D4323CEECD7004C7F33 /* Search.storyboard */; };
 		4BFF10B723E82AFF00E164F1 /* ReservationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF10B623E82AFF00E164F1 /* ReservationModel.swift */; };
 		4BFF10B923E8351C00E164F1 /* ReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF10B823E8351C00E164F1 /* ReservationTableViewCell.swift */; };
@@ -150,9 +152,6 @@
 		4B84A10923C4AA7D006E5237 /* LandmarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkCell.swift; sourceTree = "<group>"; };
 		4B84A10B23C4AA9F006E5237 /* PropertyMapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyMapCell.swift; sourceTree = "<group>"; };
 		4B84A10D23C4B135006E5237 /* TbPropertyDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TbPropertyDetailsViewController.swift; sourceTree = "<group>"; };
-		4B8544E523EAC6260071FF2D /* Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resources.bundle; sourceTree = "<group>"; };
-		4B8544E823EAD29F0071FF2D /* Alama360-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Alama360-Bridging-Header.h"; sourceTree = "<group>"; };
-		4B8544F323EAE10B0071FF2D /* paytabs-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "paytabs-iOS.framework"; sourceTree = "<group>"; };
 		4B8544F523EB05D40071FF2D /* DateAvailabilityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAvailabilityTableViewCell.swift; sourceTree = "<group>"; };
 		4B8544F723EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAvailabilityTitleTableViewCell.swift; sourceTree = "<group>"; };
 		4B8A9D7023D5A2550019EC17 /* AllPhotoGalleryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPhotoGalleryModel.swift; sourceTree = "<group>"; };
@@ -183,6 +182,11 @@
 		4BD52D8023F017F6009E6C27 /* RDdatesPriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RDdatesPriceTableViewCell.swift; sourceTree = "<group>"; };
 		4BD52D8223F0181E009E6C27 /* RDdatePriceTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RDdatePriceTitleTableViewCell.swift; sourceTree = "<group>"; };
 		4BD52D8423F15FE5009E6C27 /* NewFeatureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureModel.swift; sourceTree = "<group>"; };
+		4BD52D8E23F27DA8009E6C27 /* Alama360-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Alama360-Bridging-Header.h"; sourceTree = "<group>"; };
+		4BD52D8F23F288A7009E6C27 /* CalcTotal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcTotal.swift; sourceTree = "<group>"; };
+		4BD52D9523F2B744009E6C27 /* paytabs-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "paytabs-iOS.framework"; sourceTree = "<group>"; };
+		4BD52D9723F2B748009E6C27 /* Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resources.bundle; sourceTree = "<group>"; };
+		4BD52D9923F2C296009E6C27 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		4BEB3D4223CEECD7004C7F33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
 		4BEB3D4923CEFD6B004C7F33 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
 		4BFF10B623E82AFF00E164F1 /* ReservationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationModel.swift; sourceTree = "<group>"; };
@@ -197,7 +201,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B8544F423EAE10B0071FF2D /* paytabs-iOS.framework in Frameworks */,
+				4BD52D9623F2B744009E6C27 /* paytabs-iOS.framework in Frameworks */,
 				4BABFAB923A900D900F34EA4 /* iOSDropDown.framework in Frameworks */,
 				875FBF4D4627B61E14B5C514 /* Pods_Alama360.framework in Frameworks */,
 			);
@@ -209,7 +213,6 @@
 		3DC409E57523834DB58C98FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4B8544F323EAE10B0071FF2D /* paytabs-iOS.framework */,
 				4BABFAB823A900D900F34EA4 /* iOSDropDown.framework */,
 				DBFCD9432EC28BE6EAE7BBFC /* Pods_Alama360.framework */,
 			);
@@ -245,14 +248,14 @@
 				4B6DFE1F239E29A900543E3F /* Controllers */,
 				4B04E432239B788000D02BC4 /* AppDelegate.swift */,
 				4B04E434239B788000D02BC4 /* SceneDelegate.swift */,
-				4B8544E523EAC6260071FF2D /* Resources.bundle */,
 				4B04E456239B843F00D02BC4 /* LocalizationSystem.swift */,
 				4B04E44E239B7D1500D02BC4 /* Localizable.strings */,
 				4B1CE32F23A24A7800C0FC01 /* MainCell.swift */,
 				4B04E43B239B788300D02BC4 /* Assets.xcassets */,
 				4B04E440239B788300D02BC4 /* Info.plist */,
-				4B2ECC2723D092F100F56435 /* PropertyInfoWindow.xib */,
-				4B8544E823EAD29F0071FF2D /* Alama360-Bridging-Header.h */,
+				4BD52D9523F2B744009E6C27 /* paytabs-iOS.framework */,
+				4BD52D9723F2B748009E6C27 /* Resources.bundle */,
+				4BD52D8E23F27DA8009E6C27 /* Alama360-Bridging-Header.h */,
 			);
 			path = Alama360;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				4B4BBBAE23C46F9F00DB28C5 /* More.storyboard */,
 				4B04E438239B788100D02BC4 /* Main.storyboard */,
 				4B04E43D239B788300D02BC4 /* LaunchScreen.storyboard */,
+				4B2ECC2723D092F100F56435 /* PropertyInfoWindow.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -332,6 +336,7 @@
 				4BB8864C23DED4E400CB415F /* SplashViewController.swift */,
 				4BB8867A23E1C14800CB415F /* OtpAlertViewController.swift */,
 				4BD52D7C23F00CBB009E6C27 /* ReservationDetailsViewController.swift */,
+				4BD52D9923F2C296009E6C27 /* WelcomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -362,6 +367,7 @@
 				4BB8867823E1A4A300CB415F /* OtpAlertView.swift */,
 				4BAA2FE623E6DE5500721EA5 /* OTPTextField.swift */,
 				4BAA2FE823E7F6C200721EA5 /* TapKeyboardHide.swift */,
+				4BD52D8F23F288A7009E6C27 /* CalcTotal.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -447,7 +453,7 @@
 			files = (
 				4B04E43F239B788300D02BC4 /* LaunchScreen.storyboard in Resources */,
 				4B4BBBAF23C46F9F00DB28C5 /* More.storyboard in Resources */,
-				4B8544E623EAC6260071FF2D /* Resources.bundle in Resources */,
+				4BD52D9823F2B749009E6C27 /* Resources.bundle in Resources */,
 				4B04E44C239B7D1500D02BC4 /* Localizable.strings in Resources */,
 				4BB8867723E19E1C00CB415F /* OTPalertView.xib in Resources */,
 				4B04E43C239B788300D02BC4 /* Assets.xcassets in Resources */,
@@ -538,6 +544,7 @@
 				4B84A10C23C4AA9F006E5237 /* PropertyMapCell.swift in Sources */,
 				4B149C3A23C6111E0021F5EF /* AllPhotosCell.swift in Sources */,
 				4BD52D7D23F00CBB009E6C27 /* ReservationDetailsViewController.swift in Sources */,
+				4BD52D9A23F2C296009E6C27 /* WelcomeViewController.swift in Sources */,
 				4B9012C423B775AC00E8C59D /* PhotosModel.swift in Sources */,
 				4B30DEBF23D0464F00069DBC /* MapViewController.swift in Sources */,
 				4B7870C523B0D9C100D360AC /* FeatureModel.swift in Sources */,
@@ -564,6 +571,7 @@
 				4B83D88823B8CBC2003F38C9 /* FeatureTableViewCell.swift in Sources */,
 				4B04E433239B788000D02BC4 /* AppDelegate.swift in Sources */,
 				4BD52D7723F00BF7009E6C27 /* ReservationDetailsTableViewCell.swift in Sources */,
+				4BD52D9023F288A7009E6C27 /* CalcTotal.swift in Sources */,
 				4BD52D8523F15FE6009E6C27 /* NewFeatureModel.swift in Sources */,
 				4B5C17E623DC15EC00EE2310 /* CustomBtnGreen.swift in Sources */,
 				4B149C3823C5B6230021F5EF /* PdDescriptionCell.swift in Sources */,
@@ -775,6 +783,95 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AlamofireImage\"",
+					"-framework",
+					"\"BIObjCHelpers\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"DatePickerDialog\"",
+					"-framework",
+					"\"DropDown\"",
+					"-framework",
+					"\"FSCalendar\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GLKit\"",
+					"-framework",
+					"\"GoogleMaps\"",
+					"-framework",
+					"\"GoogleMapsBase\"",
+					"-framework",
+					"\"GoogleMapsCore\"",
+					"-framework",
+					"\"IQKeyboardManager\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"ImageSlideshow\"",
+					"-framework",
+					"\"LanguageManager_iOS\"",
+					"-framework",
+					"\"Lockbox\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"Mantle\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"PINCache\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Reachability\"",
+					"-framework",
+					"\"SBJson\"",
+					"-framework",
+					"\"SVPinView\"",
+					"-framework",
+					"\"SVProgressHUD\"",
+					"-framework",
+					"\"SearchTextField\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"iOSDropDown\"",
+					"-weak_framework",
+					"\"UIKit\"",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.alama360;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -801,6 +898,95 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AlamofireImage\"",
+					"-framework",
+					"\"BIObjCHelpers\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"DatePickerDialog\"",
+					"-framework",
+					"\"DropDown\"",
+					"-framework",
+					"\"FSCalendar\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GLKit\"",
+					"-framework",
+					"\"GoogleMaps\"",
+					"-framework",
+					"\"GoogleMapsBase\"",
+					"-framework",
+					"\"GoogleMapsCore\"",
+					"-framework",
+					"\"IQKeyboardManager\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"ImageSlideshow\"",
+					"-framework",
+					"\"LanguageManager_iOS\"",
+					"-framework",
+					"\"Lockbox\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"Mantle\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"PINCache\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Reachability\"",
+					"-framework",
+					"\"SBJson\"",
+					"-framework",
+					"\"SVPinView\"",
+					"-framework",
+					"\"SVProgressHUD\"",
+					"-framework",
+					"\"SearchTextField\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"iOSDropDown\"",
+					"-weak_framework",
+					"\"UIKit\"",
+					"-all_load",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.alama360;
 				PRODUCT_NAME = "$(TARGET_NAME)";

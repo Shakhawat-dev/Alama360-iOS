@@ -19,7 +19,7 @@ class RDdatePriceTitleTableViewCell: UITableViewCell {
         // Initialization code
         dateLbl.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "date", comment: "").localiz()
         priceLbl.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "price", comment: "").localiz()
-        actionLbl.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "man_women", comment: "").localiz()
+        actionLbl.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "action", comment: "").localiz()
         
     }
 

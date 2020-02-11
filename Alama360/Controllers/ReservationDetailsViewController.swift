@@ -17,6 +17,7 @@ class ReservationDetailsViewController: UIViewController {
     @IBOutlet weak var reservationDetailsTableView: UITableView!
     @IBOutlet weak var completeReservationBtn: CustomBtnGreen!
     
+    var initialSetupViewController: PTFWInitialSetupViewController!
     //For storing user data
     let defaults = UserDefaults.standard
     
@@ -26,6 +27,7 @@ class ReservationDetailsViewController: UIViewController {
     var lan: String = ""
     var userId: String = ""
     var id: String?
+    var phone: String = ""
     
     var pTitle: String?
     var pCityname: String?
@@ -35,6 +37,15 @@ class ReservationDetailsViewController: UIViewController {
     var women: Int?
     var checkintime: String?
     var checkOutTime: String?
+    var totalPrice: Int = 0
+    
+    var firstName: String = ""
+    var lastName: String = ""
+    var billPhone: String = ""
+    var countryCode: String = ""
+    var email: String = ""
+    var trxId: String = ""
+    var trxDate: String = ""
     
     var rentsalPriceArray = [RentalPriceModel]()
     
@@ -53,8 +64,9 @@ class ReservationDetailsViewController: UIViewController {
         checkintime = rdParams?.checkinTime
         checkOutTime = rdParams?.checkOutTime
         
-        startDate = defaults.string(forKey: "firstDate")!
-        endDate = defaults.string(forKey: "lastDate")!
+        phone = defaults.string(forKey: "phoneNumber") ?? ""
+        startDate = defaults.string(forKey: "firstDate") ?? ""
+        endDate = defaults.string(forKey: "lastDate") ?? ""
         
         // Do any additional setup after loading the view.
         getRentalData()
@@ -97,9 +109,109 @@ class ReservationDetailsViewController: UIViewController {
         }
     }
     
+    func calcTotalPrice() {
+        var total: Int = 0
+        for i in rentsalPriceArray {
+            
+            if i.availabity == "1" {
+                total += Int(i.price!)!
+            }
+            
+        }
+        
+        totalPrice = total
+        print("Total is: \(totalPrice)")
+    }
     
     @IBAction func completeReservationTapped(_ sender: Any) {
+        
+        calcTotalPrice()
+        
+        let bundle = Bundle(url: Bundle.main.url(forResource: "Resources", withExtension: "bundle")!)
+        self.initialSetupViewController = PTFWInitialSetupViewController.init(
+            bundle: bundle,
+            andWithViewFrame: self.view.frame,
+            andWithAmount: Float(totalPrice),
+            andWithCustomerTitle: "Alama360",
+            andWithCurrencyCode: "SAR",
+            andWithTaxAmount: 0.0,
+            andWithSDKLanguage: lan,
+            andWithShippingAddress: "Manama",
+            andWithShippingCity: "Manama",
+            andWithShippingCountry: "BHR",
+            andWithShippingState: "Manama",
+            andWithShippingZIPCode: "123456",
+            andWithBillingAddress: "Manama",
+            andWithBillingCity: "Manama",
+            andWithBillingCountry: "BHR",
+            andWithBillingState: "Manama",
+            andWithBillingZIPCode: "12345",
+            andWithOrderID: "12345",
+            andWithPhoneNumber: "00" + phone,
+            andWithCustomerEmail: "example@email.com",
+            andIsTokenization:false,
+            andIsPreAuth: false,
+            andWithMerchantEmail: "ali@alama360.com",
+            andWithMerchantSecretKey: "hOPwWPG56S5qy8brwX8JLHdVKmqXbiWt7M04BG9Hzf78njAUgIE1pSWafn7qG4UNQUSrB19ahhjFATAQBeR16OblcjMSnGGeByFc",
+            andWithAssigneeCode: "SDK",
+            andWithThemeColor:UIColor.red,
+            andIsThemeColorLight: false)
+        
+        
+        self.initialSetupViewController.didReceiveBackButtonCallback = {
+            
+        }
+        
+        self.initialSetupViewController.didStartPreparePaymentPage = {
+            // Start Prepare Payment Page
+            // Show loading indicator
+        }
+        self.initialSetupViewController.didFinishPreparePaymentPage = {
+            // Finish Prepare Payment Page
+            // Stop loading indicator
+        }
+        
+        self.initialSetupViewController.didReceiveFinishTransactionCallback = {(responseCode, result, transactionID, tokenizedCustomerEmail, tokenizedCustomerPassword, token, transactionState) in
+            print("Response Code: \(responseCode)")
+            print("Response Result: \(result)")
+            
+            // In Case you are using tokenization
+            print("Tokenization Cutomer Email: \(tokenizedCustomerEmail)");
+            print("Tokenization Customer Password: \(tokenizedCustomerPassword)");
+            print("TOkenization Token: \(token)");
+        }
+
+        self.view.addSubview(initialSetupViewController.view)
+        self.addChild(initialSetupViewController)
+        
+        initialSetupViewController.didMove(toParent: self)
     }
+    
+    // Sending Data to View COntroller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "rdtoWC" {
+            let destVC = segue.destination as! WelcomeViewController
+            destVC.wcParams = sender as? (billFirstName: String, billlastName: String, phone: String, cc: String, email: String, total: Int, trxId: String, trxDate: String, propertyid: String, reserveItems: [RentalPriceModel])
+        }
+    }
+    
+    @IBAction func testTapped(_ sender: Any) {
+        let reserveParam = (billFirstName : firstName,
+                            billlastName : lastName,
+                            phone: billPhone,
+                            cc: countryCode,
+                            email: email,
+                            total: totalPrice,
+                            trxId: trxId,
+                            trxDate: trxDate,
+                            propertyid: id,
+                            reserveItems: rentsalPriceArray)
+        
+        print("property Param is : \(reserveParam)")
+        
+        performSegue(withIdentifier: "rdtoWC", sender: reserveParam)
+    }
+    
     
 }
 
@@ -172,6 +284,9 @@ extension ReservationDetailsViewController: UITableViewDelegate, UITableViewData
 extension ReservationDetailsViewController: PriceCellDelegate {
     func didTapDelBtn(index: Int) {
         rentsalPriceArray.remove(at: index)
+        
+        calcTotalPrice()
+        
         reservationDetailsTableView.reloadData()
     }
 

@@ -521,7 +521,7 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
         } else if section == 0 && row == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NamePolicyCell") as! NamePolicyCell
             
-            cell.setNamePolicy(title: pTitle!, city: pCityname!, dist: pDistName!, man: building_sec_man!, women: building_sec_wman!)
+            cell.setNamePolicy(title: pTitle ?? "", city: pCityname ?? "", dist: pDistName ?? "", man: building_sec_man ?? 0, women: building_sec_wman ?? 0)
             
             return cell
             
@@ -550,7 +550,7 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
         } else if section == 4 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PropertyMapCell") as! PropertyMapCell
             
-            cell.getMapValues(lat: pLatitude!, longi: pLongitude!, title: pTitle!, cityName: pCityname!)
+            cell.getMapValues(lat: pLatitude ?? 0, longi: pLongitude ?? 0, title: pTitle ?? "", cityName: pCityname ?? "")
             
             return cell
             
