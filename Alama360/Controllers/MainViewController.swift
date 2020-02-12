@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 import LanguageManager_iOS
-import SVPinView
+//import SVPinView
 
 class ViewController: UIViewController {
     

@@ -458,7 +458,7 @@
                                                                     <constraint firstAttribute="height" constant="36" id="hOk-zM-ap5"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" textContentType="name"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6OO-jv-Nvu">
                                                                 <rect key="frame" x="0.0" y="52" width="382" height="36"/>
@@ -466,7 +466,7 @@
                                                                     <constraint firstAttribute="height" constant="36" id="LyE-M2-hGW"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" textContentType="name"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nwe-M4-uFf">
                                                                 <rect key="frame" x="0.0" y="104" width="382" height="36"/>
@@ -474,9 +474,9 @@
                                                                     <constraint firstAttribute="height" constant="36" id="y9M-1n-Z95"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" textContentType="email"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R7O-GQ-eKw">
+                                                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R7O-GQ-eKw">
                                                                 <rect key="frame" x="0.0" y="156" width="382" height="36"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="36" id="p34-NF-F9i"/>
@@ -490,7 +490,7 @@
                                                                     <constraint firstAttribute="height" constant="36" id="XCZ-gR-1lb"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="name"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Marital Status" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Xu-5Z-zct">
                                                                 <rect key="frame" x="0.0" y="260" width="382" height="36"/>
@@ -500,7 +500,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3UF-Od-6Pz">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3UF-Od-6Pz" customClass="DropDown" customModule="iOSDropDown">
                                                                 <rect key="frame" x="0.0" y="312" width="382" height="36"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="36" id="ps9-kl-QbB"/>
@@ -508,7 +508,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="country-name"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Stats" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="enH-rZ-pyd">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Stats" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="enH-rZ-pyd" customClass="DropDown" customModule="iOSDropDown">
                                                                 <rect key="frame" x="0.0" y="364" width="382" height="36"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="36" id="uzG-x3-Y0M"/>
@@ -516,7 +516,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="address-level1"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4PD-hy-laQ">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4PD-hy-laQ" customClass="DropDown" customModule="iOSDropDown">
                                                                 <rect key="frame" x="0.0" y="416" width="382" height="36"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="36" id="SRH-9Y-ek7"/>
@@ -524,7 +524,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="address-level2"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select District" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MDk-WN-74y">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select District" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MDk-WN-74y" customClass="DropDown" customModule="iOSDropDown">
                                                                 <rect key="frame" x="0.0" y="468" width="382" height="36"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="36" id="fMh-zV-iw1"/>
@@ -543,6 +543,9 @@
                                                         <state key="normal" title="Update">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="updateBtnTapped:" destination="dNH-gN-mZd" eventType="touchUpInside" id="ww6-eU-GWW"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -593,10 +596,10 @@
                         <outlet property="lastName" destination="6OO-jv-Nvu" id="B3c-3u-JcZ"/>
                         <outlet property="maritalStatus" destination="0Xu-5Z-zct" id="qTm-Vn-zU8"/>
                         <outlet property="phoneNumber" destination="R7O-GQ-eKw" id="37s-i1-xyr"/>
-                        <outlet property="selectCity" destination="4PD-hy-laQ" id="s0a-XX-cIx"/>
-                        <outlet property="selectCountry" destination="3UF-Od-6Pz" id="lXl-7w-2WT"/>
-                        <outlet property="selectDistrict" destination="MDk-WN-74y" id="Hr0-du-EW6"/>
-                        <outlet property="selectState" destination="enH-rZ-pyd" id="ghd-lV-5Pz"/>
+                        <outlet property="selectCity" destination="4PD-hy-laQ" id="m5O-Hf-aEz"/>
+                        <outlet property="selectCountry" destination="3UF-Od-6Pz" id="Q9B-Aa-AgQ"/>
+                        <outlet property="selectDistrict" destination="MDk-WN-74y" id="Qrh-rf-ltO"/>
+                        <outlet property="selectState" destination="enH-rZ-pyd" id="9e0-Pf-tdY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i6z-R7-COI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SVPinView
+//import SVPinView
 import Alamofire
 import SwiftyJSON
 import LanguageManager_iOS
@@ -17,7 +17,7 @@ class OtpAlertViewController: UIViewController {
     @IBOutlet weak var otpAlertView: UIView!
     @IBOutlet weak var alertTitle: UILabel!
     @IBOutlet weak var alertInfo: UILabel!
-    @IBOutlet weak var pinview: SVPinView!
+//    @IBOutlet weak var pinview: SVPinView!
     @IBOutlet weak var okBtn: UIButton!
     @IBOutlet weak var otpField: OTPTextField!
     @IBOutlet weak var invalidLabel: UILabel!

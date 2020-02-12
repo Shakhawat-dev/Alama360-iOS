@@ -91,6 +91,10 @@
 		4BD52D9623F2B744009E6C27 /* paytabs-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD52D9523F2B744009E6C27 /* paytabs-iOS.framework */; };
 		4BD52D9823F2B749009E6C27 /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4BD52D9723F2B748009E6C27 /* Resources.bundle */; };
 		4BD52D9A23F2C296009E6C27 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D9923F2C296009E6C27 /* WelcomeViewController.swift */; };
+		4BD52DF023F42E5B009E6C27 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52DEF23F42E5B009E6C27 /* CountryModel.swift */; };
+		4BD52DF223F42F50009E6C27 /* StateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52DF123F42F50009E6C27 /* StateModel.swift */; };
+		4BD52DF423F42FE7009E6C27 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52DF323F42FE7009E6C27 /* CityModel.swift */; };
+		4BD52DF623F43084009E6C27 /* DistrictModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52DF523F43084009E6C27 /* DistrictModel.swift */; };
 		4BEB3D4123CEECD7004C7F33 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BEB3D4323CEECD7004C7F33 /* Search.storyboard */; };
 		4BFF10B723E82AFF00E164F1 /* ReservationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF10B623E82AFF00E164F1 /* ReservationModel.swift */; };
 		4BFF10B923E8351C00E164F1 /* ReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF10B823E8351C00E164F1 /* ReservationTableViewCell.swift */; };
@@ -187,6 +191,10 @@
 		4BD52D9523F2B744009E6C27 /* paytabs-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "paytabs-iOS.framework"; sourceTree = "<group>"; };
 		4BD52D9723F2B748009E6C27 /* Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resources.bundle; sourceTree = "<group>"; };
 		4BD52D9923F2C296009E6C27 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		4BD52DEF23F42E5B009E6C27 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
+		4BD52DF123F42F50009E6C27 /* StateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateModel.swift; sourceTree = "<group>"; };
+		4BD52DF323F42FE7009E6C27 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
+		4BD52DF523F43084009E6C27 /* DistrictModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictModel.swift; sourceTree = "<group>"; };
 		4BEB3D4223CEECD7004C7F33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
 		4BEB3D4923CEFD6B004C7F33 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
 		4BFF10B623E82AFF00E164F1 /* ReservationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationModel.swift; sourceTree = "<group>"; };
@@ -353,6 +361,10 @@
 				4BFF10B623E82AFF00E164F1 /* ReservationModel.swift */,
 				4B8DD1EA23EC062F0082E387 /* RentalPriceModel.swift */,
 				4BD52D8423F15FE5009E6C27 /* NewFeatureModel.swift */,
+				4BD52DEF23F42E5B009E6C27 /* CountryModel.swift */,
+				4BD52DF123F42F50009E6C27 /* StateModel.swift */,
+				4BD52DF323F42FE7009E6C27 /* CityModel.swift */,
+				4BD52DF523F43084009E6C27 /* DistrictModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -565,6 +577,7 @@
 				4B3666B623D9B5FF0062EE8F /* DIYCalenderCell.swift in Sources */,
 				4B1CE33023A24A7800C0FC01 /* MainCell.swift in Sources */,
 				4B7870C923B47D9100D360AC /* PropertyDetailsViewController.swift in Sources */,
+				4BD52DF423F42FE7009E6C27 /* CityModel.swift in Sources */,
 				4BB8867B23E1C14800CB415F /* OtpAlertViewController.swift in Sources */,
 				4B188D5223C99C9100CBBA36 /* FAQViewController.swift in Sources */,
 				4B84A0FE23C4A922006E5237 /* Property360Cell.swift in Sources */,
@@ -575,7 +588,9 @@
 				4BD52D8523F15FE6009E6C27 /* NewFeatureModel.swift in Sources */,
 				4B5C17E623DC15EC00EE2310 /* CustomBtnGreen.swift in Sources */,
 				4B149C3823C5B6230021F5EF /* PdDescriptionCell.swift in Sources */,
+				4BD52DF623F43084009E6C27 /* DistrictModel.swift in Sources */,
 				4B84A10823C4AA67006E5237 /* FeatureCell.swift in Sources */,
+				4BD52DF223F42F50009E6C27 /* StateModel.swift in Sources */,
 				4B30DEC123D0494C00069DBC /* MapModel.swift in Sources */,
 				4BC7B2F423DD824E003DD257 /* Dates.swift in Sources */,
 				4B8A9D7123D5A2550019EC17 /* AllPhotoGalleryModel.swift in Sources */,
@@ -605,6 +620,7 @@
 				4B84A10423C4A9FC006E5237 /* PhotoGridCell.swift in Sources */,
 				4B4EAB2123CB5CAA005AEBA6 /* MoreTableViewController.swift in Sources */,
 				4B7870C723B0F7D400D360AC /* BookingModel.swift in Sources */,
+				4BD52DF023F42E5B009E6C27 /* CountryModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
