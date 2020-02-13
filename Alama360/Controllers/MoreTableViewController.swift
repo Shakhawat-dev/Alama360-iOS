@@ -33,7 +33,7 @@ class MoreTableViewController: UITableViewController {
         
 //        let logo = #imageLiteral(resourceName: "logo")
 //        let imageView = UIImageView(image:logo)
-        self.navigationItem.title = "More"
+        self.navigationItem.title = LocalizationSystem.sharedInstance.localizedStringForKey(key: "more", comment: "").localiz()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -64,8 +64,12 @@ class MoreTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 8
+        return 9
     }
+    
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        ///
+//    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->  {
@@ -123,7 +127,7 @@ class MoreTableViewController: UITableViewController {
     */
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 7 {
+        if indexPath.row == 8 {
             
             let aTitle = LocalizationSystem.sharedInstance.localizedStringForKey(key: "sAlert_title", comment: "").localiz()
             let aMessage = LocalizationSystem.sharedInstance.localizedStringForKey(key: "sAlert_message", comment: "").localiz()

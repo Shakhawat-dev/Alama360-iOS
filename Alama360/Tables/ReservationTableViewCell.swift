@@ -28,7 +28,7 @@ class ReservationTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+        setLocalization()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -51,4 +51,13 @@ class ReservationTableViewCell: UITableViewCell {
         pBookingDate.text = reserveData.created_at
     }
 
+    func setLocalization() {
+        fAddress.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "address", comment: "").localiz()
+        fDailyPrice.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "daily_price", comment: "").localiz()
+        fTotalPrice.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "total_price", comment: "").localiz()
+        fCheckDate.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "lvl_check_in_date", comment: "").localiz()
+        fCheckOutDate.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "lvl_check_out_date", comment: "").localiz()
+        fBookingDate.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "booking_date", comment: "").localiz()
+        
+    }
 }

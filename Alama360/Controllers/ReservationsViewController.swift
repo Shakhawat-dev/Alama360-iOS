@@ -32,7 +32,7 @@ class ReservationsViewController: UIViewController{
 //        let imageView = UIImageView(image:logo)
 //        let title = UILabel("Reservations")
         
-        self.navigationItem.title = "Reservations"
+        self.navigationItem.title = LocalizationSystem.sharedInstance.localizedStringForKey(key: "reservations", comment: "").localiz()
         
         loadReservation()
         reservationTable.delegate = self

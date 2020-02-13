@@ -166,35 +166,7 @@ class TbPropertyDetailsViewController: UIViewController {
         
     }
     
-//    "data": {
-//    "id": 352,
-//    "name": null,
-//    "lname": null,
-//    "email": null,
-//    "mobile": "966123456789",
-//    "personal_id": null,
-//    "dob": null,
-//    "marital_status": null,
-//    "country": null,
-//    "state": null,
-//    "city": null,
-//    "district": null,
-//    "address": null,
-//    "branch_id": null,
-//    "user_type": 3,
-//    "m_user_type": null,
-//    "status": "activated",
-//    "roles": 4,
-//    "created_at": "2020-02-12 11:31:12",
-//    "updated_at": "2020-02-12 11:31:12",
-//    "_token": null,
-//    "verify_token": null,
-//    "language": "ar",
-//    "thumbnail": "https://www.alama360.com/public/images/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg",
-//    "countryName": null,
-//    "stateName": null,
-//    "cityName": null,
-//    "districtName": null
+
     
     func getRentalPrice() {
         

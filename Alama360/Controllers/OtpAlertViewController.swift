@@ -138,6 +138,12 @@ class OtpAlertViewController: UIViewController {
                 print("user id: \(self.userid)")
                 print("verification code: \(self.code)")
                 
+                if self.usertype == "2919" {
+                    self.defaults.set("owner", forKey: "userType")
+                } else {
+                    self.defaults.set("user", forKey: "userType")
+                }
+                
             }
             
         }

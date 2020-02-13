@@ -95,6 +95,8 @@
 		4BD52DF223F42F50009E6C27 /* StateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52DF123F42F50009E6C27 /* StateModel.swift */; };
 		4BD52DF423F42FE7009E6C27 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52DF323F42FE7009E6C27 /* CityModel.swift */; };
 		4BD52DF623F43084009E6C27 /* DistrictModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52DF523F43084009E6C27 /* DistrictModel.swift */; };
+		4BD52DF823F5709A009E6C27 /* ReservationOwner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BD52DF723F5709A009E6C27 /* ReservationOwner.storyboard */; };
+		4BD52DFA23F57156009E6C27 /* ReservationOwnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52DF923F57156009E6C27 /* ReservationOwnerViewController.swift */; };
 		4BEB3D4123CEECD7004C7F33 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BEB3D4323CEECD7004C7F33 /* Search.storyboard */; };
 		4BFF10B723E82AFF00E164F1 /* ReservationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF10B623E82AFF00E164F1 /* ReservationModel.swift */; };
 		4BFF10B923E8351C00E164F1 /* ReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF10B823E8351C00E164F1 /* ReservationTableViewCell.swift */; };
@@ -195,6 +197,8 @@
 		4BD52DF123F42F50009E6C27 /* StateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateModel.swift; sourceTree = "<group>"; };
 		4BD52DF323F42FE7009E6C27 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
 		4BD52DF523F43084009E6C27 /* DistrictModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictModel.swift; sourceTree = "<group>"; };
+		4BD52DF723F5709A009E6C27 /* ReservationOwner.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReservationOwner.storyboard; sourceTree = "<group>"; };
+		4BD52DF923F57156009E6C27 /* ReservationOwnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationOwnerViewController.swift; sourceTree = "<group>"; };
 		4BEB3D4223CEECD7004C7F33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
 		4BEB3D4923CEFD6B004C7F33 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
 		4BFF10B623E82AFF00E164F1 /* ReservationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationModel.swift; sourceTree = "<group>"; };
@@ -278,6 +282,7 @@
 				4B04E438239B788100D02BC4 /* Main.storyboard */,
 				4B04E43D239B788300D02BC4 /* LaunchScreen.storyboard */,
 				4B2ECC2723D092F100F56435 /* PropertyInfoWindow.xib */,
+				4BD52DF723F5709A009E6C27 /* ReservationOwner.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 				4BB8867A23E1C14800CB415F /* OtpAlertViewController.swift */,
 				4BD52D7C23F00CBB009E6C27 /* ReservationDetailsViewController.swift */,
 				4BD52D9923F2C296009E6C27 /* WelcomeViewController.swift */,
+				4BD52DF923F57156009E6C27 /* ReservationOwnerViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -466,6 +472,7 @@
 				4B04E43F239B788300D02BC4 /* LaunchScreen.storyboard in Resources */,
 				4B4BBBAF23C46F9F00DB28C5 /* More.storyboard in Resources */,
 				4BD52D9823F2B749009E6C27 /* Resources.bundle in Resources */,
+				4BD52DF823F5709A009E6C27 /* ReservationOwner.storyboard in Resources */,
 				4B04E44C239B7D1500D02BC4 /* Localizable.strings in Resources */,
 				4BB8867723E19E1C00CB415F /* OTPalertView.xib in Resources */,
 				4B04E43C239B788300D02BC4 /* Assets.xcassets in Resources */,
@@ -598,6 +605,7 @@
 				4B43047323C73FB200160663 /* TermsAndConditionsCell.swift in Sources */,
 				4B6DFE21239E84AA00543E3F /* ContactViewController.swift in Sources */,
 				4B188D5423C9AAB200CBBA36 /* ProfileViewController.swift in Sources */,
+				4BD52DFA23F57156009E6C27 /* ReservationOwnerViewController.swift in Sources */,
 				4B84A10223C4A96F006E5237 /* YoutubeCell.swift in Sources */,
 				4B3666B423D988700062EE8F /* FCalenderViewController.swift in Sources */,
 				4B84A10A23C4AA7D006E5237 /* LandmarkCell.swift in Sources */,

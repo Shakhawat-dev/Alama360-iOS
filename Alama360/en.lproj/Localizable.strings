@@ -92,6 +92,14 @@
 "lvl_policy_details" = "Cancellation and refund can be allowed before 5 days from the booking date";
 "complete_reservations" = "Complete Reservation";
 
+// Reservation Page
+"address" = "Address";
+"daily_price" = "Daily Price";
+"lvl_check_in_date" = "Check-in Date";
+"lvl_check_out_date" = "Check-Out Date";
+"booking_date" = "Booking Date";
+
+
 // Booking Page
 "map" = "Map";
 "sort" = "Sort";
@@ -107,6 +115,22 @@
 // Profile Page
 "updateAlertTitlle" = "Success";
 "updateAlertMessage" = "Profile Updated";
+"married" = "Married";
+"unmarried" = "Unmarried";
+"firstName" = "First Name";
+"lastName" = "Last Name";
+"email_address" = "Email Address";
+"mobile_no" = "Mobile No.";
+"marital_status" = "Marital Status";
+"select_country" = "Select country";
+"dob" = "Date of Birth";
+"select_country" = "Select country";
+"select_state" = "Select state";
+"select_city" = "Select city";
+"select_district" = "Select district";
+"btn_update" = "Update";
+
+
 
 // Privacy policy part
 "Thank_you" = "Thank you for accessing the Alama360.com site powered by 3D Vision. Werespect your privacy and want to protect your personal data. To learn more,please read our privacy policy. The privacy policy explains how we collect and use (under certain conditions) our personal data. Privacy Policy describes steps we take to protect your personal data. Finally, the privacy policy describes your choices regarding the collection, use and display of your personal data. By visiting the site directly or through another site, you accept the exercises described in this policy. Data protection is your trust and your privacy is important to us. So just use your name and any other information related to you in the privacy policy. We will only collect the necessary information about you and your agreement with us. We will keep your information for the period required by law or as related to the compilation of information. You can visit the site and browse without providing us with your personal details. While browsing the site will remain anonymous and we cannot recognize you unless you have an account on the site and you enter your username and password.";

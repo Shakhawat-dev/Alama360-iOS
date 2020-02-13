@@ -35,9 +35,11 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userId = defaults.string(forKey: "userID")!
-        let logo = #imageLiteral(resourceName: "logo")
-        let imageView = UIImageView(image:logo)
-        self.navigationItem.titleView = imageView
+//        let logo = #imageLiteral(resourceName: "logo")
+//        let imageView = UIImageView(image:logo)
+//        self.navigationItem.titleView = imageView
+        
+        self.navigationItem.title = LocalizationSystem.sharedInstance.localizedStringForKey(key: "favorites", comment: "").localiz()
         
         getPropertiesForDate()
         //        setLocalization()

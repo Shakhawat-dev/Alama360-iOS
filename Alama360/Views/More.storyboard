@@ -228,8 +228,40 @@
                                             <segue destination="J0t-wX-PWt" kind="show" id="9ar-HY-IoT"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="64" id="egy-Vb-dXK">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="64" id="NwD-cd-KnZ">
                                         <rect key="frame" x="0.0" y="412" width="414" height="64"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NwD-cd-KnZ" id="At2-yG-WFs">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="64"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_add_new" translatesAutoresizingMaskIntoConstraints="NO" id="Xug-Ky-ybg">
+                                                    <rect key="frame" x="20" y="6" width="70" height="52"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="52" id="EdI-na-f1y"/>
+                                                        <constraint firstAttribute="width" constant="70" id="JVo-fH-BCM"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner Reservations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBm-8b-Gw7">
+                                                    <rect key="frame" x="98" y="22" width="277" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Xug-Ky-ybg" firstAttribute="leading" secondItem="At2-yG-WFs" secondAttribute="leading" constant="20" id="NEQ-fE-fYD"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="IBm-8b-Gw7" secondAttribute="bottom" constant="10" id="T1A-Wf-Ujs"/>
+                                                <constraint firstItem="IBm-8b-Gw7" firstAttribute="leading" secondItem="Xug-Ky-ybg" secondAttribute="trailing" constant="8" id="TcR-21-oAR"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="IBm-8b-Gw7" secondAttribute="trailing" id="ZZV-3A-acK"/>
+                                                <constraint firstAttribute="bottom" secondItem="Xug-Ky-ybg" secondAttribute="bottom" constant="6" id="cwF-Zk-tMr"/>
+                                                <constraint firstItem="IBm-8b-Gw7" firstAttribute="top" secondItem="At2-yG-WFs" secondAttribute="topMargin" constant="11" id="gXA-Gr-nQj"/>
+                                                <constraint firstItem="Xug-Ky-ybg" firstAttribute="top" secondItem="At2-yG-WFs" secondAttribute="top" constant="6" id="lNd-QQ-ENU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="64" id="egy-Vb-dXK">
+                                        <rect key="frame" x="0.0" y="476" width="414" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="egy-Vb-dXK" id="njZ-ni-lqO">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="64"/>
@@ -251,12 +283,12 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Ldh-jh-wOV" firstAttribute="top" secondItem="njZ-ni-lqO" secondAttribute="top" constant="6" id="1YW-IY-sKB"/>
-                                                <constraint firstItem="jp4-ly-cEd" firstAttribute="trailing" secondItem="njZ-ni-lqO" secondAttribute="trailingMargin" id="5H5-Z7-DWR"/>
                                                 <constraint firstAttribute="bottom" secondItem="Ldh-jh-wOV" secondAttribute="bottom" constant="6" id="Dmx-sT-qyH"/>
-                                                <constraint firstItem="jp4-ly-cEd" firstAttribute="top" secondItem="njZ-ni-lqO" secondAttribute="topMargin" constant="11" id="ENC-CD-Wuq"/>
                                                 <constraint firstItem="Ldh-jh-wOV" firstAttribute="leading" secondItem="njZ-ni-lqO" secondAttribute="leading" constant="20" id="FEg-cg-5vh"/>
-                                                <constraint firstItem="jp4-ly-cEd" firstAttribute="leading" secondItem="Ldh-jh-wOV" secondAttribute="trailing" constant="8" id="OiZ-li-btq"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="jp4-ly-cEd" secondAttribute="bottom" constant="10" id="Ssb-4T-McN"/>
+                                                <constraint firstItem="jp4-ly-cEd" firstAttribute="top" secondItem="njZ-ni-lqO" secondAttribute="topMargin" constant="11" id="GQH-T9-dwD"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="jp4-ly-cEd" secondAttribute="bottom" constant="10" id="SHo-f8-GlJ"/>
+                                                <constraint firstItem="jp4-ly-cEd" firstAttribute="trailing" secondItem="njZ-ni-lqO" secondAttribute="trailingMargin" id="TBc-Px-qEa"/>
+                                                <constraint firstItem="jp4-ly-cEd" firstAttribute="leading" secondItem="Ldh-jh-wOV" secondAttribute="trailing" constant="8" id="nsn-zo-e43"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -264,7 +296,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="64" id="gjN-c1-Ipv">
-                                        <rect key="frame" x="0.0" y="476" width="414" height="64"/>
+                                        <rect key="frame" x="0.0" y="540" width="414" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gjN-c1-Ipv" id="Hgs-kX-F1u">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="64"/>
@@ -490,9 +522,9 @@
                                                                     <constraint firstAttribute="height" constant="36" id="XCZ-gR-1lb"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="name"/>
+                                                                <textInputTraits key="textInputTraits"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Marital Status" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Xu-5Z-zct">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Marital Status" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Xu-5Z-zct" customClass="DropDown" customModule="iOSDropDown">
                                                                 <rect key="frame" x="0.0" y="260" width="382" height="36"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="36" id="S9G-oN-tQD"/>
@@ -590,11 +622,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="nca-5A-iEF"/>
                     <connections>
+                        <outlet property="btnUpdate" destination="UsB-0w-4Px" id="DFr-vn-c7a"/>
                         <outlet property="dateOfBirth" destination="vyo-a6-eUa" id="hfM-rA-nLV"/>
                         <outlet property="emailAddress" destination="nwe-M4-uFf" id="Ho4-rH-WQo"/>
                         <outlet property="firstName" destination="9Hg-Ac-cvX" id="5fQ-wL-gnE"/>
                         <outlet property="lastName" destination="6OO-jv-Nvu" id="B3c-3u-JcZ"/>
-                        <outlet property="maritalStatus" destination="0Xu-5Z-zct" id="qTm-Vn-zU8"/>
+                        <outlet property="maritalStatus" destination="0Xu-5Z-zct" id="iZN-ud-BUD"/>
                         <outlet property="phoneNumber" destination="R7O-GQ-eKw" id="37s-i1-xyr"/>
                         <outlet property="selectCity" destination="4PD-hy-laQ" id="m5O-Hf-aEz"/>
                         <outlet property="selectCountry" destination="3UF-Od-6Pz" id="Q9B-Aa-AgQ"/>

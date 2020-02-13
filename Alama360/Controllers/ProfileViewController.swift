@@ -12,6 +12,8 @@ import Alamofire
 import SwiftyJSON
 import SVProgressHUD
 import iOSDropDown
+import DatePickerDialog
+import FSCalendar
 
 class ProfileViewController: UIViewController {
     
@@ -50,62 +52,106 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var emailAddress: UITextField!
     @IBOutlet weak var phoneNumber: UITextField!
     @IBOutlet weak var dateOfBirth: UITextField!
-    @IBOutlet weak var maritalStatus: UITextField!
+    @IBOutlet weak var maritalStatus: DropDown!
     @IBOutlet weak var selectCountry: DropDown!
-
     @IBOutlet weak var selectState: DropDown!
     @IBOutlet weak var selectCity: DropDown!
     @IBOutlet weak var selectDistrict: DropDown!
+    @IBOutlet weak var btnUpdate: CustomBtnGreen!
+    
+    let datePicker = UIDatePicker()
+    fileprivate weak var calendar: FSCalendar!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         userId = defaults.string(forKey: "userID")!
-        // Do any additional setup after loading the view.
+
+    btnUpdate.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "firstName", comment: "").localiz(), for: .normal)
         
         loadProfileData()
-//        setTextFields()
+        setTextFields()
     }
     
     func setTextFields() {
         
         firstName.setIcon(#imageLiteral(resourceName: "ic_first_name"))
         firstName.text = ftName
+        firstName.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "firstName", comment: "").localiz()
         
         lastName.setIcon(#imageLiteral(resourceName: "ic_last_name"))
         lastName.text = lName
+        lastName.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "lastName", comment: "").localiz()
         
         emailAddress.setIcon(#imageLiteral(resourceName: "ic_email"))
         emailAddress.text = email
+        emailAddress.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "email_address", comment: "").localiz()
         
         phoneNumber.setIcon(#imageLiteral(resourceName: "ic_phone_2"))
         phoneNumber.text = mobile
+        phoneNumber.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "mobile_no", comment: "").localiz()
         
         dateOfBirth.setIcon(#imageLiteral(resourceName: "ic_dob"))
         dateOfBirth.text = dob
+        dateOfBirth.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "dob", comment: "").localiz()
+        //                let calendar = FSCalendar(frame: CGRect(x: 0, y: 0, width: 320, height: 300))
+        //                       calendar.dataSource = self as? FSCalendarDataSource
+        //                       calendar.delegate = self as? FSCalendarDelegate
+        //                       dateOfBirth.inputView = calendar
+        //                       self.calendar = calendar
+        
+        dateOfBirth.inputView = datePicker
+        datePicker.datePickerMode = .date
+        datePicker.locale = NSLocale.init(localeIdentifier: "en") as Locale
+        
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneAction))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolbar.setItems([doneButton,flexSpace], animated: true)
+        dateOfBirth.inputAccessoryView = toolbar
+        datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
         
         maritalStatus.setIcon(#imageLiteral(resourceName: "ic_marit"))
         maritalStatus.text = marital_status
+        maritalStatus.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "marital_status", comment: "").localiz()
         
         selectCountry.setIcon(#imageLiteral(resourceName: "ic_country_2"))
         selectCountry.text = country
+        selectCountry.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "select_country", comment: "").localiz()
         
         selectState.setIcon(#imageLiteral(resourceName: "ic_state"))
         selectState.text = state
+        selectState.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "select_state", comment: "").localiz()
         
         selectCity.setIcon(#imageLiteral(resourceName: "ic_city"))
         selectCity.text = city
+        selectCity.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "select_city", comment: "").localiz()
         
         selectDistrict.setIcon(#imageLiteral(resourceName: "ic_district"))
         selectDistrict.text = district
+        selectDistrict.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "select_district", comment: "").localiz()
         
+    }
+    
+    @objc func doneAction() {
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.locale = NSLocale(localeIdentifier: "en") as Locale
+        dateOfBirth.text = dateFormatter.string(from: datePicker.date)
+        //        view.endEditing(true)
     }
     
     func loadProfileData() {
         SVProgressHUD.show()
         
-        let pUrl = StaticUrls.BASE_URL_FINAL + "userinfo?lang=\(lan)&userid=\(userId)"
+        //        let pUrl = StaticUrls.BASE_URL_FINAL + "userinfo?lang=\(lan)&userid=\(userId)"
+        let pUrl = StaticUrls.BASE_URL_FINAL + "userinfo?lang=en&userid=\(userId)"
         print("Profile Url is: \(pUrl)")
         
         Alamofire.request(pUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
@@ -120,6 +166,7 @@ class ProfileViewController: UIViewController {
                 self.lName = resultArray["lname"].stringValue
                 self.email = resultArray["email"].stringValue
                 self.mobile = resultArray["mobile"].stringValue
+                self.dob = resultArray["dob"].stringValue
                 self.marital_status = resultArray["marital_status"].stringValue
                 self.country = resultArray["country"].stringValue
                 self.state = resultArray["state"].stringValue
@@ -129,6 +176,8 @@ class ProfileViewController: UIViewController {
                 self.thumbnail = resultArray["thumbnail"].stringValue
                 
                 let countries = resultArray["userallcountry"].arrayValue
+                print("Country array is: \(countries)")
+                
                 for country in countries {
                     let newCountry = CountryModel(json: JSON(country))
                     self.countryArray.append(newCountry)
@@ -176,7 +225,7 @@ class ProfileViewController: UIViewController {
                                           "state" : selectState.text ?? "",
                                           "city" : selectCity.text ?? "",
                                           "district" : selectDistrict.text ?? "",
-                                          "lang" : lan]
+                                          "lang" : "en"]  // TODO: Change language
         
         Alamofire.request(pUpUrl, method: .post, parameters: params, headers: nil).responseJSON{ (mysresponse) in
             
@@ -188,22 +237,45 @@ class ProfileViewController: UIViewController {
                 SVProgressHUD.dismiss()
                 
                 let aTitle = LocalizationSystem.sharedInstance.localizedStringForKey(key: "updateAlertTitlle", comment: "").localiz()
-                            let aMessage = LocalizationSystem.sharedInstance.localizedStringForKey(key: "updateAlertMessage", comment: "").localiz()
-                            let aAction = LocalizationSystem.sharedInstance.localizedStringForKey(key: "cOk", comment: "").localiz()
-                            
-                            let alert = UIAlertController(title: aTitle, message: aMessage, preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: aAction, style: .default, handler: { _ in
-                //                NSLog("The \"OK\" alert occured.")
-                            }))
-                            self.present(alert, animated: true, completion: nil)
+                let aMessage = LocalizationSystem.sharedInstance.localizedStringForKey(key: "updateAlertMessage", comment: "").localiz()
+                let aAction = LocalizationSystem.sharedInstance.localizedStringForKey(key: "cOk", comment: "").localiz()
+                
+                let alert = UIAlertController(title: aTitle, message: aMessage, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: aAction, style: .default, handler: { _ in
+                    //                NSLog("The \"OK\" alert occured.")
+                }))
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }
     
     func setDropDowns() {
+        var ddCountries = [String]()
+        var ddStates = [String]()
+        var ddCities = [String]()
+        var ddDistricts = [String]()
+        
+        maritalStatus.optionArray = [LocalizationSystem.sharedInstance.localizedStringForKey(key: "married", comment: "").localiz(), LocalizationSystem.sharedInstance.localizedStringForKey(key: "unmarried", comment: "").localiz()]
+        
         for i in countryArray {
-            selectCountry.optionArray = [i.name]
+            ddCountries.append(i.name)
         }
+        selectCountry.optionArray = ddCountries
+        
+        for i in stateArray {
+            ddStates.append(i.name)
+        }
+        selectState.optionArray = ddStates
+        
+        for i in cityArray {
+            ddCities.append(i.name)
+        }
+        selectCity.optionArray = ddCities
+        
+        for i in districtArray {
+            ddDistricts.append(i.name)
+        }
+        selectDistrict.optionArray = ddDistricts
     }
     
     @IBAction func updateBtnTapped(_ sender: Any) {
