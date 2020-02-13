@@ -31,5 +31,6 @@ target 'Alama360' do
   pod 'SBJson'
   pod 'PINCache'
   pod 'MBProgressHUD', '~> 1.1.0'
+  pod 'ActionSheetPicker-3.0'
 
 end

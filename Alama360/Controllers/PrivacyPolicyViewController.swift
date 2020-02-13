@@ -15,6 +15,7 @@ class PrivacyPolicyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light //For light mode
 
         // Do any additional setup after loading the view.
         privacyTableView.delegate = self

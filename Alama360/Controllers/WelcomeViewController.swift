@@ -51,6 +51,7 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light //For light mode
         
         phone = defaults.string(forKey: "phoneNumber") ?? ""
 

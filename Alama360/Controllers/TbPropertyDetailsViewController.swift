@@ -60,6 +60,7 @@ class TbPropertyDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light //For light mode
         userId = defaults.string(forKey: "userID")!
         startDate = defaults.string(forKey: "firstDate")!
         endDate = defaults.string(forKey: "lastDate")!

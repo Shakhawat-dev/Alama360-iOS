@@ -19,14 +19,17 @@ class ReservationsViewController: UIViewController{
     // Param Variables
     var lan = ""
     var id = ""
+    var userType = ""
     
     var reservationArray = [ReservationModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light //For light mode
         // getting default values
         lan = LocalizationSystem.sharedInstance.getLanguage()
         id = defaults.string(forKey: "userID")!
+        userType = defaults.string(forKey: "userType")!
         
 //        let logo = #imageLiteral(resourceName: "logo")
 //        let imageView = UIImageView(image:logo)
@@ -40,7 +43,14 @@ class ReservationsViewController: UIViewController{
     }
     
     func loadReservation() {
-        let rUrl = StaticUrls.BASE_URL_FINAL + "fetch_customer_bookings?lang=\(lan)&userid=140"
+        
+        var rUrl: String = ""
+        
+        if userType == "owner" {
+            rUrl = StaticUrls.BASE_URL_FINAL + "fetch_owner_bookings?lang=\(lan)&userid=\(id)"
+        } else {
+            rUrl = StaticUrls.BASE_URL_FINAL + "fetch_customer_bookings?lang=\(lan)&userid=\(id)"
+        }
         
         Alamofire.request(rUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
             

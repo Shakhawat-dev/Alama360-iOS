@@ -15,6 +15,7 @@ class FeatureTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        overrideUserInterfaceStyle = .light //For light mode
         // Initialization code
     }
 

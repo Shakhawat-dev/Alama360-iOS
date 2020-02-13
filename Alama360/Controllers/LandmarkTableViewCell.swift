@@ -15,6 +15,7 @@ class LandmarkTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        overrideUserInterfaceStyle = .light //For light mode
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

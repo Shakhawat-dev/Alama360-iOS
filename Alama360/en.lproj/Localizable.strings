@@ -34,6 +34,7 @@
 "privacy_policy" = "Privacy Policy";
 "lvl_add_property_menu" = "Add New Property";
 "nav_sign_out" = "Sign Out";
+"owner_reservations" = "Owner Properties";
 
 // Contact Us
 "office_address" = "King Abdullah Branch Rd, Al-Ruwais, Ashbeli Almtmez Tower, Jeddah 23213";
@@ -130,6 +131,11 @@
 "select_district" = "Select district";
 "btn_update" = "Update";
 
+// Owner properties
+"calendar" = "Calendar";
+"change_price" = "Change Price";
+"upload_picture" = "Upload Picture";
+"settings" = "Settings";
 
 
 // Privacy policy part

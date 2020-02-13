@@ -23,7 +23,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        overrideUserInterfaceStyle = .light //For light mode
         
         // Do any additional setup after loading the view.
         loadMap()

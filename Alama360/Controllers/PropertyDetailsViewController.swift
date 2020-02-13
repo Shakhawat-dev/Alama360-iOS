@@ -52,6 +52,7 @@ class PropertyDetailsViewController: UIViewController, WKUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light //For light mode
         
         // Do any additional setup after loading the view.
         get360View()

@@ -15,6 +15,7 @@ class addPropertyTermsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light //For light mode
 
         dummyTetx.text = "ksbgksbgkbsdkjbgkwbeiukjdskskjngjrnkjjfdkhgdhgiuhduhiudhtuitgijfgfouhguhfguhofgjkgjflkjglkjlfkgjoijfgijijiogfjoijtrjlkglkjfijtlfjlgoijrtjlgkfjoitrhuhtdiuhtiuhuikjhdfhoshenfovdonoitnoinoitorjoinoivnoirtnlkfmijtojvnortoittttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttht"
         // Do any additional setup after loading the view.

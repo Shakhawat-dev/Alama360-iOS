@@ -65,6 +65,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light //For light mode
         
         userId = defaults.string(forKey: "userID")!
 

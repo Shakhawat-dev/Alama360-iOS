@@ -13,7 +13,7 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+overrideUserInterfaceStyle = .light //For light mode
         
         // Do any additional setup after loading the view.\
 //        tabBarController?.tabBar.items![1].title = "xx"

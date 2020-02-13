@@ -38,6 +38,8 @@
 		4B4BBBAF23C46F9F00DB28C5 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4BBBAE23C46F9F00DB28C5 /* More.storyboard */; };
 		4B4EAB2123CB5CAA005AEBA6 /* MoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4EAB2023CB5CAA005AEBA6 /* MoreTableViewController.swift */; };
 		4B5C17E623DC15EC00EE2310 /* CustomBtnGreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C17E523DC15EC00EE2310 /* CustomBtnGreen.swift */; };
+		4B603F6B23F5E7B60005ECA9 /* paytabs-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B603F6A23F5E7B50005ECA9 /* paytabs-iOS.framework */; };
+		4B603F6D23F5E8680005ECA9 /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4B603F6C23F5E8670005ECA9 /* Resources.bundle */; };
 		4B6DFE18239E278600543E3F /* ReservationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE17239E278600543E3F /* ReservationsViewController.swift */; };
 		4B6DFE1A239E292800543E3F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE19239E292800543E3F /* FavoritesViewController.swift */; };
 		4B6DFE1E239E299900543E3F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE1D239E299900543E3F /* SearchViewController.swift */; };
@@ -88,8 +90,6 @@
 		4BD52D8323F0181E009E6C27 /* RDdatePriceTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D8223F0181E009E6C27 /* RDdatePriceTitleTableViewCell.swift */; };
 		4BD52D8523F15FE6009E6C27 /* NewFeatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D8423F15FE5009E6C27 /* NewFeatureModel.swift */; };
 		4BD52D9023F288A7009E6C27 /* CalcTotal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D8F23F288A7009E6C27 /* CalcTotal.swift */; };
-		4BD52D9623F2B744009E6C27 /* paytabs-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD52D9523F2B744009E6C27 /* paytabs-iOS.framework */; };
-		4BD52D9823F2B749009E6C27 /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4BD52D9723F2B748009E6C27 /* Resources.bundle */; };
 		4BD52D9A23F2C296009E6C27 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52D9923F2C296009E6C27 /* WelcomeViewController.swift */; };
 		4BD52DF023F42E5B009E6C27 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52DEF23F42E5B009E6C27 /* CountryModel.swift */; };
 		4BD52DF223F42F50009E6C27 /* StateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52DF123F42F50009E6C27 /* StateModel.swift */; };
@@ -97,6 +97,9 @@
 		4BD52DF623F43084009E6C27 /* DistrictModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52DF523F43084009E6C27 /* DistrictModel.swift */; };
 		4BD52DF823F5709A009E6C27 /* ReservationOwner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BD52DF723F5709A009E6C27 /* ReservationOwner.storyboard */; };
 		4BD52DFA23F57156009E6C27 /* ReservationOwnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52DF923F57156009E6C27 /* ReservationOwnerViewController.swift */; };
+		4BD52DFC23F57E01009E6C27 /* OwnerReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52DFB23F57E01009E6C27 /* OwnerReservationTableViewCell.swift */; };
+		4BD52DFE23F5887C009E6C27 /* OwnerWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52DFD23F5887C009E6C27 /* OwnerWebViewController.swift */; };
+		4BD52E0023F59237009E6C27 /* OwnerPropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD52DFF23F59236009E6C27 /* OwnerPropertyViewController.swift */; };
 		4BEB3D4123CEECD7004C7F33 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BEB3D4323CEECD7004C7F33 /* Search.storyboard */; };
 		4BFF10B723E82AFF00E164F1 /* ReservationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF10B623E82AFF00E164F1 /* ReservationModel.swift */; };
 		4BFF10B923E8351C00E164F1 /* ReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF10B823E8351C00E164F1 /* ReservationTableViewCell.swift */; };
@@ -139,6 +142,8 @@
 		4B4BBBAE23C46F9F00DB28C5 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
 		4B4EAB2023CB5CAA005AEBA6 /* MoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewController.swift; sourceTree = "<group>"; };
 		4B5C17E523DC15EC00EE2310 /* CustomBtnGreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBtnGreen.swift; sourceTree = "<group>"; };
+		4B603F6A23F5E7B50005ECA9 /* paytabs-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "paytabs-iOS.framework"; sourceTree = "<group>"; };
+		4B603F6C23F5E8670005ECA9 /* Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resources.bundle; sourceTree = "<group>"; };
 		4B6DFE17239E278600543E3F /* ReservationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationsViewController.swift; sourceTree = "<group>"; };
 		4B6DFE19239E292800543E3F /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		4B6DFE1D239E299900543E3F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -190,8 +195,6 @@
 		4BD52D8423F15FE5009E6C27 /* NewFeatureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureModel.swift; sourceTree = "<group>"; };
 		4BD52D8E23F27DA8009E6C27 /* Alama360-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Alama360-Bridging-Header.h"; sourceTree = "<group>"; };
 		4BD52D8F23F288A7009E6C27 /* CalcTotal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcTotal.swift; sourceTree = "<group>"; };
-		4BD52D9523F2B744009E6C27 /* paytabs-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "paytabs-iOS.framework"; sourceTree = "<group>"; };
-		4BD52D9723F2B748009E6C27 /* Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resources.bundle; sourceTree = "<group>"; };
 		4BD52D9923F2C296009E6C27 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		4BD52DEF23F42E5B009E6C27 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		4BD52DF123F42F50009E6C27 /* StateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateModel.swift; sourceTree = "<group>"; };
@@ -199,6 +202,9 @@
 		4BD52DF523F43084009E6C27 /* DistrictModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictModel.swift; sourceTree = "<group>"; };
 		4BD52DF723F5709A009E6C27 /* ReservationOwner.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReservationOwner.storyboard; sourceTree = "<group>"; };
 		4BD52DF923F57156009E6C27 /* ReservationOwnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationOwnerViewController.swift; sourceTree = "<group>"; };
+		4BD52DFB23F57E01009E6C27 /* OwnerReservationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerReservationTableViewCell.swift; sourceTree = "<group>"; };
+		4BD52DFD23F5887C009E6C27 /* OwnerWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerWebViewController.swift; sourceTree = "<group>"; };
+		4BD52DFF23F59236009E6C27 /* OwnerPropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerPropertyViewController.swift; sourceTree = "<group>"; };
 		4BEB3D4223CEECD7004C7F33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
 		4BEB3D4923CEFD6B004C7F33 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
 		4BFF10B623E82AFF00E164F1 /* ReservationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationModel.swift; sourceTree = "<group>"; };
@@ -213,7 +219,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BD52D9623F2B744009E6C27 /* paytabs-iOS.framework in Frameworks */,
+				4B603F6B23F5E7B60005ECA9 /* paytabs-iOS.framework in Frameworks */,
 				4BABFAB923A900D900F34EA4 /* iOSDropDown.framework in Frameworks */,
 				875FBF4D4627B61E14B5C514 /* Pods_Alama360.framework in Frameworks */,
 			);
@@ -265,8 +271,8 @@
 				4B1CE32F23A24A7800C0FC01 /* MainCell.swift */,
 				4B04E43B239B788300D02BC4 /* Assets.xcassets */,
 				4B04E440239B788300D02BC4 /* Info.plist */,
-				4BD52D9523F2B744009E6C27 /* paytabs-iOS.framework */,
-				4BD52D9723F2B748009E6C27 /* Resources.bundle */,
+				4B603F6C23F5E8670005ECA9 /* Resources.bundle */,
+				4B603F6A23F5E7B50005ECA9 /* paytabs-iOS.framework */,
 				4BD52D8E23F27DA8009E6C27 /* Alama360-Bridging-Header.h */,
 			);
 			path = Alama360;
@@ -312,6 +318,7 @@
 				4BD52D7E23F00DF2009E6C27 /* ReservationprogressTableViewCell.swift */,
 				4BD52D8023F017F6009E6C27 /* RDdatesPriceTableViewCell.swift */,
 				4BD52D8223F0181E009E6C27 /* RDdatePriceTitleTableViewCell.swift */,
+				4BD52DFB23F57E01009E6C27 /* OwnerReservationTableViewCell.swift */,
 			);
 			path = Tables;
 			sourceTree = "<group>";
@@ -351,6 +358,8 @@
 				4BD52D7C23F00CBB009E6C27 /* ReservationDetailsViewController.swift */,
 				4BD52D9923F2C296009E6C27 /* WelcomeViewController.swift */,
 				4BD52DF923F57156009E6C27 /* ReservationOwnerViewController.swift */,
+				4BD52DFD23F5887C009E6C27 /* OwnerWebViewController.swift */,
+				4BD52DFF23F59236009E6C27 /* OwnerPropertyViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -471,12 +480,12 @@
 			files = (
 				4B04E43F239B788300D02BC4 /* LaunchScreen.storyboard in Resources */,
 				4B4BBBAF23C46F9F00DB28C5 /* More.storyboard in Resources */,
-				4BD52D9823F2B749009E6C27 /* Resources.bundle in Resources */,
 				4BD52DF823F5709A009E6C27 /* ReservationOwner.storyboard in Resources */,
 				4B04E44C239B7D1500D02BC4 /* Localizable.strings in Resources */,
 				4BB8867723E19E1C00CB415F /* OTPalertView.xib in Resources */,
 				4B04E43C239B788300D02BC4 /* Assets.xcassets in Resources */,
 				4B4BBBAD23C46F8200DB28C5 /* Favourites.storyboard in Resources */,
+				4B603F6D23F5E8680005ECA9 /* Resources.bundle in Resources */,
 				4B04E43A239B788100D02BC4 /* Main.storyboard in Resources */,
 				4BEB3D4123CEECD7004C7F33 /* Search.storyboard in Resources */,
 				4B4BBBAB23C46F1E00DB28C5 /* Reservations.storyboard in Resources */,
@@ -575,6 +584,7 @@
 				4BD52D7B23F00C86009E6C27 /* RefundPolicyTableViewCell.swift in Sources */,
 				4B43047923C762EE00160663 /* PrivacyPolicyViewController.swift in Sources */,
 				4BD52D8123F017F6009E6C27 /* RDdatesPriceTableViewCell.swift in Sources */,
+				4BD52E0023F59237009E6C27 /* OwnerPropertyViewController.swift in Sources */,
 				4B04E457239B843F00D02BC4 /* LocalizationSystem.swift in Sources */,
 				4BD52D7923F00C65009E6C27 /* CheckInOutTableViewCell.swift in Sources */,
 				4BC7B2F723DDBEEF003DD257 /* Toast.swift in Sources */,
@@ -602,6 +612,7 @@
 				4BC7B2F423DD824E003DD257 /* Dates.swift in Sources */,
 				4B8A9D7123D5A2550019EC17 /* AllPhotoGalleryModel.swift in Sources */,
 				4BFF10B923E8351C00E164F1 /* ReservationTableViewCell.swift in Sources */,
+				4BD52DFE23F5887C009E6C27 /* OwnerWebViewController.swift in Sources */,
 				4B43047323C73FB200160663 /* TermsAndConditionsCell.swift in Sources */,
 				4B6DFE21239E84AA00543E3F /* ContactViewController.swift in Sources */,
 				4B188D5423C9AAB200CBBA36 /* ProfileViewController.swift in Sources */,
@@ -628,6 +639,7 @@
 				4B84A10423C4A9FC006E5237 /* PhotoGridCell.swift in Sources */,
 				4B4EAB2123CB5CAA005AEBA6 /* MoreTableViewController.swift in Sources */,
 				4B7870C723B0F7D400D360AC /* BookingModel.swift in Sources */,
+				4BD52DFC23F57E01009E6C27 /* OwnerReservationTableViewCell.swift in Sources */,
 				4BD52DF023F42E5B009E6C27 /* CountryModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

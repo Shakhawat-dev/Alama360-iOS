@@ -16,6 +16,7 @@ class MoreTableViewController: UITableViewController {
     @IBOutlet weak var inviteFriendCell: UITableViewCell!
     @IBOutlet weak var termsCell: UITableViewCell!
     @IBOutlet weak var privacyPolicyCell: UITableViewCell!
+    @IBOutlet weak var ownerReservationCell: UITableViewCell!
     @IBOutlet weak var newPropertyCell: UITableViewCell!
     @IBOutlet weak var signOutCell: UITableViewCell!
     
@@ -25,12 +26,18 @@ class MoreTableViewController: UITableViewController {
     @IBOutlet weak var lblInvite: UILabel!
     @IBOutlet weak var lblTermsOfUse: UILabel!
     @IBOutlet weak var lblPrivacy: UILabel!
+    @IBOutlet weak var lblOwnerReservations: UILabel!
     @IBOutlet weak var lblAddProperty: UILabel!
     @IBOutlet weak var lblSignOut: UILabel!
     
+    //For storing user data
+    let defaults = UserDefaults.standard
+    var userType: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        overrideUserInterfaceStyle = .light //For light mode
+        userType = defaults.string(forKey: "userType") ?? "user"
 //        let logo = #imageLiteral(resourceName: "logo")
 //        let imageView = UIImageView(image:logo)
         self.navigationItem.title = LocalizationSystem.sharedInstance.localizedStringForKey(key: "more", comment: "").localiz()
@@ -49,6 +56,7 @@ class MoreTableViewController: UITableViewController {
         lblInvite.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "invite_friend", comment: "").localiz()
         lblTermsOfUse.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "terms_of_use", comment: "").localiz()
         lblPrivacy.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "privacy_policy", comment: "").localiz()
+        lblOwnerReservations.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "owner_reservations", comment: "").localiz()
         lblAddProperty.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "lvl_add_property_menu", comment: "").localiz()
         lblSignOut.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "nav_sign_out", comment: "").localiz()
         
@@ -67,9 +75,15 @@ class MoreTableViewController: UITableViewController {
         return 9
     }
     
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        ///
-//    }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        let rowHeight:CGFloat = 0.0
+//        if indexPath.row == 6 && userType == "user" {
+//            return rowHeight
+//        } else {
+//            return tableView.rowHeight
+//        }
+        return tableView.rowHeight
+    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->  {

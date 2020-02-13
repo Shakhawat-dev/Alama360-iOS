@@ -21,7 +21,7 @@ class AddPropertyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        overrideUserInterfaceStyle = .light //For light mode
         
         
         addProperty()

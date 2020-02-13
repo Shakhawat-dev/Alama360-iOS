@@ -36,6 +36,7 @@ class OtpAlertViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light //For light mode
         self.hideKeyboardWhenTappedAround()
         
         localize()
@@ -175,6 +176,13 @@ class OtpAlertViewController: UIViewController {
                     self.defaults.set(self.userLoggedIn, forKey: "loggedIn")
                     Switcher.updateRootVC()
                 }
+                
+                if self.usertype == "2919" {
+                    self.defaults.set("owner", forKey: "userType")
+                } else {
+                    self.defaults.set("user", forKey: "userType")
+                }
+                
                 print("user id: \(self.userid)")
                 print("Message: \(self.message)")
                 

@@ -17,7 +17,8 @@ class SplashViewController: UIViewController {
     var status: Bool?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        overrideUserInterfaceStyle = .light //For light mode
+        
         status = defaults.bool(forKey: "loggedIn")
         print(status)
 //        Switcher.updateRootVC()

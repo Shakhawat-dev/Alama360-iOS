@@ -46,6 +46,7 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light //For light mode
         setLocalize()
         
         print("From FS Cal\(titleCate)")

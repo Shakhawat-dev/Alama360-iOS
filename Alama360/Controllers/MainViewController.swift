@@ -44,6 +44,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light //For light mode
         
         // For Hiding keyboard on Tap
         self.hideKeyboardWhenTappedAround()

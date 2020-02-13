@@ -51,6 +51,7 @@ class ReservationDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light //For light mode
     completeReservationBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "complete_reservations", comment: "").localiz(),for: .normal)
         
         // Setting values from segue data
