@@ -46,4 +46,9 @@ struct RentalPriceModel {
         self.check_out_time = json["check_out_time"].stringValue
         
     }
+    
+    func convertToDictionary() -> [String : Any] {
+        let dic: [String: Any] = ["id": self.id, "rentdate": self.rentdate, "price": self.price, "availabity": self.availabity]
+        return dic
+    }
 }

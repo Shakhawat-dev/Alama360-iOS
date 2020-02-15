@@ -46,7 +46,7 @@ class TbPropertyDetailsViewController: UIViewController {
     var check_out_start: String = ""
     var pYoutube_video_url: String?
     var photos: PhotosModel?
-//    var property_dailyfeature: FeatureModel?
+    //    var property_dailyfeature: FeatureModel?
     var property_dailyfeature = [NewFeatureModel]()
     var landmark_arr = [String]()
     //    var cellRowClass : [String: String] = ["" : ""]
@@ -64,7 +64,7 @@ class TbPropertyDetailsViewController: UIViewController {
         userId = defaults.string(forKey: "userID")!
         startDate = defaults.string(forKey: "firstDate")!
         endDate = defaults.string(forKey: "lastDate")!
-    reservationBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "reserve", comment: "").localiz(),for: .normal)
+        reservationBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "reserve", comment: "").localiz(),for: .normal)
         //        id = pdParams?.id
         //        startDate = pdParams!.startDate
         //        endDate = pdParams!.endDate  // May come nil if not selected...
@@ -128,8 +128,8 @@ class TbPropertyDetailsViewController: UIViewController {
                 self.photos = newPhoto
                 
                 let featureArray = resultArray["property_dailyfeature"].arrayValue
-//                let newFeature = NewFeatureModel(json: JSON(featureArray))
-//                self.property_dailyfeature.append(newFeature)
+                //                let newFeature = NewFeatureModel(json: JSON(featureArray))
+                //                self.property_dailyfeature.append(newFeature)
                 for i in featureArray {
                     let newFeature = NewFeatureModel(json: JSON(i))
                     self.property_dailyfeature.append(newFeature)
@@ -167,7 +167,7 @@ class TbPropertyDetailsViewController: UIViewController {
         
     }
     
-
+    
     
     func getRentalPrice() {
         
@@ -197,8 +197,8 @@ class TbPropertyDetailsViewController: UIViewController {
                 self.propertyDetailsTable.delegate = self
                 self.propertyDetailsTable.dataSource = self
                 DispatchQueue.main.async {
-                self.propertyDetailsTable.reloadData()
-                SVProgressHUD.dismiss()
+                    self.propertyDetailsTable.reloadData()
+                    SVProgressHUD.dismiss()
                 }
                 
                 
@@ -209,9 +209,24 @@ class TbPropertyDetailsViewController: UIViewController {
     }
     
     @IBAction func resevationBtnTapped(_ sender: Any) {
-        let propParam = (title : pTitle, city : pCityname, district: pDistName, thumbnail: thumbnail, id: id, man: building_sec_man, women: building_sec_wman, checkinTime: check_in_start, checkOutTime: check_out_start)
-        print("property Param is : \(propParam)")
-        performSegue(withIdentifier: "pdToRd", sender: propParam)
+        
+        if rentsalPriceArray.isEmpty != true {
+            let propParam = (title : pTitle, city : pCityname, district: pDistName, thumbnail: thumbnail, id: id, man: building_sec_man, women: building_sec_wman, checkinTime: check_in_start, checkOutTime: check_out_start)
+            print("property Param is : \(propParam)")
+            performSegue(withIdentifier: "pdToRd", sender: propParam)
+        } else {
+            let aTitle = LocalizationSystem.sharedInstance.localizedStringForKey(key: "rAlertTitle", comment: "").localiz()
+            let aMessage = LocalizationSystem.sharedInstance.localizedStringForKey(key: "rAlertMessage", comment: "").localiz()
+            let aAction = LocalizationSystem.sharedInstance.localizedStringForKey(key: "cOk", comment: "").localiz()
+            
+            let alert = UIAlertController(title: aTitle, message: aMessage, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: aAction, style: .default, handler: { _ in
+                //                NSLog("The \"OK\" alert occured.")
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        
     }
     
     @IBAction func favoriteBtnTapped(_ sender: Any) {

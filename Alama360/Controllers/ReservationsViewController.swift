@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import LanguageManager_iOS
 
 class ReservationsViewController: UIViewController{
     
@@ -27,7 +28,8 @@ class ReservationsViewController: UIViewController{
         super.viewDidLoad()
         overrideUserInterfaceStyle = .light //For light mode
         // getting default values
-        lan = LocalizationSystem.sharedInstance.getLanguage()
+//        lan = LocalizationSystem.sharedInstance.getLanguage()
+        lan = LanguageManager.shared.currentLanguage.rawValue
         id = defaults.string(forKey: "userID")!
         userType = defaults.string(forKey: "userType")!
         

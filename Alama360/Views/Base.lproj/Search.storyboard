@@ -308,9 +308,12 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRq-9l-J3U" customClass="FSCalendar">
                                 <rect key="frame" x="0.0" y="88" width="375" height="571"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="adjustsBoundingRectWhenChangingMonths" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="todayColor">
+                                        <color key="value" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="Z26-EJ-3CP" id="9Il-eh-U34"/>
@@ -320,24 +323,24 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="PEW-D9-OKY">
                                 <rect key="frame" x="40" y="679" width="295" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFN-Fp-T15" customClass="CustomBtnGreen" customModule="Alama360" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="139" height="30"/>
-                                        <color key="backgroundColor" red="0.024396336120000001" green="0.62690355330000003" blue="0.44178372469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Clear">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="clearBtnTapped:" destination="Z26-EJ-3CP" eventType="touchUpInside" id="oPi-Qg-ALg"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lt2-yh-qGx" customClass="CustomBtnGreen" customModule="Alama360" customModuleProvider="target">
-                                        <rect key="frame" x="156" y="0.0" width="139" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="139" height="30"/>
                                         <color key="backgroundColor" red="0.024396336120000001" green="0.62690355330000003" blue="0.44178372469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="OK">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="okBtnTapped:" destination="Z26-EJ-3CP" eventType="touchUpInside" id="uHN-t2-4rw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFN-Fp-T15" customClass="CustomBtnGreen" customModule="Alama360" customModuleProvider="target">
+                                        <rect key="frame" x="156" y="0.0" width="139" height="30"/>
+                                        <color key="backgroundColor" red="0.024396336120000001" green="0.62690355330000003" blue="0.44178372469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Clear">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clearBtnTapped:" destination="Z26-EJ-3CP" eventType="touchUpInside" id="oPi-Qg-ALg"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -871,13 +874,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jzq-Ij-IWp"/>
                     </view>
-                    <navigationItem key="navigationItem" id="dn2-gT-saP">
-                        <barButtonItem key="rightBarButtonItem" title="For Test" id="rVj-oY-3V4">
-                            <connections>
-                                <action selector="testTapped:" destination="ADh-Im-5nB" id="pq5-mA-D2C"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="dn2-gT-saP"/>
                     <connections>
                         <outlet property="completeReservationBtn" destination="iIB-sk-3iV" id="dpj-6g-ZBJ"/>
                         <outlet property="reservationDetailsTableView" destination="QWH-1W-zGm" id="e7C-Pw-Sl7"/>
@@ -1143,6 +1140,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="wYN-32-AmA"/>
                     <connections>
+                        <outlet property="btnBackToHome" destination="ywY-Rn-ReV" id="OUZ-Jw-uAW"/>
                         <outlet property="imgChecked" destination="gm7-Qy-TP6" id="XxM-I0-sdr"/>
                         <outlet property="lblEmail" destination="Am1-qE-TIt" id="LKw-yK-vSX"/>
                         <outlet property="lblEmailValue" destination="nLI-MO-gg0" id="oof-7X-cu6"/>
@@ -1176,10 +1174,25 @@
                     <view key="view" contentMode="scaleToFill" id="NLe-KK-eKM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3et-nt-aWz" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3et-nt-aWz" firstAttribute="top" secondItem="9dV-0B-FhI" secondAttribute="top" id="6rr-xT-OiF"/>
+                            <constraint firstItem="9dV-0B-FhI" firstAttribute="trailing" secondItem="3et-nt-aWz" secondAttribute="trailing" id="BTk-Qw-tKO"/>
+                            <constraint firstItem="3et-nt-aWz" firstAttribute="leading" secondItem="9dV-0B-FhI" secondAttribute="leading" id="oLx-Pi-Vpg"/>
+                            <constraint firstItem="9dV-0B-FhI" firstAttribute="bottom" secondItem="3et-nt-aWz" secondAttribute="bottom" id="qH5-gM-lhl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9dV-0B-FhI"/>
                     </view>
                     <navigationItem key="navigationItem" id="JtM-a6-Mjd"/>
+                    <connections>
+                        <outlet property="mapView" destination="3et-nt-aWz" id="zHY-Eu-tYl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iDT-dQ-Dd4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2806,6 +2819,6 @@
         <image name="trash.fill" catalog="system" width="60" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qUZ-Hl-Es2"/>
+        <segue reference="PuD-aE-wVX"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -26,6 +26,9 @@ class BookingViewController: UIViewController {
     @IBOutlet weak var propertySlideShow: ImageSlideshow!
     let sortDropDown = DropDown()
     
+    //For storing user data
+    let defaults = UserDefaults.standard
+    
     var searchController: UISearchController!
     var originalDataSource = [BookingModel]()
     var currentDataSource = [BookingModel]()
@@ -52,11 +55,15 @@ class BookingViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         
         //        currentDataSource = originalDataSource
-        startDate = propParam!.startDate
-        endDate = propParam!.endDate // May come nil if not selected...
-        thumbcate = propParam!.thumbcate
-        address = propParam!.title
-        pType = propParam!.cate
+        startDate = propParam?.startDate ?? ""
+        endDate = propParam?.endDate ?? "" // May come nil if not selected...
+        thumbcate = propParam?.thumbcate ?? ""
+        address = propParam?.title ?? ""
+        pType = propParam?.cate ?? ""
+        
+        // Setting Dates as defaults
+        defaults.set(startDate, forKey: "startDate")
+        defaults.set(endDate, forKey: "endDate")
         
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self

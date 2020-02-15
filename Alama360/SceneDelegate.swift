@@ -22,11 +22,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
 //        LocalizationSystem.sharedInstance.setLanguage(languageCode: "ar")
-//        LanguageManager.shared.defaultLanguage = .ar
+//        LanguageManager.shared.defaultLanguage = .deviceLanguage
+        
+        // For Dark Mode
+        if #available(iOS 13.0, *) {
+            window?.overrideUserInterfaceStyle = .light
+        }
         
         Self.shared = self
         Switcher.updateRootVC()
     }
+    
+    
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

@@ -194,7 +194,7 @@ class ViewController: UIViewController {
         //        print("here \(_phoneInput.text)")
         let mynum = Int(_phoneInput.text!)
         let mynumstring = _phoneInput.text!
-        if(mynumstring.count>8){
+        if(mynumstring.count > 8){
             _phoneInput.text = String(mynum!)
         }
     }

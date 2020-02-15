@@ -26,7 +26,7 @@ class PropertyMapCell: UITableViewCell {
         propertyMap.layer.shadowRadius = 8
         propertyMap.layer.shadowColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         
-        GMSServices.provideAPIKey("AIzaSyDod0SP5Eh_eZmNNES7aTJt3eXs1mooFHY")
+//        GMSServices.provideAPIKey("AIzaSyDod0SP5Eh_eZmNNES7aTJt3eXs1mooFHY")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

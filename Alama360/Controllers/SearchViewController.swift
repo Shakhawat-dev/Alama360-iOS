@@ -170,7 +170,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
 //        let lan = defaults.string(forKey: "language") ?? ""
         print("lan is \(lan)")
         
-        let tUrl = StaticUrls.BASE_URL_FINAL + "daily-rental/for-rent?page=1&lang=" + lan + "&viewType=mapview"
+        let tUrl = StaticUrls.BASE_URL_FINAL + "autocomplete/alltitle?lang=\(lan)"
         print("Title list Url is \(tUrl)")
         
         Alamofire.request(tUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
@@ -180,13 +180,13 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult!["data"]
                 
-                self.arr_tid.removeAll()
+//                self.arr_tid.removeAll()
                 self.arr_title.removeAll()
                 
                 // print(resultArray)
                 for i in resultArray.arrayValue {
-                    let id = i["id"].stringValue
-                    self.arr_tid.append(id)
+//                    let id = i["id"].stringValue
+//                    self.arr_tid.append(id)
                     
                     let title = i["title"].stringValue
                     self.arr_title.append(title)

@@ -28,6 +28,7 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var lbltrxIdValue: UILabel!
     @IBOutlet weak var lblTrxDate: UILabel!
     @IBOutlet weak var lblTrxDateValue: UILabel!
+    @IBOutlet weak var btnBackToHome: CustomBtnGreen!
     
     let defaults = UserDefaults.standard
     
@@ -45,7 +46,7 @@ class WelcomeViewController: UIViewController {
     var trxDate: String = ""
     var propertyId: String = ""
     var countryCode: String = ""
-    var rents: [String]?
+    var rents = [RentalPriceModel]()
     
     
     
@@ -57,9 +58,21 @@ class WelcomeViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         getSegueValues()
+        setLocalization()
         setStyle()
-        sendEmail()
         setValues()
+        sendEmail()
+    }
+    
+    func setLocalization() {
+        lblPaymentSuccesful.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "payment_successful", comment: "").localiz()
+        lblName.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "name", comment: "").localiz()
+        lblEmail.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "email", comment: "").localiz()
+        lblMobile.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "mobile", comment: "").localiz()
+        lblTotal.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "totalAmount", comment: "").localiz()
+        lblTrxId.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "transactionId", comment: "").localiz()
+        lblTrxDate.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "transactionDate", comment: "").localiz()
+        btnBackToHome.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "backToHome", comment: "").localiz(), for: .normal)
     }
     
     func getSegueValues() {
@@ -73,6 +86,9 @@ class WelcomeViewController: UIViewController {
         firstName = wcParams?.billFirstName ?? ""
         firstName = wcParams?.billFirstName ?? ""
         countryCode = wcParams?.cc ?? ""
+        rents = wcParams!.reserveItems
+        
+        print("rents is: \(firstName)")
         
     }
     
@@ -113,6 +129,21 @@ class WelcomeViewController: UIViewController {
 //                        params.put("rentproperty_id", propertyId);
 //                        params.put("cartinfo", jsonArray.toString());
         
+//        for i in rents {
+//            let id = i.id
+//            let rentdate = i.rentdate
+//            let price = i.price
+//            let availabity = i.availabity
+//        }
+        
+        let dicArray = rents.map { $0.convertToDictionary() }
+        let cartinfo = JSON(dicArray)
+        
+//        if let data = try? JSONSerialization.data(withJSONObject: dicArray, options: .prettyPrinted) {
+//            let str = String(bytes: data, encoding: .utf8)
+        print(cartinfo.description)
+//        }
+        
         let params : [String : String] = ["lang" : lan,
                                           "bil_address" : billAddress,
                                           "bil_email" : "alamdbz11@gmail.com",
@@ -123,10 +154,10 @@ class WelcomeViewController: UIViewController {
                                           "phoneNumber" : "531534038",
                                           "countryCode" : "SA",
                                           "rentproperty_id" : propertyId,
-                                          "cartinfo" : ""]
+                                          "cartinfo" : cartinfo.description]
     
         
-        let nUrl = "https://alama360.com/api/createOrupdateuser?"
+        let nUrl = StaticUrls.BASE_URL_FINAL + "successurlandroid?"
         
         Alamofire.request(nUrl, method: .post, parameters: params, headers: nil).responseJSON{ (mysresponse) in
             

@@ -55,7 +55,7 @@ class FavoritesViewController: UIViewController {
         let fUrl = StaticUrls.BASE_URL_FINAL + "androidfavorites?lang=\(lan)&userid=\(userId)"
         
         // URL check
-//        print("Response bUrl is: \(bUrl)" + "\(params)")
+        print("Fav bUrl is: \(fUrl)")
         
         Alamofire.request(fUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
             

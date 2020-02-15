@@ -27,8 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         userLoggedIn = defaults.bool(forKey: "loggedIn")
         LocalizationSystem.sharedInstance.setLanguage(languageCode: "ar")
         LanguageManager.shared.defaultLanguage = .ar
+        LanguageManager.shared.currentLanguage = .ar
+        LanguageManager.shared.setLanguage(language: .ar)
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        // For Dark Mode
+        if #available(iOS 13.0, *) {
+            window?.overrideUserInterfaceStyle = .light
+        }
         
         return true
     }

@@ -46,6 +46,11 @@ class ReservationDetailsViewController: UIViewController {
     var email: String = ""
     var trxId: String = ""
     var trxDate: String = ""
+    var country: String = ""
+    var state: String = ""
+    var city: String = ""
+    var district: String = ""
+    var address: String = ""
     
     var rentsalPriceArray = [RentalPriceModel]()
     
@@ -66,11 +71,13 @@ class ReservationDetailsViewController: UIViewController {
         checkOutTime = rdParams?.checkOutTime
         
         phone = defaults.string(forKey: "phoneNumber") ?? ""
+        userId = defaults.string(forKey: "userID") ?? ""
         startDate = defaults.string(forKey: "firstDate") ?? ""
         endDate = defaults.string(forKey: "lastDate") ?? ""
         
         // Do any additional setup after loading the view.
         getRentalData()
+        loadProfileData()
     }
     
     func getRentalData() {
@@ -98,7 +105,7 @@ class ReservationDetailsViewController: UIViewController {
                     self.rentsalPriceArray.append(rentalPrice)
                 }
                 
-                // print("Rental Array is: \(self.rentsalPriceArray)")
+//                print("Rental Array is: \(self.rentsalPriceArray)")
                 
                 DispatchQueue.main.async {
                     self.reservationDetailsTableView.reloadData()
@@ -107,6 +114,67 @@ class ReservationDetailsViewController: UIViewController {
                 
             }
             
+        }
+    }
+    
+    func loadProfileData() {
+        SVProgressHUD.show()
+        
+        //        let pUrl = StaticUrls.BASE_URL_FINAL + "userinfo?lang=\(lan)&userid=\(userId)"
+        let pUrl = StaticUrls.BASE_URL_FINAL + "userinfo?lang=en&userid=\(userId)"
+        print("Profile Url is: \(pUrl)")
+        
+        Alamofire.request(pUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
+            if mysresponse.result.isSuccess {
+                
+                let myResult = try? JSON(data: mysresponse.data!)
+                let resultArray = myResult!["data"]
+                
+                print(resultArray as Any)
+                
+                self.firstName = resultArray["name"].stringValue
+                self.lastName = resultArray["lname"].stringValue
+                self.email = resultArray["email"].stringValue
+//                self.mobile = resultArray["mobile"].stringValue
+//                self.dob = resultArray["dob"].stringValue
+//                self.marital_status = resultArray["marital_status"].stringValue
+                self.country = resultArray["country"].stringValue
+                self.state = resultArray["state"].stringValue
+                self.city = resultArray["city"].stringValue
+                self.district = resultArray["district"].stringValue
+                self.address = resultArray["address"].stringValue
+                self.thumbnail = resultArray["thumbnail"].stringValue
+                
+//                let countries = resultArray["userallcountry"].arrayValue
+//                print("Country array is: \(countries)")
+//
+//                for country in countries {
+//                    let newCountry = CountryModel(json: JSON(country))
+//                    self.countryArray.append(newCountry)
+//                }
+//
+//                let states = resultArray["userallstate"].arrayValue
+//                for state in states {
+//                    let newState = StateModel(json: JSON(state))
+//                    self.stateArray.append(newState)
+//                }
+//
+//                let cities = resultArray["userallcity"].arrayValue
+//                for city in cities {
+//                    let newCity = CityModel(json: JSON(city))
+//                    self.cityArray.append(newCity)
+//                }
+//
+//                let districts = resultArray["useralldistrict"].arrayValue
+//                for district in districts {
+//                    let newDistrict = DistrictModel(json: JSON(district))
+//                    self.districtArray.append(newDistrict)
+//                }
+                
+            }
+//            self.setTextFields()
+//            self.setDropDowns()
+            SVProgressHUD.dismiss()
         }
     }
     
@@ -127,6 +195,14 @@ class ReservationDetailsViewController: UIViewController {
     @IBAction func completeReservationTapped(_ sender: Any) {
         
         calcTotalPrice()
+//         print("Rental Array is: \(rentsalPriceArray)")
+        
+        let dicArray = rentsalPriceArray.map { $0.convertToDictionary() }
+        let json = JSON(dicArray)
+//        if let data = try? JSONSerialization.data(withJSONObject: dicArray, options: .prettyPrinted) {
+//            let str = String(bytes: data, encoding: .utf8)
+        print(json)
+//        }
         
         let bundle = Bundle(url: Bundle.main.url(forResource: "Resources", withExtension: "bundle")!)
         self.initialSetupViewController = PTFWInitialSetupViewController.init(
@@ -149,7 +225,7 @@ class ReservationDetailsViewController: UIViewController {
             andWithBillingZIPCode: "12345",
             andWithOrderID: "12345",
             andWithPhoneNumber: "00" + phone,
-            andWithCustomerEmail: "example@email.com",
+            andWithCustomerEmail:  "example@email.com",
             andIsTokenization:false,
             andIsPreAuth: false,
             andWithMerchantEmail: "ali@alama360.com",
@@ -180,6 +256,25 @@ class ReservationDetailsViewController: UIViewController {
             print("Tokenization Cutomer Email: \(tokenizedCustomerEmail)");
             print("Tokenization Customer Password: \(tokenizedCustomerPassword)");
             print("TOkenization Token: \(token)");
+            
+            if responseCode == 100 {
+                let reserveParam = (billFirstName : self.firstName,
+                                    billlastName : self.lastName,
+                                    phone: self.billPhone,
+                                    cc: self.countryCode,
+                                    email: self.email,
+                                    total: self.totalPrice,
+                                    trxId: transactionID,
+                                    trxDate: self.trxDate,
+                                    propertyid: self.id,
+                                    reserveItems: self.rentsalPriceArray)
+                
+                print("property Param is : \(reserveParam)")
+                
+                self.performSegue(withIdentifier: "rdtoWC", sender: reserveParam)
+            }
+            
+            
         }
 
         self.view.addSubview(initialSetupViewController.view)
@@ -207,9 +302,9 @@ class ReservationDetailsViewController: UIViewController {
                             trxDate: trxDate,
                             propertyid: id,
                             reserveItems: rentsalPriceArray)
-        
+
         print("property Param is : \(reserveParam)")
-        
+
         performSegue(withIdentifier: "rdtoWC", sender: reserveParam)
     }
     
