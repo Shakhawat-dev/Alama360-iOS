@@ -252,6 +252,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.024396336120000001" green="0.62690355330000003" blue="0.44178372469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.024396336120000001" green="0.62690355330000003" blue="0.44178372469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.0" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

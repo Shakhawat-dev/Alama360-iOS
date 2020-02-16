@@ -106,7 +106,7 @@ class PropertyDetailsViewController: UIViewController, WKUIDelegate {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult!["data"]
                 
-                print(resultArray as Any)
+//                print(resultArray as Any)
                 
                 // Initiatoing resultArray into specific array
                 
@@ -125,7 +125,7 @@ class PropertyDetailsViewController: UIViewController, WKUIDelegate {
                 let newFeature = FeatureModel(json: JSON(featureArray))
                 self.property_dailyfeature = newFeature
 
-                print(self.property_dailyfeature)
+//                print(self.property_dailyfeature)
 
                 self.setValues()
                 self.getYoutubeVideo()

@@ -97,7 +97,7 @@ class TbPropertyDetailsViewController: UIViewController {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult!["data"]
                 
-                print(resultArray as Any)
+//                print(resultArray as Any)
                 
                 // Initiating resultArray into specific array
                 self.thumbnail = resultArray["thumbnail"].stringValue
@@ -114,7 +114,7 @@ class TbPropertyDetailsViewController: UIViewController {
                 self.check_in_start = resultArray["event_property_info"][0]["check_in_start"].stringValue
                 self.check_out_start = resultArray["event_property_info"][0]["check_out_start"].stringValue
                 
-                print("\(self.building_sec_man) \(self.building_sec_wman)")
+//                print("\(self.building_sec_man) \(self.building_sec_wman)")
                 
                 let fav = resultArray["favorite_info"].rawString()
                 
@@ -186,7 +186,7 @@ class TbPropertyDetailsViewController: UIViewController {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult!["data"]
                 
-                print("Prperty Rental Price array is: \(resultArray)")
+//                print("Prperty Rental Price array is: \(resultArray)")
                 for i in resultArray.arrayValue {
                     let rentalPrice = RentalPriceModel(json: i)
                     self.rentsalPriceArray.append(rentalPrice)
@@ -243,7 +243,7 @@ class TbPropertyDetailsViewController: UIViewController {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult![]
                 
-                print("Favorites response \(resultArray)")
+//                print("Favorites response \(resultArray)")
                 
                 self.message = resultArray["message"].stringValue
                 self.status = resultArray["status"].stringValue
@@ -378,7 +378,7 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
         } else if section == 5{
             return 1
         } else if section == 6{
-            print(rentsalPriceArray.count)
+//            print(rentsalPriceArray.count)
             return rentsalPriceArray.count
         } else if section == 7 {
             return 1
@@ -607,7 +607,7 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
 
 extension TbPropertyDetailsViewController: AllPhotoDelegate {
     func didTapMoreBtn() {
-        print("From tb did tap: \(photos)")
+//        print("From tb did tap: \(photos)")
         
         performSegue(withIdentifier: "allPhotoSegue", sender: id)
     }

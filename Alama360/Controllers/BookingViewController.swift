@@ -99,7 +99,7 @@ class BookingViewController: UIViewController {
         let bUrl = StaticUrls.BASE_URL_FINAL + "android/propertylist?"
         
         // URL check
-        print("Response bUrl is: \(bUrl)" + "\(params)")
+//        print("Response bUrl is: \(bUrl)" + "\(params)")
         
         Alamofire.request(bUrl, method: .post, parameters: params, headers: nil).responseJSON{ (mysresponse) in
             
@@ -110,7 +110,7 @@ class BookingViewController: UIViewController {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult!["data"]
                 
-                print(resultArray as Any)
+//                print(resultArray as Any)
                 
                 // Initiatoing resultArray into specific array
                 for i in resultArray.arrayValue {

@@ -41,11 +41,13 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         
         lan = LanguageManager.shared.currentLanguage.rawValue
         
-        let mUrl = StaticUrls.BASE_URL_FINAL + "android/propertylist?" + lan!
+//        https://alama360.com/api/android/propertylist?lang=en&startDate=2020-02-08&endDate=2020-02-11
+        
+        let mUrl = StaticUrls.BASE_URL_FINAL + "android/propertylist?lang=" + lan! + "&startDate=" + startDate + "&endDate=" + endDate
         print(mUrl)
         
-        let camera = GMSCameraPosition.camera(withLatitude: 21.509930034221852679365838412195444107, longitude: 39.342472851276397705078125, zoom: 10.0)
-        let mapView = GMSMapView.map(withFrame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 250), camera: camera)
+        let camera = GMSCameraPosition.camera(withLatitude: 21.509930034221852679365838412195444107, longitude: 39.342472851276397705078125, zoom: 15.0)
+        let mapView = GMSMapView.map(withFrame: CGRect.zero , camera: camera)
         self.view = mapView
         
         Alamofire.request(mUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
@@ -55,7 +57,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult!["data"]
                 
-                print(resultArray as Any)
+//                print(resultArray as Any)
                 
                 // Initiatoing resultArray into specific array
                 for i in resultArray.arrayValue {
@@ -64,7 +66,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
                     let longitude = i["longitude"].doubleValue
                     let title = i["title"].stringValue
                     
-                    print("\(title) \(latitude)")
+//                    print("\(title) \(latitude)")
                     // Creates a marker in the center of the map.
                     let marker = GMSMarker()
                     marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
@@ -74,6 +76,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
                     marker.map = mapView
                     
                     mapView.selectedMarker = marker
+                    mapView.camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: 10)
                     
                     self.tappedMarker = GMSMarker()
                     self.propertryInfoWindow = PropertyInfoWindow().loadView()
