@@ -39,18 +39,18 @@ class ReservationDetailsViewController: UIViewController {
     var checkOutTime: String?
     var totalPrice: Int = 0
     
-    var firstName: String = ""
-    var lastName: String = ""
-    var billPhone: String = ""
-    var countryCode: String = ""
-    var email: String = ""
-    var trxId: String = ""
-    var trxDate: String = ""
-    var country: String = ""
-    var state: String = ""
-    var city: String = ""
-    var district: String = ""
-    var address: String = ""
+    var firstName: String?
+    var lastName: String?
+    var billPhone: String?
+    var countryCode: String?
+    var email: String?
+    var trxId: String?
+    var trxDate: String?
+    var country: String?
+    var state: String?
+    var city: String?
+    var district: String?
+    var address: String?
     
     var rentsalPriceArray = [RentalPriceModel]()
     
@@ -130,7 +130,7 @@ class ReservationDetailsViewController: UIViewController {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult!["data"]
                 
-//                print(resultArray as Any)
+                print(resultArray as Any)
                 
                 self.firstName = resultArray["name"].stringValue
                 self.lastName = resultArray["lname"].stringValue
@@ -146,7 +146,7 @@ class ReservationDetailsViewController: UIViewController {
                 self.thumbnail = resultArray["thumbnail"].stringValue
                 
 //                let countries = resultArray["userallcountry"].arrayValue
-//                print("Country array is: \(countries)")
+                print("Country array is: \(self.address)")
 //
 //                for country in countries {
 //                    let newCountry = CountryModel(json: JSON(country))
@@ -197,8 +197,8 @@ class ReservationDetailsViewController: UIViewController {
         calcTotalPrice()
 //         print("Rental Array is: \(rentsalPriceArray)")
         
-        let dicArray = rentsalPriceArray.map { $0.convertToDictionary() }
-        let json = JSON(dicArray)
+//        let dicArray = rentsalPriceArray.map { $0.convertToDictionary() }
+//        let json = JSON(dicArray)
 //        if let data = try? JSONSerialization.data(withJSONObject: dicArray, options: .prettyPrinted) {
 //            let str = String(bytes: data, encoding: .utf8)
 //        print(json)
@@ -213,9 +213,9 @@ class ReservationDetailsViewController: UIViewController {
             andWithCurrencyCode: "SAR",
             andWithTaxAmount: 0.0,
             andWithSDKLanguage: lan,
-            andWithShippingAddress: "Manama",
+            andWithShippingAddress: "Saudi Arabia",
             andWithShippingCity: "Manama",
-            andWithShippingCountry: "BHR",
+            andWithShippingCountry: "BHR", //"BHR"
             andWithShippingState: "Manama",
             andWithShippingZIPCode: "123456",
             andWithBillingAddress: "Manama",
@@ -225,13 +225,13 @@ class ReservationDetailsViewController: UIViewController {
             andWithBillingZIPCode: "12345",
             andWithOrderID: "12345",
             andWithPhoneNumber: "00" + phone,
-            andWithCustomerEmail:  "example@email.com",
+            andWithCustomerEmail: "example@email.com",
             andIsTokenization:false,
             andIsPreAuth: false,
             andWithMerchantEmail: "ali@alama360.com",
             andWithMerchantSecretKey: "hOPwWPG56S5qy8brwX8JLHdVKmqXbiWt7M04BG9Hzf78njAUgIE1pSWafn7qG4UNQUSrB19ahhjFATAQBeR16OblcjMSnGGeByFc",
             andWithAssigneeCode: "SDK",
-            andWithThemeColor:UIColor.red,
+            andWithThemeColor:#colorLiteral(red: 0, green: 0.6532471776, blue: 0.4756888151, alpha: 1),
             andIsThemeColorLight: false)
         
         
