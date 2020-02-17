@@ -357,7 +357,7 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         if property_list[indexPath.row].dayprice! > 0 {
-            cell.totalDaysLbl.text = String(describing: property_list[indexPath.row].totalday!) + " Days"
+            cell.totalDaysLbl.text = String(describing: property_list[indexPath.row].totalday!) + "     "
         } else {
             cell.totalDaysLbl.text = ""
         }

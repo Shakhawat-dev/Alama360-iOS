@@ -65,14 +65,26 @@ class TbPropertyDetailsViewController: UIViewController {
         startDate = defaults.string(forKey: "firstDate")!
         endDate = defaults.string(forKey: "lastDate")!
         reservationBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "reserve", comment: "").localiz(),for: .normal)
-        //        id = pdParams?.id
-        //        startDate = pdParams!.startDate
-        //        endDate = pdParams!.endDate  // May come nil if not selected...
+        
+//        let btnImage:UIImage = UIImage(systemName: "whatsapp_icon")!
+        let shareBtn = UIBarButtonItem(image: UIImage(named: "share"),  style: .plain, target: self, action: #selector(didTapShareButton))
+        
+        navigationItem.setRightBarButtonItems([shareBtn, favBtn], animated: true)
         
         // Do any additional setup after loading the view.
         getPropertyDetails()
         getRentalPrice()
         
+    }
+    
+    @objc func didTapShareButton(sender: AnyObject) {
+        let shareText = "https://alama360.com/propertydetails/" + (id ?? "") + "?propertyId=" + (id ?? "")
+        let url = URL(string: shareText)!
+        let vc = UIActivityViewController(activityItems: [url], applicationActivities: [])
+                    present(vc, animated: true, completion: nil)
+//        if let image = UIImage(named: "share") {
+//           
+//        }
     }
     
     // Get Api Call

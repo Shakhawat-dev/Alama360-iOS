@@ -287,13 +287,13 @@ class ProfileViewController: UIViewController {
 extension UITextField {
     func setIcon(_ image: UIImage) {
         let iconView = UIImageView(frame:
-            CGRect(x: 10, y: 5, width: 20, height: 20))
+            CGRect(x: 0, y: 0, width: 22, height: 30))
         iconView.image = image
-        
+        iconView.contentMode = .scaleAspectFit
         //        toastContainer.addConstraints([a1, a2, a3, a4]
         
         let iconContainerView: UIView = UIView(frame:
-            CGRect(x: 20, y: 0, width: 30, height: 30))
+            CGRect(x: 0, y: 0, width: 30, height: 30))
         iconView.layoutMargins = UIEdgeInsets(top: 0,left: 8,bottom: 0,right: 8)
         //        let a1 = NSLayoutConstraint(item: iconView, attribute: .leading, relatedBy: .equal, toItem: iconContainerView, attribute: .leading, multiplier: 1, constant: 8)
         //        let a2 = NSLayoutConstraint(item: iconView, attribute: .trailing, relatedBy: .equal, toItem: iconContainerView, attribute: .trailing, multiplier: 1, constant: -8)
