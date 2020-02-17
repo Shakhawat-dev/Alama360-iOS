@@ -88,7 +88,7 @@ class WelcomeViewController: UIViewController {
         countryCode = wcParams?.cc ?? ""
         rents = wcParams!.reserveItems
         
-        print("rents is: \(firstName)")
+//        print("rents is: \(firstName)")
         
     }
     
@@ -141,7 +141,7 @@ class WelcomeViewController: UIViewController {
         
 //        if let data = try? JSONSerialization.data(withJSONObject: dicArray, options: .prettyPrinted) {
 //            let str = String(bytes: data, encoding: .utf8)
-        print(cartinfo.description)
+//        print(cartinfo.description)
 //        }
         
         let params : [String : String] = ["lang" : lan,
@@ -165,7 +165,7 @@ class WelcomeViewController: UIViewController {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult![]
                 
-                print(resultArray)
+//                print(resultArray)
                 
 
             }

@@ -99,7 +99,7 @@ class ReservationDetailsViewController: UIViewController {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult!["data"]
                 
-                print("Prperty Rental Price array is: \(resultArray)")
+//                print("Prperty Rental Price array is: \(resultArray)")
                 for i in resultArray.arrayValue {
                     let rentalPrice = RentalPriceModel(json: i)
                     self.rentsalPriceArray.append(rentalPrice)
@@ -130,7 +130,7 @@ class ReservationDetailsViewController: UIViewController {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult!["data"]
                 
-                print(resultArray as Any)
+//                print(resultArray as Any)
                 
                 self.firstName = resultArray["name"].stringValue
                 self.lastName = resultArray["lname"].stringValue
@@ -189,7 +189,7 @@ class ReservationDetailsViewController: UIViewController {
         }
         
         totalPrice = total
-        print("Total is: \(totalPrice)")
+//        print("Total is: \(totalPrice)")
     }
     
     @IBAction func completeReservationTapped(_ sender: Any) {
@@ -201,7 +201,7 @@ class ReservationDetailsViewController: UIViewController {
         let json = JSON(dicArray)
 //        if let data = try? JSONSerialization.data(withJSONObject: dicArray, options: .prettyPrinted) {
 //            let str = String(bytes: data, encoding: .utf8)
-        print(json)
+//        print(json)
 //        }
         
         let bundle = Bundle(url: Bundle.main.url(forResource: "Resources", withExtension: "bundle")!)
@@ -269,7 +269,7 @@ class ReservationDetailsViewController: UIViewController {
                                     propertyid: self.id,
                                     reserveItems: self.rentsalPriceArray)
                 
-                print("property Param is : \(reserveParam)")
+//                print("property Param is : \(reserveParam)")
                 
                 self.performSegue(withIdentifier: "rdtoWC", sender: reserveParam)
             }
@@ -303,7 +303,7 @@ class ReservationDetailsViewController: UIViewController {
                             propertyid: id,
                             reserveItems: rentsalPriceArray)
 
-        print("property Param is : \(reserveParam)")
+//        print("property Param is : \(reserveParam)")
 
         performSegue(withIdentifier: "rdtoWC", sender: reserveParam)
     }

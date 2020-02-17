@@ -127,7 +127,7 @@ class OtpAlertViewController: UIViewController {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult![]
                 
-                print(resultArray)
+//                print(resultArray)
                 
                 self.userid = resultArray["userid"].stringValue
                 self.status = resultArray["status"].stringValue
@@ -136,7 +136,7 @@ class OtpAlertViewController: UIViewController {
                 self.userexist = resultArray["userexist"].stringValue
                 self.usertype = resultArray["usertype"].stringValue
                 
-                print("user id: \(self.userid)")
+//                print("user id: \(self.userid)")
                 print("verification code: \(self.code)")
                 
                 if self.usertype == "2919" {
@@ -152,7 +152,7 @@ class OtpAlertViewController: UIViewController {
     }
     
     func register () {
-        print("ites here... \(phoneNumber)")
+//        print("ites here... \(phoneNumber)")
         
         let lan = LanguageManager.shared.currentLanguage.rawValue
         let params : [String : String] = ["mobile" : phoneNumber, "lang" : lan, "userid" : ""]
@@ -164,7 +164,7 @@ class OtpAlertViewController: UIViewController {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult![]
                 
-                print(resultArray)
+//                print(resultArray)
                 
                 self.userid = resultArray["userid"].stringValue
                 self.status = resultArray["status"].stringValue
@@ -183,8 +183,8 @@ class OtpAlertViewController: UIViewController {
                     self.defaults.set("user", forKey: "userType")
                 }
                 
-                print("user id: \(self.userid)")
-                print("Message: \(self.message)")
+//                print("user id: \(self.userid)")
+//                print("Message: \(self.message)")
                 
                 self.defaults.set(self.userid, forKey: "userID")
                 self.defaults.set(self.phoneNumber, forKey: "phoneNumber")

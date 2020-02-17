@@ -37,7 +37,7 @@ class AllPhotosViewController: UIViewController {
 //        print("All photos VC: \(allPhotos!)")
 //        let photos = allPhotos?.picture
         
-        print("From All id is \(id)")
+//        print("From All id is \(id)")
         getPropertyDetails()
     }
     
@@ -63,7 +63,7 @@ class AllPhotosViewController: UIViewController {
                     let myResult = try? JSON(data: mysresponse.data!)
                     let resultArray = myResult!["data"]
                     
-                    print(resultArray as Any)
+//                    print(resultArray as Any)
                     
                     // Initiatoing resultArray into specific array
 
@@ -74,7 +74,7 @@ class AllPhotosViewController: UIViewController {
 
                     self.photos = self.allPhotos!.picture
                     
-                    print(self.photos)
+//                    print(self.photos)
                     
                     
                     

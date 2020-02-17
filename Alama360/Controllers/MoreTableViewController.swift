@@ -76,13 +76,13 @@ class MoreTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        let rowHeight:CGFloat = 0.0
-//        if indexPath.row == 6 && userType == "user" {
-//            return rowHeight
-//        } else {
-//            return tableView.rowHeight
-//        }
-        return tableView.rowHeight
+        let rowHeight:CGFloat = 0.0
+        if indexPath.row == 6 && userType == "user" {
+            return rowHeight
+        } else {
+            return tableView.rowHeight
+        }
+//        return tableView.rowHeight
     }
 
     /*

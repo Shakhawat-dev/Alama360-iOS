@@ -49,7 +49,7 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
         overrideUserInterfaceStyle = .light //For light mode
         setLocalize()
         
-        print("From FS Cal\(titleCate)")
+//        print("From FS Cal\(titleCate)")
         
         calendar.dataSource = self
         calendar.delegate = self
@@ -109,7 +109,7 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
             firstDate = date
             datesRange = [firstDate!]
             
-            print("datesRange contains: \(datesRange!)")
+//            print("datesRange contains: \(datesRange!)")
             
             return
         }
@@ -122,7 +122,7 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
                 firstDate = date
                 datesRange = [firstDate!]
                 
-                print("datesRange contains: \(datesRange!)")
+//                print("datesRange contains: \(datesRange!)")
                 
                 return
             }
@@ -137,7 +137,7 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
             
             datesRange = range
             
-            print("datesRange contains: \(datesRange!)")
+//            print("datesRange contains: \(datesRange!)")
             
             return
         }
@@ -153,10 +153,10 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
             
             datesRange = []
             
-            print("datesRange contains: \(datesRange!)")
+//            print("datesRange contains: \(datesRange!)")
         }
         
-        print("did select date \(self.formatter.string(from: date))")
+//        print("did select date \(self.formatter.string(from: date))")
     }
     
     @IBAction func clearBtnTapped(_ sender: UIButton) {
@@ -169,7 +169,7 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
         
         datesRange = []
         
-        print("datesRange contains: \(datesRange!)")
+//        print("datesRange contains: \(datesRange!)")
     }
     
     // Sending Data to View COntroller
@@ -191,7 +191,7 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
             defaults.set(lDate, forKey: "lastDate")
             
             let propParam = (title : titleCate?.title, cate : titleCate?.cate, thumbcate: titleCate?.thumbcate, startDate: fDate, endDate: lDate )
-            print("property Param is : \(propParam)")
+//            print("property Param is : \(propParam)")
             performSegue(withIdentifier: "calToPropSegue", sender: propParam)
         } else {
             
@@ -225,7 +225,7 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
             print("datesRange contains: \(datesRange!)")
         }
         
-        print("did deselect date \(self.formatter.string(from: date))")
+//        print("did deselect date \(self.formatter.string(from: date))")
     }
 
 }

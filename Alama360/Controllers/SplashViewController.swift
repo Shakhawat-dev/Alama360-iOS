@@ -20,7 +20,7 @@ class SplashViewController: UIViewController {
         overrideUserInterfaceStyle = .light //For light mode
         
         status = defaults.bool(forKey: "loggedIn")
-        print(status)
+//        print(status)
 //        Switcher.updateRootVC()
         
         if (status!) {

@@ -161,7 +161,7 @@ class ProfileViewController: UIViewController {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult!["data"]
                 
-                print(resultArray as Any)
+//                print(resultArray as Any)
                 
                 self.ftName = resultArray["name"].stringValue
                 self.lName = resultArray["lname"].stringValue
@@ -177,7 +177,7 @@ class ProfileViewController: UIViewController {
                 self.thumbnail = resultArray["thumbnail"].stringValue
                 
                 let countries = resultArray["userallcountry"].arrayValue
-                print("Country array is: \(countries)")
+//                print("Country array is: \(countries)")
                 
                 for country in countries {
                     let newCountry = CountryModel(json: JSON(country))
@@ -234,7 +234,7 @@ class ProfileViewController: UIViewController {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult![]
                 
-                print(resultArray)
+//                print(resultArray)
                 SVProgressHUD.dismiss()
                 
                 let aTitle = LocalizationSystem.sharedInstance.localizedStringForKey(key: "updateAlertTitlle", comment: "").localiz()

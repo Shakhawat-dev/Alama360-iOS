@@ -103,6 +103,8 @@
 "sort" = "فرز";
 "sort_high" = "غالي السعر";
 "sort_low" = "سعر منخفض";
+"day" = "يوم";
+"days" = "أيام";
 
 // Tab Bar Item
 "search" = "بحث";

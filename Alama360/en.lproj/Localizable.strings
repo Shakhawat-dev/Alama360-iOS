@@ -107,6 +107,8 @@
 "sort" = "Sort";
 "sort_high" = "High Price";
 "sort_low" = "Low Price";
+"day" = "Day";
+"days" = "Day's";
 
 // Tab Bar Item
 "search" = "Search";

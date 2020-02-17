@@ -34,7 +34,7 @@ class AddPropertyViewController: UIViewController {
         phone = defaults.string(forKey: "phoneNumber")!
         
         let addUrl = StaticUrls.ADD_PROPERTY_URL + "userid=\(userId)&lang=\(lan)&mobile=\(phone)&token=Ddhfkjdshgfjshgkjldsahgdniudhagiuashdfiughd&actiontype=addproperty"
-        print("Add property url: \(addUrl)")
+//        print("Add property url: \(addUrl)")
         
         let myURL = URL(string: addUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
         

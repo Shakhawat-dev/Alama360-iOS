@@ -62,7 +62,7 @@ class ReservationsViewController: UIViewController{
                 let resultArray = myResult!["reservations"]
                 
                 let dataArray = resultArray["data"]
-                print(resultArray as Any)
+//                print(resultArray as Any)
 //                print(dataArray as Any)
                 
                 // Initiatoing resultArray into specific array

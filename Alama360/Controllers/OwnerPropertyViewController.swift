@@ -61,7 +61,7 @@ class OwnerPropertyViewController: UIViewController {
                  let myResult = try? JSON(data: mysresponse.data!)
                  let resultArray = myResult!["data"]
                  
-                 print(resultArray as Any)
+//                 print(resultArray as Any)
                  
                  // Initiatoing resultArray into specific array
                  for i in resultArray.arrayValue {

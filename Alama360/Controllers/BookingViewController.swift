@@ -357,7 +357,13 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         if property_list[indexPath.row].dayprice! > 0 {
-            cell.totalDaysLbl.text = String(describing: property_list[indexPath.row].totalday!) + "     "
+            
+            if property_list[indexPath.row].totalday! > 1 {
+                cell.totalDaysLbl.text = String(describing: property_list[indexPath.row].totalday!) + " " + LocalizationSystem.sharedInstance.localizedStringForKey(key: "days", comment: "").localiz()
+            } else {
+                cell.totalDaysLbl.text = String(describing: property_list[indexPath.row].totalday!) + " " + LocalizationSystem.sharedInstance.localizedStringForKey(key: "day", comment: "").localiz()
+            }
+            
         } else {
             cell.totalDaysLbl.text = ""
         }

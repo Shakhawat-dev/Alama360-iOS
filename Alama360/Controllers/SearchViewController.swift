@@ -198,8 +198,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
                 self.titlePropertyAuto.theme.font = UIFont.systemFont(ofSize: 14)
                 self.titlePropertyAuto.theme.cellHeight = 40
                 
-                print(self.arr_title)
-                print(self.arr_title.count)
+//                print(self.arr_title)
+//                print(self.arr_title.count)
             }
             
         }
@@ -212,7 +212,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         // https://alama360.net/api/homethumbcat?page=1&lang=en
         
 //        let lan = defaults.string(forKey: "language") ?? ""
-        print("lan is \(lan)")
+//        print("lan is \(lan)")
         
         let pUrl = StaticUrls.BASE_URL_FINAL + "homethumbcat?page=1&lang=" + lan
         print("lan is \(pUrl)")
@@ -228,7 +228,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
                 self.arr_imageUrl.removeAll()
                 self.thumbId.removeAll()
                 
-                print(resultArray)
+//                print(resultArray)
                 
                 for i in resultArray.arrayValue {
                     let cateName = i["catname"].stringValue
@@ -245,8 +245,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
                 self.collectionView.dataSource = self
                 self.collectionView.delegate = self
                 
-                print(self.arr_cateName)
-                print(self.arr_cateName.count)
+//                print(self.arr_cateName)
+//                print(self.arr_cateName.count)
             }
             
         }
