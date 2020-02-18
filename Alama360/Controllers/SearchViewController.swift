@@ -114,7 +114,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
 //
         addYourChaletContainerView.layer.cornerRadius = 8
         addYourChaletContainerView.layer.shadowRadius = 8
-        addYourChaletContainerView.layer.shadowOpacity = 5.0
+        addYourChaletContainerView.layer.shadowOpacity = 0.5
         addYourChaletContainerView.layer.shadowOffset = CGSize(width: 0.1, height: 0.1)
         addYourChaletContainerView.layer.shadowColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
     }

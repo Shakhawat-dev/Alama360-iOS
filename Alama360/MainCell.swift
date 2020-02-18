@@ -17,7 +17,7 @@ class MainCell: UICollectionViewCell {
     override func awakeFromNib() {
         cellContainerView.layer.cornerRadius = 8
         cellContainerView.layer.shadowRadius = 8
-        cellContainerView.layer.shadowOpacity = 5.0
+        cellContainerView.layer.shadowOpacity = 0.5
         cellContainerView.layer.shadowOffset = CGSize(width: 0.1, height: 0.1)
         cellContainerView.layer.shadowColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
     }
