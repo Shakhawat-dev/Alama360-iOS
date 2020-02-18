@@ -22,20 +22,19 @@ class CellClass: UITableViewCell{
 class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
+    @IBOutlet weak var searchContainerView: UIView!
+    @IBOutlet weak var textFieldContainerView: UIView!
     @IBOutlet weak var titlePropertyAuto: SearchTextField!
-    @IBOutlet weak var chaletCategoryField: UITextField!
     @IBOutlet weak var startDateField: UITextField!
     @IBOutlet weak var categoryDropDown: DropDown!
     @IBOutlet weak var addChaletLabel: UILabel!
-    
-    @IBOutlet weak var categoryDropDownBtn: UIButton!
     @IBOutlet weak var checkBtb: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var lblSearchTitle: UILabel!
     @IBOutlet weak var lblSearchDesc: UILabel!
     @IBOutlet weak var lblSelectDate: UILabel!
     @IBOutlet weak var btnAdd: UIButton!
+    @IBOutlet weak var addYourChaletContainerView: UIView!
     
     // Fs Calender
     fileprivate weak var calendar: FSCalendar!
@@ -78,6 +77,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         // For Hiding keyboard on Tap
         self.hideKeyboardWhenTappedAround()
         
+        addDesign()
         setLocalize()
         loadProperties()
         loadCategories()
@@ -96,15 +96,27 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
             
             setDateField()
         }
+
+    }
+    
+    func addDesign() {
+        searchContainerView.layer.cornerRadius = 8
+        searchContainerView.layer.shadowRadius = 8
+        searchContainerView.layer.shadowOpacity = 0.5
+        searchContainerView.layer.shadowOffset = CGSize(width: 0.1, height: 0.1)
+        searchContainerView.layer.shadowColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         
-        //     startDateField.inputView = datePicker
-        
-        // In loadView or viewDidLoad
-        //        let calendar = FSCalendar(frame: CGRect(x: 0, y: 0, width: 320, height: 300))
-        //        calendar.dataSource = self as? FSCalendarDataSource
-        //        calendar.delegate = self as? FSCalendarDelegate
-        //        startDateField.inputView = calendar
-        //        self.calendar = calendar
+        textFieldContainerView.layer.cornerRadius = 8
+//        textFieldContainerView.layer.shadowRadius = 8
+//        textFieldContainerView.layer.shadowOpacity = 1.0
+//        textFieldContainerView.layer.shadowOffset = CGSize(width: 0.1, height: 0.1)
+//        textFieldContainerView.layer.shadowColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+//
+        addYourChaletContainerView.layer.cornerRadius = 8
+        addYourChaletContainerView.layer.shadowRadius = 8
+        addYourChaletContainerView.layer.shadowOpacity = 5.0
+        addYourChaletContainerView.layer.shadowOffset = CGSize(width: 0.1, height: 0.1)
+        addYourChaletContainerView.layer.shadowColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
     }
     
     func setLocalize() {

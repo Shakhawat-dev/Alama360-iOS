@@ -103,8 +103,8 @@ class TbPropertyDetailsViewController: UIViewController {
         Alamofire.request(pdUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
             if mysresponse.result.isSuccess {
                 
-                self.propertyDetailsTable.delegate = self
-                self.propertyDetailsTable.dataSource = self
+//                self.propertyDetailsTable.delegate = self
+//                self.propertyDetailsTable.dataSource = self
                 
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult!["data"]
@@ -159,13 +159,13 @@ class TbPropertyDetailsViewController: UIViewController {
                     self.favBtn.image = btnImage
                 }
                 
-                self.propertyDetailsTable.delegate = self
-                self.propertyDetailsTable.dataSource = self
-                
-                DispatchQueue.main.async {
-                    self.propertyDetailsTable.reloadData()
-                    SVProgressHUD.dismiss()
-                }
+//                self.propertyDetailsTable.delegate = self
+//                self.propertyDetailsTable.dataSource = self
+//
+//                DispatchQueue.main.async {
+//                    self.propertyDetailsTable.reloadData()
+//                    SVProgressHUD.dismiss()
+//                }
                 //                self.propertyDetailsTable.delegate = self
                 //                self.propertyDetailsTable.dataSource = self
                 //                self.propertyDetailsTable.reloadData()
@@ -173,6 +173,13 @@ class TbPropertyDetailsViewController: UIViewController {
                 // To show map on Footer
                 //                self.getMapView ()
                 
+            }
+            self.propertyDetailsTable.delegate = self
+            self.propertyDetailsTable.dataSource = self
+            
+            DispatchQueue.main.async {
+                self.propertyDetailsTable.reloadData()
+                SVProgressHUD.dismiss()
             }
             
         }
@@ -623,10 +630,5 @@ extension TbPropertyDetailsViewController: AllPhotoDelegate {
         
         performSegue(withIdentifier: "allPhotoSegue", sender: id)
     }
-    //
-    //    func didTapMoreBtn() {
-    //
-    //
-    //    }
-    
+
 }
