@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Google Map Api for MapView
         GMSServices.provideAPIKey("AIzaSyDod0SP5Eh_eZmNNES7aTJt3eXs1mooFHY")
         userLoggedIn = defaults.bool(forKey: "loggedIn")
+        
         LocalizationSystem.sharedInstance.setLanguage(languageCode: "ar")
         LanguageManager.shared.defaultLanguage = .ar
         LanguageManager.shared.currentLanguage = .ar

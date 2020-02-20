@@ -33,6 +33,8 @@ class BookingTableViewCell: UITableViewCell {
     @IBOutlet weak var rowContainerView: UIView!
     @IBOutlet weak var textAreaView: UIView!
     
+    @IBOutlet weak var propertyIDStackView: UIStackView!
+    
     private var id = ""
     var tapDelegate: SlideTapDelegate?
     var index: IndexPath?
@@ -49,6 +51,8 @@ class BookingTableViewCell: UITableViewCell {
         rowContainerView.layer.cornerRadius = 12
         rowContainerView.layer.shadowOffset = CGSize(width: 2, height: 2)
         rowContainerView.layer.shadowOpacity = 0.3
+        
+        propertyIDStackView.semanticContentAttribute = .forceLeftToRight
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.didTap))
         propertyRowSlideShow.addGestureRecognizer(gestureRecognizer)

@@ -120,8 +120,9 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="48" id="MIe-D3-l0Y"/>
                                                                 </constraints>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" textContentType="tel"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="ASCIICapableNumberPad" returnKeyType="done" textContentType="tel"/>
                                                                 <connections>
                                                                     <action selector="jdsg:" destination="BYZ-38-t0r" eventType="editingChanged" id="Xgq-5w-oVw"/>
                                                                 </connections>
@@ -364,7 +365,7 @@
                                             <constraint firstAttribute="height" constant="55" id="sGk-M4-za1"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="ASCIICapableNumberPad"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcK-Tn-YzG" customClass="CustomBtnGreen" customModule="Alama360" customModuleProvider="target">
                                         <rect key="frame" x="20" y="180" width="260" height="30"/>

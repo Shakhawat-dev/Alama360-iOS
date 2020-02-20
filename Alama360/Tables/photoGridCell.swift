@@ -82,7 +82,7 @@ class PhotoGridCell: UITableViewCell {
         thumbThree.image =  getImage(from: imageThree!)
         thumbFour.image =  getImage(from: imageFour!)
         thumbFive.image =  getImage(from: imageFive!)
-        
+
         moreButton.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "more", comment: "").localiz(),for: .normal)
 
         // Test Purpose
@@ -90,6 +90,19 @@ class PhotoGridCell: UITableViewCell {
         // For 360 property View
 
 
+//        let imageOne = aPhotos[0].picture
+//        let imageTwo = aPhotos[1].picture
+//        let imageThree = aPhotos[2].picture
+//        let imageFour = aPhotos[3].picture
+//        let imageFive = aPhotos[4].picture
+//
+//        thumbOne.image =  getImage(from: imageOne)
+//        thumbTwo.image =  getImage(from: imageTwo)
+//        thumbThree.image =  getImage(from: imageThree)
+//        thumbFour.image =  getImage(from: imageFour)
+//        thumbFive.image =  getImage(from: imageFive)
+//
+//        moreButton.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "more", comment: "").localiz(),for: .normal)
 
     }
 }

@@ -46,6 +46,7 @@ class TbPropertyDetailsViewController: UIViewController {
     var check_out_start: String = ""
     var pYoutube_video_url: String?
     var photos: PhotosModel?
+    var photosArray = [String]()
     //    var property_dailyfeature: FeatureModel?
     var property_dailyfeature = [NewFeatureModel]()
     var landmark_arr = [String]()
@@ -110,7 +111,7 @@ class TbPropertyDetailsViewController: UIViewController {
                 let resultArray = myResult!["data"]
                 
 //                print(resultArray as Any)
-                
+                DispatchQueue.main.async {
                 // Initiating resultArray into specific array
                 self.thumbnail = resultArray["thumbnail"].stringValue
                 self.pTitle = resultArray["title"].stringValue
@@ -136,6 +137,11 @@ class TbPropertyDetailsViewController: UIViewController {
                 }
                 
                 let photoArray = resultArray["photos"]["photosaall"].arrayValue
+//                for i in photoArray {
+////                    let photo = NewPhotosModel(json: i)
+//                    let photo = i["picture"].stringValue
+//                    self.photosArray.append(photo)
+//                }
                 let newPhoto = PhotosModel(json: JSON(photoArray))
                 self.photos = newPhoto
                 
@@ -172,15 +178,16 @@ class TbPropertyDetailsViewController: UIViewController {
                 
                 // To show map on Footer
                 //                self.getMapView ()
+                self.propertyDetailsTable.delegate = self
+                self.propertyDetailsTable.dataSource = self
+                
+                
+                    self.propertyDetailsTable.reloadData()
+                    SVProgressHUD.dismiss()
+                }
                 
             }
-            self.propertyDetailsTable.delegate = self
-            self.propertyDetailsTable.dataSource = self
             
-            DispatchQueue.main.async {
-                self.propertyDetailsTable.reloadData()
-                SVProgressHUD.dismiss()
-            }
             
         }
         
@@ -366,7 +373,7 @@ class TbPropertyDetailsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "allPhotoSegue" {
             let destVC = segue.destination as! AllPhotosViewController
-            destVC.id = sender as? String
+            destVC.allPhotos = sender as? PhotosModel
         }
         if segue.identifier == "pdToRd" {
             let destVC = segue.destination as! ReservationDetailsViewController
@@ -628,7 +635,7 @@ extension TbPropertyDetailsViewController: AllPhotoDelegate {
     func didTapMoreBtn() {
 //        print("From tb did tap: \(photos)")
         
-        performSegue(withIdentifier: "allPhotoSegue", sender: id)
+        performSegue(withIdentifier: "allPhotoSegue", sender: photos)
     }
 
 }

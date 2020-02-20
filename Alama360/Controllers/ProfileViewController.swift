@@ -69,7 +69,7 @@ class ProfileViewController: UIViewController {
         
         userId = defaults.string(forKey: "userID")!
 
-    btnUpdate.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "firstName", comment: "").localiz(), for: .normal)
+        btnUpdate.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "btn_update", comment: "").localiz(), for: .normal)
         
         loadProfileData()
         setTextFields()
@@ -152,7 +152,7 @@ class ProfileViewController: UIViewController {
         SVProgressHUD.show()
         
         //        let pUrl = StaticUrls.BASE_URL_FINAL + "userinfo?lang=\(lan)&userid=\(userId)"
-        let pUrl = StaticUrls.BASE_URL_FINAL + "userinfo?lang=en&userid=\(userId)"
+        let pUrl = StaticUrls.BASE_URL_FINAL + "userinfo?lang=\(lan)&userid=\(userId)"
         print("Profile Url is: \(pUrl)")
         
         Alamofire.request(pUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
@@ -226,7 +226,7 @@ class ProfileViewController: UIViewController {
                                           "state" : selectState.text ?? "",
                                           "city" : selectCity.text ?? "",
                                           "district" : selectDistrict.text ?? "",
-                                          "lang" : "en"]  // TODO: Change language
+                                          "lang" : lan]  // TODO: Change language
         
         Alamofire.request(pUpUrl, method: .post, parameters: params, headers: nil).responseJSON{ (mysresponse) in
             

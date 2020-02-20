@@ -20,14 +20,14 @@ class BookingViewController: UIViewController {
     @IBOutlet weak var mapSortContainerView: UIView!
     @IBOutlet weak var mapBtn: UIButton!
     @IBOutlet weak var sortBtn: UIButton!
-    
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var propertySlideShow: ImageSlideshow!
     let sortDropDown = DropDown()
     
     //For storing user data
     let defaults = UserDefaults.standard
+    
+    var dataTasks : [URLSessionDataTask] = []
     
     var searchController: UISearchController!
     var originalDataSource = [BookingModel]()
@@ -42,6 +42,7 @@ class BookingViewController: UIViewController {
     var address = ""
     var pType = ""
     var id = ""
+    var currentPage: Int = 1
     
     private var f_col = [String]()
     var property_list = [BookingModel]()
@@ -65,14 +66,18 @@ class BookingViewController: UIViewController {
         defaults.set(startDate, forKey: "startDate")
         defaults.set(endDate, forKey: "endDate")
         
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-        // For search view focus
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchContainerView.addSubview(searchController.searchBar)
-        searchController.searchBar.delegate = self
+//        searchController = UISearchController(searchResultsController: nil)
+//        searchController.searchResultsUpdater = self
+//        // For search view focus
+//        searchController.obscuresBackgroundDuringPresentation = false
+//        searchContainerView.addSubview(searchController.searchBar)
+//        searchController.searchBar.delegate = self
         
-        getPropertiesForDate()
+        //        getPropertiesForDate()
+        //        fetchProperties(ofIndex: currentPage)
+        
+        getPropertiesForDate(page: currentPage)
+        
         setLocalization()
         loadSortDropDown()
         
@@ -86,7 +91,7 @@ class BookingViewController: UIViewController {
     }
     
     // Load Booking List
-    func getPropertiesForDate() {
+    func getPropertiesForDate(page: Int) {
         SVProgressHUD.show()
         
         self.tableView.delegate = self
@@ -94,12 +99,12 @@ class BookingViewController: UIViewController {
         
         lan = LocalizationSystem.sharedInstance.getLanguage()
         
-        let params : [String : String] = ["page" : "1", "lang" : lan, "viewType" : "mapview", "startdate" : startDate, "enddate" : endDate, "property_type" : pType, "thumbcat" : thumbcate, "address" : address]
+        let params : [String : String] = ["page" : "\(page)", "lang" : lan, "viewType" : "", "startdate" : startDate, "enddate" : endDate, "property_type" : pType, "thumbcat" : thumbcate, "address" : address, "limit" : "10"]
         
         let bUrl = StaticUrls.BASE_URL_FINAL + "android/propertylist?"
         
         // URL check
-//        print("Response bUrl is: \(bUrl)" + "\(params)")
+        //print("Response bUrl is: \(bUrl)" + "\(params)")
         
         Alamofire.request(bUrl, method: .post, parameters: params, headers: nil).responseJSON{ (mysresponse) in
             
@@ -110,24 +115,26 @@ class BookingViewController: UIViewController {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult!["data"]
                 
-//                print(resultArray as Any)
+//                print(mysresponse.data as Any)
                 
                 // Initiatoing resultArray into specific array
                 for i in resultArray.arrayValue {
                     
-                    let newProperty = BookingModel(json: i)
-                    
-                    self.property_list.append(newProperty)
+                    //                    let newProperty = BookingModel(json: i)
+                    //
+                    //                    self.property_list.append(newProperty)
+                    self.property_list.append(BookingModel(json: i))
                     
                     self.currentDataSource = self.property_list
-   
+                    
                     // print(self.property_list)
                     
                 }
                 
                 DispatchQueue.main.async {
-                   self.tableView.reloadData()
-                     SVProgressHUD.dismiss()
+                    self.tableView.reloadData()
+                    SVProgressHUD.dismiss()
+                    
                 }
                 
             }
@@ -135,6 +142,109 @@ class BookingViewController: UIViewController {
         }
         
     }
+    
+    //    func fetchProperties(ofIndex index: Int) {
+    //        //      let newsID = newsIDs[index]
+    //
+    //        SVProgressHUD.show()
+    //
+    //
+    //
+    //        lan = LocalizationSystem.sharedInstance.getLanguage()
+    //
+    //        let bUrl = StaticUrls.BASE_URL_FINAL + "android/propertylist?"
+    //        let url = URL(string: "\(bUrl)android/propertylist?page=\(index+1)&lang=\(lan)&startdate=\(startDate)&enddate=\(endDate)&property_type=\(pType)&thumbcat=\(thumbcate)&address=\(address)")!
+    //
+    //        // if there is already an existing data task for that specific news url, it means we already loaded it previously / currently loading it
+    //        // stop re-downloading it by returning this function
+    //        if dataTasks.firstIndex(where: { task in
+    //            task.originalRequest?.url == url
+    //        }) != nil {
+    //            return
+    //        }
+    //
+    //        let dataTask = URLSession.shared.dataTask(with: url) { data, response, error in
+    //            guard let data = data else {
+    //                print("No data")
+    //                return
+    //            }
+    //
+    //            guard let myResult = try? JSON(data: data) else {
+    //                print("Error: Couldn't decode data into property json")
+    //                return
+    //            }
+    //            let resultArray = myResult["data"]
+    //            print("fetch new method is \(myResult)")
+    //
+    //            // Initiatoing resultArray into specific array
+    //            for i in resultArray.arrayValue {
+    //
+    //                //                    let newProperty = BookingModel(json: i)
+    //                //
+    //                //                    self.property_list.append(newProperty)
+    //                self.property_list.append(BookingModel(json: i))
+    //
+    //                self.currentDataSource = self.property_list
+    //
+    //
+    //
+    //                // print(self.property_list)
+    //                SVProgressHUD.dismiss()
+    //            }
+    //            // Parse JSON into array of Car struct using JSONDecoder
+    //            //        guard let news = try? JSONDecoder().decode(News.self, from: data) else {
+    //            //          print("Error: Couldn't decode data into news")
+    //            //          return
+    //            //        }
+    //
+    //            // replace the initial 'nil' value with the loaded news
+    //            // to indicate that the news have been loaded for the table view
+    //            //        self.newsArray[index] = news
+    //
+    //            // Update UI on main thread
+    //            DispatchQueue.main.async {
+    //                self.tableView.delegate = self
+    //                self.tableView.dataSource = self
+    //                self.tableView.prefetchDataSource = self
+    //                let indexPath = IndexPath(row: index, section: 0)
+    //                // check if the row of news which we are calling API to retrieve is in the visible rows area in screen
+    //                // the 'indexPathsForVisibleRows?' is because indexPathsForVisibleRows might return nil when there is no rows in visible area/screen
+    //                // if the indexPathsForVisibleRows is nil, '?? false' will make it become false
+    //                if self.tableView.indexPathsForVisibleRows?.contains(indexPath) ?? false {
+    //                    // if the row is visible (means it is currently empty on screen, refresh it with the loaded data with fade animation
+    //                    self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .fade)
+    //                }
+    //            }
+    //        }
+    //
+    //      // run the task of fetching news, and append it to the dataTasks array
+    //      dataTask.resume()
+    //      dataTasks.append(dataTask)
+    //    }
+    //
+    //    // the 'index' parameter indicates the row index of tableview
+    //    func cancelFetchProperties(ofIndex index: Int) {
+    ////      let newsID = newsIDs[index]
+    //      let bUrl = StaticUrls.BASE_URL_FINAL + "android/propertylist?"
+    //      let url = URL(string: "\(bUrl)android/propertylist?page=\(index+1)&lang=\(lan)&startdate=\(startDate)&enddate=\(endDate)&property_type=\(pType)&thumbcat=\(thumbcate)&address=\(address)")!
+    //
+    //      // get the index of the dataTask which load this specific news
+    //      // if there is no existing data task for the specific news, no need to cancel it
+    //      guard let dataTaskIndex = dataTasks.index(where: { task in
+    //        task.originalRequest?.url == url
+    //      }) else {
+    //        return
+    //      }
+    //
+    //      let dataTask =  dataTasks[dataTaskIndex]
+    //
+    //      // cancel and remove the dataTask from the dataTasks array
+    //      // so that a new datatask will be created and used to load news next time
+    //      // since we already cancelled it before it has finished loading
+    //      dataTask.cancel()
+    //      dataTasks.remove(at: dataTaskIndex)
+    //    }
+    
     
     // Recieving and Showing data
     func addProductToDataSource() {
@@ -274,28 +384,28 @@ extension BookingViewController: UISearchResultsUpdating {
     
 }
 
-extension BookingViewController: UISearchBarDelegate {
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        searchController.isActive = false
-        
-        if let searchText = searchBar.text {
-            filteringCurrentDataSource(searchTerm: searchText)
-        }
-        
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
-        searchController.isActive = false
-        restoreCurrentDataSource()
-        if let searchText = searchBar.text, !searchText.isEmpty {
-            restoreCurrentDataSource()
-        }
-    }
-    
-}
+//extension BookingViewController: UISearchBarDelegate {
+//
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//
+//        searchController.isActive = false
+//
+//        if let searchText = searchBar.text {
+//            filteringCurrentDataSource(searchTerm: searchText)
+//        }
+//
+//    }
+//
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//
+//        searchController.isActive = false
+//        restoreCurrentDataSource()
+//        if let searchText = searchBar.text, !searchText.isEmpty {
+//            restoreCurrentDataSource()
+//        }
+//    }
+//
+//}
 
 extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
     
@@ -312,11 +422,13 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
         id = property_list[indexPath.row].id!
         performSegue(withIdentifier: "showDetails", sender: id)
         
-//        let pdParams = (id : id, startDate: startDate, endDate: endDate )
-//        print("property Param is : \(pdParams)")
-//        performSegue(withIdentifier: "showDetails", sender: pdParams)
+        //        let pdParams = (id : id, startDate: startDate, endDate: endDate )
+        //        print("property Param is : \(pdParams)")
+        //        performSegue(withIdentifier: "showDetails", sender: pdParams)
         
     }
+    
+    
     
     func escape(string: String) -> String {
         let allowedCharacters = string.addingPercentEncoding(withAllowedCharacters: CharacterSet(charactersIn: ":=\"#%/<>?@\\^`{|}").inverted) ?? ""
@@ -333,96 +445,138 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
         
         //        cell.contentView.layer.cornerRadius = 12
         
+        //         self.fetchNews(ofIndex: indexPath.row)
         
-        cell.rowTitle.text = property_list[indexPath.row].title
-        cell.tapDelegate = self
-        cell.index = indexPath
+//        if let props = property_list[indexPath.row].title {
         
-        if property_list[indexPath.row].id != "" {
-            cell.propertyId.text = "SA0" + property_list[indexPath.row].id!
-        } else {
-            cell.propertyId.text = "SA0"
+        if indexPath.row + 1 == property_list.count {
+            currentPage += 1
+            getPropertiesForDate(page: currentPage)
         }
-        
-        if property_list[indexPath.row].districtname != "" {
-            cell.rowCityName.text = property_list[indexPath.row].cityname! + ", " + property_list[indexPath.row].districtname!
-        } else {
-            cell.rowCityName.text = property_list[indexPath.row].cityname!
-        }
-        
-        if property_list[indexPath.row].dayprice! > 0 {
-            cell.rowDayPrice.text = String(describing: property_list[indexPath.row].dayprice!)
-        } else {
-            cell.rowDayPrice.text = ""
-        }
-        
-        if property_list[indexPath.row].dayprice! > 0 {
             
-            if property_list[indexPath.row].totalday! > 1 {
-                cell.totalDaysLbl.text = String(describing: property_list[indexPath.row].totalday!) + " " + LocalizationSystem.sharedInstance.localizedStringForKey(key: "days", comment: "").localiz()
+            cell.rowTitle.text = property_list[indexPath.row].title
+            cell.tapDelegate = self
+            cell.index = indexPath
+            
+            if property_list[indexPath.row].id != "" {
+                cell.propertyId.text = "SA0" + property_list[indexPath.row].id!
             } else {
-                cell.totalDaysLbl.text = String(describing: property_list[indexPath.row].totalday!) + " " + LocalizationSystem.sharedInstance.localizedStringForKey(key: "day", comment: "").localiz()
+                cell.propertyId.text = "SA0"
             }
             
-        } else {
-            cell.totalDaysLbl.text = ""
-        }
-        
-        // Adding images to slider
-        if let photo_array: [String?] = property_list[indexPath.row].photos?.picture {
-            
-            cell.propertyRowSlideShow.setImageInputs([
-                AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[0]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
-                AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[1]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
-                AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[2]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
-                AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[3]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
-                AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[4]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
-            ])
-            
-        }
-        
-        if let feature_array: [String] = property_list[indexPath.row].property_dailyfeature?.col1_array {
-            
-            // print("individual : \(feature_array)")
-            
-            if feature_array.count == 3 {
-                cell.featureLabelOne.text = feature_array[0]
-                cell.featureLabelTwo.text = feature_array[1]
-                cell.featureLabelThree.text = feature_array[2]
+            if property_list[indexPath.row].districtname != "" {
+                cell.rowCityName.text = property_list[indexPath.row].cityname! + ", " + property_list[indexPath.row].districtname!
             } else {
-                cell.featureLabelOne.text = ""
-                cell.featureLabelTwo.text = ""
-                cell.featureLabelThree.text = ""
+                cell.rowCityName.text = property_list[indexPath.row].cityname!
             }
             
-        }
-        
-        if let icons_array: [String] = property_list[indexPath.row].property_dailyfeature?.icon_array {
-            
-            // print("individual : \(icons_array)")
-            
-            if icons_array.count == 3 {
-                
-                let icon1  = substringIcon(text: icons_array[0])
-                let icon2  = substringIcon(text: icons_array[1])
-                let icon3  = substringIcon(text: icons_array[2])
-                
-                cell.featureImageOne.image = getImage(from: icon1)
-                cell.featureImageTwo.image = getImage(from: icon2)
-                cell.featureImageThree.image = getImage(from: icon3)
-                
+            if property_list[indexPath.row].dayprice! > 0 {
+                cell.rowDayPrice.text = String(describing: property_list[indexPath.row].dayprice!)
             } else {
-                cell.featureImageOne.image = nil
-                cell.featureImageTwo.image = nil
-                cell.featureImageThree.image = nil
+                cell.rowDayPrice.text = ""
             }
             
-        }
+            if property_list[indexPath.row].dayprice! > 0 {
+                
+                if property_list[indexPath.row].totalday! > 1 {
+                    cell.totalDaysLbl.text = String(describing: property_list[indexPath.row].totalday!) + " " + LocalizationSystem.sharedInstance.localizedStringForKey(key: "days", comment: "").localiz()
+                } else {
+                    cell.totalDaysLbl.text = String(describing: property_list[indexPath.row].totalday!) + " " + LocalizationSystem.sharedInstance.localizedStringForKey(key: "day", comment: "").localiz()
+                }
+                
+            } else {
+                cell.totalDaysLbl.text = ""
+            }
+            
+            // Adding images to slider
+            if let photo_array: [String?] = property_list[indexPath.row].photos?.picture {
+                
+                cell.propertyRowSlideShow.setImageInputs([
+                    AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[0]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
+                    AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[1]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
+                    AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[2]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
+                    AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[3]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!,
+                    AlamofireSource(urlString: "https://alama360.com/lara/public/properties/\((property_list[indexPath.row].id)!)/photos/small/\(photo_array[4]!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
+                ])
+                
+            }
+            
+            if let feature_array: [String] = property_list[indexPath.row].property_dailyfeature?.col1_array {
+                
+                // print("individual : \(feature_array)")
+                
+                if feature_array.count == 3 {
+                    cell.featureLabelOne.text = feature_array[0]
+                    cell.featureLabelTwo.text = feature_array[1]
+                    cell.featureLabelThree.text = feature_array[2]
+                } else {
+                    cell.featureLabelOne.text = ""
+                    cell.featureLabelTwo.text = ""
+                    cell.featureLabelThree.text = ""
+                }
+                
+            }
+            
+            if let icons_array: [String] = property_list[indexPath.row].property_dailyfeature?.icon_array {
+                
+                // print("individual : \(icons_array)")
+                
+                if icons_array.count == 3 {
+                    
+                    let icon1  = substringIcon(text: icons_array[0])
+                    let icon2  = substringIcon(text: icons_array[1])
+                    let icon3  = substringIcon(text: icons_array[2])
+                    
+                    cell.featureImageOne.image = getImage(from: icon1)
+                    cell.featureImageTwo.image = getImage(from: icon2)
+                    cell.featureImageThree.image = getImage(from: icon3)
+                    
+                } else {
+                    cell.featureImageOne.image = nil
+                    cell.featureImageTwo.image = nil
+                    cell.featureImageThree.image = nil
+                }
+                
+            }
+//        }
+//    else {
+//            getPropertiesForDate(page: 1)
+//        }
         
         return cell
     }
     
 }
+
+// For Prefetching
+//extension BookingViewController: UITableViewDataSourcePrefetching {
+//    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+//
+//        // fetch News from API for those rows that are being prefetched (near to visible area)
+//        for indexPath in indexPaths {
+//            if indexPath.row == property_list.count {
+//                currentPage += 1
+//                self.fetchProperties(ofIndex: currentPage)
+//
+//            }
+//
+//            print("\(indexPath)")
+//
+//        }
+//
+//
+//      }
+//
+//      func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+//
+//        // cancel the task of fetching news from API when user scroll away from them
+//        for indexPath in indexPaths {
+//            if indexPath.row == property_list.count {
+//                self.cancelFetchProperties(ofIndex: indexPath.row)
+//            }
+//        }
+//      }
+//}
 
 extension BookingViewController: SlideTapDelegate {
     func didTapSlideShow(index: Int) {
@@ -431,5 +585,3 @@ extension BookingViewController: SlideTapDelegate {
     }
     
 }
-
-

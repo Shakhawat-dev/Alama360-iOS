@@ -61,6 +61,7 @@
 		4B84A10E23C4B135006E5237 /* TbPropertyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B84A10D23C4B135006E5237 /* TbPropertyDetailsViewController.swift */; };
 		4B8544F623EB05D40071FF2D /* DateAvailabilityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8544F523EB05D40071FF2D /* DateAvailabilityTableViewCell.swift */; };
 		4B8544F823EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8544F723EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift */; };
+		4B88874F23FBED8500DB7BAC /* NewPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B88874E23FBED8500DB7BAC /* NewPhotoModel.swift */; };
 		4B8A9D7123D5A2550019EC17 /* AllPhotoGalleryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8A9D7023D5A2550019EC17 /* AllPhotoGalleryModel.swift */; };
 		4B8DD1EB23EC062F0082E387 /* RentalPriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD1EA23EC062F0082E387 /* RentalPriceModel.swift */; };
 		4B9012BE23B768B100E8C59D /* StaticUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9012BD23B768B100E8C59D /* StaticUrls.swift */; };
@@ -165,6 +166,7 @@
 		4B84A10D23C4B135006E5237 /* TbPropertyDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TbPropertyDetailsViewController.swift; sourceTree = "<group>"; };
 		4B8544F523EB05D40071FF2D /* DateAvailabilityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAvailabilityTableViewCell.swift; sourceTree = "<group>"; };
 		4B8544F723EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAvailabilityTitleTableViewCell.swift; sourceTree = "<group>"; };
+		4B88874E23FBED8500DB7BAC /* NewPhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPhotoModel.swift; sourceTree = "<group>"; };
 		4B8A9D7023D5A2550019EC17 /* AllPhotoGalleryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPhotoGalleryModel.swift; sourceTree = "<group>"; };
 		4B8DD1EA23EC062F0082E387 /* RentalPriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentalPriceModel.swift; sourceTree = "<group>"; };
 		4B9012BD23B768B100E8C59D /* StaticUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticUrls.swift; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 				4BD52DF123F42F50009E6C27 /* StateModel.swift */,
 				4BD52DF323F42FE7009E6C27 /* CityModel.swift */,
 				4BD52DF523F43084009E6C27 /* DistrictModel.swift */,
+				4B88874E23FBED8500DB7BAC /* NewPhotoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -580,6 +583,7 @@
 				4BB8864F23DEE74600CB415F /* Switcher.swift in Sources */,
 				4B6DFE1E239E299900543E3F /* SearchViewController.swift in Sources */,
 				4B149C3C23C6116D0021F5EF /* AllPhotosViewController.swift in Sources */,
+				4B88874F23FBED8500DB7BAC /* NewPhotoModel.swift in Sources */,
 				4B8491F423CD83880094B035 /* ReservationTabItem.swift in Sources */,
 				4BD52D7B23F00C86009E6C27 /* RefundPolicyTableViewCell.swift in Sources */,
 				4B43047923C762EE00160663 /* PrivacyPolicyViewController.swift in Sources */,

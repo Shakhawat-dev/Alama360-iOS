@@ -16,6 +16,7 @@ class AllPhotosViewController: UIViewController {
 
     var allPhotos: PhotosModel?
     var photos = [String?]()
+    var photosArray = [String]()
     var id: String?
     var lan: String = ""
     var inputSources: [InputSource]?
@@ -38,7 +39,17 @@ class AllPhotosViewController: UIViewController {
 //        let photos = allPhotos?.picture
         
 //        print("From All id is \(id)")
-        getPropertyDetails()
+//        getPropertyDetails()
+        
+        self.allphotoTableView.delegate = self
+        self.allphotoTableView.dataSource = self
+        
+        self.inputSources = self.photoInputs(photos: allPhotos!.picture)
+        
+        DispatchQueue.main.async {
+            self.allphotoTableView.reloadData()
+            SVProgressHUD.dismiss()
+        }
     }
     
     // Get Api Call
@@ -81,7 +92,7 @@ class AllPhotosViewController: UIViewController {
                     
                     
                     
-                    self.inputSources = self.photoInputs(photos: self.photos)
+//                    self.inputSources = self.photoInputs(photos: self.photos)
 
     
                 }
@@ -132,30 +143,42 @@ class AllPhotosViewController: UIViewController {
     */
     
     func photoInputs(photos: [String?]) -> [InputSource] {
-        var inputSources = [InputSource]()
-        for i in photos {
-
-            let inputSource = ImageSource(image: getImage(from: i!)!)
-            inputSources.append(inputSource)
+            var inputSources = [InputSource]()
+            for i in photos {
+    
+                let inputSource = ImageSource(image: getImage(from: i!)!)
+                inputSources.append(inputSource)
+            }
+    
+            return inputSources
         }
 
-        return inputSources
-    }
+//
+//    func photoInputs(photosArray: [String]) -> [InputSource] {
+//        var inputSources = [InputSource]()
+//        for i in photosArray {
+//
+//            let inputSource = ImageSource(image: getImage(from: i)!)
+//            inputSources.append(inputSource)
+//        }
+//
+//        return inputSources
+//    }
 
 }
 
 extension AllPhotosViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //
-//        var count: Int?
-//
-//        if let allArr: [String?] = allPhotos?.picture {
-//            count = allArr.count
-//        }
+        var count: Int?
+
+        if let allArr: [String?] = allPhotos?.picture {
+            count = allArr.count
+        }
         
 //        print((allPhotos?.picture)!)
         
-        return (allPhotos?.picture.count)!
+        return count!
 
     }
     
@@ -164,6 +187,7 @@ extension AllPhotosViewController: UITableViewDelegate, UITableViewDataSource {
         if let allArr: [String?] = allPhotos?.picture {
             cell.cellPhoto.image = getImage(from: allArr[indexPath.row]!)
         }
+//        cell.cellPhoto.image = getImage(from: photosArray[indexPath.row])
         
         return cell
         
@@ -194,6 +218,10 @@ extension AllPhotosViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         present(fullScreenController, animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 230.0
     }
     
 }
