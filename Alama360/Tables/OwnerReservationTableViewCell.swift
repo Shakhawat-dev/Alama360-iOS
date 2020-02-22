@@ -43,6 +43,8 @@ class OwnerReservationTableViewCell: UITableViewCell {
     @IBOutlet weak var uploadPictureBtn: UIButton!
     @IBOutlet weak var settingsBtn: UIButton!
     
+    @IBOutlet weak var propertyIDStackView: UIStackView!
+    
     private var id = ""
     var tapDelegate: OwnerSlideTapDelegate?
     var index: IndexPath?
@@ -56,6 +58,8 @@ class OwnerReservationTableViewCell: UITableViewCell {
         rowContainerView.layer.cornerRadius = 12
         rowContainerView.layer.shadowOffset = CGSize(width: 2, height: 2)
         rowContainerView.layer.shadowOpacity = 0.3
+        
+        propertyIDStackView.semanticContentAttribute = .forceLeftToRight
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.didTap))
         propertyRowSlideShow.addGestureRecognizer(gestureRecognizer)

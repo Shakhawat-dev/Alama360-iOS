@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class AllPhotosCell: UITableViewCell {
 
@@ -23,6 +24,10 @@ class AllPhotosCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setImage(imageLink: String) {
+        cellPhoto.af_setImage(withURL: URL(string: imageLink.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")!)
     }
 
 }

@@ -11,6 +11,7 @@ import ImageSlideshow
 import Alamofire
 import SwiftyJSON
 import SVProgressHUD
+import AlamofireImage
 
 class AllPhotosViewController: UIViewController {
 
@@ -32,8 +33,8 @@ class AllPhotosViewController: UIViewController {
 //        }
         
         // Do any additional setup after loading the view.
-//        allphotoTableView.delegate = self
-//        allphotoTableView.dataSource = self
+        allphotoTableView.delegate = self
+        allphotoTableView.dataSource = self
 //        allphotoTableView.reloadData()
 //        print("All photos VC: \(allPhotos!)")
 //        let photos = allPhotos?.picture
@@ -41,11 +42,13 @@ class AllPhotosViewController: UIViewController {
 //        print("From All id is \(id)")
 //        getPropertyDetails()
         
-        self.allphotoTableView.delegate = self
-        self.allphotoTableView.dataSource = self
+//        self.allphotoTableView.delegate = self
+//        self.allphotoTableView.dataSource = self
+//        self.allphotoTableView.reloadData()
         
-        self.inputSources = self.photoInputs(photos: allPhotos!.picture)
-        
+//        self.inputSources = self.photoInputs(photos: allPhotos!.picture)
+        self.inputSources = self.photoInputs(photosArray: photosArray)
+//
         DispatchQueue.main.async {
             self.allphotoTableView.reloadData()
             SVProgressHUD.dismiss()
@@ -142,28 +145,33 @@ class AllPhotosViewController: UIViewController {
     }
     */
     
-    func photoInputs(photos: [String?]) -> [InputSource] {
-            var inputSources = [InputSource]()
-            for i in photos {
-    
-                let inputSource = ImageSource(image: getImage(from: i!)!)
-                inputSources.append(inputSource)
-            }
-    
-            return inputSources
-        }
+//    func photoInputs(photos: [String?]) -> [InputSource] {
+//            var inputSources = [InputSource]()
+//            for i in photos {
+//
+//                let inputSource = ImageSource(image: getImage(from: i!)!)
+//                inputSources.append(inputSource)
+//            }
+//
+//            return inputSources
+//        }
 
 //
-//    func photoInputs(photosArray: [String]) -> [InputSource] {
-//        var inputSources = [InputSource]()
-//        for i in photosArray {
-//
-//            let inputSource = ImageSource(image: getImage(from: i)!)
-//            inputSources.append(inputSource)
+    
+    func photoInputs(photosArray: [String]) -> [InputSource] {
+        var inputSources = [InputSource]()
+//        DispatchQueue.main.async {
+            
+            for i in photosArray {
+
+                let inputSource = AlamofireSource(urlString: i.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+                inputSources.append(inputSource!)
+            }
+
+            
 //        }
-//
-//        return inputSources
-//    }
+        return inputSources
+    }
 
 }
 
@@ -172,23 +180,28 @@ extension AllPhotosViewController: UITableViewDelegate, UITableViewDataSource {
 //
         var count: Int?
 
-        if let allArr: [String?] = allPhotos?.picture {
-            count = allArr.count
-        }
+//        if let allArr: [String?] = allPhotos?.picture {
+//            count = allArr.count
+//        }
+        
         
 //        print((allPhotos?.picture)!)
         
-        return count!
+//        return count!
+        return photosArray.count
 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AllPhotosCell") as! AllPhotosCell
-        if let allArr: [String?] = allPhotos?.picture {
-            cell.cellPhoto.image = getImage(from: allArr[indexPath.row]!)
-        }
-//        cell.cellPhoto.image = getImage(from: photosArray[indexPath.row])
         
+//        if let allArr: [String?] = allPhotos?.picture {
+//            cell.setImage(imageLink: allArr[indexPath.row] ?? "")
+//        }
+        
+        if photosArray.isEmpty != true {
+            cell.setImage(imageLink: photosArray[indexPath.row] )
+        }
         return cell
         
     }

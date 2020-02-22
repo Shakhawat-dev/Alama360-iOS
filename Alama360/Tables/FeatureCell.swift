@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class FeatureCell: UITableViewCell {
 
@@ -24,5 +25,30 @@ class FeatureCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    // Removing unwanted charecters
+//    func substringIcon (text: String) ->String {
+//        
+//        let  i_text = text
+//        var mySubstring: String = ""
+//        
+//        if i_text != "" {
+//            let start = i_text.index(i_text.startIndex, offsetBy: 10)
+//            let end = i_text.index(i_text.endIndex, offsetBy: -2)
+//            let range = start..<end
+//            
+//            mySubstring = i_text[range].addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+//            
+//            // print("SUBSTRING is: \(mySubstring)")
+//            
+//        } else {
+//            mySubstring = "https://png.icons8.com/metro/30/000000/parking.png"
+//        }
+//        
+//        return mySubstring
+//    }
+    
+  
+    
 
 }

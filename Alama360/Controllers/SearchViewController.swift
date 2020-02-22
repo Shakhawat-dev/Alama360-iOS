@@ -13,6 +13,7 @@ import SearchTextField
 import iOSDropDown
 import LanguageManager_iOS
 import FSCalendar
+import AlamofireImage
 
 
 class CellClass: UITableViewCell{
@@ -300,7 +301,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MainCell
         
-        cell.thumbImage.image = getImage(from: self.arr_imageUrl[indexPath.row])
+//        cell.thumbImage.image = getImage(from: self.arr_imageUrl[indexPath.row])
+        cell.thumbImage.af_setImage(withURL: URL(string: self.arr_imageUrl[indexPath.row].addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")!)
         cell.categoryTitle.text = self.arr_cateName[indexPath.row]
         
         return cell

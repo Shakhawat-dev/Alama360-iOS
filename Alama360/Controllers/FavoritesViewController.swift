@@ -36,9 +36,9 @@ class FavoritesViewController: UIViewController {
         super.viewDidLoad()
         overrideUserInterfaceStyle = .light //For light mode
         userId = defaults.string(forKey: "userID")!
-//        let logo = #imageLiteral(resourceName: "logo")
-//        let imageView = UIImageView(image:logo)
-//        self.navigationItem.titleView = imageView
+        //        let logo = #imageLiteral(resourceName: "logo")
+        //        let imageView = UIImageView(image:logo)
+        //        self.navigationItem.titleView = imageView
         
         self.navigationItem.title = LocalizationSystem.sharedInstance.localizedStringForKey(key: "favorites", comment: "").localiz()
         
@@ -50,7 +50,7 @@ class FavoritesViewController: UIViewController {
     func getPropertiesForDate() {
         
         lan = LocalizationSystem.sharedInstance.getLanguage()
-//        let params : [String : String] = ["start" : "2019-12-19", "viewType" : "mapview", "lang" : lan, "thumbcat" : thumcate, "address" : address]
+        //        let params : [String : String] = ["start" : "2019-12-19", "viewType" : "mapview", "lang" : lan, "thumbcat" : thumcate, "address" : address]
         
         let fUrl = StaticUrls.BASE_URL_FINAL + "androidfavorites?lang=\(lan)&userid=\(userId)"
         
@@ -61,10 +61,12 @@ class FavoritesViewController: UIViewController {
             
             if mysresponse.result.isSuccess {
                 
+//                print(mysresponse)
+                
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult!["data"]
                 
-//                print(resultArray as Any)
+                //                print(resultArray as Any)
                 
                 // Initiatoing resultArray into specific array
                 for i in resultArray.arrayValue {
@@ -197,6 +199,18 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
             cell.rowDayPrice.text = ""
         }
         
+        if property_list[indexPath.row].dayprice! > 0 {
+            
+            if property_list[indexPath.row].totalday! > 1 {
+                cell.totalDaysLbl.text = String(describing: property_list[indexPath.row].totalday!) + " " + LocalizationSystem.sharedInstance.localizedStringForKey(key: "days", comment: "").localiz()
+            } else {
+                cell.totalDaysLbl.text = String(describing: property_list[indexPath.row].totalday!) + " " + LocalizationSystem.sharedInstance.localizedStringForKey(key: "day", comment: "").localiz()
+            }
+            
+        } else {
+            cell.totalDaysLbl.text = ""
+        }
+        
         // Adding images to slider
         if let photo_array: [String?] = property_list[indexPath.row].photos?.picture {
             
@@ -236,9 +250,13 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
                 let icon2  = substringIcon(text: icons_array[1])
                 let icon3  = substringIcon(text: icons_array[2])
                 
-                cell.featureImageOne.image = getImage(from: icon1)
-                cell.featureImageTwo.image = getImage(from: icon2)
-                cell.featureImageThree.image = getImage(from: icon3)
+                //                    cell.featureImageOne.image = getImage(from: icon1)
+                //                    cell.featureImageTwo.image = getImage(from: icon2)
+                //                    cell.featureImageThree.image = getImage(from: icon3)
+                
+                cell.featureImageOne.af_setImage(withURL: URL(string: icon1.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")!)
+                cell.featureImageTwo.af_setImage(withURL: URL(string: icon2.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")!)
+                cell.featureImageThree.af_setImage(withURL: URL(string: icon3.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")!)
                 
             } else {
                 cell.featureImageOne.image = nil

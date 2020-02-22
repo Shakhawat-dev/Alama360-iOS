@@ -69,8 +69,9 @@ class TbPropertyDetailsViewController: UIViewController {
         
 //        let btnImage:UIImage = UIImage(systemName: "whatsapp_icon")!
         let shareBtn = UIBarButtonItem(image: UIImage(named: "share"),  style: .plain, target: self, action: #selector(didTapShareButton))
-        
         navigationItem.setRightBarButtonItems([shareBtn, favBtn], animated: true)
+        
+        propertyDetailsTable.delaysContentTouches = false
         
         // Do any additional setup after loading the view.
         getPropertyDetails()
@@ -137,13 +138,13 @@ class TbPropertyDetailsViewController: UIViewController {
                 }
                 
                 let photoArray = resultArray["photos"]["photosaall"].arrayValue
-//                for i in photoArray {
-////                    let photo = NewPhotosModel(json: i)
-//                    let photo = i["picture"].stringValue
-//                    self.photosArray.append(photo)
-//                }
-                let newPhoto = PhotosModel(json: JSON(photoArray))
-                self.photos = newPhoto
+                for i in photoArray {
+//                    let photo = NewPhotosModel(json: i)
+                    let photo = i["picture"].stringValue
+                    self.photosArray.append(photo)
+                }
+//                let newPhoto = PhotosModel(json: JSON(photoArray))
+//                self.photos = newPhoto
                 
                 let featureArray = resultArray["property_dailyfeature"].arrayValue
                 //                let newFeature = NewFeatureModel(json: JSON(featureArray))
@@ -371,9 +372,14 @@ class TbPropertyDetailsViewController: UIViewController {
     
     // Sending Data to View COntroller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "allPhotoSegue" {
+//            let destVC = segue.destination as! AllPhotosViewController
+//            destVC.allPhotos = sender as? PhotosModel
+//        }
+        
         if segue.identifier == "allPhotoSegue" {
             let destVC = segue.destination as! AllPhotosViewController
-            destVC.allPhotos = sender as? PhotosModel
+            destVC.photosArray = sender as! [String]
         }
         if segue.identifier == "pdToRd" {
             let destVC = segue.destination as! ReservationDetailsViewController
@@ -544,9 +550,16 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
         } else if section == 0 && row == 1 {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoGridCell") as! PhotoGridCell
-            if let pp = photos?.picture {
-                
-                cell.setValues(aPhotos: photos!)
+//            if let pp = photos?.picture {
+//
+//                cell.setValues(aPhotos: photos!)
+//                cell.delegate = self
+//
+//                return cell
+//            }
+            
+            if photosArray.isEmpty != true {
+                cell.setValues(aPhotos: photosArray)
                 cell.delegate = self
                 
                 return cell
@@ -579,8 +592,10 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
         }  else if section == 2 {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "FeatureCell") as! FeatureCell
+            
             cell.featureName.text = property_dailyfeature[indexPath.row].col1
-            cell.featureImage.image = getImage(from: substringIcon(text: property_dailyfeature[indexPath.row].icon))
+//            cell.featureImage.image = getImage(from: substringIcon(text: property_dailyfeature[indexPath.row].icon))
+            cell.featureImage.af_setImage(withURL: URL(string: substringIcon(text: property_dailyfeature[indexPath.row].icon).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")!)
             
             return cell
             
@@ -628,14 +643,22 @@ extension TbPropertyDetailsViewController: UITableViewDelegate, UITableViewDataS
         }
         
     }
+
+    
     
 }
 
 extension TbPropertyDetailsViewController: AllPhotoDelegate {
+//    func didTapMoreBtn(allphotos: PhotosModel) {
+//        DispatchQueue.main.async {
+//            self.performSegue(withIdentifier: "allPhotoSegue", sender: allphotos)
+//        }
+//    }
+    
     func didTapMoreBtn() {
-//        print("From tb did tap: \(photos)")
-        
-        performSegue(withIdentifier: "allPhotoSegue", sender: photos)
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "allPhotoSegue", sender: self.photosArray)
+        }
     }
 
 }

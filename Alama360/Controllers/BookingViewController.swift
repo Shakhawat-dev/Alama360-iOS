@@ -527,9 +527,13 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
                     let icon2  = substringIcon(text: icons_array[1])
                     let icon3  = substringIcon(text: icons_array[2])
                     
-                    cell.featureImageOne.image = getImage(from: icon1)
-                    cell.featureImageTwo.image = getImage(from: icon2)
-                    cell.featureImageThree.image = getImage(from: icon3)
+//                    cell.featureImageOne.image = getImage(from: icon1)
+//                    cell.featureImageTwo.image = getImage(from: icon2)
+//                    cell.featureImageThree.image = getImage(from: icon3)
+                    
+                    cell.featureImageOne.af_setImage(withURL: URL(string: icon1.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")!)
+                    cell.featureImageTwo.af_setImage(withURL: URL(string: icon2.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")!)
+                    cell.featureImageThree.af_setImage(withURL: URL(string: icon3.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")!)
                     
                 } else {
                     cell.featureImageOne.image = nil
