@@ -29,9 +29,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // For light mode
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
+        
         startDate = defaults.string(forKey: "startDate") ?? ""
         startDate = defaults.string(forKey: "endDate") ?? ""
-        overrideUserInterfaceStyle = .light //For light mode
+        
         GMSServices.provideAPIKey("AIzaSyDod0SP5Eh_eZmNNES7aTJt3eXs1mooFHY")
         // Do any additional setup after loading the view.
         loadMap()

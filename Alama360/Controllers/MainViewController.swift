@@ -38,13 +38,16 @@ class ViewController: UIViewController {
     var userid = ""
     var usertype = ""
     var status = ""
-    var lan = LanguageManager.shared.currentLanguage
+//    var lan = LanguageManager.shared.currentLanguage
     
     //HomePage segue
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        overrideUserInterfaceStyle = .light //For light mode
+        // For Dark Mode
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
         
         // For Hiding keyboard on Tap
         self.hideKeyboardWhenTappedAround()

@@ -13,7 +13,10 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-overrideUserInterfaceStyle = .light //For light mode
+        // For light mode
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
         
         // Do any additional setup after loading the view.\
 //        tabBarController?.tabBar.items![1].title = "xx"
@@ -23,6 +26,12 @@ overrideUserInterfaceStyle = .light //For light mode
         super.viewWillAppear(animated)
     
         guard let items = tabBar.items else { return }
+        
+        items[0].image = #imageLiteral(resourceName: "icons8-search-100")
+        items[1].image = #imageLiteral(resourceName: "icons8-event-100")
+        items[2].image = #imageLiteral(resourceName: "icons8-heart-100")
+        items[3].image = #imageLiteral(resourceName: "icons8-more-100")
+        
     
         items[0].title = LocalizationSystem.sharedInstance.localizedStringForKey(key: "search", comment: "").localiz()
         items[1].title = LocalizationSystem.sharedInstance.localizedStringForKey(key: "reservations", comment: "").localiz()

@@ -1338,6 +1338,7 @@
                         <segue destination="Vnx-Yn-HsX" kind="show" identifier="ownerlListToWeb" id="LqF-DC-u6v"/>
                         <segue destination="CYA-gZ-Mo9" kind="show" identifier="ownerListToPD" id="dhO-f1-Xup"/>
                         <segue destination="nTY-Rl-HnT" kind="show" identifier="ownerListToOwnerSettings" id="RMV-1D-Kke"/>
+                        <segue destination="oDA-tK-5r2" kind="show" identifier="ownerlistToSettings" id="TDb-k9-f12"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EqO-Rv-BUW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1510,6 +1511,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJC-rn-S3q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2879.7101449275365" y="817.63392857142856"/>
+        </scene>
+        <!--Owner Property Settings Table View Controller-->
+        <scene sceneID="oic-c3-9IZ">
+            <objects>
+                <tableViewController id="oDA-tK-5r2" customClass="OwnerPropertySettingsTableViewController" customModule="Alama360" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="b9U-uo-WNs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DummyCell" textLabel="7VE-wn-Xik" style="IBUITableViewCellStyleDefault" id="Sbn-hy-RPC" customClass="DummyCell" customModule="Alama360" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sbn-hy-RPC" id="in0-Ag-Oj7">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7VE-wn-Xik">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="name" destination="7VE-wn-Xik" id="eKy-5o-aDo"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="oDA-tK-5r2" id="Wod-cC-2q9"/>
+                            <outlet property="delegate" destination="oDA-tK-5r2" id="g2r-UM-Ev1"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="KTR-Fa-WQD"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bnm-rg-4Lm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3930" y="818"/>
         </scene>
         <!--TermsOfUseViewController-->
         <scene sceneID="mWa-l0-1mL">

@@ -26,7 +26,9 @@ class ReservationsViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        overrideUserInterfaceStyle = .light //For light mode
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
         // getting default values
 //        lan = LocalizationSystem.sharedInstance.getLanguage()
         lan = LanguageManager.shared.currentLanguage.rawValue

@@ -21,6 +21,10 @@ class PropertySettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // For light mode
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
         
         // Do any additional setup after loading the view.
         loadClientManager()

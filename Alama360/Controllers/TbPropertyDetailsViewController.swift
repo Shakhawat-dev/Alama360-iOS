@@ -61,7 +61,10 @@ class TbPropertyDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        overrideUserInterfaceStyle = .light //For light mode
+        // For light mode
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
         userId = defaults.string(forKey: "userID")!
         startDate = defaults.string(forKey: "firstDate")!
         endDate = defaults.string(forKey: "lastDate")!
@@ -158,12 +161,25 @@ class TbPropertyDetailsViewController: UIViewController {
                 if fav! == "null" {
                     //                    print("Favourite info is: \(fav!)")
                     self.isFav = false
-                    let btnImage: UIImage = UIImage(systemName: "heart")!
-                    self.favBtn.image = btnImage
+                    if #available(iOS 13.0, *) {
+                        let btnImage:UIImage = UIImage(systemName: "heart")!
+                        self.favBtn.image = btnImage
+                    } else {
+                        // Fallback on earlier versions
+                        let btnImage:UIImage = #imageLiteral(resourceName: "icons8-heart-100")
+                        self.favBtn.image = btnImage
+                    }
                 } else {
                     self.isFav = true
-                    let btnImage: UIImage = UIImage(systemName: "heart.fill")!
-                    self.favBtn.image = btnImage
+                   if #available(iOS 13.0, *) {
+                        let btnImage: UIImage = UIImage(systemName: "heart.fill")!
+                        self.favBtn.image = btnImage
+                    } else {
+                        // Fallback on earlier versions
+                        let btnImage: UIImage = #imageLiteral(resourceName: "icons8-heart-100 (1)")
+                        self.favBtn.image = btnImage
+                        self.favBtn.tintColor = #colorLiteral(red: 0, green: 0.5628422499, blue: 0.3188166618, alpha: 1)
+                    }
                 }
                 
 //                self.propertyDetailsTable.delegate = self
@@ -289,14 +305,30 @@ class TbPropertyDetailsViewController: UIViewController {
     func favSet() {
         if self.isFav {
             self.isFav = false
-            let btnImage:UIImage = UIImage(systemName: "heart")!
+            
+            if #available(iOS 13.0, *) {
+                let btnImage:UIImage = UIImage(systemName: "heart")!
+                self.favBtn.image = btnImage
+            } else {
+                // Fallback on earlier versions
+                let btnImage:UIImage = #imageLiteral(resourceName: "icons8-heart-100")
+                self.favBtn.image = btnImage
+            }
             //                    self.favBtn.setBackgroundImage(btnImage, for: .normal, style: .plain, barMetrics: .default)
-            self.favBtn.image = btnImage
+            
         } else {
             self.isFav = true
-            let btnImage: UIImage = UIImage(systemName: "heart.fill")!
+            if #available(iOS 13.0, *) {
+                let btnImage: UIImage = UIImage(systemName: "heart.fill")!
+                self.favBtn.image = btnImage
+            } else {
+                // Fallback on earlier versions
+                let btnImage: UIImage = #imageLiteral(resourceName: "icons8-heart-100 (1)")
+                self.favBtn.image = btnImage
+                self.favBtn.tintColor = #colorLiteral(red: 0, green: 0.5628422499, blue: 0.3188166618, alpha: 1)
+            }
             //                    self.favBtn.setBackgroundImage(btnImage, for: .normal, style: .plain, barMetrics: .default)
-            self.favBtn.image = btnImage
+            
         }
     }
     

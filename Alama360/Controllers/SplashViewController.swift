@@ -17,7 +17,10 @@ class SplashViewController: UIViewController {
     var status: Bool?
     override func viewDidLoad() {
         super.viewDidLoad()
-        overrideUserInterfaceStyle = .light //For light mode
+        // For light mode
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
         
         status = defaults.bool(forKey: "loggedIn")
 //        print(status)

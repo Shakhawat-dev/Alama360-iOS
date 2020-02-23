@@ -36,6 +36,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     @IBOutlet weak var lblSelectDate: UILabel!
     @IBOutlet weak var btnAdd: UIButton!
     @IBOutlet weak var addYourChaletContainerView: UIView!
+    @IBOutlet weak var addChaletIcon: UIImageView!
     
     // Fs Calender
     fileprivate weak var calendar: FSCalendar!
@@ -74,7 +75,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        overrideUserInterfaceStyle = .light //For light mode
+        // For light mode
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
         // For Hiding keyboard on Tap
         self.hideKeyboardWhenTappedAround()
         
@@ -101,6 +105,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     }
     
     func addDesign() {
+        
+        addChaletIcon.image = #imageLiteral(resourceName: "icons8-home-page-100")
+        
         searchContainerView.layer.cornerRadius = 8
         searchContainerView.layer.shadowRadius = 8
         searchContainerView.layer.shadowOpacity = 0.5
@@ -257,6 +264,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
                 
                 self.collectionView.dataSource = self
                 self.collectionView.delegate = self
+                self.collectionView.reloadData()
                 
 //                print(self.arr_cateName)
 //                print(self.arr_cateName.count)

@@ -41,7 +41,10 @@ class BookingTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        overrideUserInterfaceStyle = .light //For light mode
+        // For light mode
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
         
         // Initialization code
 //        propertyRowSlideShow.layer.cornerRadius = 12

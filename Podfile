@@ -21,6 +21,7 @@ target 'Alama360' do
   pod 'DropDown'
   pod 'FSCalendar'
   pod 'SVPinView', '~> 1.0'
+  pod 'MBRadioCheckboxButton'
   
   pod 'BIObjCHelpers'
   pod 'IQKeyboardManager', '~> 4.0.2'

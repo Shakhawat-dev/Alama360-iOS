@@ -71,6 +71,8 @@
 		4BA60FCD240169A400CC16ED /* PropertySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA60FCC240169A400CC16ED /* PropertySettingsViewController.swift */; };
 		4BA60FCF24016CF500CC16ED /* ClientManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA60FCE24016CF500CC16ED /* ClientManagerModel.swift */; };
 		4BA60FD124016FF900CC16ED /* BankCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA60FD024016FF900CC16ED /* BankCategoryModel.swift */; };
+		4BA60FD32402537200CC16ED /* OwnerPropertySettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA60FD22402537200CC16ED /* OwnerPropertySettingsTableViewController.swift */; };
+		4BA60FD524025CC900CC16ED /* DummyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA60FD424025CC900CC16ED /* DummyCell.swift */; };
 		4BAA2FE723E6DE5500721EA5 /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAA2FE623E6DE5500721EA5 /* OTPTextField.swift */; };
 		4BAA2FE923E7F6C300721EA5 /* TapKeyboardHide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAA2FE823E7F6C200721EA5 /* TapKeyboardHide.swift */; };
 		4BABFAB723A8BCE400F34EA4 /* addPropertyTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BABFAB623A8BCE400F34EA4 /* addPropertyTermsViewController.swift */; };
@@ -179,6 +181,8 @@
 		4BA60FCC240169A400CC16ED /* PropertySettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertySettingsViewController.swift; sourceTree = "<group>"; };
 		4BA60FCE24016CF500CC16ED /* ClientManagerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientManagerModel.swift; sourceTree = "<group>"; };
 		4BA60FD024016FF900CC16ED /* BankCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCategoryModel.swift; sourceTree = "<group>"; };
+		4BA60FD22402537200CC16ED /* OwnerPropertySettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerPropertySettingsTableViewController.swift; sourceTree = "<group>"; };
+		4BA60FD424025CC900CC16ED /* DummyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyCell.swift; sourceTree = "<group>"; };
 		4BAA2FE623E6DE5500721EA5 /* OTPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextField.swift; sourceTree = "<group>"; };
 		4BAA2FE823E7F6C200721EA5 /* TapKeyboardHide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapKeyboardHide.swift; sourceTree = "<group>"; };
 		4BABFAB623A8BCE400F34EA4 /* addPropertyTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addPropertyTermsViewController.swift; sourceTree = "<group>"; };
@@ -327,6 +331,7 @@
 				4BD52D8023F017F6009E6C27 /* RDdatesPriceTableViewCell.swift */,
 				4BD52D8223F0181E009E6C27 /* RDdatePriceTitleTableViewCell.swift */,
 				4BD52DFB23F57E01009E6C27 /* OwnerReservationTableViewCell.swift */,
+				4BA60FD424025CC900CC16ED /* DummyCell.swift */,
 			);
 			path = Tables;
 			sourceTree = "<group>";
@@ -369,6 +374,7 @@
 				4BD52DFD23F5887C009E6C27 /* OwnerWebViewController.swift */,
 				4BD52DFF23F59236009E6C27 /* OwnerPropertyViewController.swift */,
 				4BA60FCC240169A400CC16ED /* PropertySettingsViewController.swift */,
+				4BA60FD22402537200CC16ED /* OwnerPropertySettingsTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -587,11 +593,13 @@
 				4BD52D9A23F2C296009E6C27 /* WelcomeViewController.swift in Sources */,
 				4B9012C423B775AC00E8C59D /* PhotosModel.swift in Sources */,
 				4B30DEBF23D0464F00069DBC /* MapViewController.swift in Sources */,
+				4BA60FD32402537200CC16ED /* OwnerPropertySettingsTableViewController.swift in Sources */,
 				4B7870C523B0D9C100D360AC /* FeatureModel.swift in Sources */,
 				4B9C21EF23CC545400090E94 /* ContactTableViewController.swift in Sources */,
 				4BB8864F23DEE74600CB415F /* Switcher.swift in Sources */,
 				4B6DFE1E239E299900543E3F /* SearchViewController.swift in Sources */,
 				4B149C3C23C6116D0021F5EF /* AllPhotosViewController.swift in Sources */,
+				4BA60FD524025CC900CC16ED /* DummyCell.swift in Sources */,
 				4B88874F23FBED8500DB7BAC /* NewPhotoModel.swift in Sources */,
 				4B8491F423CD83880094B035 /* ReservationTabItem.swift in Sources */,
 				4BD52D7B23F00C86009E6C27 /* RefundPolicyTableViewCell.swift in Sources */,
@@ -832,6 +840,7 @@
 					"$(PROJECT_DIR)/Alama360",
 				);
 				INFOPLIST_FILE = Alama360/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -949,6 +958,7 @@
 					"$(PROJECT_DIR)/Alama360",
 				);
 				INFOPLIST_FILE = Alama360/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

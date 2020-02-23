@@ -36,7 +36,10 @@ class MoreTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        overrideUserInterfaceStyle = .light //For light mode
+        // For light mode
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
         userType = defaults.string(forKey: "userType") ?? "user"
 //        let logo = #imageLiteral(resourceName: "logo")
 //        let imageView = UIImageView(image:logo)

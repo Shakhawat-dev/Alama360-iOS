@@ -34,7 +34,10 @@ class FavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        overrideUserInterfaceStyle = .light //For light mode
+        
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
         userId = defaults.string(forKey: "userID")!
         //        let logo = #imageLiteral(resourceName: "logo")
         //        let imageView = UIImageView(image:logo)

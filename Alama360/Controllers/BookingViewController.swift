@@ -50,7 +50,10 @@ class BookingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        overrideUserInterfaceStyle = .light //For light mode
+        // For light mode
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
         
         // For Hiding keyboard on Tap
         self.hideKeyboardWhenTappedAround()
@@ -78,15 +81,19 @@ class BookingViewController: UIViewController {
         
         getPropertiesForDate(page: currentPage)
         
-        setLocalization()
+        setButtons()
         loadSortDropDown()
         
         print("Booking Vc Params: \(propParam)")
         
     }
     
-    func setLocalization() {
+    func setButtons() {
+        
+        mapBtn.setImage(#imageLiteral(resourceName: "icons8-map-marker-100"), for: .normal)
         mapBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "map", comment: "").localiz(), for: .normal)
+       
+        sortBtn.setImage(#imageLiteral(resourceName: "icons8-descending-sorting-100"), for: .normal)
         sortBtn.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "sort", comment: "").localiz(), for: .normal)
     }
     
