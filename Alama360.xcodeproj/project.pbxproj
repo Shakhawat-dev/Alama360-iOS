@@ -38,12 +38,12 @@
 		4B4BBBAF23C46F9F00DB28C5 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4BBBAE23C46F9F00DB28C5 /* More.storyboard */; };
 		4B4EAB2123CB5CAA005AEBA6 /* MoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4EAB2023CB5CAA005AEBA6 /* MoreTableViewController.swift */; };
 		4B5C17E623DC15EC00EE2310 /* CustomBtnGreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C17E523DC15EC00EE2310 /* CustomBtnGreen.swift */; };
-		4B603F6B23F5E7B60005ECA9 /* paytabs-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B603F6A23F5E7B50005ECA9 /* paytabs-iOS.framework */; };
-		4B603F6D23F5E8680005ECA9 /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4B603F6C23F5E8670005ECA9 /* Resources.bundle */; };
+		4B5C57732405028B00F597F1 /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4B5C57712405028B00F597F1 /* Resources.bundle */; };
 		4B6DFE18239E278600543E3F /* ReservationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE17239E278600543E3F /* ReservationsViewController.swift */; };
 		4B6DFE1A239E292800543E3F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE19239E292800543E3F /* FavoritesViewController.swift */; };
 		4B6DFE1E239E299900543E3F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE1D239E299900543E3F /* SearchViewController.swift */; };
 		4B6DFE21239E84AA00543E3F /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE20239E84AA00543E3F /* ContactViewController.swift */; };
+		4B76ED0C24051F720046217B /* paytabs-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B76ED0B24051F720046217B /* paytabs-iOS.framework */; };
 		4B7870C223ADF5A000D360AC /* BookingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7870C123ADF5A000D360AC /* BookingTableViewCell.swift */; };
 		4B7870C523B0D9C100D360AC /* FeatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7870C423B0D9C100D360AC /* FeatureModel.swift */; };
 		4B7870C723B0F7D400D360AC /* BookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7870C623B0F7D400D360AC /* BookingModel.swift */; };
@@ -148,12 +148,12 @@
 		4B4BBBAE23C46F9F00DB28C5 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
 		4B4EAB2023CB5CAA005AEBA6 /* MoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewController.swift; sourceTree = "<group>"; };
 		4B5C17E523DC15EC00EE2310 /* CustomBtnGreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBtnGreen.swift; sourceTree = "<group>"; };
-		4B603F6A23F5E7B50005ECA9 /* paytabs-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "paytabs-iOS.framework"; sourceTree = "<group>"; };
-		4B603F6C23F5E8670005ECA9 /* Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resources.bundle; sourceTree = "<group>"; };
+		4B5C57712405028B00F597F1 /* Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resources.bundle; sourceTree = "<group>"; };
 		4B6DFE17239E278600543E3F /* ReservationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationsViewController.swift; sourceTree = "<group>"; };
 		4B6DFE19239E292800543E3F /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		4B6DFE1D239E299900543E3F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4B6DFE20239E84AA00543E3F /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		4B76ED0B24051F720046217B /* paytabs-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "paytabs-iOS.framework"; path = "../../../../Downloads/paytabs-iOS.framework"; sourceTree = "<group>"; };
 		4B7870C123ADF5A000D360AC /* BookingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTableViewCell.swift; sourceTree = "<group>"; };
 		4B7870C423B0D9C100D360AC /* FeatureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureModel.swift; sourceTree = "<group>"; };
 		4B7870C623B0F7D400D360AC /* BookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingModel.swift; sourceTree = "<group>"; };
@@ -231,7 +231,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B603F6B23F5E7B60005ECA9 /* paytabs-iOS.framework in Frameworks */,
+				4B76ED0C24051F720046217B /* paytabs-iOS.framework in Frameworks */,
 				4BABFAB923A900D900F34EA4 /* iOSDropDown.framework in Frameworks */,
 				875FBF4D4627B61E14B5C514 /* Pods_Alama360.framework in Frameworks */,
 			);
@@ -282,9 +282,9 @@
 				4B04E44E239B7D1500D02BC4 /* Localizable.strings */,
 				4B1CE32F23A24A7800C0FC01 /* MainCell.swift */,
 				4B04E43B239B788300D02BC4 /* Assets.xcassets */,
+				4B76ED0B24051F720046217B /* paytabs-iOS.framework */,
+				4B5C57712405028B00F597F1 /* Resources.bundle */,
 				4B04E440239B788300D02BC4 /* Info.plist */,
-				4B603F6C23F5E8670005ECA9 /* Resources.bundle */,
-				4B603F6A23F5E7B50005ECA9 /* paytabs-iOS.framework */,
 				4BD52D8E23F27DA8009E6C27 /* Alama360-Bridging-Header.h */,
 			);
 			path = Alama360;
@@ -503,7 +503,7 @@
 				4BB8867723E19E1C00CB415F /* OTPalertView.xib in Resources */,
 				4B04E43C239B788300D02BC4 /* Assets.xcassets in Resources */,
 				4B4BBBAD23C46F8200DB28C5 /* Favourites.storyboard in Resources */,
-				4B603F6D23F5E8680005ECA9 /* Resources.bundle in Resources */,
+				4B5C57732405028B00F597F1 /* Resources.bundle in Resources */,
 				4B04E43A239B788100D02BC4 /* Main.storyboard in Resources */,
 				4BEB3D4123CEECD7004C7F33 /* Search.storyboard in Resources */,
 				4B4BBBAB23C46F1E00DB28C5 /* Reservations.storyboard in Resources */,

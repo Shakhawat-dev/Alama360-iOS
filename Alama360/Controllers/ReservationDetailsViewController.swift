@@ -133,7 +133,7 @@ class ReservationDetailsViewController: UIViewController {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult!["data"]
                 
-                print(resultArray as Any)
+//                print(resultArray as Any)
                 
                 self.firstName = resultArray["name"].stringValue
                 self.lastName = resultArray["lname"].stringValue
@@ -149,7 +149,7 @@ class ReservationDetailsViewController: UIViewController {
                 self.thumbnail = resultArray["thumbnail"].stringValue
                 
 //                let countries = resultArray["userallcountry"].arrayValue
-                print("Country array is: \(self.address)")
+//                print("Country array is: \(self.address)")
 //
 //                for country in countries {
 //                    let newCountry = CountryModel(json: JSON(country))
