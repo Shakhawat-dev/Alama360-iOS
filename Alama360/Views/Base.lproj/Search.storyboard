@@ -1198,7 +1198,7 @@
                                 <rect key="frame" x="0.0" y="140" width="375" height="652"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="350" id="8N8-9O-go7" customClass="BookingTableViewCell" customModule="Alama360" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="350" id="8N8-9O-go7" customClass="BookingTableViewCell" customModule="Alama360" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="350"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8N8-9O-go7" id="9rz-eT-4Y1">
@@ -2680,7 +2680,7 @@
                         <viewLayoutGuide key="safeArea" id="kAo-ir-Gxx"/>
                     </view>
                     <navigationItem key="navigationItem" id="C9D-eE-fiV">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="heart" catalog="system" style="plain" id="g2D-HO-2ht">
+                        <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" style="plain" id="g2D-HO-2ht">
                             <color key="tintColor" red="0.024396336120000001" green="0.62690355330000003" blue="0.44178372469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="favoriteBtnTapped:" destination="9sz-IN-Njs" id="OLn-bG-tef"/>
@@ -2760,7 +2760,7 @@
         <scene sceneID="DFZ-0s-XRM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" interfaceStyle="light" id="rDq-V5-s9W" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="Tpr-rv-5J1"/>
+                    <tabBarItem key="tabBarItem" title="Search" id="Tpr-rv-5J1"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SYx-JX-w4v">
@@ -2790,7 +2790,6 @@
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="img_1" width="1200" height="600"/>
         <image name="location" catalog="system" width="64" height="56"/>
-        <image name="magnifyingglass" catalog="system" width="64" height="56"/>
         <image name="new_payment_ar_logo" width="2000" height="300"/>
         <image name="pencil.slash" catalog="system" width="64" height="56"/>
         <image name="trash.fill" catalog="system" width="60" height="64"/>

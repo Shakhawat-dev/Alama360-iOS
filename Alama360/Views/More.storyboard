@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ee7-wa-PNZ">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -235,9 +236,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doc.text.magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Xug-Ky-ybg">
-                                                    <rect key="frame" x="20" y="6" width="70" height="53.5"/>
-                                                    <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-house-with-a-garden-100" translatesAutoresizingMaskIntoConstraints="NO" id="Xug-Ky-ybg">
+                                                    <rect key="frame" x="20" y="6" width="70" height="52"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="52" id="EdI-na-f1y"/>
                                                         <constraint firstAttribute="width" constant="70" id="JVo-fH-BCM"/>
@@ -1043,7 +1043,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OwnerReservationTableViewCell" rowHeight="420" id="8w7-um-Ep6" customClass="OwnerReservationTableViewCell" customModule="Alama360" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="OwnerReservationTableViewCell" rowHeight="420" id="8w7-um-Ep6" customClass="OwnerReservationTableViewCell" customModule="Alama360" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="420"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8w7-um-Ep6" id="fCR-zn-M2y">
@@ -1639,7 +1639,7 @@
         <scene sceneID="wlP-Cd-VCX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" interfaceStyle="light" id="ee7-wa-PNZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="More" image="circle.grid.3x3.fill" catalog="system" id="uYU-33-Ska"/>
+                    <tabBarItem key="tabBarItem" title="More" id="uYU-33-Ska"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jgt-UW-7bX">
@@ -1665,8 +1665,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="circle.grid.3x3.fill" catalog="system" width="64" height="56"/>
-        <image name="doc.text.magnifyingglass" catalog="system" width="58" height="64"/>
         <image name="five_stars" width="722" height="146"/>
         <image name="ic_add_new" width="30" height="30"/>
         <image name="ic_contact" width="30" height="30"/>
@@ -1678,6 +1676,7 @@
         <image name="ic_privacy" width="30" height="30"/>
         <image name="ic_profile" width="30" height="30"/>
         <image name="ic_terms" width="30" height="30"/>
+        <image name="icons8-house-with-a-garden-100" width="30" height="30"/>
         <image name="pencil.slash" catalog="system" width="64" height="56"/>
         <image name="whatsapp_icon" width="30" height="30"/>
     </resources>

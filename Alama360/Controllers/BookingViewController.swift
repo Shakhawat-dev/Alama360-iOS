@@ -106,7 +106,9 @@ class BookingViewController: UIViewController {
         
         lan = LocalizationSystem.sharedInstance.getLanguage()
         
-        let params : [String : String] = ["page" : "\(page)", "lang" : lan, "viewType" : "", "startdate" : startDate, "enddate" : endDate, "property_type" : pType, "thumbcat" : thumbcate, "address" : address, "limit" : "10"]
+//        let params : [String : String] = ["page" : "\(page)", "lang" : lan, "viewType" : "", "startdate" : startDate, "enddate" : endDate, "property_type" : pType, "thumbcat" : thumbcate, "address" : address, "limit" : "10"]
+        
+        let params : [String : String] = ["page" : "", "lang" : lan, "viewType" : "mapview", "startdate" : startDate, "enddate" : endDate, "property_type" : pType, "thumbcat" : thumbcate, "address" : address]
         
         let bUrl = StaticUrls.BASE_URL_FINAL + "android/propertylist?"
         
@@ -454,12 +456,13 @@ extension BookingViewController: UITableViewDataSource, UITableViewDelegate {
         
         //         self.fetchNews(ofIndex: indexPath.row)
         
-//        if let props = property_list[indexPath.row].title {
+
         
-        if indexPath.row + 1 == property_list.count {
-            currentPage += 1
-            getPropertiesForDate(page: currentPage)
-        }
+        // For 10 rows load
+//        if indexPath.row + 1 == property_list.count {
+//            currentPage += 1
+//            getPropertiesForDate(page: currentPage)
+//        }
             
             cell.rowTitle.text = property_list[indexPath.row].title
             cell.tapDelegate = self

@@ -113,8 +113,8 @@
 "more" = "أكثر";
 
 // Profile Page
-"updateAlertTitlle" = "Success";
-"updateAlertMessage" = "Profile Updated";
+"updateAlertTitlle" = "نجاح";
+"updateAlertMessage" = "تحديث الملف الشخصي";
 "married" = "متزوج";
 "unmarried" = "غير متزوج";
 "firstName" = "الاسم الاول";

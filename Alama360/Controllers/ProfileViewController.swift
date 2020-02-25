@@ -41,6 +41,13 @@ class ProfileViewController: UIViewController {
     var cityName: String = ""
     var districtName: String = ""
     
+    
+    var test: CountryModel?
+    var sCountry: String = ""
+    var sState: String = ""
+    var sCity: String = ""
+    var sDistrict: String = ""
+    
     var countryArray = [CountryModel]()
     var stateArray = [StateModel]()
     var cityArray = [CityModel]()
@@ -71,7 +78,13 @@ class ProfileViewController: UIViewController {
         }
         
         userId = defaults.string(forKey: "userID")!
-
+        
+        //        selectCountry.didSelect(completion: {(selectedText , index ,id) in self.test = self.countryArray[id]
+        //            print(self.test?.id)
+        //        })
+        
+        
+        
         btnUpdate.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "btn_update", comment: "").localiz(), for: .normal)
         
         loadProfileData()
@@ -122,6 +135,7 @@ class ProfileViewController: UIViewController {
         maritalStatus.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "marital_status", comment: "").localiz()
         
         selectCountry.setIcon(#imageLiteral(resourceName: "ic_country_2"))
+//        selectCountry.isSearchEnable = true
         selectCountry.text = country
         selectCountry.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "select_country", comment: "").localiz()
         
@@ -154,9 +168,9 @@ class ProfileViewController: UIViewController {
     func loadProfileData() {
         SVProgressHUD.show()
         
-        //        let pUrl = StaticUrls.BASE_URL_FINAL + "userinfo?lang=\(lan)&userid=\(userId)"
-        let pUrl = StaticUrls.BASE_URL_FINAL + "userinfo?lang=\(lan)&userid=\(userId)"
-        print("Profile Url is: \(pUrl)")
+                let pUrl = StaticUrls.BASE_URL_FINAL + "userinfo?lang=\(lan)&userid=\(userId)"
+//        let pUrl = StaticUrls.BASE_URL_FINAL + "userinfo?lang=en&userid=\(userId)"
+//        print("Profile Url is: \(pUrl)")
         
         Alamofire.request(pUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
             if mysresponse.result.isSuccess {
@@ -164,7 +178,7 @@ class ProfileViewController: UIViewController {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult!["data"]
                 
-//                print(resultArray as Any)
+                //                print(resultArray as Any)
                 
                 self.ftName = resultArray["name"].stringValue
                 self.lName = resultArray["lname"].stringValue
@@ -172,20 +186,21 @@ class ProfileViewController: UIViewController {
                 self.mobile = resultArray["mobile"].stringValue
                 self.dob = resultArray["dob"].stringValue
                 self.marital_status = resultArray["marital_status"].stringValue
-                self.country = resultArray["country"].stringValue
-                self.state = resultArray["state"].stringValue
-                self.city = resultArray["city"].stringValue
-                self.district = resultArray["district"].stringValue
+                self.country = resultArray["countryName"].stringValue
+                self.state = resultArray["stateName"].stringValue
+                self.city = resultArray["cityName"].stringValue
+                self.district = resultArray["districtName"].stringValue
                 self.address = resultArray["address"].stringValue
                 self.thumbnail = resultArray["thumbnail"].stringValue
                 
                 let countries = resultArray["userallcountry"].arrayValue
-//                print("Country array is: \(countries)")
+                //                print("Country array is: \(countries)")
                 
                 for country in countries {
-                    let newCountry = CountryModel(json: JSON(country))
+                    let newCountry = CountryModel(json: country)
                     self.countryArray.append(newCountry)
                 }
+                print("Country array is: \(self.countryArray)")
                 
                 let states = resultArray["userallstate"].arrayValue
                 for state in states {
@@ -218,6 +233,31 @@ class ProfileViewController: UIViewController {
         let pUpUrl = StaticUrls.BASE_URL_FINAL + "auth/updateprofile"
         print("Profile Url is: \(pUpUrl)")
         
+        
+        if selectCountry.selectedIndex != nil{
+            //            selectCountry.didSelect(completion: {(selectedText , index ,id) in self.sCountry = self.countryArray[id - 1].id
+            //                        print(self.countryArray[id].id)
+            //                    })
+            sCountry = countryArray[selectCountry.selectedIndex!].id
+        }
+        if selectState.selectedIndex != nil {
+            //            selectState.didSelect{(selectedText , index ,id) in sState = String(id) }
+            sState = stateArray[selectState.selectedIndex!].id
+            
+        }
+        if selectCity.selectedIndex != nil {
+            //            selectCity.didSelect{(selectedText , index ,id) in sCity = String(id) }
+            sCity = cityArray[selectCity.selectedIndex!].id
+            
+        }
+        if selectDistrict.selectedIndex != nil {
+            //            selectDistrict.didSelect{(selectedText , index ,id) in sDistrict = String(id) }
+            sDistrict = districtArray[selectDistrict.selectedIndex!].id
+        }
+        
+        
+        print("country: \(sCountry), state: \(sState), city: \(sCity), district: \(sDistrict)")
+        
         let params : [String : String] = ["userid" : userId,
                                           "name" : firstName.text ?? "",
                                           "lname" : lastName.text ?? "",
@@ -225,10 +265,10 @@ class ProfileViewController: UIViewController {
                                           "mobile" : mobile,
                                           "dob" : dateOfBirth.text ?? "",
                                           "marital_status" : maritalStatus.text ?? "",
-                                          "country" : selectCountry.text ?? "",
-                                          "state" : selectState.text ?? "",
-                                          "city" : selectCity.text ?? "",
-                                          "district" : selectDistrict.text ?? "",
+                                          "country" : sCountry,
+                                          "state" : sState,
+                                          "city" : sCity,
+                                          "district" : sDistrict,
                                           "lang" : lan]  // TODO: Change language
         
         Alamofire.request(pUpUrl, method: .post, parameters: params, headers: nil).responseJSON{ (mysresponse) in
@@ -237,11 +277,14 @@ class ProfileViewController: UIViewController {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult![]
                 
-//                print(resultArray)
+                print(mysresponse)
                 SVProgressHUD.dismiss()
                 
+                //                if mysresponse.
+                
                 let aTitle = LocalizationSystem.sharedInstance.localizedStringForKey(key: "updateAlertTitlle", comment: "").localiz()
-                let aMessage = LocalizationSystem.sharedInstance.localizedStringForKey(key: "updateAlertMessage", comment: "").localiz()
+                let aMessage = resultArray["message"].stringValue
+                //                let aMessage = LocalizationSystem.sharedInstance.localizedStringForKey(key: "updateAlertMessage", comment: "").localiz()
                 let aAction = LocalizationSystem.sharedInstance.localizedStringForKey(key: "cOk", comment: "").localiz()
                 
                 let alert = UIAlertController(title: aTitle, message: aMessage, preferredStyle: .alert)
@@ -255,31 +298,43 @@ class ProfileViewController: UIViewController {
     
     func setDropDowns() {
         var ddCountries = [String]()
+        var ddCountryId = [Int]()
         var ddStates = [String]()
+        var ddStatesId = [Int]()
         var ddCities = [String]()
+        var ddCitiesId = [Int]()
         var ddDistricts = [String]()
+        var ddDistrictsId = [Int]()
         
         maritalStatus.optionArray = [LocalizationSystem.sharedInstance.localizedStringForKey(key: "married", comment: "").localiz(), LocalizationSystem.sharedInstance.localizedStringForKey(key: "unmarried", comment: "").localiz()]
         
         for i in countryArray {
             ddCountries.append(i.name)
+            ddCountryId.append(Int(i.id)!)
         }
         selectCountry.optionArray = ddCountries
+        selectCountry.optionIds = ddCountryId
         
         for i in stateArray {
             ddStates.append(i.name)
+            ddStatesId.append(Int(i.id)!)
         }
         selectState.optionArray = ddStates
+        selectState.optionIds = ddStatesId
         
         for i in cityArray {
             ddCities.append(i.name)
+            ddCitiesId.append(Int(i.id)!)
         }
         selectCity.optionArray = ddCities
+        selectCity.optionIds = ddCitiesId
         
         for i in districtArray {
             ddDistricts.append(i.name)
+            ddDistrictsId.append(Int(i.id)!)
         }
         selectDistrict.optionArray = ddDistricts
+        selectDistrict.optionIds = ddDistrictsId
     }
     
     @IBAction func updateBtnTapped(_ sender: Any) {
