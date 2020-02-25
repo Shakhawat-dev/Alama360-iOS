@@ -44,6 +44,16 @@
 		4B6DFE1E239E299900543E3F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE1D239E299900543E3F /* SearchViewController.swift */; };
 		4B6DFE21239E84AA00543E3F /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DFE20239E84AA00543E3F /* ContactViewController.swift */; };
 		4B76ED0C24051F720046217B /* paytabs-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B76ED0B24051F720046217B /* paytabs-iOS.framework */; };
+		4B76ED0E24055EF10046217B /* InsuranceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76ED0D24055EF10046217B /* InsuranceTableViewCell.swift */; };
+		4B76ED1024055F790046217B /* CancelationReturnTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76ED0F24055F790046217B /* CancelationReturnTableViewCell.swift */; };
+		4B76ED122405600E0046217B /* CheckInAndOutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76ED112405600E0046217B /* CheckInAndOutTableViewCell.swift */; };
+		4B76ED142405604B0046217B /* AddButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76ED132405604B0046217B /* AddButtonTableViewCell.swift */; };
+		4B76ED16240562D70046217B /* BookManagerTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76ED15240562D70046217B /* BookManagerTitleTableViewCell.swift */; };
+		4B76ED182405632B0046217B /* BookManagerRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76ED172405632B0046217B /* BookManagerRowTableViewCell.swift */; };
+		4B76ED1A2405639B0046217B /* BookManagerDescTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76ED192405639B0046217B /* BookManagerDescTableViewCell.swift */; };
+		4B76ED1C240563D20046217B /* BankTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76ED1B240563D20046217B /* BankTitleTableViewCell.swift */; };
+		4B76ED1E240564080046217B /* BankRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76ED1D240564080046217B /* BankRowTableViewCell.swift */; };
+		4B76ED20240564400046217B /* BankDescAndButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76ED1F240564400046217B /* BankDescAndButtonTableViewCell.swift */; };
 		4B7870C223ADF5A000D360AC /* BookingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7870C123ADF5A000D360AC /* BookingTableViewCell.swift */; };
 		4B7870C523B0D9C100D360AC /* FeatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7870C423B0D9C100D360AC /* FeatureModel.swift */; };
 		4B7870C723B0F7D400D360AC /* BookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7870C623B0F7D400D360AC /* BookingModel.swift */; };
@@ -154,6 +164,16 @@
 		4B6DFE1D239E299900543E3F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4B6DFE20239E84AA00543E3F /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		4B76ED0B24051F720046217B /* paytabs-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "paytabs-iOS.framework"; path = "../../../../Downloads/paytabs-iOS.framework"; sourceTree = "<group>"; };
+		4B76ED0D24055EF10046217B /* InsuranceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceTableViewCell.swift; sourceTree = "<group>"; };
+		4B76ED0F24055F790046217B /* CancelationReturnTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelationReturnTableViewCell.swift; sourceTree = "<group>"; };
+		4B76ED112405600E0046217B /* CheckInAndOutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInAndOutTableViewCell.swift; sourceTree = "<group>"; };
+		4B76ED132405604B0046217B /* AddButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonTableViewCell.swift; sourceTree = "<group>"; };
+		4B76ED15240562D70046217B /* BookManagerTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookManagerTitleTableViewCell.swift; sourceTree = "<group>"; };
+		4B76ED172405632B0046217B /* BookManagerRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookManagerRowTableViewCell.swift; sourceTree = "<group>"; };
+		4B76ED192405639B0046217B /* BookManagerDescTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookManagerDescTableViewCell.swift; sourceTree = "<group>"; };
+		4B76ED1B240563D20046217B /* BankTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankTitleTableViewCell.swift; sourceTree = "<group>"; };
+		4B76ED1D240564080046217B /* BankRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankRowTableViewCell.swift; sourceTree = "<group>"; };
+		4B76ED1F240564400046217B /* BankDescAndButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankDescAndButtonTableViewCell.swift; sourceTree = "<group>"; };
 		4B7870C123ADF5A000D360AC /* BookingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTableViewCell.swift; sourceTree = "<group>"; };
 		4B7870C423B0D9C100D360AC /* FeatureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureModel.swift; sourceTree = "<group>"; };
 		4B7870C623B0F7D400D360AC /* BookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingModel.swift; sourceTree = "<group>"; };
@@ -332,6 +352,16 @@
 				4BD52D8223F0181E009E6C27 /* RDdatePriceTitleTableViewCell.swift */,
 				4BD52DFB23F57E01009E6C27 /* OwnerReservationTableViewCell.swift */,
 				4BA60FD424025CC900CC16ED /* DummyCell.swift */,
+				4B76ED0D24055EF10046217B /* InsuranceTableViewCell.swift */,
+				4B76ED0F24055F790046217B /* CancelationReturnTableViewCell.swift */,
+				4B76ED112405600E0046217B /* CheckInAndOutTableViewCell.swift */,
+				4B76ED132405604B0046217B /* AddButtonTableViewCell.swift */,
+				4B76ED15240562D70046217B /* BookManagerTitleTableViewCell.swift */,
+				4B76ED172405632B0046217B /* BookManagerRowTableViewCell.swift */,
+				4B76ED192405639B0046217B /* BookManagerDescTableViewCell.swift */,
+				4B76ED1B240563D20046217B /* BankTitleTableViewCell.swift */,
+				4B76ED1D240564080046217B /* BankRowTableViewCell.swift */,
+				4B76ED1F240564400046217B /* BankDescAndButtonTableViewCell.swift */,
 			);
 			path = Tables;
 			sourceTree = "<group>";
@@ -585,9 +615,11 @@
 				4BAA2FE723E6DE5500721EA5 /* OTPTextField.swift in Sources */,
 				4B7870C223ADF5A000D360AC /* BookingTableViewCell.swift in Sources */,
 				4B04E437239B788000D02BC4 /* MainViewController.swift in Sources */,
+				4B76ED16240562D70046217B /* BookManagerTitleTableViewCell.swift in Sources */,
 				4B43047723C7622F00160663 /* PrivacyPolicyCell.swift in Sources */,
 				4B8544F623EB05D40071FF2D /* DateAvailabilityTableViewCell.swift in Sources */,
 				4B84A10C23C4AA9F006E5237 /* PropertyMapCell.swift in Sources */,
+				4B76ED0E24055EF10046217B /* InsuranceTableViewCell.swift in Sources */,
 				4B149C3A23C6111E0021F5EF /* AllPhotosCell.swift in Sources */,
 				4BD52D7D23F00CBB009E6C27 /* ReservationDetailsViewController.swift in Sources */,
 				4BD52D9A23F2C296009E6C27 /* WelcomeViewController.swift in Sources */,
@@ -610,6 +642,7 @@
 				4BD52D7923F00C65009E6C27 /* CheckInOutTableViewCell.swift in Sources */,
 				4BC7B2F723DDBEEF003DD257 /* Toast.swift in Sources */,
 				4BA60FCF24016CF500CC16ED /* ClientManagerModel.swift in Sources */,
+				4B76ED1A2405639B0046217B /* BookManagerDescTableViewCell.swift in Sources */,
 				4BD52D8323F0181E009E6C27 /* RDdatePriceTitleTableViewCell.swift in Sources */,
 				4BAA2FE923E7F6C300721EA5 /* TapKeyboardHide.swift in Sources */,
 				4B43047523C7401800160663 /* TermsOfUseViewController.swift in Sources */,
@@ -630,12 +663,15 @@
 				4B149C3823C5B6230021F5EF /* PdDescriptionCell.swift in Sources */,
 				4BD52DF623F43084009E6C27 /* DistrictModel.swift in Sources */,
 				4B84A10823C4AA67006E5237 /* FeatureCell.swift in Sources */,
+				4B76ED20240564400046217B /* BankDescAndButtonTableViewCell.swift in Sources */,
+				4B76ED1C240563D20046217B /* BankTitleTableViewCell.swift in Sources */,
 				4BD52DF223F42F50009E6C27 /* StateModel.swift in Sources */,
 				4B30DEC123D0494C00069DBC /* MapModel.swift in Sources */,
 				4BC7B2F423DD824E003DD257 /* Dates.swift in Sources */,
 				4B8A9D7123D5A2550019EC17 /* AllPhotoGalleryModel.swift in Sources */,
 				4BFF10B923E8351C00E164F1 /* ReservationTableViewCell.swift in Sources */,
 				4BD52DFE23F5887C009E6C27 /* OwnerWebViewController.swift in Sources */,
+				4B76ED1E240564080046217B /* BankRowTableViewCell.swift in Sources */,
 				4B43047323C73FB200160663 /* TermsAndConditionsCell.swift in Sources */,
 				4B6DFE21239E84AA00543E3F /* ContactViewController.swift in Sources */,
 				4B188D5423C9AAB200CBBA36 /* ProfileViewController.swift in Sources */,
@@ -643,12 +679,15 @@
 				4B84A10223C4A96F006E5237 /* YoutubeCell.swift in Sources */,
 				4B3666B423D988700062EE8F /* FCalenderViewController.swift in Sources */,
 				4B84A10A23C4AA7D006E5237 /* LandmarkCell.swift in Sources */,
+				4B76ED122405600E0046217B /* CheckInAndOutTableViewCell.swift in Sources */,
 				4BB8864D23DED4E400CB415F /* SplashViewController.swift in Sources */,
 				4B8491F223CD7DFD0094B035 /* MainTabBarController.swift in Sources */,
+				4B76ED182405632B0046217B /* BookManagerRowTableViewCell.swift in Sources */,
 				4BB8867923E1A4A300CB415F /* OtpAlertView.swift in Sources */,
 				4B2ECC2A23D0947600F56435 /* PropertyInfoWindow.swift in Sources */,
 				4BD52D7523EED6F0009E6C27 /* TotalPriceTableViewCell.swift in Sources */,
 				4B6DFE18239E278600543E3F /* ReservationsViewController.swift in Sources */,
+				4B76ED1024055F790046217B /* CancelationReturnTableViewCell.swift in Sources */,
 				4B8544F823EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift in Sources */,
 				4B188D5823C9F45900CBBA36 /* MenuBar.swift in Sources */,
 				4B6DFE1A239E292800543E3F /* FavoritesViewController.swift in Sources */,
@@ -657,6 +696,7 @@
 				4B8DD1EB23EC062F0082E387 /* RentalPriceModel.swift in Sources */,
 				4BFF10B723E82AFF00E164F1 /* ReservationModel.swift in Sources */,
 				4B04E435239B788000D02BC4 /* SceneDelegate.swift in Sources */,
+				4B76ED142405604B0046217B /* AddButtonTableViewCell.swift in Sources */,
 				4BA60FCD240169A400CC16ED /* PropertySettingsViewController.swift in Sources */,
 				4BC7B2F923DDD54F003DD257 /* AddPropertyViewController.swift in Sources */,
 				4B4008BC23B9F68E00AEE68C /* LandmarkTableViewCell.swift in Sources */,

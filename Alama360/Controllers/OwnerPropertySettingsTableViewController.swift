@@ -90,7 +90,7 @@ class OwnerPropertySettingsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DummyCell", for: indexPath)
 
         // Configure the cell...
-//        cell.textLabel?.text = twoDimentionalarray[indexPath.row]
+//        cell.textLabel?.text = twoDimentionalarray[indexPath.row]       
 
         return cell
     }

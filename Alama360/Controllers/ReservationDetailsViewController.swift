@@ -384,7 +384,7 @@ extension ReservationDetailsViewController: PriceCellDelegate {
     func didTapDelBtn(index: Int) {
         rentsalPriceArray.remove(at: index)
         
-        calcTotalPrice()
+        calcTotalPrice()                                          
         
         reservationDetailsTableView.reloadData()
     }
