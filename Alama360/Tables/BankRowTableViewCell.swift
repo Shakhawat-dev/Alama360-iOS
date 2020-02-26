@@ -10,6 +10,12 @@ import UIKit
 
 class BankRowTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var lblBankName: UILabel!
+    @IBOutlet weak var lblAccountNumber: UILabel!
+    @IBOutlet weak var lblIBANNumber: UILabel!
+    @IBOutlet weak var btnEditBank: UIButton!
+    @IBOutlet weak var btnDeleteBank: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

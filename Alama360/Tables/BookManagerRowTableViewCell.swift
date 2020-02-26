@@ -10,6 +10,13 @@ import UIKit
 
 class BookManagerRowTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var lblManagerName: UILabel!
+    @IBOutlet weak var lblManagerNumber: UILabel!
+    @IBOutlet weak var lblManagerSMSswitch: UISwitch!
+    @IBOutlet weak var btnManagerEdit: UIButton!
+    @IBOutlet weak var BtnManagerDelete: UIButton!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

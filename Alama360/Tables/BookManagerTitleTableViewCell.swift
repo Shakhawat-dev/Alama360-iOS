@@ -10,6 +10,9 @@ import UIKit
 
 class BookManagerTitleTableViewCell: UITableViewCell {
 
+    @IBOutlet var lblManagerTitle: [UILabel]!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

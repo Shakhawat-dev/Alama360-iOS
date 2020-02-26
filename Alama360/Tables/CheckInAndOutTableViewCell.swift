@@ -10,6 +10,11 @@ import UIKit
 
 class CheckInAndOutTableViewCell: UITableViewCell {
 
+    @IBOutlet var lblCheckTimes: [UILabel]!
+    @IBOutlet var _checkTimes: [UITextField]!
+    @IBOutlet weak var btnNextOne: UIButton!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

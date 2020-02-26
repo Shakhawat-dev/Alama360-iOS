@@ -10,6 +10,9 @@ import UIKit
 
 class BankDescAndButtonTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var lblBankDesc: UILabel!
+    @IBOutlet weak var btnSave: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

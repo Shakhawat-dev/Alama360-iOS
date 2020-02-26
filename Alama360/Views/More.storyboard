@@ -1394,7 +1394,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="2000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="apd-jW-Yed">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="apd-jW-Yed">
                                 <rect key="frame" x="0.0" y="88" width="414" height="1829"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -1465,14 +1465,16 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zPE-wG-6b0">
+                                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hello..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VdU-kI-Ck1">
                                                                             <rect key="frame" x="0.0" y="25" width="382" height="68"/>
+                                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="68" id="y9e-al-VR3"/>
+                                                                                <constraint firstAttribute="height" constant="68" id="PBv-o2-S7r"/>
                                                                             </constraints>
+                                                                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                            <textInputTraits key="textInputTraits"/>
-                                                                        </textField>
+                                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                        </textView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Additional terms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzR-qo-lAE">
                                                                             <rect key="frame" x="0.0" y="94" width="382" height="18"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -1504,6 +1506,15 @@
                                                 <constraint firstAttribute="trailing" secondItem="p8G-ea-MIT" secondAttribute="trailing" constant="8" id="xSo-qE-HWa"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="_InsuranceAmount" destination="aGb-8N-mKl" id="WCT-cW-evP"/>
+                                            <outlet property="btnCheck" destination="MHb-JR-GDH" id="JSL-3B-cxf"/>
+                                            <outlet property="btnNextOne" destination="Zpt-8C-IQM" id="OhG-N6-Fxf"/>
+                                            <outlet property="lblAdditionalTerms" destination="qzR-qo-lAE" id="X7f-AN-TWZ"/>
+                                            <outlet property="lblCheckTitle" destination="KjU-UX-0l7" id="fGq-zb-x6E"/>
+                                            <outlet property="lblHInsuranceAmountTile" destination="uNv-7t-yE0" id="whE-he-V4K"/>
+                                            <outlet property="lblOtherConditions" destination="tph-FQ-u6j" id="bYj-oJ-eNh"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CancelationReturnTableViewCell" rowHeight="420" id="D2g-yd-TU3" customClass="CancelationReturnTableViewCell" customModule="Alama360" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="288" width="414" height="420"/>
@@ -1697,6 +1708,22 @@ When the customer's day of cancellation during the 4 days preceding the reservat
                                                 <constraint firstItem="ajr-eZ-JSQ" firstAttribute="leading" secondItem="8nV-lV-HbY" secondAttribute="leading" constant="8" id="qZJ-NK-Awc"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="btnNextOne" destination="JAL-ZG-wXM" id="Ixf-aj-6rz"/>
+                                            <outlet property="lblCancellationPolicyTile" destination="9l7-Ok-ASG" id="rw3-ON-3RX"/>
+                                            <outletCollection property="btnCheck" destination="aHB-9a-RGQ" collectionClass="NSMutableArray" id="Uxr-q9-B01"/>
+                                            <outletCollection property="btnCheck" destination="dW7-d3-RYD" collectionClass="NSMutableArray" id="L7H-D8-g82"/>
+                                            <outletCollection property="btnCheck" destination="zS5-oj-MJR" collectionClass="NSMutableArray" id="7f1-gR-mPq"/>
+                                            <outletCollection property="btnCheck" destination="BvS-9i-cjO" collectionClass="NSMutableArray" id="oat-5h-UPP"/>
+                                            <outletCollection property="lblCheckTitle" destination="e8t-5u-bcg" collectionClass="NSMutableArray" id="b0L-ys-df9"/>
+                                            <outletCollection property="lblCheckTitle" destination="CiJ-bR-jN7" collectionClass="NSMutableArray" id="kV4-CP-n8Y"/>
+                                            <outletCollection property="lblCheckTitle" destination="Uyu-X4-6Wk" collectionClass="NSMutableArray" id="DEN-du-G7V"/>
+                                            <outletCollection property="lblCheckTitle" destination="YZ1-QF-CuL" collectionClass="NSMutableArray" id="r5k-JM-bFc"/>
+                                            <outletCollection property="lblCancellationDetails" destination="25R-qN-qbj" collectionClass="NSMutableArray" id="MDp-at-Vth"/>
+                                            <outletCollection property="lblCancellationDetails" destination="UrX-93-bfS" collectionClass="NSMutableArray" id="u0j-sx-1rR"/>
+                                            <outletCollection property="lblCancellationDetails" destination="PvA-An-Rzd" collectionClass="NSMutableArray" id="fBo-h6-Zp6"/>
+                                            <outletCollection property="lblCancellationDetails" destination="7iy-5c-WM9" collectionClass="NSMutableArray" id="0tF-Gw-VzC"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CheckInAndOutTableViewCell" rowHeight="240" id="YOj-21-Lzg" customClass="CheckInAndOutTableViewCell" customModule="Alama360" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="708" width="414" height="240"/>
@@ -1782,6 +1809,15 @@ When the customer's day of cancellation during the 4 days preceding the reservat
                                                 <constraint firstAttribute="bottom" secondItem="B5Q-sx-zxr" secondAttribute="bottom" constant="8" id="ciV-DW-4wT"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="btnNextOne" destination="CzK-a8-hfQ" id="IFe-5k-fth"/>
+                                            <outletCollection property="lblCheckTimes" destination="QcB-CX-ecs" collectionClass="NSMutableArray" id="izB-1t-0bV"/>
+                                            <outletCollection property="lblCheckTimes" destination="LSt-Hw-h7z" collectionClass="NSMutableArray" id="rHu-SI-QsG"/>
+                                            <outletCollection property="lblCheckTimes" destination="14p-cD-imR" collectionClass="NSMutableArray" id="ElS-cz-J3L"/>
+                                            <outletCollection property="_checkTimes" destination="SUI-0e-sXu" collectionClass="NSMutableArray" id="tW0-On-der"/>
+                                            <outletCollection property="_checkTimes" destination="VUI-xD-GUf" collectionClass="NSMutableArray" id="aML-ak-gjy"/>
+                                            <outletCollection property="_checkTimes" destination="eIq-Ki-90p" collectionClass="NSMutableArray" id="NVw-es-YMh"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddButtonTableViewCell" id="X7A-9v-qEf" customClass="AddButtonTableViewCell" customModule="Alama360" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="948" width="414" height="50"/>
@@ -1793,13 +1829,13 @@ When the customer's day of cancellation during the 4 days preceding the reservat
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gwF-se-fUA">
                                                     <rect key="frame" x="8" y="2" width="398" height="46"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxc-GY-yhO">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxc-GY-yhO" customClass="CustomBtnGreen" customModule="Alama360" customModuleProvider="target">
                                                             <rect key="frame" x="12" y="8" width="128" height="30"/>
                                                             <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="128" id="6bY-wt-hKp"/>
                                                             </constraints>
-                                                            <state key="normal" title="Button">
+                                                            <state key="normal" title="Add New">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                         </button>
@@ -1819,6 +1855,9 @@ When the customer's day of cancellation during the 4 days preceding the reservat
                                                 <constraint firstAttribute="bottom" secondItem="gwF-se-fUA" secondAttribute="bottom" constant="2" id="yOJ-vz-KyJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="btnAddNew" destination="uxc-GY-yhO" id="YMe-SS-waw"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookManagerTitleTableViewCell" id="8gv-9v-IzN" customClass="BookManagerTitleTableViewCell" customModule="Alama360" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="998" width="414" height="30"/>
@@ -1907,6 +1946,11 @@ When the customer's day of cancellation during the 4 days preceding the reservat
                                                 <constraint firstAttribute="bottom" secondItem="x4F-gb-0kd" secondAttribute="bottom" constant="2" id="xnS-E8-hmk"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outletCollection property="lblManagerTitle" destination="GDB-O0-rh4" collectionClass="NSMutableArray" id="PoO-9w-uIF"/>
+                                            <outletCollection property="lblManagerTitle" destination="NaY-cy-zEZ" collectionClass="NSMutableArray" id="O9L-U6-Xyc"/>
+                                            <outletCollection property="lblManagerTitle" destination="h5b-Wx-yXQ" collectionClass="NSMutableArray" id="AWt-eF-VXh"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookManagerRowTableViewCell" id="7Wt-db-uMT" customClass="BookManagerRowTableViewCell" customModule="Alama360" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1028" width="414" height="54"/>
@@ -1924,17 +1968,17 @@ When the customer's day of cancellation during the 4 days preceding the reservat
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RVc-3Y-rwf">
                                                                     <rect key="frame" x="0.0" y="0.0" width="194" height="54"/>
                                                                     <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lvM-v3-Nk3">
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="lvM-v3-Nk3">
                                                                             <rect key="frame" x="4" y="4" width="186" height="46"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shakhawat Hossain Shahin" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUW-xC-e7X">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="186" height="30"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="186" height="21"/>
                                                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+966123456789" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mP1-TU-GNO">
-                                                                                    <rect key="frame" x="0.0" y="30" width="186" height="16"/>
+                                                                                    <rect key="frame" x="0.0" y="25" width="186" height="21"/>
                                                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
@@ -2019,6 +2063,13 @@ When the customer's day of cancellation during the 4 days preceding the reservat
                                                 <constraint firstAttribute="trailing" secondItem="MN6-rl-euy" secondAttribute="trailing" constant="8" id="sbW-YH-otS"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="BtnManagerDelete" destination="2Br-YX-D8j" id="enp-a5-O1R"/>
+                                            <outlet property="btnManagerEdit" destination="T88-8U-1xB" id="ayb-cG-5ck"/>
+                                            <outlet property="lblManagerName" destination="gUW-xC-e7X" id="dth-qY-amH"/>
+                                            <outlet property="lblManagerNumber" destination="mP1-TU-GNO" id="gKX-wt-sVO"/>
+                                            <outlet property="lblManagerSMSswitch" destination="WPd-wD-7JW" id="DcY-hP-0An"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookManagerDescTableViewCell" id="Gna-nS-Ayw" customClass="BookManagerDescTableViewCell" customModule="Alama360" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1082" width="414" height="248"/>
@@ -2093,6 +2144,13 @@ The reservations manager can manage reservations from the platform and will crea
                                                 <constraint firstAttribute="bottom" secondItem="srN-qZ-N8e" secondAttribute="bottom" constant="8" id="xiY-6c-p2y"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="btnNextOne" destination="wT3-ZJ-KwQ" id="hZW-8t-Pq7"/>
+                                            <outlet property="lblOwnerDesc" destination="sNJ-dN-11m" id="UR4-lg-2YP"/>
+                                            <outlet property="lblReservationManagerDesc" destination="piB-F2-2JR" id="dur-kl-CNb"/>
+                                            <outlet property="lblTheOwner" destination="qBi-tJ-AHw" id="uug-Th-kbv"/>
+                                            <outlet property="llblReservationManager" destination="OFv-yQ-vEI" id="EDr-5c-2gR"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BankTitleTableViewCell" id="Scq-f2-2S6" customClass="BankTitleTableViewCell" customModule="Alama360" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1330" width="414" height="30"/>
@@ -2200,6 +2258,12 @@ The reservations manager can manage reservations from the platform and will crea
                                                 <constraint firstAttribute="bottom" secondItem="Vx4-uF-5NT" secondAttribute="bottom" constant="2" id="u73-3V-3KB"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblAccountNumberTitle" destination="v5W-qE-0dj" id="jcT-e4-Ou1"/>
+                                            <outlet property="lblBankNameTitle" destination="Y3L-an-N7U" id="BAi-CK-DCf"/>
+                                            <outlet property="lblIBANTitle" destination="BHq-nl-ZeS" id="GbF-G8-nbb"/>
+                                            <outlet property="lblMeasuresTitle" destination="TJ4-8i-x3h" id="E87-V6-MY9"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BankRowTableViewCell" id="zEY-7L-sWX" customClass="BankRowTableViewCell" customModule="Alama360" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1360" width="414" height="40"/>
@@ -2316,6 +2380,13 @@ The reservations manager can manage reservations from the platform and will crea
                                                 <constraint firstAttribute="bottom" secondItem="ym6-Va-NXD" secondAttribute="bottom" id="wxy-qn-E6p"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="btnDeleteBank" destination="me8-Pk-VhK" id="qq6-eM-lRj"/>
+                                            <outlet property="btnEditBank" destination="WFt-Wr-80q" id="HsJ-LY-KLI"/>
+                                            <outlet property="lblAccountNumber" destination="BOy-ha-QGX" id="TyW-Mp-kkn"/>
+                                            <outlet property="lblBankName" destination="JMM-QJ-DI5" id="SCr-i9-5WJ"/>
+                                            <outlet property="lblIBANNumber" destination="7og-67-G1N" id="ruR-Qf-sae"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BankDescAndButtonTableViewCell" id="y2Y-gY-hXY" customClass="BankDescAndButtonTableViewCell" customModule="Alama360" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1400" width="414" height="127.5"/>
@@ -2367,6 +2438,10 @@ The reservations manager can manage reservations from the platform and will crea
                                                 <constraint firstAttribute="trailing" secondItem="iqC-16-UwU" secondAttribute="trailing" constant="8" id="y0t-D3-Z1k"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="btnSave" destination="Usi-cK-VeE" id="yeJ-3j-rCl"/>
+                                            <outlet property="lblBankDesc" destination="hoM-5Z-MAM" id="ta7-iI-bE8"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -2382,6 +2457,9 @@ The reservations manager can manage reservations from the platform and will crea
                     </view>
                     <navigationItem key="navigationItem" id="0wS-42-u1X"/>
                     <size key="freeformSize" width="414" height="2000"/>
+                    <connections>
+                        <outlet property="propertySettingsTable" destination="apd-jW-Yed" id="ne8-pV-JB3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJC-rn-S3q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

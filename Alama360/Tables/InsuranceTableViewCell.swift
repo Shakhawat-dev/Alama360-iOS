@@ -10,6 +10,15 @@ import UIKit
 
 class InsuranceTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var btnCheck: UIButton!
+    @IBOutlet weak var lblCheckTitle: UILabel!
+    @IBOutlet weak var lblHInsuranceAmountTile: UILabel!
+    @IBOutlet weak var _InsuranceAmount: UITextField!
+    @IBOutlet weak var lblOtherConditions: UILabel!
+    @IBOutlet weak var _otherConditions: UITextField!
+    @IBOutlet weak var lblAdditionalTerms: UILabel!
+    @IBOutlet weak var btnNextOne: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

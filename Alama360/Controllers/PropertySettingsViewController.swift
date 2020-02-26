@@ -11,13 +11,26 @@ import Alamofire
 import SwiftyJSON
 import LanguageManager_iOS
 
+struct ExpandCollapse {
+    var isExpanded: Bool
+    var rows: Int
+}
+
 class PropertySettingsViewController: UIViewController {
     
+    @IBOutlet weak var propertySettingsTable: UITableView!
     let defaults = UserDefaults.standard
     let lan = LanguageManager.shared.currentLanguage.rawValue
     
     var bankArray = [BankCategoryModel]()
     var clientManagerArray = [ClientManagerModel]()
+    var sectionBool: Bool = false
+    
+    var sectionArray = [ExpandCollapse(isExpanded: false, rows: 1),
+                        ExpandCollapse(isExpanded: false, rows: 1),
+                        ExpandCollapse(isExpanded: false, rows: 1),
+                        ExpandCollapse(isExpanded: false, rows: 4),
+                        ExpandCollapse(isExpanded: false, rows: 4)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +39,14 @@ class PropertySettingsViewController: UIViewController {
             overrideUserInterfaceStyle = .light
         }
         
+        
+        
         // Do any additional setup after loading the view.
         loadClientManager()
         loadBankCateory()
+        
+        propertySettingsTable.delegate = self
+        propertySettingsTable.dataSource = self
     }
     
     func loadClientManager() {
@@ -54,5 +72,194 @@ class PropertySettingsViewController: UIViewController {
     func loadBankCateory() {
         
     }
+    
+}
+
+extension PropertySettingsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: propertySettingsTable.frame.size.width, height: 40))
+        view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) // Set your background color
+        
+        let button = UIButton(type: .system)
+        button.frame = CGRect(x: 8, y: 2, width: propertySettingsTable.frame.size.width - 16, height: 36)
+        
+        button.contentHorizontalAlignment = .left
+        button.backgroundColor = #colorLiteral(red: 0, green: 0.6532471776, blue: 0.4756888151, alpha: 1)
+        button.layer.borderWidth = 1
+        button.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        button.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+//        button.setImage(#imageLiteral(resourceName: "tabmenu"), for: .normal)
+        button.titleEdgeInsets.left = 8
+        button.tag = section
+        
+        
+        if section == 0 {
+            button.setTitle("1. Conditions of Reservation", for: .normal)
+        } else if section == 1 {
+            button.setTitle("2. Cancellation and return policy", for: .normal)
+        } else if section == 2 {
+            button.setTitle("3. Entry and departure hours", for: .normal)
+        } else if section == 3 {
+            button.setTitle("4. Book managers and messages SMS", for: .normal)
+        } else if section == 4 {
+            button.setTitle("5. Banks", for: .normal)
+        }
+        
+        button.addTarget(self, action: #selector(handleExpandClose), for: .touchUpInside)
+        
+        view.addSubview(button)
+        
+        return view
+    }
+    
+    @objc func handleExpandClose(button: UIButton) {
+        print("Header Button Tapped \(button.tag)")
+        
+        let section = button.tag
+        var indexPaths = [IndexPath]()
+        
+        
+        let sectionStat = sectionArray[section].isExpanded
+        sectionArray[section].isExpanded = !sectionStat
+        
+        if section == 0 || section == 1 || section == 2 {
+            let indexPath = IndexPath(row: 0, section: section)
+            indexPaths.append(indexPath)
+        } else {
+            for i in 0...3 {
+                let indexPath = IndexPath(row: i, section: section)
+                indexPaths.append(indexPath)
+            }
+        }
+        
+//        propertySettingsTable.reloadData()
+        if sectionStat {
+            propertySettingsTable.deleteRows(at: indexPaths, with: .fade)
+        } else {
+            propertySettingsTable.insertRows(at: indexPaths, with: .fade)
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var rows: Int = 0
+        
+        if section == 0 {
+            if sectionArray[section].isExpanded == true {
+                rows = 1
+            } else {
+                rows = 0
+            }
+            return rows
+            
+        } else if section == 1 {
+            
+            if sectionArray[section].isExpanded == true{
+                rows = 1
+            } else {
+                rows = 0
+            }
+            return rows
+            
+        } else if section == 2 {
+            
+            if sectionArray[section].isExpanded == true {
+                rows = 1
+            } else {
+                rows = 0
+            }
+            return rows
+            
+        } else if section == 3{
+            if sectionArray[section].isExpanded == true {
+                rows = 4
+            } else {
+                rows = 0
+            }
+            return rows
+        } else if section == 4{
+            if sectionArray[section].isExpanded == true {
+                rows = 4
+            } else {
+                rows = 0
+            }
+            return rows
+        } else {
+            return rows
+        }
+  
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+//        var cell: UITableViewCell?
+        
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "InsuranceTableViewCell", for: indexPath) as! InsuranceTableViewCell
+            return cell
+        } else if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CancelationReturnTableViewCell", for: indexPath) as! CancelationReturnTableViewCell
+            return cell
+        } else if indexPath.section == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CheckInAndOutTableViewCell", for: indexPath) as! CheckInAndOutTableViewCell
+            return cell
+        } else if indexPath.section == 3 {
+            if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "AddButtonTableViewCell", for: indexPath) as! AddButtonTableViewCell
+                return cell
+            }
+            
+            if indexPath.row == 1 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "BookManagerTitleTableViewCell", for: indexPath) as! BookManagerTitleTableViewCell
+                return cell
+            }
+            
+            if indexPath.row == 2 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "BookManagerRowTableViewCell", for: indexPath) as! BookManagerRowTableViewCell
+                return cell
+            }
+            
+            if indexPath.row == 3 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "BookManagerDescTableViewCell", for: indexPath) as! BookManagerDescTableViewCell
+                return cell
+            }
+            
+        } else if indexPath.section == 4 {
+            
+            if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "AddButtonTableViewCell", for: indexPath) as! AddButtonTableViewCell
+                return cell
+            }
+            
+            if indexPath.row == 1 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "BankTitleTableViewCell", for: indexPath) as! BankTitleTableViewCell
+                return cell
+            }
+            
+            if indexPath.row == 2 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "BankRowTableViewCell", for: indexPath) as! BankRowTableViewCell
+                return cell
+            }
+            
+            if indexPath.row == 3 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "BankDescAndButtonTableViewCell", for: indexPath) as! BankDescAndButtonTableViewCell
+                return cell
+            }
+            
+        }
+   
+        return UITableViewCell()
+    }
+    
     
 }

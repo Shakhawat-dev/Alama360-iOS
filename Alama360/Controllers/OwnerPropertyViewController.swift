@@ -302,12 +302,12 @@ extension OwnerPropertyViewController: OwnerSlideTapDelegate {
     func didTapSettingBtn(index: Int) {
         id = property_list[index].id!
 
-        let url = StaticUrls.BASE_URL_FINAL + "updatepropertysettings.html/" + id + "?userid=" + userId + "&lang=" + lan + "&mobile=" + mobile  + "&token=Ddhfkjdshgfjshgkjldsahgdniudhagiuashdfiughd&actiontype=updateproperty&propertyid=" + id
-        print("Settings Url: \(url)")
-
-        performSegue(withIdentifier: "ownerlListToWeb", sender: url)
+//        let url = StaticUrls.BASE_URL_FINAL + "updatepropertysettings.html/" + id + "?userid=" + userId + "&lang=" + lan + "&mobile=" + mobile  + "&token=Ddhfkjdshgfjshgkjldsahgdniudhagiuashdfiughd&actiontype=updateproperty&propertyid=" + id
+//        print("Settings Url: \(url)")
+//
+//        performSegue(withIdentifier: "ownerlListToWeb", sender: url)
         
-//        performSegue(withIdentifier: "ownerlistToSettings", sender: self)
+        performSegue(withIdentifier: "ownerListToOwnerSettings", sender: self)
     }
     
     func didTapUploadPictureBtn(index: Int) {

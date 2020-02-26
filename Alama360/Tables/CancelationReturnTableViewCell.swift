@@ -10,6 +10,14 @@ import UIKit
 
 class CancelationReturnTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var lblCancellationPolicyTile: UILabel!
+    @IBOutlet var btnCheck: [UIButton]!
+    @IBOutlet var lblCheckTitle: [UILabel]!
+    @IBOutlet var lblCancellationDetails: [UILabel]!
+    @IBOutlet weak var btnNextOne: UIButton!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

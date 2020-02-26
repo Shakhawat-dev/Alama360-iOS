@@ -10,6 +10,11 @@ import UIKit
 
 class BankTitleTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var lblBankNameTitle: UILabel!
+    @IBOutlet weak var lblAccountNumberTitle: UILabel!
+    @IBOutlet weak var lblIBANTitle: UILabel!
+    @IBOutlet weak var lblMeasuresTitle: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

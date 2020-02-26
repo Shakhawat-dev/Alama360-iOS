@@ -10,6 +10,12 @@ import UIKit
 
 class BookManagerDescTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var lblTheOwner: UILabel!
+    @IBOutlet weak var lblOwnerDesc: UILabel!
+    @IBOutlet weak var llblReservationManager: UILabel!
+    @IBOutlet weak var lblReservationManagerDesc: UILabel!
+    @IBOutlet weak var btnNextOne: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -10,6 +10,7 @@ import UIKit
 
 class AddButtonTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var btnAddNew: CustomBtnGreen!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
