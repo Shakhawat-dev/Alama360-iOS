@@ -54,6 +54,10 @@
 		4B76ED1C240563D20046217B /* BankTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76ED1B240563D20046217B /* BankTitleTableViewCell.swift */; };
 		4B76ED1E240564080046217B /* BankRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76ED1D240564080046217B /* BankRowTableViewCell.swift */; };
 		4B76ED20240564400046217B /* BankDescAndButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76ED1F240564400046217B /* BankDescAndButtonTableViewCell.swift */; };
+		4B76ED222407E2E00046217B /* OwnerSettingsSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B76ED212407E2E00046217B /* OwnerSettingsSectionHeader.xib */; };
+		4B76ED242407E3490046217B /* OwnerSettingsSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76ED232407E3490046217B /* OwnerSettingsSectionHeader.swift */; };
+		4B76ED27240803630046217B /* OwnerSettingHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76ED25240803630046217B /* OwnerSettingHeaderCell.swift */; };
+		4B76ED28240803630046217B /* OwnerSettingHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B76ED26240803630046217B /* OwnerSettingHeaderCell.xib */; };
 		4B7870C223ADF5A000D360AC /* BookingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7870C123ADF5A000D360AC /* BookingTableViewCell.swift */; };
 		4B7870C523B0D9C100D360AC /* FeatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7870C423B0D9C100D360AC /* FeatureModel.swift */; };
 		4B7870C723B0F7D400D360AC /* BookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7870C623B0F7D400D360AC /* BookingModel.swift */; };
@@ -174,6 +178,10 @@
 		4B76ED1B240563D20046217B /* BankTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankTitleTableViewCell.swift; sourceTree = "<group>"; };
 		4B76ED1D240564080046217B /* BankRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankRowTableViewCell.swift; sourceTree = "<group>"; };
 		4B76ED1F240564400046217B /* BankDescAndButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankDescAndButtonTableViewCell.swift; sourceTree = "<group>"; };
+		4B76ED212407E2E00046217B /* OwnerSettingsSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OwnerSettingsSectionHeader.xib; sourceTree = "<group>"; };
+		4B76ED232407E3490046217B /* OwnerSettingsSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerSettingsSectionHeader.swift; sourceTree = "<group>"; };
+		4B76ED25240803630046217B /* OwnerSettingHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerSettingHeaderCell.swift; sourceTree = "<group>"; };
+		4B76ED26240803630046217B /* OwnerSettingHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OwnerSettingHeaderCell.xib; sourceTree = "<group>"; };
 		4B7870C123ADF5A000D360AC /* BookingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTableViewCell.swift; sourceTree = "<group>"; };
 		4B7870C423B0D9C100D360AC /* FeatureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureModel.swift; sourceTree = "<group>"; };
 		4B7870C623B0F7D400D360AC /* BookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingModel.swift; sourceTree = "<group>"; };
@@ -443,6 +451,10 @@
 				4BAA2FE623E6DE5500721EA5 /* OTPTextField.swift */,
 				4BAA2FE823E7F6C200721EA5 /* TapKeyboardHide.swift */,
 				4BD52D8F23F288A7009E6C27 /* CalcTotal.swift */,
+				4B76ED212407E2E00046217B /* OwnerSettingsSectionHeader.xib */,
+				4B76ED232407E3490046217B /* OwnerSettingsSectionHeader.swift */,
+				4B76ED25240803630046217B /* OwnerSettingHeaderCell.swift */,
+				4B76ED26240803630046217B /* OwnerSettingHeaderCell.xib */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -529,11 +541,13 @@
 				4B04E43F239B788300D02BC4 /* LaunchScreen.storyboard in Resources */,
 				4B4BBBAF23C46F9F00DB28C5 /* More.storyboard in Resources */,
 				4BD52DF823F5709A009E6C27 /* ReservationOwner.storyboard in Resources */,
+				4B76ED28240803630046217B /* OwnerSettingHeaderCell.xib in Resources */,
 				4B04E44C239B7D1500D02BC4 /* Localizable.strings in Resources */,
 				4BB8867723E19E1C00CB415F /* OTPalertView.xib in Resources */,
 				4B04E43C239B788300D02BC4 /* Assets.xcassets in Resources */,
 				4B4BBBAD23C46F8200DB28C5 /* Favourites.storyboard in Resources */,
 				4B5C57732405028B00F597F1 /* Resources.bundle in Resources */,
+				4B76ED222407E2E00046217B /* OwnerSettingsSectionHeader.xib in Resources */,
 				4B04E43A239B788100D02BC4 /* Main.storyboard in Resources */,
 				4BEB3D4123CEECD7004C7F33 /* Search.storyboard in Resources */,
 				4B4BBBAB23C46F1E00DB28C5 /* Reservations.storyboard in Resources */,
@@ -655,6 +669,7 @@
 				4B84A0FE23C4A922006E5237 /* Property360Cell.swift in Sources */,
 				4B83D88823B8CBC2003F38C9 /* FeatureTableViewCell.swift in Sources */,
 				4B04E433239B788000D02BC4 /* AppDelegate.swift in Sources */,
+				4B76ED242407E3490046217B /* OwnerSettingsSectionHeader.swift in Sources */,
 				4BD52D7723F00BF7009E6C27 /* ReservationDetailsTableViewCell.swift in Sources */,
 				4BD52D9023F288A7009E6C27 /* CalcTotal.swift in Sources */,
 				4BA60FD124016FF900CC16ED /* BankCategoryModel.swift in Sources */,
@@ -679,6 +694,7 @@
 				4B84A10223C4A96F006E5237 /* YoutubeCell.swift in Sources */,
 				4B3666B423D988700062EE8F /* FCalenderViewController.swift in Sources */,
 				4B84A10A23C4AA7D006E5237 /* LandmarkCell.swift in Sources */,
+				4B76ED27240803630046217B /* OwnerSettingHeaderCell.swift in Sources */,
 				4B76ED122405600E0046217B /* CheckInAndOutTableViewCell.swift in Sources */,
 				4BB8864D23DED4E400CB415F /* SplashViewController.swift in Sources */,
 				4B8491F223CD7DFD0094B035 /* MainTabBarController.swift in Sources */,

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="OwnerSettingHeaderCell" customModule="Alama360" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cW0-C5-0P0">
+                        <rect key="frame" x="8" y="2" width="304" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNu-4o-Phy">
+                                <rect key="frame" x="8" y="8" width="250" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sly-Tm-2Wz">
+                                <rect key="frame" x="266" y="2" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="sly-Tm-2Wz" secondAttribute="height" multiplier="1:1" id="AmT-Ac-40U"/>
+                                </constraints>
+                                <state key="normal" image="plus" catalog="system"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="sly-Tm-2Wz" secondAttribute="bottom" constant="2" id="2wH-xs-cMJ"/>
+                            <constraint firstItem="sly-Tm-2Wz" firstAttribute="top" secondItem="cW0-C5-0P0" secondAttribute="top" constant="2" id="Avs-Id-LCH"/>
+                            <constraint firstItem="sly-Tm-2Wz" firstAttribute="leading" secondItem="bNu-4o-Phy" secondAttribute="trailing" constant="8" id="INQ-uj-wjj"/>
+                            <constraint firstItem="bNu-4o-Phy" firstAttribute="top" secondItem="cW0-C5-0P0" secondAttribute="top" constant="8" id="T81-uh-do6"/>
+                            <constraint firstAttribute="bottom" secondItem="bNu-4o-Phy" secondAttribute="bottom" constant="8" id="ahS-tE-sJE"/>
+                            <constraint firstItem="bNu-4o-Phy" firstAttribute="leading" secondItem="cW0-C5-0P0" secondAttribute="leading" constant="8" id="brL-gX-ChU"/>
+                            <constraint firstAttribute="trailing" secondItem="sly-Tm-2Wz" secondAttribute="trailing" constant="2" id="ul0-4k-EJv"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="cW0-C5-0P0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="11E-Oc-aOU"/>
+                    <constraint firstItem="cW0-C5-0P0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="Wxr-vA-InA"/>
+                    <constraint firstAttribute="bottom" secondItem="cW0-C5-0P0" secondAttribute="bottom" constant="2" id="nKX-LP-pdC"/>
+                    <constraint firstAttribute="trailing" secondItem="cW0-C5-0P0" secondAttribute="trailing" constant="8" id="pLl-MX-O4x"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btnExpand" destination="sly-Tm-2Wz" id="iNd-Jt-kNL"/>
+                <outlet property="lblHeaderTitle" destination="bNu-4o-Phy" id="vYj-Oa-mg6"/>
+                <outlet property="viewHeaderContainer" destination="cW0-C5-0P0" id="jWS-mG-VcM"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="150.66964285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="plus" catalog="system" width="64" height="56"/>
+    </resources>
+</document>

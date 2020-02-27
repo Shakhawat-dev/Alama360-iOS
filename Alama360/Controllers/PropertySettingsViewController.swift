@@ -18,6 +18,8 @@ struct ExpandCollapse {
 
 class PropertySettingsViewController: UIViewController {
     
+    @IBOutlet weak var sview: OwnerSettingsSectionHeader!
+    @IBOutlet weak var ssview: UIView!
     @IBOutlet weak var propertySettingsTable: UITableView!
     let defaults = UserDefaults.standard
     let lan = LanguageManager.shared.currentLanguage.rawValue
@@ -83,39 +85,68 @@ extension PropertySettingsViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
+        let headerCell = Bundle.main.loadNibNamed("OwnerSettingHeaderCell", owner: self, options: nil)?.first as! OwnerSettingHeaderCell
+        
         let view = UIView(frame: CGRect(x: 0, y: 0, width: propertySettingsTable.frame.size.width, height: 40))
         view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) // Set your background color
-        
+
         let button = UIButton(type: .system)
         button.frame = CGRect(x: 8, y: 2, width: propertySettingsTable.frame.size.width - 16, height: 36)
+
+//        let somespace: CGFloat = 10
         
-        button.contentHorizontalAlignment = .left
-        button.backgroundColor = #colorLiteral(red: 0, green: 0.6532471776, blue: 0.4756888151, alpha: 1)
+//          self.myButton.setImage(UIImage(named: "cross"), forState: UIControlState.Normal)
+//
+//          self.myButton.imageEdgeInsets = UIEdgeInsetsMake(0, self.myButton.frame.size.width - somespace , 0, 0)
+//
+//          print(self.myButton.imageView?.frame)
+//
+//          self.myButton.titleEdgeInsets = UIEdgeInsetsMake(0, (self.myButton.imageView?.frame.width)! + somespace, 0, 10 )
+        
+//        button.contentHorizontalAlignment = .left
+        button.contentHorizontalAlignment = .leading
+        button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         button.layer.borderWidth = 1
         button.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-        button.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-//        button.setImage(#imageLiteral(resourceName: "tabmenu"), for: .normal)
-        button.titleEdgeInsets.left = 8
-        button.tag = section
+        button.titleLabel?.textAlignment = .right
+        button.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+        if #available(iOS 13.0, *) {
+            button.setImage(UIImage(systemName: "plus"), for: .normal)
+        } else {
+            // Fallback on earlier versions
+        }
+        button.semanticContentAttribute = UIApplication.shared
+        .userInterfaceLayoutDirection == .rightToLeft ? .forceLeftToRight : .forceRightToLeft
         
+//        button.imageEdgeInsets = UIEdgeInsets(top: 0,left: button.bounds.width - 38, bottom: 0, right: 0)
+//        button.titleEdgeInsets = UIEdgeInsets(top: 0,left: -(button.imageView?.bounds.width)! + 8, bottom: 0, right: 0)
+        button.imageEdgeInsets.left = 8
+        button.titleEdgeInsets.left = 16
+        headerCell.btnExpand.tag = section
+
         
         if section == 0 {
-            button.setTitle("1. Conditions of Reservation", for: .normal)
+//            button.setTitle("1. Conditions of Reservation", for: .normal)
+            headerCell.lblHeaderTitle.text = "1. Conditions of Reservation"
         } else if section == 1 {
-            button.setTitle("2. Cancellation and return policy", for: .normal)
+//            button.setTitle("2. Cancellation and return policy", for: .normal)
+            headerCell.lblHeaderTitle.text = "2. Cancellation and return policy"
         } else if section == 2 {
-            button.setTitle("3. Entry and departure hours", for: .normal)
+//            button.setTitle("3. Entry and departure hours", for: .normal)
+            headerCell.lblHeaderTitle.text = "3. Entry and departure hours"
         } else if section == 3 {
-            button.setTitle("4. Book managers and messages SMS", for: .normal)
+//            button.setTitle("4. Book managers and messages SMS", for: .normal)
+            headerCell.lblHeaderTitle.text = "4. Book managers and messages SMS"
         } else if section == 4 {
-            button.setTitle("5. Banks", for: .normal)
+//            button.setTitle("5. Banks", for: .normal)
+            headerCell.lblHeaderTitle.text = "5. Banks"
         }
+
+        headerCell.btnExpand.addTarget(self, action: #selector(handleExpandClose), for: .touchUpInside)
+
+//        view.addSubview(button)
         
-        button.addTarget(self, action: #selector(handleExpandClose), for: .touchUpInside)
-        
-        view.addSubview(button)
-        
-        return view
+        return headerCell
     }
     
     @objc func handleExpandClose(button: UIButton) {
