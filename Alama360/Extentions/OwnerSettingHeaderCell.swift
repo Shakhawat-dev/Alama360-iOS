@@ -17,6 +17,10 @@ class OwnerSettingHeaderCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        viewHeaderContainer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        viewHeaderContainer.layer.borderWidth = 1
+        viewHeaderContainer.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

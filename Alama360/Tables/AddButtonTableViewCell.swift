@@ -8,9 +8,17 @@
 
 import UIKit
 
+protocol AddNewDelegate {
+    func addNewBtnTapped(index: IndexPath)
+}
+
 class AddButtonTableViewCell: UITableViewCell {
 
     @IBOutlet weak var btnAddNew: CustomBtnGreen!
+    
+    var delegate: AddNewDelegate?
+    var index: IndexPath?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,5 +29,8 @@ class AddButtonTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    @IBAction func addNewTapped(_ sender: Any) {
+        delegate?.addNewBtnTapped(index: index!)
+    }
+    
 }

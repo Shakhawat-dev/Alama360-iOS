@@ -75,7 +75,7 @@
 "reserve" = "احجز";
 "more" = "أكثر...";
 "rAlertTitle" = "غير متوفر";
-"rAlertMessage" = "الملكية غير متوفرة";
+"rAlertMessage" = "التاريخ المحدد غير متاح";
 // PD Section Headers
 "property" = "خاصية";
 "description" = "وصف";

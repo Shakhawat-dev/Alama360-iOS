@@ -34,7 +34,7 @@
                                 <state key="normal" image="plus" catalog="system"/>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="sly-Tm-2Wz" secondAttribute="bottom" constant="2" id="2wH-xs-cMJ"/>
                             <constraint firstItem="sly-Tm-2Wz" firstAttribute="top" secondItem="cW0-C5-0P0" secondAttribute="top" constant="2" id="Avs-Id-LCH"/>

@@ -27,5 +27,17 @@ class BookManagerRowTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func setManagers(managers: ClientManagerModel) {
+        lblManagerName.text = managers.manager_firstname + " " + managers.manager_lastname
+        lblManagerNumber.text = managers.manager_mobile
+        
+        if managers.manager_sms_status == "1" {
+            lblManagerSMSswitch.isOn = true
+        } else {
+            lblManagerSMSswitch.isOn = false
+        }
+        
+    }
 
 }

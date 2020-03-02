@@ -1411,7 +1411,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="1829"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InsuranceTableViewCell" rowHeight="260" id="RFD-rl-QUb" customClass="InsuranceTableViewCell" customModule="Alama360" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="InsuranceTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InsuranceTableViewCell" rowHeight="260" id="RFD-rl-QUb" customClass="InsuranceTableViewCell" customModule="Alama360" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="260"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RFD-rl-QUb" id="17f-FC-yEk">
@@ -1760,7 +1760,7 @@ When the customer's day of cancellation during the 4 days preceding the reservat
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose an option" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SUI-0e-sXu">
+                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose an option" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SUI-0e-sXu" customClass="DropDown" customModule="iOSDropDown">
                                                                             <rect key="frame" x="0.0" y="22" width="382" height="34"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                             <textInputTraits key="textInputTraits"/>
@@ -1776,7 +1776,7 @@ When the customer's day of cancellation during the 4 days preceding the reservat
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose an option" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VUI-xD-GUf">
+                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose an option" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VUI-xD-GUf" customClass="DropDown" customModule="iOSDropDown">
                                                                             <rect key="frame" x="0.0" y="22" width="382" height="34"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                             <textInputTraits key="textInputTraits"/>
@@ -1792,7 +1792,7 @@ When the customer's day of cancellation during the 4 days preceding the reservat
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose an option" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eIq-Ki-90p">
+                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose an option" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eIq-Ki-90p" customClass="DropDown" customModule="iOSDropDown">
                                                                             <rect key="frame" x="0.0" y="22" width="382" height="34"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                             <textInputTraits key="textInputTraits"/>
@@ -1824,6 +1824,9 @@ When the customer's day of cancellation during the 4 days preceding the reservat
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="btnNextOne" destination="CzK-a8-hfQ" id="IFe-5k-fth"/>
+                                            <outlet property="checkInEnd" destination="VUI-xD-GUf" id="ul7-zj-Tmg"/>
+                                            <outlet property="checkInStart" destination="SUI-0e-sXu" id="jjA-gd-aIl"/>
+                                            <outlet property="checkOutEnd" destination="eIq-Ki-90p" id="bDi-qR-on6"/>
                                             <outletCollection property="lblCheckTimes" destination="QcB-CX-ecs" collectionClass="NSMutableArray" id="izB-1t-0bV"/>
                                             <outletCollection property="lblCheckTimes" destination="LSt-Hw-h7z" collectionClass="NSMutableArray" id="rHu-SI-QsG"/>
                                             <outletCollection property="lblCheckTimes" destination="14p-cD-imR" collectionClass="NSMutableArray" id="ElS-cz-J3L"/>
@@ -1851,6 +1854,9 @@ When the customer's day of cancellation during the 4 days preceding the reservat
                                                             <state key="normal" title="Add New">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="addNewTapped:" destination="X7A-9v-qEf" eventType="touchUpInside" id="uiq-jX-V1Y"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2471,7 +2477,7 @@ The reservations manager can manage reservations from the platform and will crea
                     <navigationItem key="navigationItem" id="0wS-42-u1X"/>
                     <size key="freeformSize" width="414" height="2000"/>
                     <connections>
-                        <outlet property="propertySettingsTable" destination="apd-jW-Yed" id="ne8-pV-JB3"/>
+                        <outlet property="propertySettingsTable" destination="apd-jW-Yed" id="ly2-XV-rMz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJC-rn-S3q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

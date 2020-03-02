@@ -35,13 +35,13 @@ struct ClientManagerModel {
         property_id = json["property_id"].stringValue
         m_property_id = json["m_property_id"].stringValue
         m_form_id = json["m_form_id"].stringValue
-        id = json["id"].stringValue
         manager_type = json["manager_type"].stringValue
         owner_user_id = json["owner_user_id"].stringValue
         manager_user_id = json["manager_user_id"].stringValue
         manager_firstname = json["manager_firstname"].stringValue
-        manager_firstname = json["manager_firstname"].stringValue
+        manager_lastname = json["manager_lastname"].stringValue
         manager_sms_status = json["manager_sms_status"].stringValue
+        manager_mobile = json["manager_mobile"].stringValue
         created_at = json["created_at"].stringValue
         updated_at = json["updated_at"].stringValue
 

@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import iOSDropDown
 
 class CheckInAndOutTableViewCell: UITableViewCell {
 
     @IBOutlet var lblCheckTimes: [UILabel]!
     @IBOutlet var _checkTimes: [UITextField]!
     @IBOutlet weak var btnNextOne: UIButton!
+    @IBOutlet weak var checkInStart: DropDown!
+    @IBOutlet weak var checkInEnd: DropDown!
+    @IBOutlet weak var checkOutEnd: DropDown!
     
     
     override func awakeFromNib() {
@@ -24,6 +28,17 @@ class CheckInAndOutTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setTimes(time: [TimeModel]) {
+        var times = [String]()
+        for i in time {
+            times.append(i.col1)
+        }
+        
+        checkInStart.optionArray = times
+        checkInEnd.optionArray = times
+        checkOutEnd.optionArray = times
     }
 
 }

@@ -22,7 +22,9 @@ target 'Alama360' do
   pod 'FSCalendar'
   pod 'SVPinView', '~> 1.0'
   pod 'MBRadioCheckboxButton'
+  pod 'CollapsibleTableSectionViewController', '~> 2.0.1'
   
+  #  For PayTabs
   pod 'BIObjCHelpers'
   pod 'IQKeyboardManager', '~> 4.0.2'
   pod 'AFNetworking'

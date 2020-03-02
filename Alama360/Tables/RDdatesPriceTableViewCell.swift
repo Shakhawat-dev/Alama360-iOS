@@ -48,10 +48,7 @@ class RDdatesPriceTableViewCell: UITableViewCell {
             dateLbl.text = rentalPrices.rentdate
             priceLbl.text = rentalPrices.price
         }
-        
-        
 
-    
     }
 
 }

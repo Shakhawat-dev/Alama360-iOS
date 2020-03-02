@@ -19,20 +19,21 @@ PODS:
   - AlamofireImage (3.6.0):
     - Alamofire (~> 4.9)
   - BIObjCHelpers (0.4.3)
+  - CollapsibleTableSectionViewController (2.0.1)
   - DatePickerDialog (3.0)
   - DropDown (2.3.13)
   - FSCalendar (2.8.1)
-  - GoogleMaps (3.6.0):
-    - GoogleMaps/Maps (= 3.6.0)
-  - GoogleMaps/Base (3.6.0)
-  - GoogleMaps/Maps (3.6.0):
+  - GoogleMaps (3.8.0):
+    - GoogleMaps/Maps (= 3.8.0)
+  - GoogleMaps/Base (3.8.0)
+  - GoogleMaps/Maps (3.8.0):
     - GoogleMaps/Base
-  - ImageSlideshow (1.8.1):
-    - ImageSlideshow/Core (= 1.8.1)
-  - ImageSlideshow/Alamofire (1.8.1):
+  - ImageSlideshow (1.8.3):
+    - ImageSlideshow/Core (= 1.8.3)
+  - ImageSlideshow/Alamofire (1.8.3):
     - AlamofireImage (~> 3.0)
     - ImageSlideshow/Core
-  - ImageSlideshow/Core (1.8.1)
+  - ImageSlideshow/Core (1.8.3)
   - iOSDropDown (0.3.4)
   - IQKeyboardManager (4.0.13)
   - LanguageManager-iOS (1.2.0)
@@ -55,6 +56,7 @@ DEPENDENCIES:
   - AFNetworking
   - Alamofire
   - BIObjCHelpers
+  - CollapsibleTableSectionViewController (~> 2.0.1)
   - DatePickerDialog
   - DropDown
   - FSCalendar
@@ -83,6 +85,7 @@ SPEC REPOS:
     - Alamofire
     - AlamofireImage
     - BIObjCHelpers
+    - CollapsibleTableSectionViewController
     - DatePickerDialog
     - DropDown
     - FSCalendar
@@ -109,11 +112,12 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   AlamofireImage: be9963c6582d68b39e89191f64c82a7d7bf40fdd
   BIObjCHelpers: 378672b0f9309e4d2cbd4cabfb3afbe1ce225e40
+  CollapsibleTableSectionViewController: 40d97d684d870044522a0dc29b128a6acaaa99df
   DatePickerDialog: 03dbb8350bfa80302ab2a8c83cee1fec70184444
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   FSCalendar: 5245140456fcbcac5824c203b98bd8068bdfee1a
-  GoogleMaps: 82f8fe307193bb4de6ef6bf9e88f1d624b718f9d
-  ImageSlideshow: 634865d7d4e96f21e3830a31b51bde768cc94cea
+  GoogleMaps: 7c8d66d70e4e8c300f43a7219d8fdaad7b325a9a
+  ImageSlideshow: 4694d7d699a1549582e7cc631fb392d8f91630f3
   iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
   IQKeyboardManager: 8eab4d8111418414619d1df8e4779ce5d0f8d7e2
   LanguageManager-iOS: 516c4f088435c83cbdbddfc5179f88e4e0d39eb4
@@ -129,6 +133,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 9b7e4b4c5794ffcb6dc8f0fd6c1bf274b722ff8b
+PODFILE CHECKSUM: fdb4b09d3c76d2119da56da1d0fa1576bdbdb1e1
 
 COCOAPODS: 1.8.4

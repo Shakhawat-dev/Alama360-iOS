@@ -78,7 +78,7 @@
 "reserve" = "Reserve";
 "more" = "more...";
 "rAlertTitle" = "Not Available";
-"rAlertMessage" = "Property is not available";
+"rAlertMessage" = "Your selected date not available";
 // PD Section Headers
 "property" = "Property";
 "description" = "Description";

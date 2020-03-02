@@ -76,6 +76,8 @@
 		4B8544F623EB05D40071FF2D /* DateAvailabilityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8544F523EB05D40071FF2D /* DateAvailabilityTableViewCell.swift */; };
 		4B8544F823EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8544F723EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift */; };
 		4B88874F23FBED8500DB7BAC /* NewPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B88874E23FBED8500DB7BAC /* NewPhotoModel.swift */; };
+		4B89E9DF240CF2E1008329B4 /* SettingsCollapsibleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B89E9DE240CF2E1008329B4 /* SettingsCollapsibleViewController.swift */; };
+		4B89E9E1240D1D83008329B4 /* TimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B89E9E0240D1D83008329B4 /* TimeModel.swift */; };
 		4B8A9D7123D5A2550019EC17 /* AllPhotoGalleryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8A9D7023D5A2550019EC17 /* AllPhotoGalleryModel.swift */; };
 		4B8DD1EB23EC062F0082E387 /* RentalPriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD1EA23EC062F0082E387 /* RentalPriceModel.swift */; };
 		4B9012BE23B768B100E8C59D /* StaticUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9012BD23B768B100E8C59D /* StaticUrls.swift */; };
@@ -200,6 +202,8 @@
 		4B8544F523EB05D40071FF2D /* DateAvailabilityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAvailabilityTableViewCell.swift; sourceTree = "<group>"; };
 		4B8544F723EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAvailabilityTitleTableViewCell.swift; sourceTree = "<group>"; };
 		4B88874E23FBED8500DB7BAC /* NewPhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPhotoModel.swift; sourceTree = "<group>"; };
+		4B89E9DE240CF2E1008329B4 /* SettingsCollapsibleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCollapsibleViewController.swift; sourceTree = "<group>"; };
+		4B89E9E0240D1D83008329B4 /* TimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeModel.swift; sourceTree = "<group>"; };
 		4B8A9D7023D5A2550019EC17 /* AllPhotoGalleryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPhotoGalleryModel.swift; sourceTree = "<group>"; };
 		4B8DD1EA23EC062F0082E387 /* RentalPriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentalPriceModel.swift; sourceTree = "<group>"; };
 		4B9012BD23B768B100E8C59D /* StaticUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticUrls.swift; sourceTree = "<group>"; };
@@ -413,6 +417,7 @@
 				4BD52DFF23F59236009E6C27 /* OwnerPropertyViewController.swift */,
 				4BA60FCC240169A400CC16ED /* PropertySettingsViewController.swift */,
 				4BA60FD22402537200CC16ED /* OwnerPropertySettingsTableViewController.swift */,
+				4B89E9DE240CF2E1008329B4 /* SettingsCollapsibleViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -436,6 +441,7 @@
 				4B88874E23FBED8500DB7BAC /* NewPhotoModel.swift */,
 				4BA60FCE24016CF500CC16ED /* ClientManagerModel.swift */,
 				4BA60FD024016FF900CC16ED /* BankCategoryModel.swift */,
+				4B89E9E0240D1D83008329B4 /* TimeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -679,6 +685,7 @@
 				4BD52DF623F43084009E6C27 /* DistrictModel.swift in Sources */,
 				4B84A10823C4AA67006E5237 /* FeatureCell.swift in Sources */,
 				4B76ED20240564400046217B /* BankDescAndButtonTableViewCell.swift in Sources */,
+				4B89E9E1240D1D83008329B4 /* TimeModel.swift in Sources */,
 				4B76ED1C240563D20046217B /* BankTitleTableViewCell.swift in Sources */,
 				4BD52DF223F42F50009E6C27 /* StateModel.swift in Sources */,
 				4B30DEC123D0494C00069DBC /* MapModel.swift in Sources */,
@@ -719,6 +726,7 @@
 				4B84A10423C4A9FC006E5237 /* PhotoGridCell.swift in Sources */,
 				4B4EAB2123CB5CAA005AEBA6 /* MoreTableViewController.swift in Sources */,
 				4B7870C723B0F7D400D360AC /* BookingModel.swift in Sources */,
+				4B89E9DF240CF2E1008329B4 /* SettingsCollapsibleViewController.swift in Sources */,
 				4BD52DFC23F57E01009E6C27 /* OwnerReservationTableViewCell.swift in Sources */,
 				4BD52DF023F42E5B009E6C27 /* CountryModel.swift in Sources */,
 			);
