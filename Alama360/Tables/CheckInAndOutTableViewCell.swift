@@ -30,7 +30,7 @@ class CheckInAndOutTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setTimes(time: [TimeModel]) {
+    func setTimes(time: [CategoryModel]) {
         var times = [String]()
         for i in time {
             times.append(i.col1)

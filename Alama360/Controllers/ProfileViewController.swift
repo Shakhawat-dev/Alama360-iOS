@@ -200,7 +200,7 @@ class ProfileViewController: UIViewController {
                     let newCountry = CountryModel(json: country)
                     self.countryArray.append(newCountry)
                 }
-                print("Country array is: \(self.countryArray)")
+//                print("Country array is: \(self.countryArray)")
                 
                 let states = resultArray["userallstate"].arrayValue
                 for state in states {

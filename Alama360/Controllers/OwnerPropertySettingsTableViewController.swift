@@ -26,7 +26,7 @@ class OwnerPropertySettingsTableViewController: UITableViewController {
         ["david", "dan", "zack", "patty"]
     ]
     
-    var bankArray = [BankCategoryModel]()
+    var bankArray = [CategoryModel]()
     var clientManagerArray = [ClientManagerModel]()
 
     override func viewDidLoad() {

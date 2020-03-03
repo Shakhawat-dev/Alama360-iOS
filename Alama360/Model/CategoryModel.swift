@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-struct BankCategoryModel {
+struct CategoryModel {
     
     var id: String = ""
     var col1: String = ""

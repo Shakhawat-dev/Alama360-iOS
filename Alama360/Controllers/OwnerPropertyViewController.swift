@@ -150,6 +150,11 @@ class OwnerPropertyViewController: UIViewController {
             let destVC = segue.destination as! OwnerWebViewController
             destVC.url = sender as? String ?? ""
         }
+        
+        if segue.identifier == "ownerListToOwnerSettings" {
+            let destVC = segue.destination as! PropertySettingsViewController
+            destVC.id = sender as? String ?? ""
+        }
     }
     
 }
@@ -307,7 +312,7 @@ extension OwnerPropertyViewController: OwnerSlideTapDelegate {
 //
 //        performSegue(withIdentifier: "ownerlListToWeb", sender: url)
         
-        performSegue(withIdentifier: "ownerListToOwnerSettings", sender: self)
+        performSegue(withIdentifier: "ownerListToOwnerSettings", sender: id)
     }
     
     func didTapUploadPictureBtn(index: Int) {

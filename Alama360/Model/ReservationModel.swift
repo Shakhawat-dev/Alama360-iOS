@@ -27,21 +27,20 @@ struct ReservationModel {
     }
     
     init(json: JSON?) {
-    
-    self.slug = json?["slug"].stringValue
-    self.thumbnail = json?["thumbnail"].stringValue
-    self.latitude = json?["latitude"].stringValue
-    self.longitude = json?["longitude"].stringValue
-    self.title = json?["title"].stringValue
-    self.address = json?["address"].stringValue
-    self.daily_price = json?["daily_price"].stringValue
-    self.total_cost = json?["total_cost"].stringValue
-    self.check_in_date = json?["check_in_date"].stringValue
-    self.check_out_date = json?["check_out_date"].stringValue
-    self.created_at = json?["created_at"].stringValue
- 
         
+        self.slug = json?["slug"].stringValue
+        self.thumbnail = json?["thumbnail"].stringValue
+        self.latitude = json?["latitude"].stringValue
+        self.longitude = json?["longitude"].stringValue
+        self.title = json?["title"].stringValue
+        self.address = json?["address"].stringValue
+        self.daily_price = json?["daily_price"].stringValue
+        self.total_cost = json?["total_cost"].stringValue
+        self.check_in_date = json?["check_in_date"].stringValue
+        self.check_out_date = json?["check_out_date"].stringValue
+        self.created_at = json?["created_at"].stringValue
+  
     }
-
+    
 }
 

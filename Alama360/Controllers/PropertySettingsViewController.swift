@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import LanguageManager_iOS
-import CollapsibleTableSectionViewController
+import iOSDropDown
 
 struct ExpandCollapse {
     var isExpanded: Bool
@@ -22,11 +22,14 @@ class PropertySettingsViewController: UIViewController {
     @IBOutlet weak var sview: OwnerSettingsSectionHeader!
     @IBOutlet weak var ssview: UIView!
     @IBOutlet weak var propertySettingsTable: UITableView!
+    
     let defaults = UserDefaults.standard
     let lan = LanguageManager.shared.currentLanguage.rawValue
+    var id: String = ""
+    var userId: String = ""
     
-    var bankArray = [BankCategoryModel]()
-    var timeArray = [TimeModel]()
+    var bankArray = [BankModel]()
+    var timeArray = [CategoryModel]()
     var clientManagerArray = [ClientManagerModel]()
     var sectionBool: Bool = false
     var sectionHeight: CGFloat = 40.0
@@ -44,20 +47,20 @@ class PropertySettingsViewController: UIViewController {
             overrideUserInterfaceStyle = .light
         }
         
-        
+        userId = defaults.string(forKey: "userID") ?? ""
         
         // Do any additional setup after loading the view.
         loadClientManager()
-        loadBankCateory()
+        loadBankList()
         getTimes()
         
         propertySettingsTable.delegate = self
         propertySettingsTable.dataSource = self
-
+        
     }
     
     func loadClientManager() {
-        let nUrl = StaticUrls.BASE_URL_FINAL + "getclientmanager?lang=en&property_title=&slug=&property_id=130&userid=257&author_id=257"
+        let nUrl = StaticUrls.BASE_URL_FINAL + "getclientmanager?lang=\(lan)&property_title=&slug=&property_id=\(id)&userid=\(userId)&author_id=\(userId)"
         
         Alamofire.request(nUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
             
@@ -77,29 +80,29 @@ class PropertySettingsViewController: UIViewController {
         }
     }
     
-    func loadBankCateory() {
-        let bUrl = StaticUrls.BASE_URL_FINAL + "getclientbank?lang=en&property_title=&slug=&property_id=130&userid=257&author_id=257"
+    func loadBankList() {
+        let bUrl = StaticUrls.BASE_URL_FINAL + "getclientbank?lang=\(lan)&property_title=&slug=&property_id=\(id)&userid=\(userId)&author_id=\(userId)"
+        
+        Alamofire.request(bUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
+            
+            if mysresponse.result.isSuccess {
+                let myResult = try? JSON(data: mysresponse.data!)
+                let resultArray = myResult!["data"]
                 
-                Alamofire.request(bUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
-                    
-                    if mysresponse.result.isSuccess {
-                        let myResult = try? JSON(data: mysresponse.data!)
-                        let resultArray = myResult!["data"]
-                        
-        //              print(resultArray)
-                        for i in resultArray.arrayValue {
-                            let bank = BankCategoryModel(json: i)
-                            self.bankArray.append(bank)
-                        }
-        //                print(self.timeArray)
-                        
-                        
-                    }
+                //              print(resultArray)
+                for i in resultArray.arrayValue {
+                    let bank = BankModel(json: i)
+                    self.bankArray.append(bank)
                 }
+                                print(self.bankArray)
+                
+                
+            }
         }
+    }
     
     func getTimes() {
-        let tUrl = StaticUrls.BASE_URL_FINAL + "getLookUpByCat/88?lang=en&limit=20"
+        let tUrl = StaticUrls.BASE_URL_FINAL + "getLookUpByCat/88?lang=\(lan)&limit=20"
         
         Alamofire.request(tUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
             
@@ -107,15 +110,28 @@ class PropertySettingsViewController: UIViewController {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult![]
                 
-//              print(resultArray)
+                //              print(resultArray)
                 for i in resultArray.arrayValue {
-                    let time = TimeModel(json: i)
+                    let time = CategoryModel(json: i)
                     self.timeArray.append(time)
                 }
-//                print(self.timeArray)
+                //                print(self.timeArray)
                 
                 
             }
+        }
+    }
+    
+    // Sending Data to View COntroller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ownerSettingsToAddManager" {
+            let destVC = segue.destination as! AddNewManagerViewController
+            destVC.id = sender as? String ?? ""
+        }
+        
+        if segue.identifier == "ownerSettingsToAddBank" {
+            let destVC = segue.destination as! AddBankViewController
+            destVC.id = sender as? String ?? ""
         }
     }
     
@@ -133,11 +149,11 @@ extension PropertySettingsViewController: UITableViewDelegate, UITableViewDataSo
         
         let headerCell = Bundle.main.loadNibNamed("OwnerSettingHeaderCell", owner: self, options: nil)?.first as! OwnerSettingHeaderCell
         
-//        let view = UIView(frame: CGRect(x: 0, y: 0, width: propertySettingsTable.frame.size.width, height: 40))
-//        view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) // Set your background color
-//
-//        let button = UIButton(type: .system)
-//        button.frame = CGRect(x: 8, y: 2, width: propertySettingsTable.frame.size.width - 16, height: 36)
+        //        let view = UIView(frame: CGRect(x: 0, y: 0, width: propertySettingsTable.frame.size.width, height: 40))
+        //        view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) // Set your background color
+        //
+        //        let button = UIButton(type: .system)
+        //        button.frame = CGRect(x: 8, y: 2, width: propertySettingsTable.frame.size.width - 16, height: 36)
         
         //        let somespace: CGFloat = 10
         
@@ -150,24 +166,24 @@ extension PropertySettingsViewController: UITableViewDelegate, UITableViewDataSo
         //          self.myButton.titleEdgeInsets = UIEdgeInsetsMake(0, (self.myButton.imageView?.frame.width)! + somespace, 0, 10 )
         
         //        button.contentHorizontalAlignment = .left
-//        button.contentHorizontalAlignment = .leading
-//        button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-//        button.layer.borderWidth = 1
-//        button.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-//        button.titleLabel?.textAlignment = .right
-//        button.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
-//        if #available(iOS 13.0, *) {
-//            button.setImage(UIImage(systemName: "plus"), for: .normal)
-//        } else {
-//            // Fallback on earlier versions
-//        }
-//        button.semanticContentAttribute = UIApplication.shared
-//            .userInterfaceLayoutDirection == .rightToLeft ? .forceLeftToRight : .forceRightToLeft
+        //        button.contentHorizontalAlignment = .leading
+        //        button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        //        button.layer.borderWidth = 1
+        //        button.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        //        button.titleLabel?.textAlignment = .right
+        //        button.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+        //        if #available(iOS 13.0, *) {
+        //            button.setImage(UIImage(systemName: "plus"), for: .normal)
+        //        } else {
+        //            // Fallback on earlier versions
+        //        }
+        //        button.semanticContentAttribute = UIApplication.shared
+        //            .userInterfaceLayoutDirection == .rightToLeft ? .forceLeftToRight : .forceRightToLeft
         
         //        button.imageEdgeInsets = UIEdgeInsets(top: 0,left: button.bounds.width - 38, bottom: 0, right: 0)
         //        button.titleEdgeInsets = UIEdgeInsets(top: 0,left: -(button.imageView?.bounds.width)! + 8, bottom: 0, right: 0)
-//        button.imageEdgeInsets.left = 8
-//        button.titleEdgeInsets.left = 16
+        //        button.imageEdgeInsets.left = 8
+        //        button.titleEdgeInsets.left = 16
         
         headerCell.btnExpand.tag = section
         
@@ -331,6 +347,10 @@ extension PropertySettingsViewController: UITableViewDelegate, UITableViewDataSo
             
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "AddButtonTableViewCell", for: indexPath) as! AddButtonTableViewCell
+                
+                cell.index = indexPath
+                cell.delegate = self as? AddNewDelegate
+                
                 return cell
             } else if indexPath.row == 1 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BankTitleTableViewCell", for: indexPath) as! BankTitleTableViewCell
@@ -340,6 +360,11 @@ extension PropertySettingsViewController: UITableViewDelegate, UITableViewDataSo
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BankRowTableViewCell", for: indexPath) as! BankRowTableViewCell
+                
+                if bankArray.isEmpty != true {
+                    cell.setBanks(bank: bankArray[indexPath.row - 2] )
+                }
+                
                 return cell
             }
             
@@ -354,33 +379,12 @@ extension PropertySettingsViewController: UITableViewDelegate, UITableViewDataSo
 extension PropertySettingsViewController: AddNewDelegate {
     func addNewBtnTapped(index: IndexPath) {
         if index.section == 3 {
-            openAlert()
+            performSegue(withIdentifier: "ownerSettingsToAddManager", sender: id)
         }
-    }
-    
-    func openAlert(){
-        let alertController = UIAlertController(title: "Title", message: "", preferredStyle: .alert)
-        alertController.addTextField { (textField : UITextField!) -> Void in
-            textField.placeholder = "Enter name"
+        
+        if index.section == 4 {
+            performSegue(withIdentifier: "ownerSettingsToAddBank", sender: id)
         }
-    
-        let saveAction = UIAlertAction(title: "Confirm", style: .default, handler: { alert -> Void in
-            if let textField = alertController.textFields?[0] {
-                if textField.text!.count > 0 {
-                    print("Text :: \(textField.text ?? "")")
-                }
-            }
-        })
-    
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: {
-            (action : UIAlertAction!) -> Void in })
-    
-        alertController.addAction(cancelAction)
-        alertController.addAction(saveAction)
-    
-        alertController.preferredAction = saveAction
-    
-        self.present(alertController, animated: true, completion: nil)
     }
 
 }

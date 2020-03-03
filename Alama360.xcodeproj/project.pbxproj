@@ -15,6 +15,8 @@
 		4B04E43F239B788300D02BC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B04E43D239B788300D02BC4 /* LaunchScreen.storyboard */; };
 		4B04E44C239B7D1500D02BC4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B04E44E239B7D1500D02BC4 /* Localizable.strings */; };
 		4B04E457239B843F00D02BC4 /* LocalizationSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B04E456239B843F00D02BC4 /* LocalizationSystem.swift */; };
+		4B0606EB240E46EE00234B70 /* AddBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0606EA240E46EE00234B70 /* AddBankViewController.swift */; };
+		4B0606EF240E878500234B70 /* BankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0606EE240E878500234B70 /* BankModel.swift */; };
 		4B149C3823C5B6230021F5EF /* PdDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B149C3723C5B6230021F5EF /* PdDescriptionCell.swift */; };
 		4B149C3A23C6111E0021F5EF /* AllPhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B149C3923C6111E0021F5EF /* AllPhotosCell.swift */; };
 		4B149C3C23C6116D0021F5EF /* AllPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B149C3B23C6116D0021F5EF /* AllPhotosViewController.swift */; };
@@ -77,7 +79,7 @@
 		4B8544F823EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8544F723EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift */; };
 		4B88874F23FBED8500DB7BAC /* NewPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B88874E23FBED8500DB7BAC /* NewPhotoModel.swift */; };
 		4B89E9DF240CF2E1008329B4 /* SettingsCollapsibleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B89E9DE240CF2E1008329B4 /* SettingsCollapsibleViewController.swift */; };
-		4B89E9E1240D1D83008329B4 /* TimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B89E9E0240D1D83008329B4 /* TimeModel.swift */; };
+		4B89E9E3240E456E008329B4 /* AddNewManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B89E9E2240E456E008329B4 /* AddNewManagerViewController.swift */; };
 		4B8A9D7123D5A2550019EC17 /* AllPhotoGalleryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8A9D7023D5A2550019EC17 /* AllPhotoGalleryModel.swift */; };
 		4B8DD1EB23EC062F0082E387 /* RentalPriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD1EA23EC062F0082E387 /* RentalPriceModel.swift */; };
 		4B9012BE23B768B100E8C59D /* StaticUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9012BD23B768B100E8C59D /* StaticUrls.swift */; };
@@ -86,7 +88,7 @@
 		4B9C21EF23CC545400090E94 /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9C21EE23CC545400090E94 /* ContactTableViewController.swift */; };
 		4BA60FCD240169A400CC16ED /* PropertySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA60FCC240169A400CC16ED /* PropertySettingsViewController.swift */; };
 		4BA60FCF24016CF500CC16ED /* ClientManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA60FCE24016CF500CC16ED /* ClientManagerModel.swift */; };
-		4BA60FD124016FF900CC16ED /* BankCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA60FD024016FF900CC16ED /* BankCategoryModel.swift */; };
+		4BA60FD124016FF900CC16ED /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA60FD024016FF900CC16ED /* CategoryModel.swift */; };
 		4BA60FD32402537200CC16ED /* OwnerPropertySettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA60FD22402537200CC16ED /* OwnerPropertySettingsTableViewController.swift */; };
 		4BA60FD524025CC900CC16ED /* DummyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA60FD424025CC900CC16ED /* DummyCell.swift */; };
 		4BAA2FE723E6DE5500721EA5 /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAA2FE623E6DE5500721EA5 /* OTPTextField.swift */; };
@@ -141,6 +143,8 @@
 		4B04E44D239B7D1500D02BC4 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4B04E44F239B7D1F00D02BC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4B04E456239B843F00D02BC4 /* LocalizationSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalizationSystem.swift; path = "../../../IOS-Practices/Localization_to_Arabic_laguage_From_Inside_App-Tutorial-master/Localization-Tutorial/LocalizationSystem.swift"; sourceTree = "<group>"; };
+		4B0606EA240E46EE00234B70 /* AddBankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBankViewController.swift; sourceTree = "<group>"; };
+		4B0606EE240E878500234B70 /* BankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankModel.swift; sourceTree = "<group>"; };
 		4B149C3723C5B6230021F5EF /* PdDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdDescriptionCell.swift; sourceTree = "<group>"; };
 		4B149C3923C6111E0021F5EF /* AllPhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPhotosCell.swift; sourceTree = "<group>"; };
 		4B149C3B23C6116D0021F5EF /* AllPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPhotosViewController.swift; sourceTree = "<group>"; };
@@ -203,7 +207,7 @@
 		4B8544F723EB06880071FF2D /* DateAvailabilityTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAvailabilityTitleTableViewCell.swift; sourceTree = "<group>"; };
 		4B88874E23FBED8500DB7BAC /* NewPhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPhotoModel.swift; sourceTree = "<group>"; };
 		4B89E9DE240CF2E1008329B4 /* SettingsCollapsibleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCollapsibleViewController.swift; sourceTree = "<group>"; };
-		4B89E9E0240D1D83008329B4 /* TimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeModel.swift; sourceTree = "<group>"; };
+		4B89E9E2240E456E008329B4 /* AddNewManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewManagerViewController.swift; sourceTree = "<group>"; };
 		4B8A9D7023D5A2550019EC17 /* AllPhotoGalleryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPhotoGalleryModel.swift; sourceTree = "<group>"; };
 		4B8DD1EA23EC062F0082E387 /* RentalPriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentalPriceModel.swift; sourceTree = "<group>"; };
 		4B9012BD23B768B100E8C59D /* StaticUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticUrls.swift; sourceTree = "<group>"; };
@@ -212,7 +216,7 @@
 		4B9C21EE23CC545400090E94 /* ContactTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
 		4BA60FCC240169A400CC16ED /* PropertySettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertySettingsViewController.swift; sourceTree = "<group>"; };
 		4BA60FCE24016CF500CC16ED /* ClientManagerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientManagerModel.swift; sourceTree = "<group>"; };
-		4BA60FD024016FF900CC16ED /* BankCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCategoryModel.swift; sourceTree = "<group>"; };
+		4BA60FD024016FF900CC16ED /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		4BA60FD22402537200CC16ED /* OwnerPropertySettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerPropertySettingsTableViewController.swift; sourceTree = "<group>"; };
 		4BA60FD424025CC900CC16ED /* DummyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyCell.swift; sourceTree = "<group>"; };
 		4BAA2FE623E6DE5500721EA5 /* OTPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextField.swift; sourceTree = "<group>"; };
@@ -418,6 +422,8 @@
 				4BA60FCC240169A400CC16ED /* PropertySettingsViewController.swift */,
 				4BA60FD22402537200CC16ED /* OwnerPropertySettingsTableViewController.swift */,
 				4B89E9DE240CF2E1008329B4 /* SettingsCollapsibleViewController.swift */,
+				4B89E9E2240E456E008329B4 /* AddNewManagerViewController.swift */,
+				4B0606EA240E46EE00234B70 /* AddBankViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -440,8 +446,8 @@
 				4BD52DF523F43084009E6C27 /* DistrictModel.swift */,
 				4B88874E23FBED8500DB7BAC /* NewPhotoModel.swift */,
 				4BA60FCE24016CF500CC16ED /* ClientManagerModel.swift */,
-				4BA60FD024016FF900CC16ED /* BankCategoryModel.swift */,
-				4B89E9E0240D1D83008329B4 /* TimeModel.swift */,
+				4BA60FD024016FF900CC16ED /* CategoryModel.swift */,
+				4B0606EE240E878500234B70 /* BankModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -678,14 +684,14 @@
 				4B76ED242407E3490046217B /* OwnerSettingsSectionHeader.swift in Sources */,
 				4BD52D7723F00BF7009E6C27 /* ReservationDetailsTableViewCell.swift in Sources */,
 				4BD52D9023F288A7009E6C27 /* CalcTotal.swift in Sources */,
-				4BA60FD124016FF900CC16ED /* BankCategoryModel.swift in Sources */,
+				4BA60FD124016FF900CC16ED /* CategoryModel.swift in Sources */,
 				4BD52D8523F15FE6009E6C27 /* NewFeatureModel.swift in Sources */,
 				4B5C17E623DC15EC00EE2310 /* CustomBtnGreen.swift in Sources */,
 				4B149C3823C5B6230021F5EF /* PdDescriptionCell.swift in Sources */,
+				4B0606EF240E878500234B70 /* BankModel.swift in Sources */,
 				4BD52DF623F43084009E6C27 /* DistrictModel.swift in Sources */,
 				4B84A10823C4AA67006E5237 /* FeatureCell.swift in Sources */,
 				4B76ED20240564400046217B /* BankDescAndButtonTableViewCell.swift in Sources */,
-				4B89E9E1240D1D83008329B4 /* TimeModel.swift in Sources */,
 				4B76ED1C240563D20046217B /* BankTitleTableViewCell.swift in Sources */,
 				4BD52DF223F42F50009E6C27 /* StateModel.swift in Sources */,
 				4B30DEC123D0494C00069DBC /* MapModel.swift in Sources */,
@@ -717,6 +723,8 @@
 				4BD52D7F23F00DF2009E6C27 /* ReservationprogressTableViewCell.swift in Sources */,
 				4BABFABB23AA647900F34EA4 /* BookingViewController.swift in Sources */,
 				4B8DD1EB23EC062F0082E387 /* RentalPriceModel.swift in Sources */,
+				4B0606EB240E46EE00234B70 /* AddBankViewController.swift in Sources */,
+				4B89E9E3240E456E008329B4 /* AddNewManagerViewController.swift in Sources */,
 				4BFF10B723E82AFF00E164F1 /* ReservationModel.swift in Sources */,
 				4B04E435239B788000D02BC4 /* SceneDelegate.swift in Sources */,
 				4B76ED142405604B0046217B /* AddButtonTableViewCell.swift in Sources */,

@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol ManagerDelegate {
+    func editBtnTapped(index: IndexPath)
+    func deleteBtnTapped(index: IndexPath)
+}
+
 class BookManagerRowTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lblManagerName: UILabel!
@@ -16,6 +21,8 @@ class BookManagerRowTableViewCell: UITableViewCell {
     @IBOutlet weak var btnManagerEdit: UIButton!
     @IBOutlet weak var BtnManagerDelete: UIButton!
     
+    var delegate: ManagerDelegate?
+    var index: IndexPath?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,5 +46,11 @@ class BookManagerRowTableViewCell: UITableViewCell {
         }
         
     }
-
+    @IBAction func editBtnTapped(_ sender: Any) {
+        delegate?.editBtnTapped(index: index!)
+    }
+    
+    @IBAction func deleteBtnTapped(_ sender: Any) {
+        delegate?.deleteBtnTapped(index: index!)
+    }
 }
