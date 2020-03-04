@@ -46,6 +46,8 @@ class PropertySettingsViewController: UIViewController {
         if #available(iOS 13.0, *) {
             overrideUserInterfaceStyle = .light
         }
+        // For Hiding keyboard on Tap
+        self.hideKeyboardWhenTappedAround()
         
         userId = defaults.string(forKey: "userID") ?? ""
         
@@ -136,6 +138,39 @@ class PropertySettingsViewController: UIViewController {
         }
     }
     
+    func changeSmsStatus(index: IndexPath, status: String) {
+        print(index.row - 2)
+        let mId = clientManagerArray[index.row - 2].id
+        let pId = clientManagerArray[index.row - 2].property_id
+        
+        let params : [String : String] = ["lang" : "en",
+                                          "dataview": "updatesmsstatus",
+                                          "property_title" : "",
+                                          "slug" : "",
+                                          "property_id" : pId,
+                                          "userid" : userId,
+                                          "author_id" : userId,
+                                          "managerid" : mId,
+                                          "smsstatus" : status]
+        
+        print(params)
+        
+        let mUrl = "\(StaticUrls.BASE_URL_FINAL)getsingleclientmanager?"
+        
+        Alamofire.request(mUrl, method: .post, parameters: params, headers: nil).responseJSON{ (mysresponse) in
+            
+            if mysresponse.result.isSuccess {
+                let myResult = try? JSON(data: mysresponse.data!)
+                let resultArray = myResult![]
+                
+                print(mysresponse)
+//                self.loadClientManager()
+                
+                //                    self.propertySettingsTable.reloadData()
+            }
+        }
+    }
+    
     func deleteManager(index: IndexPath) {
         print(index.row - 2)
         let mId = clientManagerArray[index.row - 2].id
@@ -204,12 +239,12 @@ class PropertySettingsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ownerSettingsToAddManager" {
             let destVC = segue.destination as! AddNewManagerViewController
-            destVC.id = sender as? String ?? ""
+            destVC.segueValues = sender as! (prop_id: String, manager_id: String)
         }
         
         if segue.identifier == "ownerSettingsToAddBank" {
             let destVC = segue.destination as! AddBankViewController
-            destVC.id = sender as? String ?? ""
+            destVC.segueValues = sender as? (prop_id: String, bank_id: String)
         }
     }
     
@@ -385,6 +420,9 @@ extension PropertySettingsViewController: UITableViewDelegate, UITableViewDataSo
         
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "InsuranceTableViewCell", for: indexPath) as! InsuranceTableViewCell
+            
+            cell.delegate = self
+            
             return cell
         } else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CancelationReturnTableViewCell", for: indexPath) as! CancelationReturnTableViewCell
@@ -463,19 +501,55 @@ extension PropertySettingsViewController: UITableViewDelegate, UITableViewDataSo
 extension PropertySettingsViewController: AddNewDelegate {
     func addNewBtnTapped(index: IndexPath) {
         if index.section == 3 {
-            performSegue(withIdentifier: "ownerSettingsToAddManager", sender: id)
+            let segueValues = (prop_id: id, manager_id: "0")
+            performSegue(withIdentifier: "ownerSettingsToAddManager", sender: segueValues)
         }
         
         if index.section == 4 {
-            performSegue(withIdentifier: "ownerSettingsToAddBank", sender: id)
+            let segueValues = (prop_id: id, bank_id: "0")
+            performSegue(withIdentifier: "ownerSettingsToAddBank", sender: segueValues)
         }
     }
     
 }
 
 extension PropertySettingsViewController: ManagerDelegate {
+    
+    func smsSwitchOn(index: IndexPath) {
+        let alert = UIAlertController(title: "Warning", message: "Are you sure you want to change sms status?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
+            //                NSLog("The \"OK\" alert occured.")
+            self.changeSmsStatus(index: index, status: "1")
+        }))
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            //                NSLog("The \"OK\" alert occured.")
+        }))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func smsSwitchOff(index: IndexPath) {
+        let alert = UIAlertController(title: "Warning", message: "Are you sure you want to change sms status?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
+            //                NSLog("The \"OK\" alert occured.")
+            self.changeSmsStatus(index: index, status: "2")
+        }))
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            //                NSLog("The \"OK\" alert occured.")
+        }))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func editBtnTapped(index: IndexPath) {
-        performSegue(withIdentifier: "ownerSettingsToAddManager", sender: self)
+        
+        let manager_id = clientManagerArray[index.row - 2].id
+        
+        let segueValues = (prop_id: id, manager_id: manager_id)
+        
+        performSegue(withIdentifier: "ownerSettingsToAddManager", sender: segueValues)
     }
 
     func deleteBtnTapped(index: IndexPath) {
@@ -497,7 +571,11 @@ extension PropertySettingsViewController: ManagerDelegate {
 
 extension PropertySettingsViewController: BankDelegate {
     func bEditBtnTapped(index: IndexPath) {
-        performSegue(withIdentifier: "ownerSettingsToAddBank", sender: self)
+        let bank_id = bankArray[index.row - 2].id
+        
+        let segueValues = (prop_id: id, bank_id: bank_id)
+        
+        performSegue(withIdentifier: "ownerSettingsToAddBank", sender: segueValues)
     }
     
     func bDeleteBtnTapped(index: IndexPath) {
@@ -512,6 +590,15 @@ extension PropertySettingsViewController: BankDelegate {
         }))
 
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+}
+
+extension PropertySettingsViewController: CheckboxDelegate {
+    func checkboxtapped() {
+        propertySettingsTable.beginUpdates()
+        propertySettingsTable.endUpdates()
     }
     
     

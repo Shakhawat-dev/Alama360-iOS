@@ -11,6 +11,8 @@ import UIKit
 protocol ManagerDelegate {
     func editBtnTapped(index: IndexPath)
     func deleteBtnTapped(index: IndexPath)
+    func smsSwitchOn(index: IndexPath)
+    func smsSwitchOff(index: IndexPath)
 }
 
 class BookManagerRowTableViewCell: UITableViewCell {
@@ -53,4 +55,14 @@ class BookManagerRowTableViewCell: UITableViewCell {
     @IBAction func deleteBtnTapped(_ sender: Any) {
         delegate?.deleteBtnTapped(index: index!)
     }
+    
+    @IBAction func smsSwitchStateChanged(_ sender: UISwitch) {
+        if sender.isOn {
+            delegate?.smsSwitchOn(index: index!)
+        } else {
+            delegate?.smsSwitchOff(index: index!)
+        }
+    }
+    
+    
 }

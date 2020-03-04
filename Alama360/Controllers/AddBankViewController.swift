@@ -34,6 +34,16 @@ class AddBankViewController: UIViewController {
     var id: String = ""
     var bankArray = [CategoryModel]()
     var bankID: Int = 0
+    var cBankId: String = ""
+    
+    
+//    var bank_id: String = ""
+    var account_holder_name: String = ""
+    var account_no: String = ""
+    var iban_no: String = ""
+    
+    
+    var segueValues: (prop_id: String, bank_id: String)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,17 +52,28 @@ class AddBankViewController: UIViewController {
         // Getting User Details
         userId = defaults.string(forKey: "userID")!
         
+        id = segueValues?.prop_id ?? ""
+        cBankId = segueValues?.bank_id ?? "0"
+        
         _IBANField.delegate = self
         
         // Do any additional setup after loading the view.
         getBanks()
         
+        
+        if !(cBankId == "0") {
+            loadbank()
+        }
+        
         bankNameDropDown.didSelect{(selectedText , index ,id) in
             print("Selected String: \(selectedText) \n index: \(index) \n id: \(id)")
             self.bankID = id
         }
+
         
     }
+    
+    
     
     func getBanks() {
         let tUrl = StaticUrls.BASE_URL_FINAL + "getLookUpByCat/66?lang=en&limit=30"
@@ -69,6 +90,7 @@ class AddBankViewController: UIViewController {
                     self.bankArray.append(bank)
                 }
                 print(self.bankArray)
+                
                 self.setViews()
                 
             }
@@ -96,6 +118,34 @@ class AddBankViewController: UIViewController {
         
         
     }
+    
+    func loadbank() {
+            let tUrl = StaticUrls.BASE_URL_FINAL + "getsingleclientbank?dataview=select&lang=en&property_title=&slug=&property_id=\(id)&userid=\(userId)&author_id=\(userId)&bankid=\(cBankId)"
+            print(tUrl)
+            Alamofire.request(tUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
+                
+                if mysresponse.result.isSuccess {
+                    let myResult = try? JSON(data: mysresponse.data!)
+                    let resultArray = myResult![]
+                    
+    //                print(myResult)
+                    
+                    self.account_holder_name = resultArray["bankinfo"]["account_holder_name"].stringValue
+                    self.account_no = resultArray["bankinfo"]["account_no"].stringValue
+                    self.iban_no = resultArray["bankinfo"]["iban_no"].stringValue
+                    self.bankID = resultArray["bankinfo"]["bank_id"].intValue
+                    
+                    self.bankNameDropDown.selectedIndex = self.bankID
+                    self._BankHolderNameField.text = self.account_holder_name
+                    self._AccountNumberField.text = self.account_no
+                    self._IBANField.text = self.iban_no
+                    
+                    print("holder name \(self.account_holder_name)")
+                    
+                    
+                }
+            }
+        }
     
     func addNewBank() {
         

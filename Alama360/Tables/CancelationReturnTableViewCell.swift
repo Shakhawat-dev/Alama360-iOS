@@ -15,9 +15,8 @@ class CancelationReturnTableViewCell: UITableViewCell {
     @IBOutlet var lblCheckTitle: [UILabel]!
     @IBOutlet var lblCancellationDetails: [UILabel]!
     @IBOutlet weak var btnNextOne: UIButton!
-    
-    
-    
+    @IBOutlet var btncheckbox: [UIButton]!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,5 +27,22 @@ class CancelationReturnTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func resetButtonStates() {
+        for button in btncheckbox {
+            button.isSelected = false
+        }
+    }
 
+    @IBAction func freeBtnTapped(_ sender: UIButton) {
+        let isAlreadySelected = sender.isSelected == true
+        
+        resetButtonStates()
+        
+        if !isAlreadySelected {
+               sender.isSelected = true
+           } else {
+               // Do Nothing since as per your case if you selected the already selected button it should change to disable right, so the resetButtonStates() will do that.
+           }
+    }
 }

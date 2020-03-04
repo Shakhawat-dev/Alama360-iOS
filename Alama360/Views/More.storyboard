@@ -1411,23 +1411,23 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="1829"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="InsuranceTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InsuranceTableViewCell" rowHeight="260" id="RFD-rl-QUb" customClass="InsuranceTableViewCell" customModule="Alama360" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="260"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="InsuranceTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InsuranceTableViewCell" id="RFD-rl-QUb" customClass="InsuranceTableViewCell" customModule="Alama360" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RFD-rl-QUb" id="17f-FC-yEk">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="260"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8G-ea-MIT">
-                                                    <rect key="frame" x="8" y="8" width="398" height="244"/>
+                                                    <rect key="frame" x="8" y="8" width="398" height="184"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="O9s-Oj-lho">
-                                                            <rect key="frame" x="8" y="8" width="382" height="228"/>
+                                                            <rect key="frame" x="8" y="8" width="382" height="168"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jd1-zd-ih5">
                                                                     <rect key="frame" x="0.0" y="0.0" width="382" height="17"/>
                                                                     <subviews>
-                                                                        <button opaque="NO" contentMode="scaleAspectFit" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHb-JR-GDH">
+                                                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHb-JR-GDH">
                                                                             <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="17" id="1jP-St-zjM"/>
@@ -1435,8 +1435,11 @@
                                                                             </constraints>
                                                                             <state key="normal" image="UnCheckbox"/>
                                                                             <state key="selected" image="Checkbox"/>
+                                                                            <connections>
+                                                                                <action selector="checkBoxTapped:" destination="RFD-rl-QUb" eventType="touchUpInside" id="5jO-sy-Yhh"/>
+                                                                            </connections>
                                                                         </button>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you require insurance from client upon arrival?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KjU-UX-0l7">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you require insurance from client upon arrival?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KjU-UX-0l7">
                                                                             <rect key="frame" x="25" y="0.0" width="357" height="17"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                             <nil key="textColor"/>
@@ -1444,8 +1447,8 @@
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="gqB-ah-xVw">
-                                                                    <rect key="frame" x="0.0" y="25" width="382" height="59"/>
+                                                                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="gqB-ah-xVw">
+                                                                    <rect key="frame" x="0.0" y="21" width="382" height="59"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much is the insurance?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNv-7t-yE0">
                                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="24"/>
@@ -1467,7 +1470,7 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZUg-PU-vOl">
-                                                                    <rect key="frame" x="0.0" y="92" width="382" height="136"/>
+                                                                    <rect key="frame" x="0.0" y="25" width="382" height="143"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Do you have other conditions for reservations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tph-FQ-u6j">
                                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="24"/>
@@ -1495,7 +1498,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zpt-8C-IQM">
-                                                                            <rect key="frame" x="0.0" y="113" width="382" height="23"/>
+                                                                            <rect key="frame" x="0.0" y="113" width="382" height="30"/>
                                                                             <state key="normal" title="next one &gt;"/>
                                                                         </button>
                                                                     </subviews>
@@ -1523,6 +1526,7 @@
                                             <outlet property="_InsuranceAmount" destination="aGb-8N-mKl" id="WCT-cW-evP"/>
                                             <outlet property="btnCheck" destination="MHb-JR-GDH" id="JSL-3B-cxf"/>
                                             <outlet property="btnNextOne" destination="Zpt-8C-IQM" id="OhG-N6-Fxf"/>
+                                            <outlet property="insuranceStackView" destination="gqB-ah-xVw" id="Tka-Cu-JTo"/>
                                             <outlet property="lblAdditionalTerms" destination="qzR-qo-lAE" id="X7f-AN-TWZ"/>
                                             <outlet property="lblCheckTitle" destination="KjU-UX-0l7" id="fGq-zb-x6E"/>
                                             <outlet property="lblHInsuranceAmountTile" destination="uNv-7t-yE0" id="whE-he-V4K"/>
@@ -1530,7 +1534,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CancelationReturnTableViewCell" rowHeight="420" id="D2g-yd-TU3" customClass="CancelationReturnTableViewCell" customModule="Alama360" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="288" width="414" height="420"/>
+                                        <rect key="frame" x="0.0" y="228" width="414" height="420"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D2g-yd-TU3" id="8nV-lV-HbY">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="420"/>
@@ -1554,7 +1558,7 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="voz-yx-Thu">
                                                                             <rect key="frame" x="0.0" y="0.0" width="366" height="17"/>
                                                                             <subviews>
-                                                                                <button opaque="NO" contentMode="scaleAspectFit" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHB-9a-RGQ">
+                                                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHB-9a-RGQ">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="17" id="PrX-Zn-O5K"/>
@@ -1562,10 +1566,13 @@
                                                                                     </constraints>
                                                                                     <state key="normal" image="UnCheckbox"/>
                                                                                     <state key="selected" image="Checkbox"/>
+                                                                                    <connections>
+                                                                                        <action selector="freeBtnTapped:" destination="D2g-yd-TU3" eventType="touchUpInside" id="d8c-Uj-7FL"/>
+                                                                                    </connections>
                                                                                 </button>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8t-5u-bcg">
                                                                                     <rect key="frame" x="21" y="0.0" width="345" height="17"/>
-                                                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
@@ -1588,7 +1595,7 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Onl-0e-oaj">
                                                                             <rect key="frame" x="0.0" y="0.0" width="366" height="17"/>
                                                                             <subviews>
-                                                                                <button opaque="NO" contentMode="scaleAspectFit" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dW7-d3-RYD">
+                                                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dW7-d3-RYD">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="17" id="8MJ-AN-UDR"/>
@@ -1596,13 +1603,16 @@
                                                                                     </constraints>
                                                                                     <state key="normal" image="UnCheckbox"/>
                                                                                     <state key="selected" image="Checkbox"/>
+                                                                                    <connections>
+                                                                                        <action selector="freeBtnTapped:" destination="D2g-yd-TU3" eventType="touchUpInside" id="trQ-by-Wsq"/>
+                                                                                    </connections>
                                                                                 </button>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CiJ-bR-jN7">
                                                                                     <rect key="frame" x="21" y="0.0" width="345" height="17"/>
                                                                                     <attributedString key="attributedText">
                                                                                         <fragment content="Flexible (Recommended)">
                                                                                             <attributes>
-                                                                                                <font key="NSFont" metaFont="system" size="14"/>
+                                                                                                <font key="NSFont" metaFont="menu" size="14"/>
                                                                                             </attributes>
                                                                                         </fragment>
                                                                                     </attributedString>
@@ -1630,7 +1640,7 @@ When the customer decides to cancel during the two days preceding the reservatio
                                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="wqq-DI-QIM">
                                                                             <rect key="frame" x="0.0" y="0.0" width="366" height="17"/>
                                                                             <subviews>
-                                                                                <button opaque="NO" contentMode="scaleAspectFit" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zS5-oj-MJR">
+                                                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zS5-oj-MJR">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="17" id="JNt-T7-ISt"/>
@@ -1638,10 +1648,13 @@ When the customer decides to cancel during the two days preceding the reservatio
                                                                                     </constraints>
                                                                                     <state key="normal" image="UnCheckbox"/>
                                                                                     <state key="selected" image="Checkbox"/>
+                                                                                    <connections>
+                                                                                        <action selector="freeBtnTapped:" destination="D2g-yd-TU3" eventType="touchUpInside" id="Jky-Nj-FeH"/>
+                                                                                    </connections>
                                                                                 </button>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uyu-X4-6Wk">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moderate" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uyu-X4-6Wk">
                                                                                     <rect key="frame" x="21" y="0.0" width="345" height="17"/>
-                                                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
@@ -1667,7 +1680,7 @@ When the customer's day of cancellation during the 4 days preceding the reservat
                                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="RbA-En-Rc0">
                                                                             <rect key="frame" x="0.0" y="0.0" width="366" height="17"/>
                                                                             <subviews>
-                                                                                <button opaque="NO" contentMode="scaleAspectFit" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvS-9i-cjO">
+                                                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvS-9i-cjO">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="17" id="ZRw-oQ-BzD"/>
@@ -1675,10 +1688,13 @@ When the customer's day of cancellation during the 4 days preceding the reservat
                                                                                     </constraints>
                                                                                     <state key="normal" image="UnCheckbox"/>
                                                                                     <state key="selected" image="Checkbox"/>
+                                                                                    <connections>
+                                                                                        <action selector="freeBtnTapped:" destination="D2g-yd-TU3" eventType="touchUpInside" id="ads-aG-IlU"/>
+                                                                                    </connections>
                                                                                 </button>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZ1-QF-CuL">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strict" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZ1-QF-CuL">
                                                                                     <rect key="frame" x="21" y="0.0" width="345" height="17"/>
-                                                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
@@ -1736,10 +1752,14 @@ When the customer's day of cancellation during the 4 days preceding the reservat
                                             <outletCollection property="lblCancellationDetails" destination="UrX-93-bfS" collectionClass="NSMutableArray" id="u0j-sx-1rR"/>
                                             <outletCollection property="lblCancellationDetails" destination="PvA-An-Rzd" collectionClass="NSMutableArray" id="fBo-h6-Zp6"/>
                                             <outletCollection property="lblCancellationDetails" destination="7iy-5c-WM9" collectionClass="NSMutableArray" id="0tF-Gw-VzC"/>
+                                            <outletCollection property="btncheckbox" destination="aHB-9a-RGQ" collectionClass="NSMutableArray" id="vfI-EC-bxU"/>
+                                            <outletCollection property="btncheckbox" destination="dW7-d3-RYD" collectionClass="NSMutableArray" id="Ixo-GJ-0EA"/>
+                                            <outletCollection property="btncheckbox" destination="zS5-oj-MJR" collectionClass="NSMutableArray" id="JIY-gG-h47"/>
+                                            <outletCollection property="btncheckbox" destination="BvS-9i-cjO" collectionClass="NSMutableArray" id="EsV-J6-crt"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CheckInAndOutTableViewCell" rowHeight="240" id="YOj-21-Lzg" customClass="CheckInAndOutTableViewCell" customModule="Alama360" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="708" width="414" height="240"/>
+                                        <rect key="frame" x="0.0" y="648" width="414" height="240"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YOj-21-Lzg" id="L8a-lE-N3W">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
@@ -1836,7 +1856,7 @@ When the customer's day of cancellation during the 4 days preceding the reservat
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddButtonTableViewCell" id="X7A-9v-qEf" customClass="AddButtonTableViewCell" customModule="Alama360" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="948" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="888" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X7A-9v-qEf" id="N6Y-ry-BVm">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -1879,7 +1899,7 @@ When the customer's day of cancellation during the 4 days preceding the reservat
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookManagerTitleTableViewCell" id="8gv-9v-IzN" customClass="BookManagerTitleTableViewCell" customModule="Alama360" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="998" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="938" width="414" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8gv-9v-IzN" id="uBS-mc-rt5">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
@@ -1972,7 +1992,7 @@ When the customer's day of cancellation during the 4 days preceding the reservat
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookManagerRowTableViewCell" id="7Wt-db-uMT" customClass="BookManagerRowTableViewCell" customModule="Alama360" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1028" width="414" height="54"/>
+                                        <rect key="frame" x="0.0" y="968" width="414" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Wt-db-uMT" id="AFa-lt-TkV">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
@@ -2018,6 +2038,9 @@ When the customer's day of cancellation during the 4 days preceding the reservat
                                                                     <subviews>
                                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WPd-wD-7JW">
                                                                             <rect key="frame" x="35.666666666666657" y="11.666666666666664" width="51" height="31"/>
+                                                                            <connections>
+                                                                                <action selector="smsSwitchStateChanged:" destination="7Wt-db-uMT" eventType="valueChanged" id="0cI-44-g2D"/>
+                                                                            </connections>
                                                                         </switch>
                                                                     </subviews>
                                                                     <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2098,7 +2121,7 @@ When the customer's day of cancellation during the 4 days preceding the reservat
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookManagerDescTableViewCell" id="Gna-nS-Ayw" customClass="BookManagerDescTableViewCell" customModule="Alama360" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1082" width="414" height="248"/>
+                                        <rect key="frame" x="0.0" y="1022" width="414" height="248"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gna-nS-Ayw" id="s9k-M7-0sV">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="248"/>
@@ -2179,7 +2202,7 @@ The reservations manager can manage reservations from the platform and will crea
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BankTitleTableViewCell" id="Scq-f2-2S6" customClass="BankTitleTableViewCell" customModule="Alama360" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1330" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="1270" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Scq-f2-2S6" id="ynZ-DA-tI6">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
@@ -2293,7 +2316,7 @@ The reservations manager can manage reservations from the platform and will crea
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BankRowTableViewCell" id="zEY-7L-sWX" customClass="BankRowTableViewCell" customModule="Alama360" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1390" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="1330" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zEY-7L-sWX" id="oY1-gC-y7x">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -2428,7 +2451,7 @@ The reservations manager can manage reservations from the platform and will crea
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BankDescAndButtonTableViewCell" id="y2Y-gY-hXY" customClass="BankDescAndButtonTableViewCell" customModule="Alama360" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1440" width="414" height="158"/>
+                                        <rect key="frame" x="0.0" y="1380" width="414" height="158"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y2Y-gY-hXY" id="leT-Dr-0oN">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="158"/>
@@ -2650,15 +2673,15 @@ The reservations manager can manage reservations from the platform and will crea
             <objects>
                 <tableViewController id="oDA-tK-5r2" customClass="OwnerPropertySettingsTableViewController" customModule="Alama360" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="b9U-uo-WNs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DummyCell" id="Sbn-hy-RPC" customClass="DummyCell" customModule="Alama360" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sbn-hy-RPC" id="in0-Ag-Oj7">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1a-qT-nDl" customClass="CheckboxButton" customModule="MBRadioCheckboxButton">

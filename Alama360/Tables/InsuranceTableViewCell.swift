@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol CheckboxDelegate {
+    func checkboxtapped()
+}
+
 class InsuranceTableViewCell: UITableViewCell {
 
     @IBOutlet weak var btnCheck: UIButton!
@@ -18,6 +22,9 @@ class InsuranceTableViewCell: UITableViewCell {
     @IBOutlet weak var _otherConditions: UITextField!
     @IBOutlet weak var lblAdditionalTerms: UILabel!
     @IBOutlet weak var btnNextOne: UIButton!
+    @IBOutlet weak var insuranceStackView: UIStackView!
+    
+    var delegate: CheckboxDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,5 +36,17 @@ class InsuranceTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    @IBAction func checkBoxTapped(_ sender: UIButton) {
+        if sender.isSelected {
+            sender.isSelected = false
+            insuranceStackView.isHidden = true
+ 
+        } else {
+            sender.isSelected = true
+            insuranceStackView.isHidden = false   
+        }
+        delegate?.checkboxtapped()
+    }
+    
+    
 }
