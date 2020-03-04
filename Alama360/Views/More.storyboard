@@ -2802,7 +2802,7 @@ The reservations manager can manage reservations from the platform and will crea
                                 <rect key="frame" x="8" y="96" width="359" height="625"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9nv-oY-0kv">
-                                        <rect key="frame" x="8" y="109.33333333333334" width="343" height="273.33333333333326"/>
+                                        <rect key="frame" x="8" y="109.33333333333334" width="343" height="295.66666666666663"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0kq-ba-lmh">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="62.333333333333336"/>
@@ -2829,7 +2829,7 @@ The reservations manager can manage reservations from the platform and will crea
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dmW-nR-2MQ">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Account Holder Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dmW-nR-2MQ">
                                                         <rect key="frame" x="0.0" y="28.333333333333314" width="343" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
@@ -2845,7 +2845,7 @@ The reservations manager can manage reservations from the platform and will crea
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LAb-wv-4Xn">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Account Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LAb-wv-4Xn">
                                                         <rect key="frame" x="0.0" y="28.333333333333314" width="343" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="ASCIICapableNumberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -2853,7 +2853,7 @@ The reservations manager can manage reservations from the platform and will crea
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hTb-X1-5t8">
-                                                <rect key="frame" x="0.0" y="210.99999999999997" width="343" height="62.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="210.99999999999997" width="343" height="84.666666666666657"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IBAN Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55z-jU-5LK">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="20.333333333333332"/>
@@ -2870,19 +2870,25 @@ The reservations manager can manage reservations from the platform and will crea
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="22 Digit Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tTX-KJ-i54">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="22 Digit Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tTX-KJ-i54">
                                                                 <rect key="frame" x="48" y="0.0" width="295" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="ASCIICapableNumberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*This Field is required" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHb-gJ-8Ue">
+                                                        <rect key="frame" x="0.0" y="70.333333333333371" width="343" height="14.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TEX-vH-uRX" customClass="CustomBtnGreen" customModule="Alama360" customModuleProvider="target">
-                                        <rect key="frame" x="115.66666666666669" y="414.66666666666669" width="128" height="30"/>
+                                        <rect key="frame" x="115.66666666666669" y="437" width="128" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="128" id="Ibv-Az-aDR"/>
@@ -2931,11 +2937,13 @@ The reservations manager can manage reservations from the platform and will crea
                         <outlet property="_IBANField" destination="tTX-KJ-i54" id="fYE-is-Qap"/>
                         <outlet property="bankNameDropDown" destination="9Sx-lu-4Xx" id="bMU-IB-dhT"/>
                         <outlet property="btnSave" destination="TEX-vH-uRX" id="f8r-If-trU"/>
+                        <outlet property="ibanStackView" destination="UlR-Ti-aRv" id="wuO-Se-I2o"/>
                         <outlet property="lblAccountName" destination="Mdw-1i-2wn" id="Iju-cu-Y8P"/>
                         <outlet property="lblAccountNumber" destination="Y7e-K4-gec" id="hw1-ZH-KVX"/>
                         <outlet property="lblBankHeader" destination="ms1-G7-Hcl" id="uuh-uS-w47"/>
                         <outlet property="lblBankName" destination="kEH-Px-KEd" id="Snr-YH-e7A"/>
                         <outlet property="lblIBANBumber" destination="55z-jU-5LK" id="Flk-sd-UoP"/>
+                        <outlet property="lblIBANerror" destination="BHb-gJ-8Ue" id="n0Z-Sc-yRk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pTO-x5-dhI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

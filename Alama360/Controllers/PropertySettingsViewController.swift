@@ -50,10 +50,18 @@ class PropertySettingsViewController: UIViewController {
         userId = defaults.string(forKey: "userID") ?? ""
         
         // Do any additional setup after loading the view.
+        
+        
+        
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         loadClientManager()
         loadBankList()
         getTimes()
-        
         propertySettingsTable.delegate = self
         propertySettingsTable.dataSource = self
         
@@ -62,12 +70,14 @@ class PropertySettingsViewController: UIViewController {
     func loadClientManager() {
         let nUrl = StaticUrls.BASE_URL_FINAL + "getclientmanager?lang=\(lan)&property_title=&slug=&property_id=\(id)&userid=\(userId)&author_id=\(userId)"
         
+        
         Alamofire.request(nUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
             
             if mysresponse.result.isSuccess {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult!["data"]
                 
+                self.clientManagerArray.removeAll()
                 //                print(resultArray)
                 for i in resultArray.arrayValue {
                     let manager = ClientManagerModel(json: i)
@@ -75,7 +85,7 @@ class PropertySettingsViewController: UIViewController {
                 }
                 print(self.clientManagerArray)
                 
-                
+                self.propertySettingsTable.reloadData()
             }
         }
     }
@@ -83,19 +93,21 @@ class PropertySettingsViewController: UIViewController {
     func loadBankList() {
         let bUrl = StaticUrls.BASE_URL_FINAL + "getclientbank?lang=\(lan)&property_title=&slug=&property_id=\(id)&userid=\(userId)&author_id=\(userId)"
         
+        
         Alamofire.request(bUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
             
             if mysresponse.result.isSuccess {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult!["data"]
                 
+                self.bankArray.removeAll()
                 //              print(resultArray)
                 for i in resultArray.arrayValue {
                     let bank = BankModel(json: i)
                     self.bankArray.append(bank)
                 }
-                                print(self.bankArray)
-                
+                print(self.bankArray)
+                self.propertySettingsTable.reloadData()
                 
             }
         }
@@ -104,20 +116,86 @@ class PropertySettingsViewController: UIViewController {
     func getTimes() {
         let tUrl = StaticUrls.BASE_URL_FINAL + "getLookUpByCat/88?lang=\(lan)&limit=20"
         
+        
         Alamofire.request(tUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
             
             if mysresponse.result.isSuccess {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult![]
                 
+                self.timeArray.removeAll()
                 //              print(resultArray)
                 for i in resultArray.arrayValue {
                     let time = CategoryModel(json: i)
                     self.timeArray.append(time)
                 }
                 //                print(self.timeArray)
+                self.propertySettingsTable.reloadData()
                 
+            }
+        }
+    }
+    
+    func deleteManager(index: IndexPath) {
+        print(index.row - 2)
+        let mId = clientManagerArray[index.row - 2].id
+        let pId = clientManagerArray[index.row - 2].property_id
+        
+        let params : [String : String] = ["lang" : "en",
+                                          "dataview": "delete",
+                                          "property_title" : "",
+                                          "slug" : "",
+                                          "property_id" : pId,
+                                          "userid" : userId,
+                                          "author_id" : userId,
+                                          "managerid" : mId]
+        
+        print(params)
+        
+        let mUrl = "\(StaticUrls.BASE_URL_FINAL)getsingleclientmanager?"
+        
+        Alamofire.request(mUrl, method: .post, parameters: params, headers: nil).responseJSON{ (mysresponse) in
+            
+            if mysresponse.result.isSuccess {
+                let myResult = try? JSON(data: mysresponse.data!)
+                let resultArray = myResult![]
                 
+                print(mysresponse)
+                self.loadClientManager()
+                
+                //                    self.propertySettingsTable.reloadData()
+            }
+        }
+    }
+    
+    func deleteBank(index: IndexPath) {
+        print(index.row - 2)
+        let bId = bankArray[index.row - 2].id
+        let pId = id
+        
+        let params : [String : String] = ["lang" : "en",
+                                          "dataview": "delete",
+                                          "property_title" : "",
+                                          "slug" : "",
+                                          "property_id" : pId,
+                                          "userid" : userId,
+                                          "author_id" : userId,
+                                          "bankid" : bId]
+        
+        print(params)
+        
+        let mUrl = "\(StaticUrls.BASE_URL_FINAL)getsingleclientbank?"
+        
+        Alamofire.request(mUrl, method: .post, parameters: params, headers: nil).responseJSON{ (mysresponse) in
+            
+            if mysresponse.result.isSuccess {
+                let myResult = try? JSON(data: mysresponse.data!)
+                let resultArray = myResult![]
+                
+                print(mysresponse)
+                self.loadBankList()
+                
+                //                    self.propertySettingsTable.reloadData()
             }
         }
     }
@@ -334,6 +412,9 @@ extension PropertySettingsViewController: UITableViewDelegate, UITableViewDataSo
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BookManagerRowTableViewCell", for: indexPath) as! BookManagerRowTableViewCell
                 
+                cell.index = indexPath
+                cell.delegate = self
+                
                 if clientManagerArray.isEmpty != true {
                     cell.setManagers(managers: clientManagerArray[indexPath.row - 2] )
                 }
@@ -361,6 +442,9 @@ extension PropertySettingsViewController: UITableViewDelegate, UITableViewDataSo
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BankRowTableViewCell", for: indexPath) as! BankRowTableViewCell
                 
+                cell.index = indexPath
+                cell.delegate = self
+
                 if bankArray.isEmpty != true {
                     cell.setBanks(bank: bankArray[indexPath.row - 2] )
                 }
@@ -386,6 +470,50 @@ extension PropertySettingsViewController: AddNewDelegate {
             performSegue(withIdentifier: "ownerSettingsToAddBank", sender: id)
         }
     }
+    
+}
 
+extension PropertySettingsViewController: ManagerDelegate {
+    func editBtnTapped(index: IndexPath) {
+        performSegue(withIdentifier: "ownerSettingsToAddManager", sender: self)
+    }
+
+    func deleteBtnTapped(index: IndexPath) {
+        let alert = UIAlertController(title: "Warning", message: "Do you want to delete this manager?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { _ in
+            //                NSLog("The \"OK\" alert occured.")
+            self.deleteManager(index: index)
+        }))
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            //                NSLog("The \"OK\" alert occured.")
+        }))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+
+
+}
+
+extension PropertySettingsViewController: BankDelegate {
+    func bEditBtnTapped(index: IndexPath) {
+        performSegue(withIdentifier: "ownerSettingsToAddBank", sender: self)
+    }
+    
+    func bDeleteBtnTapped(index: IndexPath) {
+        let alert = UIAlertController(title: "Warning", message: "Do you want to delete this Bank Account?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { _ in
+            //                NSLog("The \"OK\" alert occured.")
+            self.deleteBank(index: index)
+        }))
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            //                NSLog("The \"OK\" alert occured.")
+        }))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
 }
 

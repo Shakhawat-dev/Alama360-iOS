@@ -9,8 +9,8 @@
 import UIKit
 
 protocol BankDelegate {
-    func editBtnTapped(index: IndexPath)
-    func deleteBtnTapped(index: IndexPath)
+    func bEditBtnTapped(index: IndexPath)
+    func bDeleteBtnTapped(index: IndexPath)
 }
 
 class BankRowTableViewCell: UITableViewCell {
@@ -41,11 +41,11 @@ class BankRowTableViewCell: UITableViewCell {
         lblIBANNumber.text = bank.iban_no
     }
     @IBAction func editBtnTapped(_ sender: Any) {
-        delegate?.editBtnTapped(index: index!)
+        delegate?.bEditBtnTapped(index: index!)
     }
     
     @IBAction func deleteBtnTapped(_ sender: Any) {
-        delegate?.deleteBtnTapped(index: index!)
+        delegate?.bDeleteBtnTapped(index: index!)
     }
     
 }

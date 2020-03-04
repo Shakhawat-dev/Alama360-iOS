@@ -13,7 +13,7 @@ import SwiftyJSON
 import LanguageManager_iOS
 
 class AddBankViewController: UIViewController {
-
+    
     @IBOutlet weak var lblBankHeader: UILabel!
     @IBOutlet weak var lblBankName: UILabel!
     @IBOutlet weak var bankNameDropDown: DropDown!
@@ -24,6 +24,8 @@ class AddBankViewController: UIViewController {
     @IBOutlet weak var lblIBANBumber: UILabel!
     @IBOutlet weak var _IBANField: UITextField!
     @IBOutlet weak var btnSave: CustomBtnGreen!
+    @IBOutlet weak var lblIBANerror: UILabel!
+    @IBOutlet weak var ibanStackView: UIStackView!
     
     //For storing user data
     let defaults = UserDefaults.standard
@@ -31,6 +33,7 @@ class AddBankViewController: UIViewController {
     var userId: String = ""
     var id: String = ""
     var bankArray = [CategoryModel]()
+    var bankID: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +42,15 @@ class AddBankViewController: UIViewController {
         // Getting User Details
         userId = defaults.string(forKey: "userID")!
         
+        _IBANField.delegate = self
+        
         // Do any additional setup after loading the view.
         getBanks()
+        
+        bankNameDropDown.didSelect{(selectedText , index ,id) in
+            print("Selected String: \(selectedText) \n index: \(index) \n id: \(id)")
+            self.bankID = id
+        }
         
     }
     
@@ -58,7 +68,7 @@ class AddBankViewController: UIViewController {
                     let bank = CategoryModel(json: i)
                     self.bankArray.append(bank)
                 }
-                                print(self.bankArray)
+                print(self.bankArray)
                 self.setViews()
                 
             }
@@ -66,6 +76,8 @@ class AddBankViewController: UIViewController {
     }
     
     func setViews() {
+        
+        ibanStackView.semanticContentAttribute = .forceLeftToRight
         
         var banks = [String]()
         var bankIDs = [Int]()
@@ -86,40 +98,62 @@ class AddBankViewController: UIViewController {
     }
     
     func addNewBank() {
-       
-          let params : [String : String] = ["lang" : "en",
-                                            "property_title" : "",
-                                            "slug" : "",
-                                            "property_id" : id,
-                                            "userid" : userId,
-                                            "author_id" : userId,
-                                            "bank" : bankNameDropDown.text ?? "",
-                                            "account_holder_name" : _BankHolderNameField.text ?? "",
-                                            "bankaccount_number" : _AccountNumberField.text ?? "",
-                                            "iban_number" : _IBANField.text ?? ""]
-          
-          print(params)
-          
-          let mUrl = "\(StaticUrls.BASE_URL_FINAL)addclientmanager?"
-          
-          Alamofire.request(mUrl, method: .post, parameters: params, headers: nil).responseJSON{ (mysresponse) in
-              
-              if mysresponse.result.isSuccess {
-                  let myResult = try? JSON(data: mysresponse.data!)
-                  let resultArray = myResult![]
-                  
-                  print(mysresponse)
+        
+        let params : [String : String] = ["lang" : "en",
+                                          "property_title" : "",
+                                          "slug" : "",
+                                          "property_id" : id,
+                                          "userid" : userId,
+                                          "author_id" : userId,
+                                          "bank" : String(bankID),
+                                          "account_holder_name" : _BankHolderNameField.text ?? "",
+                                          "bankaccount_number" : _AccountNumberField.text ?? "",
+                                          "iban_number" : "SA" + _IBANField.text!]
+        
+        print(params)
+        
+        let mUrl = "\(StaticUrls.BASE_URL_FINAL)addclientbank?"
+        
+        Alamofire.request(mUrl, method: .post, parameters: params, headers: nil).responseJSON{ (mysresponse) in
+            
+            if mysresponse.result.isSuccess {
+                let myResult = try? JSON(data: mysresponse.data!)
+                let resultArray = myResult![]
+                
+                print(mysresponse)
+                self.navigationController?.popViewController(animated: true)
+                
+            }
+        }
+    }
     
-              }
-          }
-      }
-
     @IBAction func saveBtnTapped(_ sender: Any) {
-         addNewBank()
+        if (!bankNameDropDown.text!.isEmpty && !_BankHolderNameField.text!.isEmpty && !_AccountNumberField.text!.isEmpty && !_IBANField.text!.isEmpty ) {
+            addNewBank()
+        } else {
+            let alert = UIAlertController(title: "Warning", message: "All Fields are required", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
+                //                NSLog("The \"OK\" alert occured.")
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
     }
 }
 
 extension AddBankViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        lblIBANerror.isHidden = true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.text?.count ?? 0 < 22 {
+            lblIBANerror.text = "*Invalid number"
+            lblIBANerror.isHidden = false
+        }
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         let maxLength = 22

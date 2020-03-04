@@ -49,7 +49,7 @@ class AddNewManagerViewController: UIViewController {
     
     func setViews() {
         managerStatusDropDown.optionArray = ["Active", "Inactive"]
-        managerStatusDropDown.optionIds = [1, 0]
+        managerStatusDropDown.optionIds = [1, 2]
     }
     
     //    lang=en&property_title=""&slug=""&property_id=130&userid=257&author_id=257&manager_firstname=Shaheen&manager_lastname=shakhawat&manager_mobile=966533858538&manager_sms_status=1
@@ -65,7 +65,7 @@ class AddNewManagerViewController: UIViewController {
                                           "manager_firstname" : _FirstNameField.text ?? "",
                                           "manager_lastname" : _lastNameField.text ?? "",
                                           "manager_mobile" : _mobileField.text ?? "",
-                                          "manager_sms_status" : String(managerStatus)]
+                                          "manager_status" : String(managerStatus)]
         
         print(params)
         
@@ -76,6 +76,8 @@ class AddNewManagerViewController: UIViewController {
             if mysresponse.result.isSuccess {
                 let myResult = try? JSON(data: mysresponse.data!)
                 let resultArray = myResult![]
+                
+                self.navigationController?.popViewController(animated: true)
                 
                 print(mysresponse)
   

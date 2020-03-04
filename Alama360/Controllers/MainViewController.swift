@@ -205,6 +205,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITextFieldDelegate {
+    // Need to set Delegate on did load
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         let maxLength = 9
