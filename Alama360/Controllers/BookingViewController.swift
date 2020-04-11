@@ -33,7 +33,7 @@ class BookingViewController: UIViewController {
     var originalDataSource = [BookingModel]()
     var currentDataSource = [BookingModel]()
     
-    var propParam : (title: String, cate: String, thumbcate: String, startDate: String, endDate: String)?
+    var propParam : (title: String, cate: String, thumbcate: String, startDate: String, endDate: String, state_id: Int, city_id: Int, district_id: Int)?
     // Param Variables
     var startDate = ""
     var endDate = ""
@@ -42,6 +42,10 @@ class BookingViewController: UIViewController {
     var address = ""
     var pType = ""
     var id = ""
+    var state_id: Int?
+    var city_id: Int?
+    var district_id: Int?
+    
     var currentPage: Int = 1
     
     private var f_col = [String]()
@@ -64,6 +68,11 @@ class BookingViewController: UIViewController {
         thumbcate = propParam?.thumbcate ?? ""
         address = propParam?.title ?? ""
         pType = propParam?.cate ?? ""
+        state_id = propParam?.state_id
+        city_id = propParam?.city_id
+        district_id = propParam?.district_id
+        
+        
         
         // Setting Dates as defaults
         defaults.set(startDate, forKey: "startDate")
@@ -108,7 +117,17 @@ class BookingViewController: UIViewController {
         
 //        let params : [String : String] = ["page" : "\(page)", "lang" : lan, "viewType" : "", "startdate" : startDate, "enddate" : endDate, "property_type" : pType, "thumbcat" : thumbcate, "address" : address, "limit" : "10"]
         
-        let params : [String : String] = ["page" : "", "lang" : lan, "viewType" : "mapview", "startdate" : startDate, "enddate" : endDate, "property_type" : pType, "thumbcat" : thumbcate, "address" : address]
+        let params : [String : String] = ["page" : "",
+                                          "lang" : lan,
+                                          "viewType" : "mapview",
+                                          "startdate" : startDate,
+                                          "enddate" : endDate,
+                                          "property_type" : pType,
+                                          "thumbcat" : thumbcate,
+                                          "address" : address,
+                                          "filterstateid": "\(String(describing: district_id))",
+                                          "filtercityid": "\(String(describing: district_id))",
+                                          "filterdistrictid": "\(String(describing: district_id))"]
         
         let bUrl = StaticUrls.BASE_URL_FINAL + "android/propertylist?"
         

@@ -28,6 +28,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     @IBOutlet weak var titlePropertyAuto: SearchTextField!
     @IBOutlet weak var startDateField: UITextField!
     @IBOutlet weak var categoryDropDown: DropDown!
+    @IBOutlet weak var stateDropDown: DropDown!
+    @IBOutlet weak var cityDropDown: DropDown!
+    @IBOutlet weak var districtDropDown: DropDown!
     @IBOutlet weak var addChaletLabel: UILabel!
     @IBOutlet weak var checkBtb: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -53,6 +56,12 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     var thumbImage = [UIImage]()
     var arr_cateName = [String]()
     var arr_imageUrl = [String]()
+    var arr_stateId = [Int]()
+    var arr_stateName = [String]()
+    var arr_cityId = [Int]()
+    var arr_cityName = [String]()
+    var arr_districtId = [Int]()
+    var arr_districtName = [String]()
     var thumbId = [String]()
     
     var arr_id = [String]()
@@ -86,6 +95,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         setLocalize()
         loadProperties()
         loadCategories()
+        loadStates()
         loadPropertyTitle()
         getDatePicker()
         
@@ -101,6 +111,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
             
             setDateField()
         }
+        
+        
 
     }
     
@@ -127,6 +139,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         addYourChaletContainerView.layer.shadowColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
     }
     
+//     params.put("filterstateid", stateId);
+//                   params.put("filtercityid", cityId);
+//                   params.put("filterdistrictid", districtId);
     func setLocalize() {
         lblSearchTitle.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "lvl_search_header", comment: "").localiz()
         lblSearchDesc.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "for_an_apartment", comment: "").localiz()
@@ -138,6 +153,17 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         titlePropertyAuto.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "property_title", comment: "").localiz()
         categoryDropDown.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "search_category", comment: "").localiz()
         startDateField.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "start_date", comment: "").localiz()
+        
+    
+        stateDropDown.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "select_state", comment: "").localiz()
+        
+
+        cityDropDown.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "select_city", comment: "").localiz()
+        cityDropDown.isHidden=true
+        
+        districtDropDown.placeholder = LocalizationSystem.sharedInstance.localizedStringForKey(key: "select_district", comment: "").localiz()
+        districtDropDown.isHidden=true
+        
     }
     
     func getDatePicker() {
@@ -151,7 +177,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         //        startDateField.inputView = datePicker
  
     }
-    
+
     @objc func dateChanged(datePicker: UIDatePicker) {
         
         let dateFormatter = DateFormatter()
@@ -164,11 +190,21 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     @IBAction func checkBtnPressed(_ sender: UIButton) {
         if startDateField.text == "" {
             if categoryDropDown.text != "" {
-                let titleCate = (title : titlePropertyAuto.text,  cate: arr_id[categoryDropDown.selectedIndex!], thumbcate: "" )
+                let titleCate = (title : titlePropertyAuto.text,
+                                 cate: arr_id[categoryDropDown.selectedIndex!],
+                                 thumbcate: "",
+                                 state_id: arr_stateId[stateDropDown.selectedIndex!],
+                                 city_id: arr_cityId[cityDropDown.selectedIndex!],
+                                 dist_id: arr_districtId [districtDropDown.selectedIndex!])
                 print(titleCate)
                 performSegue(withIdentifier: "openCalender", sender: titleCate)
             } else {
-                let titleCate = (title : titlePropertyAuto.text,  cate: categoryDropDown.text, thumbcate: "")
+                let titleCate = (title : titlePropertyAuto.text,
+                                 cate: categoryDropDown.text,
+                                 thumbcate: "",
+                                 state_id: arr_stateId[stateDropDown.selectedIndex ?? 0],
+                                 city_id: arr_cityId[cityDropDown.selectedIndex ?? 0],
+                                 dist_id: arr_districtId [districtDropDown.selectedIndex ?? 0])
                 print(titleCate)
                 performSegue(withIdentifier: "openCalender", sender: titleCate)
             }
@@ -188,10 +224,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     func loadPropertyTitle() {
         
 //        let lan = defaults.string(forKey: "language") ?? ""
-        print("lan is \(lan)")
+       // print("lan is \(lan)")
         
         let tUrl = StaticUrls.BASE_URL_FINAL + "autocomplete/alltitle?lang=\(lan)"
-        print("Title list Url is \(tUrl)")
+      //  print("Title list Url is \(tUrl)")
         
         Alamofire.request(tUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
             
@@ -235,7 +271,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
 //        print("lan is \(lan)")
         
         let pUrl = StaticUrls.BASE_URL_FINAL + "homethumbcat?page=1&lang=" + lan
-        print("lan is \(pUrl)")
+       // print("lan is \(pUrl)")
         
         Alamofire.request(pUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
             
@@ -333,11 +369,11 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
 //        let lan = defaults.string(forKey: "language") ?? ""
         
         
-        print("lan is \(lan)")
+        //print("lan is \(lan)")
         
         let cUrl = "https://alama360.com/api/getLookUpByCat/80?lang=" + lan + "&limit=10"
         
-        print("Category cUrl is \(cUrl)")
+       // print("Category cUrl is \(cUrl)")
         
         Alamofire.request(cUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
             
@@ -363,14 +399,152 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
                 
                 self.categoryDropDown.optionArray = self.arr_col1
                 
-                print(self.arr_col1)
-                print(self.arr_col1.count)
+//                print(self.arr_col1)
+//                print(self.arr_col1.count)
                 
             }
 
         }
         
     }
+    
+    // Getting States from Api
+        func loadStates() {
+            
+            let sUrl = "https://www.alama360.com/android/Locations.php?lang=\(lan)&type=state&parent1=191"
+            
+          //  print("State Url is \(sUrl)")
+            
+            Alamofire.request(sUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
+                
+                if mysresponse.result.isSuccess {
+                    
+                    let myResult = try? JSON(data: mysresponse.data!)
+                    
+                    let resultArray = myResult!["locations"]
+                    
+                    self.arr_stateId.removeAll()
+                    self.arr_stateName.removeAll()
+                    
+                     print(resultArray)
+                    
+                    for i in resultArray.arrayValue {
+                        let state_id = i["state_id"].intValue
+                        self.arr_stateId.append(state_id)
+                        
+                        let name = i["name"].stringValue
+                        self.arr_stateName.append(name)
+                        
+                    }
+                    
+                    self.stateDropDown.optionArray = self.arr_stateName
+                    self.stateDropDown.optionIds = self.arr_stateId
+                    
+//                    print(self.arr_stateName)
+//                    print(self.arr_stateName.count)
+                    
+                    self.stateDropDown.didSelect{(selectedText , index ,id) in
+//                        self.cityDropDown.text = " \(selectedText) \n id: \(id)"
+                        self.loadCities(id: id)
+                        self.districtDropDown.isHidden=true
+                    }
+                    
+
+                }
+
+            }
+            
+        }
+    
+    // Getting States from Api
+    func loadCities(id: Int) {
+        self.cityDropDown.text = ""
+        
+        let cUrl = "https://www.alama360.com/android/Locations.php?lang=\(lan)&type=city&parent1=191&parent2=\(id)"
+                
+               // print("City Url is \(cUrl)")
+                
+                Alamofire.request(cUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
+                    
+                    if mysresponse.result.isSuccess {
+                        
+                        let myResult = try? JSON(data: mysresponse.data!)
+                        
+                        let resultArray = myResult!["locations"]
+                        self.arr_cityId.removeAll()
+                        self.arr_cityName.removeAll()                       //  print(resultArray)
+                        
+                        for i in resultArray.arrayValue {
+                            let city_id = i["city_id"].intValue
+                            self.arr_cityId.append(city_id)
+                            
+                            let name = i["name"].stringValue
+                            self.arr_cityName.append(name)
+                            
+                        }
+                        
+                        if resultArray.isEmpty {
+                            self.cityDropDown.isHidden=true
+                        }else{
+                            self.cityDropDown.isHidden=false
+                        }
+                        
+                        self.cityDropDown.optionArray = self.arr_cityName
+                        self.cityDropDown.optionIds = self.arr_cityId
+//
+//                        print(self.arr_cityName)
+//                        print(self.arr_cityId.count)
+                        
+                        self.cityDropDown.didSelect{(selectedText , index ,id) in
+                            self.loadDistricts(id: id)
+                           
+                        }
+                        
+
+                    }
+
+                }
+                
+            }
+        
+    func loadDistricts(id: Int) {
+             self.districtDropDown.text = ""
+        let dUrl = "https://www.alama360.com/android/Locations.php?lang=\(lan)&type=district&parent1=191&parent3=\(id)"
+                
+                Alamofire.request(dUrl, method: .get, headers: nil).responseJSON{ (mysresponse) in
+                    
+                    if mysresponse.result.isSuccess {
+                        
+                        let myResult = try? JSON(data: mysresponse.data!)
+                        
+                        let resultArray = myResult!["locations"]
+                        
+                        self.arr_districtId.removeAll()
+                        self.arr_districtName.removeAll()
+                        
+                        for i in resultArray.arrayValue {
+                            let district_id = i["district_id"].intValue
+                            self.arr_districtId.append(district_id)
+                            
+                            let name = i["name"].stringValue
+                            self.arr_districtName.append(name)
+                            
+                        }
+                        if resultArray.isEmpty {
+                            self.districtDropDown.isHidden=true
+                        }else{
+                            self.districtDropDown.isHidden=false
+                        }
+                        self.districtDropDown.optionArray = self.arr_districtName
+                        self.districtDropDown.optionIds = self.arr_districtId
+
+                    }
+
+                }
+                
+            }
+    
+    
     
     func setDateField () {
         print("From set method \(starDate + endDate)")
@@ -382,7 +556,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "openCalender" {
             let destVC = segue.destination as! FCalenderViewController
-            destVC.titleCate = sender as? (title: String, cate: String, thumbcate: String)
+            destVC.titleCate = sender as? (title: String, cate: String, thumbcate: String, state_id: Int, city_id: Int, district_id: Int)
         }
 //        if segue.identifier == "addPropertySegue" {
 //            let destVC = segue.destination as! AddPropertyViewController

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rDq-V5-s9W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rDq-V5-s9W">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -22,40 +22,40 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d3b-Es-atr" userLabel="main container view">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="668.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="756"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IGP-ri-RK9" userLabel="search container view">
-                                                <rect key="frame" x="8" y="8" width="359" height="362"/>
+                                                <rect key="frame" x="8" y="8" width="359" height="449.66666666666669"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fuA-jL-B8r">
-                                                        <rect key="frame" x="8" y="8" width="343" height="346"/>
+                                                        <rect key="frame" x="8" y="8" width="343" height="433.66666666666669"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHU-7h-Z8W">
-                                                                <rect key="frame" x="8" y="15.999999999999998" width="327" height="24.333333333333329"/>
+                                                                <rect key="frame" x="8" y="16" width="327" height="24"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="For an Apartment, Chalet, Camp, Farm, Break, Villa, Room with ease and honesty" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fc4-Rj-uWd">
-                                                                <rect key="frame" x="8" y="48.333333333333343" width="327" height="33.666666666666657"/>
+                                                                <rect key="frame" x="8" y="48" width="327" height="33.666666666666657"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hl8-r7-mcS">
-                                                                <rect key="frame" x="12" y="98" width="319" height="236"/>
+                                                                <rect key="frame" x="12" y="97.666666666666629" width="319" height="324"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="0Of-op-zEO">
-                                                                        <rect key="frame" x="16" y="16" width="287" height="204"/>
+                                                                        <rect key="frame" x="16" y="16" width="287" height="292"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Property Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h5l-31-HyS" customClass="SearchTextField" customModule="SearchTextField">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="287" height="44.333333333333336"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="287" height="34"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits"/>
                                                                             </textField>
                                                                             <textField opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Categories" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fEX-eP-WTH" customClass="DropDown" customModule="iOSDropDown">
-                                                                                <rect key="frame" x="0.0" y="53.333333333333314" width="287" height="44.333333333333343"/>
+                                                                                <rect key="frame" x="0.0" y="43.000000000000028" width="287" height="34"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits"/>
@@ -65,14 +65,32 @@
                                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="handleKeyboard" value="YES"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </textField>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select State" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="StX-eB-XKp" customClass="DropDown" customModule="iOSDropDown">
+                                                                                <rect key="frame" x="0.0" y="86.000000000000028" width="287" height="34"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSearchEnable" value="YES"/>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </textField>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Grn-5v-IDA" customClass="DropDown" customModule="iOSDropDown">
+                                                                                <rect key="frame" x="0.0" y="129.00000000000003" width="287" height="34"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                <textInputTraits key="textInputTraits"/>
+                                                                            </textField>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select DIstrict" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kd9-jf-pTJ" customClass="DropDown" customModule="iOSDropDown">
+                                                                                <rect key="frame" x="0.0" y="172.00000000000003" width="287" height="34"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                <textInputTraits key="textInputTraits"/>
+                                                                            </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bO1-IB-A5N">
-                                                                                <rect key="frame" x="0.0" y="106.66666666666669" width="287" height="44"/>
+                                                                                <rect key="frame" x="0.0" y="215.00000000000003" width="287" height="34"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits"/>
                                                                             </textField>
                                                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFq-Fh-NzR" customClass="CustomBtnGreen" customModule="Alama360" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="159.66666666666669" width="287" height="44.333333333333343"/>
+                                                                                <rect key="frame" x="0.0" y="258" width="287" height="34"/>
                                                                                 <color key="backgroundColor" red="0.088978432120000006" green="0.54414260390000002" blue="0.4133045971" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <state key="normal" title="Check Availability">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -90,7 +108,6 @@
                                                                     <constraint firstItem="0Of-op-zEO" firstAttribute="leading" secondItem="hl8-r7-mcS" secondAttribute="leading" constant="16" id="9Eu-kN-FHT"/>
                                                                     <constraint firstAttribute="trailing" secondItem="0Of-op-zEO" secondAttribute="trailing" constant="16" id="PbA-o1-HTI"/>
                                                                     <constraint firstItem="0Of-op-zEO" firstAttribute="top" secondItem="hl8-r7-mcS" secondAttribute="top" constant="16" id="g3X-fI-BEC"/>
-                                                                    <constraint firstAttribute="height" constant="236" id="oeT-lF-d7X"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
@@ -102,7 +119,6 @@
                                                             <constraint firstAttribute="bottom" secondItem="hl8-r7-mcS" secondAttribute="bottom" constant="12" id="Gk2-VQ-4ol"/>
                                                             <constraint firstItem="OHU-7h-Z8W" firstAttribute="top" secondItem="fuA-jL-B8r" secondAttribute="top" constant="16" id="IYU-Qk-wzF"/>
                                                             <constraint firstAttribute="trailing" secondItem="OHU-7h-Z8W" secondAttribute="trailing" constant="8" id="LT0-w8-kX0"/>
-                                                            <constraint firstAttribute="height" constant="346" id="Si4-zA-Jbh"/>
                                                             <constraint firstAttribute="trailing" secondItem="Fc4-Rj-uWd" secondAttribute="trailing" constant="8" id="Tgd-fX-xzo"/>
                                                             <constraint firstItem="OHU-7h-Z8W" firstAttribute="leading" secondItem="fuA-jL-B8r" secondAttribute="leading" constant="8" id="hQK-1v-LYA"/>
                                                             <constraint firstItem="Fc4-Rj-uWd" firstAttribute="top" secondItem="OHU-7h-Z8W" secondAttribute="bottom" constant="8" id="lAa-MZ-UG5"/>
@@ -119,7 +135,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y9l-jM-6vg" userLabel="chaletContainer">
-                                                <rect key="frame" x="8" y="372" width="359" height="288.33333333333326"/>
+                                                <rect key="frame" x="8" y="459.66666666666663" width="359" height="288.33333333333337"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZi-vj-6c2">
                                                         <rect key="frame" x="8" y="8" width="343" height="64"/>
@@ -284,12 +300,15 @@
                         <outlet property="btnAdd" destination="PAx-ck-2sK" id="Q7f-o8-A9T"/>
                         <outlet property="categoryDropDown" destination="fEX-eP-WTH" id="5Pl-HO-fgz"/>
                         <outlet property="checkBtb" destination="YFq-Fh-NzR" id="N6A-q4-jcr"/>
+                        <outlet property="cityDropDown" destination="Grn-5v-IDA" id="oyC-g5-C8k"/>
                         <outlet property="collectionView" destination="Uc6-lN-ZiK" id="vjR-dM-ZN4"/>
+                        <outlet property="districtDropDown" destination="Kd9-jf-pTJ" id="n1g-sU-x5Z"/>
                         <outlet property="lblSearchDesc" destination="Fc4-Rj-uWd" id="Apb-Wi-Gpx"/>
                         <outlet property="lblSearchTitle" destination="OHU-7h-Z8W" id="R62-2c-aw7"/>
                         <outlet property="lblSelectDate" destination="Hs8-3j-ceW" id="Caq-aR-u9n"/>
                         <outlet property="searchContainerView" destination="fuA-jL-B8r" id="gIx-lS-Rgk"/>
                         <outlet property="startDateField" destination="bO1-IB-A5N" id="Ua9-VS-q11"/>
+                        <outlet property="stateDropDown" destination="StX-eB-XKp" id="GUL-fD-POb"/>
                         <outlet property="textFieldContainerView" destination="hl8-r7-mcS" id="uTz-sI-hTX"/>
                         <outlet property="titlePropertyAuto" destination="h5l-31-HyS" id="fNI-Pb-Ud0"/>
                         <segue destination="Z26-EJ-3CP" kind="show" identifier="openCalender" id="S0C-Tr-M9B"/>
@@ -301,7 +320,7 @@
             </objects>
             <point key="canvasLocation" x="-607" y="1473"/>
         </scene>
-        <!--Data Source-->
+        <!--Calender View Controller-->
         <scene sceneID="OHN-o3-ILd">
             <objects>
                 <viewController id="Z26-EJ-3CP" customClass="FCalenderViewController" customModule="Alama360" customModuleProvider="target" sceneMemberID="viewController">
@@ -1938,7 +1957,7 @@
             </objects>
             <point key="canvasLocation" x="-1404" y="2231"/>
         </scene>
-        <!--Delegate-->
+        <!--Tb Property Details View Controller-->
         <scene sceneID="z4t-Vf-9GF">
             <objects>
                 <viewController storyboardIdentifier="TbPropertyDetailsViewController" id="9sz-IN-Njs" customClass="TbPropertyDetailsViewController" customModule="Alama360" customModuleProvider="target" sceneMemberID="viewController">
@@ -2782,19 +2801,19 @@
             <point key="canvasLocation" x="-1404" y="1473"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Checkbox" width="60" height="60"/>
-        <image name="chevron.up.chevron.down" catalog="system" width="64" height="64"/>
-        <image name="five_stars" width="722" height="146"/>
-        <image name="heart" catalog="system" width="64" height="54"/>
-        <image name="house" catalog="system" width="64" height="54"/>
-        <image name="img_1" width="1200" height="600"/>
-        <image name="location" catalog="system" width="64" height="56"/>
-        <image name="new_payment_ar_logo" width="2000" height="300"/>
-        <image name="pencil.slash" catalog="system" width="64" height="56"/>
-        <image name="trash.fill" catalog="system" width="60" height="64"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qUZ-Hl-Es2"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <image name="Checkbox" width="60" height="60"/>
+        <image name="chevron.up.chevron.down" catalog="system" width="128" height="128"/>
+        <image name="five_stars" width="722" height="146"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="house" catalog="system" width="128" height="110"/>
+        <image name="img_1" width="1200" height="600"/>
+        <image name="location" catalog="system" width="128" height="115"/>
+        <image name="new_payment_ar_logo" width="2000" height="300"/>
+        <image name="pencil.slash" catalog="system" width="128" height="113"/>
+        <image name="trash.fill" catalog="system" width="121" height="128"/>
+    </resources>
 </document>

@@ -21,7 +21,7 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
     //For storing user data
     let defaults = UserDefaults.standard
     
-    var titleCate : (title: String, cate: String, thumbcate: String)?
+    var titleCate : (title: String, cate: String, thumbcate: String, state_id: Int, city_id: Int, district_id: Int)?
     
     // first date in the range
     private var firstDate: Date?
@@ -179,7 +179,7 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "calToPropSegue" {
             let destVC = segue.destination as! BookingViewController
-            destVC.propParam = sender as? (title: String, cate: String, thumbcate: String, startDate: String, endDate: String)
+            destVC.propParam = sender as? (title: String, cate: String, thumbcate: String, startDate: String, endDate: String, state_id: Int, city_id: Int, district_id: Int)
         }
 
     }
@@ -193,7 +193,7 @@ class FCalenderViewController: UIViewController, FSCalendarDataSource, FSCalenda
             defaults.set(fDate, forKey: "firstDate")
             defaults.set(lDate, forKey: "lastDate")
             
-            let propParam = (title : titleCate?.title, cate : titleCate?.cate, thumbcate: titleCate?.thumbcate, startDate: fDate, endDate: lDate )
+            let propParam = (title : titleCate?.title, cate : titleCate?.cate, thumbcate: titleCate?.thumbcate, startDate: fDate, endDate: lDate, state_id: titleCate?.state_id, city_id: titleCate?.city_id, titleCate?.district_id )
 //            print("property Param is : \(propParam)")
             performSegue(withIdentifier: "calToPropSegue", sender: propParam)
         } else {
